@@ -11,7 +11,7 @@ export const useMercadoPago = () => {
     try {
       toast({
         title: "Procesando pago",
-        description: `Preparando redirección para el plan ${planName || productId}...`,
+        description: `Preparando redirecciÃ³n para el plan ${planName || productId}...`,
         className: "bg-[#141414] border-[#FCB048] text-white",
       });
 
@@ -19,8 +19,8 @@ export const useMercadoPago = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrYXJtYXpkY2t3bHBtZnRjb2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTkxMTgsImV4cCI6MjA3OTA3NTExOH0.dT6aMWXqbTLV_J9wQvgHdTF1nJhh4o2FTsC_Ys2AWNI',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrYXJtYXpkY2t3bHBtZnRjb2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTkxMTgsImV4cCI6MjA3OTA3NTExOH0.dT6aMWXqbTLV_J9wQvgHdTF1nJhh4o2FTsC_Ys2AWNI'
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
         },
         body: JSON.stringify({ productId })
       });
@@ -43,7 +43,7 @@ export const useMercadoPago = () => {
       console.error('Error creating checkout preference:', error);
       toast({
         variant: "destructive",
-        title: "Error de conexión",
+        title: "Error de conexiÃ³n",
         description: "No se pudo conectar con Mercado Pago. Intenta nuevamente.",
       });
     } finally {
