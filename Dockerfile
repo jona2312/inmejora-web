@@ -1,11 +1,14 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
+# Declare ARG to accept external --build-arg, then force development mode
+ARG NODE_ENV
+ENV NODE_ENV=development
 COPY package*.json ./
-# --production=false installs ALL deps (incl devDeps) regardless of external NODE_ENV
-RUN npm install --production=false --legacy-peer-deps
+# Inline override ensures devDeps installed regardless of any external NODE_ENV
+RUN NODE_ENV=development npm install --production=false --legacy-peer-deps
 COPY . .
-# Run build with explicit PATH to node_modules/.bin
-RUN ./node_modules/.bin/vite build
+# Explicit path to vite binary
+RUN NODE_ENV=development ./node_modules/.bin/vite build
 
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
