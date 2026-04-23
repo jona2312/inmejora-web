@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sin Conexión - INMEJORA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      text-align: center;
+      max-width: 500px;
+    }
+    .icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      background: #D4AF37;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #D4AF37;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 40px;
+      background: #E85D04;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #ff6b1a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">📡</div>
+    <h1>Sin Conexión</h1>
+    <p>No hay conexión a Internet. Por favor, verificá tu conexión y volvé a intentarlo.</p>
+    <a href="/" class="btn" onclick="window.location.reload(); return false;">Reintentar</a>
+  </div>
+</body>
+</html>

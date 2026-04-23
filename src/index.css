@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 13% 5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    
+    /* Golden Accent #d4af37 */
+    --primary: 43 65% 53%;
+    --primary-foreground: 0 0% 6%;
+    
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 53%;
+    
+    --accent: 43 65% 53%;
+    --accent-foreground: 0 0% 6%;
+    
+    /* Vibrant CTA Accent (Orange) */
+    --accent-cta: 24 100% 50%;
+    --accent-cta-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 16%;
+    --input: 0 0% 12%;
+    --ring: 43 65% 53%;
+    
+    --radius: 0.5rem;
+    
+    /* Transformaciones Reales Design Tokens */
+    --gold: 45 48% 54%;
+    --dark-bg: 0 0% 4%;
+    --card-bg: 0 0% 10%;
+    --border-dark: 0 0% 16%;
+    --text-gray: 0 0% 53%;
+    
+    /* Quoter specific variables */
+    --quoter-background: 222 13% 5%;
+    --quoter-card: 0 0% 10%;
+    --quoter-gold: 43 65% 53%;
+    --quoter-text-primary: 0 0% 100%;
+    --quoter-text-muted: 0 0% 53%;
+    --quoter-border: 0 0% 16%;
+    --quoter-hover: 0 0% 13%;
+    
+    /* Typography */
+    --heading-1: 2.5rem;
+    --heading-2: 2rem;
+    --heading-3: 1.5rem;
+    --heading-4: 1.25rem;
+    --body: 1rem;
+    --body-sm: 0.875rem;
+    --body-xs: 0.75rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    
+    /* Wizard specific */
+    --step-indicator: 43 65% 53%;
+    --step-inactive: 0 0% 30%;
+  }
+ 
+  .dark {
+    --background: 222 13% 5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 43 65% 53%;
+    --primary-foreground: 0 0% 6%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 43 65% 53%;
+    --accent-foreground: 0 0% 6%;
+    --accent-cta: 24 100% 50%;
+    --accent-cta-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input: 0 0% 12%;
+    --ring: 43 65% 53%;
+    --radius: 0.5rem;
+    
+    /* Transformaciones Reales Design Tokens */
+    --gold: 45 48% 54%;
+    --dark-bg: 0 0% 4%;
+    --card-bg: 0 0% 10%;
+    --border-dark: 0 0% 16%;
+    --text-gray: 0 0% 53%;
+    
+    /* Quoter specific variables */
+    --quoter-background: 222 13% 5%;
+    --quoter-card: 0 0% 10%;
+    --quoter-gold: 43 65% 53%;
+    --quoter-text-primary: 0 0% 100%;
+    --quoter-text-muted: 0 0% 53%;
+    --quoter-border: 0 0% 16%;
+    --quoter-hover: 0 0% 13%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  
+  h4 {
+    @apply text-xl font-semibold;
+  }
+}
+
+@layer utilities {
+  .gold-hover {
+    @apply transition-colors duration-300 hover:text-[#c9a84c];
+  }
+  
+  .gold-border-hover {
+    @apply transition-all duration-300 hover:border-[#c9a84c];
+  }
+  
+  .gold-bg-hover {
+    @apply transition-all duration-300 hover:bg-[#c9a84c]/10;
+  }
+  
+  .step-indicator-active {
+    @apply bg-[#c9a84c] text-black;
+  }
+  
+  .step-indicator-inactive {
+    @apply bg-gray-700 text-gray-400;
+  }
+  
+  .card-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .wizard-card {
+    @apply bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 card-transition;
+  }
+  
+  .quoter-card {
+    @apply bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl;
+  }
+  
+  .quoter-hover {
+    @apply hover:bg-[#222] transition-colors duration-200;
+  }
+  
+  .quoter-border {
+    @apply border-[#2a2a2a];
+  }
+  
+  .quoter-text-muted {
+    @apply text-[#888];
+  }
+  
+  .timer-text {
+    @apply font-mono text-red-500 font-bold;
+  }
+
+  /* Transformaciones Reales Utilities */
+  .bg-dark {
+    background-color: #0a0a0a;
+  }
+
+  .bg-card-dark {
+    background-color: #1a1a1a;
+  }
+
+  .border-dark {
+    border-color: #2a2a2a;
+  }
+
+  .text-gold {
+    color: #c9a84c;
+  }
+
+  .text-gray-custom {
+    color: #888;
+  }
+
+  .gradient-gold-indigo {
+    background: linear-gradient(135deg, #c9a84c 0%, #667eea 100%);
+  }
+
+  .gradient-instagram {
+    background: linear-gradient(45deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  }
+
+  .clip-path-slider {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.1s ease-out;
+  }
+
+  /* Responsive Typography */
+  .text-responsive-xl {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .text-responsive-lg {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .text-responsive-md {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+  }
+
+  .text-responsive-base {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: white;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c9a84c;
+}
+
+/* Animations */
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(201, 168, 76, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(201, 168, 76, 0.8); }
+}
+
+@keyframes buttonGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.6); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 1); }
+}
+
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 0 15px hsl(var(--accent-cta) / 0.5); }
+  50% { box-shadow: 0 0 30px hsl(var(--accent-cta) / 0.8); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes recordPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-button-glow {
+  animation: buttonGlow 2.5s infinite ease-in-out;
+}
+
+.animate-complex-cta {
+  animation: pulseScale 2s infinite ease-in-out, glowPulse 2s infinite ease-in-out;
+  background-size: 200% 200%;
+}
+
+.hover-glow-cta:hover {
+  animation: ctaGlow 2s infinite ease-in-out;
+}
+
+.bg-gradient-cta {
+  background: linear-gradient(45deg, #c9a84c, #f5d061, #c9a84c);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+}
+
+.recording-pulse {
+  animation: recordPulse 1s infinite;
+}
+
+.skeleton-pulse {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* Before/After Slider Clip Path Animation */
+.slider-clip-transition {
+  transition: clip-path 0.05s ease-out;
+}
