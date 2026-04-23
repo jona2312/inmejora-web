@@ -3,7 +3,7 @@ import { useToast } from '@/components/ui/use-toast';
 
 const AuthContext = createContext(undefined);
 
-const SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrYXJtYXpkY2t3bHBtZnRjb2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTkxMTgsImV4cCI6MjA3OTA3NTExOH0.dT6aMWXqbTLV_J9wQvgHdTF1nJhh4o2FTsC_Ys2AWNI';
+const SUPABASE_API_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const InmejoraAuthProvider = ({ children }) => {
   const { toast } = useToast();
@@ -64,7 +64,7 @@ export const InmejoraAuthProvider = ({ children }) => {
       const response = await res.json();
       
       if (!res.ok) {
-        throw new Error(response.error || response.message || 'Error al iniciar sesión');
+        throw new Error(response.error || response.message || 'Error al iniciar sesiÃ³n');
       }
 
       if (response.user) {
@@ -126,15 +126,15 @@ export const InmejoraAuthProvider = ({ children }) => {
       
       throw new Error('Datos de usuario no recibidos al registrar');
     } catch (err) {
-      let errorMessage = err.message || "Ocurrió un error inesperado al procesar el registro.";
+      let errorMessage = err.message || "OcurriÃ³ un error inesperado al procesar el registro.";
       
       const lowerError = errorMessage.toLowerCase();
       if (lowerError.includes('user already exists')) {
-        errorMessage = 'Este email ya está registrado';
+        errorMessage = 'Este email ya estÃ¡ registrado';
       } else if (lowerError.includes('invalid email')) {
-        errorMessage = 'Email inválido';
+        errorMessage = 'Email invÃ¡lido';
       } else if (lowerError.includes('invalid password')) {
-        errorMessage = 'La contraseña debe tener al menos 8 caracteres';
+        errorMessage = 'La contraseÃ±a debe tener al menos 8 caracteres';
       }
 
       return { success: false, ok: false, error: errorMessage };
@@ -145,7 +145,7 @@ export const InmejoraAuthProvider = ({ children }) => {
     localStorage.removeItem('inmejora_token');
     localStorage.removeItem('inmejora_user');
     setUser(null);
-    toast({ title: "Sesión cerrada", description: "Has cerrado sesión correctamente." });
+    toast({ title: "SesiÃ³n cerrada", description: "Has cerrado sesiÃ³n correctamente." });
     window.location.href = '/login';
   };
 
