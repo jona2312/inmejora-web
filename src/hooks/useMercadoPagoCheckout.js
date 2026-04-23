@@ -25,7 +25,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "ID de producto no válido o no definido.",
+        description: "ID de producto no vÃ¡lido o no definido.",
       });
       return;
     }
@@ -33,8 +33,8 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
     const token = localStorage.getItem('inmejora_token');
     if (!token) {
       toast({
-        title: "Inicia sesión",
-        description: "Debes registrarte o iniciar sesión para suscribirte.",
+        title: "Inicia sesiÃ³n",
+        description: "Debes registrarte o iniciar sesiÃ³n para suscribirte.",
       });
       navigate(`/registro?plan=${productId}`);
       return;
@@ -51,8 +51,8 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrYXJtYXpkY2t3bHBtZnRjb2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTkxMTgsImV4cCI6MjA3OTA3NTExOH0.dT6aMWXqbTLV_J9wQvgHdTF1nJhh4o2FTsC_Ys2AWNI',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRrYXJtYXpkY2t3bHBtZnRjb2VoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0OTkxMTgsImV4cCI6MjA3OTA3NTExOH0.dT6aMWXqbTLV_J9wQvgHdTF1nJhh4o2FTsC_Ys2AWNI'
+          'apikey': import.meta.env.VITE_SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
         },
         body: JSON.stringify({ 
           productId,
@@ -78,7 +78,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
         // Redirect user to init_point using window.location.href
         window.location.href = initPoint;
       } else {
-        throw new Error('La respuesta del servidor no incluyó un enlace de pago válido.');
+        throw new Error('La respuesta del servidor no incluyÃ³ un enlace de pago vÃ¡lido.');
       }
     } catch (error) {
       console.error('Checkout error:', error);
@@ -88,7 +88,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
       
       if (typeof error === 'object' && error !== null) {
         if (error.message && error.message.includes('not found')) {
-            errorMessage = "El plan seleccionado no está disponible.";
+            errorMessage = "El plan seleccionado no estÃ¡ disponible.";
         } else if (error.message) {
             errorMessage = error.message;
         }
