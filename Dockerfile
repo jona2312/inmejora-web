@@ -1,11 +1,11 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
-# Force development mode during build so devDependencies (vite) are installed
-ENV NODE_ENV=development
 COPY package*.json ./
-RUN npm install --include=dev
+# --production=false installs ALL deps (incl devDeps) regardless of external NODE_ENV
+RUN npm install --production=false --legacy-peer-deps
 COPY . .
-RUN npm run build
+# Run build with explicit PATH to node_modules/.bin
+RUN ./node_modules/.bin/vite build
 
 FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
