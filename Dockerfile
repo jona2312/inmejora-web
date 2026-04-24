@@ -1,7 +1,9 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
-# Declare ARG to accept external --build-arg, then force development mode
+# Declare ARGs for build-time injection (Coolify passes these via --build-arg)
 ARG NODE_ENV
+ARG VITE_SUPABASE_URL
+ARG VITE_SUPABASE_ANON_KEY
 ENV NODE_ENV=development
 COPY package*.json ./
 # Inline override ensures devDeps installed regardless of any external NODE_ENV
