@@ -159,13 +159,13 @@ const Aliados = () => {
   const materialesBrands = [
     {
       name: 'Artecret',
-      logo: 'https://artecret.com.ar/wp-content/uploads/2024/01/logo-artecret-blanco.png',
+      logo: 'text',
       url: 'https://www.instagram.com/artecret.oficial/',
       isSpecial: true
     },
     {
       name: 'Sherwin Williams',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Sherwin-Williams.svg/2560px-Sherwin-Williams.svg.png'
+      logo: 'text'
     },
     {
       name: 'Alba',
