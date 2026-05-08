@@ -18,6 +18,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [_hp, _setHp] = useState('');
   const { toast } = useToast();
 
   const validate = () => {
@@ -41,6 +42,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+    if (_hp) return; // honeypot: bot detected
     
     setIsLoading(true);
 
@@ -171,6 +173,8 @@ const ContactForm = () => {
               )}
             </Button>
           </div>
+          {/* Honeypot anti-spam */}
+          <input type="text" name="website" value={_hp} onChange={e => _setHp(e.target.value)} style={{position:'absolute',left:'-9999px',opacity:0,height:0,width:0}} tabIndex={-1} aria-hidden="true" autoComplete="off" />
         </form>
       </div>
 
