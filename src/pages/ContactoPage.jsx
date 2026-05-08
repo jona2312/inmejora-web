@@ -61,7 +61,7 @@ const ContactoPage = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-lg">Teléfono / WhatsApp</h3>
-                  <p className="text-gray-400">+54 9 11 15830061</p>
+                  <p className="text-gray-400">+54 9 11 3906-6429</p>
                 </div>
               </div>
 
@@ -71,7 +71,7 @@ const ContactoPage = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-lg">Email</h3>
-                  <p className="text-gray-400">info@inmejora.com</p>
+                  <p className="text-gray-400">hola@inmejora.com</p>
                 </div>
               </div>
 
