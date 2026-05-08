@@ -89,7 +89,7 @@ const LoginPage = () => {
             <div className="relative">
               <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-500 z-10" />
               <Input 
-                id="email" type="email"
+                id="email" type="email" autoComplete="email"
                 value={formData.email}
                 onChange={e => setFormData({...formData, email: e.target.value})}
                 className={`pl-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.email ? 'border-red-500' : ''}`}
