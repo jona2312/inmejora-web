@@ -74,8 +74,11 @@ const Footer = () => {
               <a href="mailto:hola@inmejora.com" className="text-gray-400 hover:text-[#d4af37] transition-colors duration-300 flex items-center gap-2">
                 <Mail className="w-4 h-4" /> hola@inmejora.com
               </a>
-              <a href="https://wa.me/5491139066429" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#d4af37] transition-colors duration-300 flex items-center gap-2">
+              <a href="tel:+5491139066429" className="text-gray-400 hover:text-[#d4af37] transition-colors duration-300 flex items-center gap-2">
                 <Phone className="w-4 h-4" /> +54 9 11 3906-6429
+              </a>
+              <a href="https://wa.me/5491139066429" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#d4af37] transition-colors duration-300 flex items-center gap-2 text-sm">
+                WhatsApp
               </a>
             </nav>
           </div>
