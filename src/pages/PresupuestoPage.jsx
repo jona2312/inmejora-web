@@ -233,6 +233,7 @@ const PresupuestoPage = () => {
                     id="nombre"
                     name="nombre"
                     placeholder="Ej. Juan Pérez"
+                    autoComplete="name"
                     value={formData.nombre}
                     onChange={handleChange}
                     className={`bg-gray-900/50 border-gray-700 text-white focus:border-[#d4af37] focus:ring-[#d4af37]/20 ${errors.nombre ? 'border-red-500' : ''}`}
@@ -247,6 +248,7 @@ const PresupuestoPage = () => {
                     id="telefono"
                     name="telefono"
                     type="tel"
+                    autoComplete="tel"
                     placeholder="+54 9 11 1234-5678"
                     value={formData.telefono}
                     onChange={handleChange}
