@@ -67,6 +67,7 @@ const SupplierPortalPage = lazyWithRetry(() => import('@/pages/SupplierPortalPag
 const AdminProvidersPage = lazyWithRetry(() => import('@/pages/AdminProvidersPage'), 'AdminProvidersPage');
 const AdminInmejora = lazyWithRetry(() => import('@/pages/AdminInmejora'), 'AdminInmejora');
 const PrivacyPolicy = lazyWithRetry(() => import('@/pages/PrivacyPolicy'), 'PrivacyPolicy');
+const NosotrosPage = lazyWithRetry(() => import('@/pages/NosotrosPage'), 'NosotrosPage');
 const TermsAndConditions = lazyWithRetry(() => import('@/pages/TermsAndConditions'), 'TermsAndConditions');
 const LoginPage = lazyWithRetry(() => import('@/pages/LoginPage'), 'LoginPage');
 const RegistrationPage = lazyWithRetry(() => import('@/pages/RegistrationPage'), 'RegistrationPage');
@@ -143,6 +144,7 @@ const AppContent = () => {
         <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route path="/presupuesto" element={<PresupuestoPage />} />
         <Route path="/contacto" element={<ContactoPage />} />
+        <Route path="/nosotros" element={<NosotrosPage />} />
         <Route path="/planes" element={<PlansPage />} />
 
         {/* Proveedores Routes (Public facing landing) */}
