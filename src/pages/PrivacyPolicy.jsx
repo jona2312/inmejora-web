@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '@/components/SEOHead';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
@@ -8,10 +8,11 @@ import { Link } from 'react-router-dom';
 const PrivacyPolicy = () => {
   return (
     <div className="bg-background text-foreground min-h-screen">
-      <Helmet>
-        <title>Política de Privacidad - INMEJORA</title>
-        <meta name="description" content="Conocé cómo INMEJORA protege y gestiona tus datos personales. Nuestra política de privacidad detalla el uso de la información que compartís con nosotros." />
-      </Helmet>
+      <SEOHead
+        title="Política de Privacidad - INMEJORA"
+        description="Conocé cómo INMEJORA protege y gestiona tus datos personales. Nuestra política de privacidad detalla el uso de la información que compartís con nosotros."
+        ogUrl="https://inmejora.com/politica-de-privacidad"
+      />
       <Header />
       <main className="container mx-auto px-4 py-24 pt-32">
         <div className="max-w-4xl mx-auto">
