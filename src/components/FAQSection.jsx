@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import CTAButton from '@/components/CTAButton';
@@ -33,7 +34,58 @@ const faqs = [
 ];
 
 const FAQItem = ({ faq, isOpen, onClick }) => {
+  const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo tarda un render 3D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El tiempo de entrega depende de la complejidad del proyecto. Para renders simples (ej. una habitación interior), el tiempo estimado es de 3 a 5 días hábiles. Para proyectos más complejos o grandes escalas, puede tomar de 1 a 2 semanas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el costo de un render 3D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada proyecto es único, por lo que realizamos presupuestos personalizados. El costo varía según la cantidad de imágenes, el nivel de detalle requerido, si se necesitan modelos 3D a medida y si incluye animación o recorridos virtuales."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo hacer cambios después de ver el primer render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, por supuesto. Todos nuestros presupuestos incluyen una ronda de revisiones y ajustes menores (cambio de texturas, colores, iluminación) sobre las imágenes preliminares en baja resolución, antes de renderizar la versión final en alta calidad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué formatos de archivo entrego?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entregamos las imágenes fijas en formato JPG o PNG en alta resolución (4K), ideales para impresión o uso en plataformas digitales. Si contratas un recorrido virtual, lo entregamos en formato MP4 en Full HD o 4K."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito proporcionar planos específicos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para lograr la máxima precisión, te pedimos que nos proporciones planos arquitectónicos (plantas, cortes, fachadas) preferentemente en formato DWG (AutoCAD) o PDF. También son muy útiles las referencias visuales de estilo y materiales que deseas."
+      }
+    }
+  ]
+};
+
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
     <div className="border border-gray-800 bg-[#141414] rounded-xl overflow-hidden mb-4 hover:border-gray-700 transition-colors duration-300">
       <button
         className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group"
@@ -126,6 +178,7 @@ const FAQSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
