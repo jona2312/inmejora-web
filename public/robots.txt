@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+Disallow: /portal/
+Disallow: /admin/
+Disallow: /login
+Disallow: /registro
+Disallow: /dashboard/
+
 Sitemap: https://inmejora.com/sitemap.xml
