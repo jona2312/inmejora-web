@@ -37,7 +37,7 @@ const ServiciosPage = () => {
         .from('servicios_precios')
         .select('*')
         .eq('activo', true)
-        .order('prioridad', { ascending: false });
+        .order('categoria', { ascending: true });
 
       if (fetchError) throw fetchError;
 
