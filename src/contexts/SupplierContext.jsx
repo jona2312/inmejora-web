@@ -1,8 +1,8 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  supplierApiCall, 
-  setSupplierToken as setStorageToken, 
-  clearSupplierToken, 
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import {
+  supplierApiCall,
+  setSupplierToken as setStorageToken,
+  clearSupplierToken,
   isSupplierLoggedIn,
   getSupplierToken
 } from '@/utils/supplierApi';
@@ -28,13 +28,15 @@ export const SupplierProvider = ({ children }) => {
       return null;
     }
   });
-  
+
   const [supplierToken, setSupplierToken] = useState(() => getSupplierToken());
   const [isLoggedIn, setIsLoggedIn] = useState(() => isSupplierLoggedIn());
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
 
-  const validateSession = async () => {
+  // FIX: wrapped in useCallback so the reference is stable between renders.
+  // Only changes when supplierToken changes — prevents infinite loops in consumers.
+  const validateSession = useCallback(async () => {
     setIsLoading(true);
     if (!supplierToken) {
       setSupplier(null);
@@ -42,7 +44,6 @@ export const SupplierProvider = ({ children }) => {
       setIsLoading(false);
       return;
     }
-
     try {
       const data = await supplierApiCall('/supplier-login', { method: 'GET' });
       if (data.provider) {
@@ -59,9 +60,9 @@ export const SupplierProvider = ({ children }) => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [supplierToken]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // First useEffect: empty array [] (runs once on mount)
+  // Listen for 401 events (e.g. expired token from any API call)
   useEffect(() => {
     const handleUnauthorized = () => {
       setSupplier(null);
@@ -69,21 +70,19 @@ export const SupplierProvider = ({ children }) => {
       setSupplierToken(null);
       toast({
         variant: "destructive",
-        title: "Sesión expirada",
-        description: "Por favor, inicia sesión nuevamente.",
+        title: "Sesi\u00f3n expirada",
+        description: "Por favor, inicia sesi\u00f3n nuevamente.",
       });
       window.location.href = '/proveedores/login';
     };
-
     window.addEventListener('supplier:unauthorized', handleUnauthorized);
     return () => window.removeEventListener('supplier:unauthorized', handleUnauthorized);
   }, []);
 
-  // Second useEffect: [supplierToken] (runs only when token changes)
+  // Validate on mount and whenever token changes
   useEffect(() => {
     validateSession();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [supplierToken]);
+  }, [validateSession]);
 
   const login = async (email, password) => {
     try {
@@ -91,7 +90,6 @@ export const SupplierProvider = ({ children }) => {
         method: 'POST',
         body: JSON.stringify({ action: 'login', email, password }),
       });
-
       if (data.token && data.provider) {
         setStorageToken(data.token);
         setSupplierToken(data.token);
@@ -99,9 +97,8 @@ export const SupplierProvider = ({ children }) => {
         setSupplier(data.provider);
         setIsLoggedIn(true);
         return { success: true, data };
-      } else {
-        return { success: false, error: 'Respuesta inválida del servidor' };
       }
+      return { success: false, error: 'Respuesta inv\u00e1lida del servidor' };
     } catch (error) {
       return { success: false, error: getApiErrorMessage(error?.status, error?.message) };
     }
@@ -113,7 +110,6 @@ export const SupplierProvider = ({ children }) => {
         method: 'POST',
         body: JSON.stringify({ action: 'register', ...supplierData }),
       });
-      
       if (data.token && data.provider) {
         setStorageToken(data.token);
         setSupplierToken(data.token);
@@ -136,8 +132,8 @@ export const SupplierProvider = ({ children }) => {
     window.location.href = '/proveedores/login';
   };
 
-  const updateProfile = async (profileData) => {
-    toast({ title: "🚧 Funcionalidad de actualización en desarrollo" });
+  const updateProfile = async (_profileData) => {
+    toast({ title: "\uD83D\uDD27 Funcionalidad de actualizaci\u00f3n en desarrollo" });
     return { success: true };
   };
 
