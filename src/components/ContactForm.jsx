@@ -101,6 +101,7 @@ const ContactForm = () => {
             <Input
               value={formData.name}
               onChange={handleChange('name')}
+              autoComplete="name"
               placeholder="Juan Pérez"
               className={`bg-gray-900 text-white border-gray-700 h-11 focus:border-[#D4AF37] ${errors.name ? 'border-red-500' : ''}`}
             />
@@ -114,6 +115,7 @@ const ContactForm = () => {
             <Input
               value={formData.email}
               onChange={handleChange('email')}
+              autoComplete="email"
               placeholder="juan@ejemplo.com"
               type="email"
               className={`bg-gray-900 text-white border-gray-700 h-11 focus:border-[#D4AF37] ${errors.email ? 'border-red-500' : ''}`}
