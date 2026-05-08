@@ -166,7 +166,7 @@ const RegistrationPage = () => {
             <div className="relative flex items-center">
               <User className="absolute left-3 h-5 w-5 text-gray-500" />
               <Input 
-                id="name" name="name"
+                id="name" name="name" autoComplete="name"
                 value={formData.name} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.name ? 'border-red-500' : ''}`}
                 placeholder="Juan Pérez"
@@ -182,7 +182,7 @@ const RegistrationPage = () => {
             <div className="relative flex items-center">
               <Mail className="absolute left-3 h-5 w-5 text-gray-500" />
               <Input 
-                id="email" name="email" type="email"
+                id="email" name="email" type="email" autoComplete="email"
                 value={formData.email} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.email ? 'border-red-500' : ''}`}
                 placeholder="tu@email.com"
@@ -198,7 +198,7 @@ const RegistrationPage = () => {
             <div className="relative flex items-center">
               <Phone className="absolute left-3 h-5 w-5 text-gray-500" />
               <Input 
-                id="phone" name="phone" type="tel"
+                id="phone" name="phone" type="tel" autoComplete="tel"
                 value={formData.phone} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.phone ? 'border-red-500' : ''}`}
                 placeholder="+54 9 11 1234-5678"
@@ -214,7 +214,7 @@ const RegistrationPage = () => {
             <div className="relative flex items-center">
               <Lock className="absolute left-3 h-5 w-5 text-gray-500 z-10" />
               <Input 
-                id="password" name="password" type={showPassword ? "text" : "password"}
+                id="password" name="password" autoComplete="new-password" type={showPassword ? "text" : "password"}
                 value={formData.password} onChange={handleChange}
                 className={`pl-10 pr-20 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.password ? 'border-red-500' : ''}`}
                 placeholder="••••••••"
@@ -239,7 +239,7 @@ const RegistrationPage = () => {
             <div className="relative flex items-center">
               <Lock className="absolute left-3 h-5 w-5 text-gray-500 z-10" />
               <Input 
-                id="confirmPassword" name="confirmPassword" type={showConfirmPassword ? "text" : "password"}
+                id="confirmPassword" name="confirmPassword" autoComplete="new-password" type={showConfirmPassword ? "text" : "password"}
                 value={formData.confirmPassword} onChange={handleChange}
                 className={`pl-10 pr-20 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.confirmPassword ? 'border-red-500' : ''}`}
                 placeholder="••••••••"
