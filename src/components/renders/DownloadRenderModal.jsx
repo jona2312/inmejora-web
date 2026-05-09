@@ -18,7 +18,7 @@ const DownloadRenderModal = ({ isOpen, onClose, renderId, renderData }) => {
     try {
       const token = localStorage.getItem('inmejora_token');
       // En un entorno real, esto devolvería un blob o una URL
-      const response = await fetch(`https://inmejora-dash-n45svwn6.manus.space/api/horizon/renders/${renderId}/download?format=${format}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon/renders/${renderId}/download?format=${format}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

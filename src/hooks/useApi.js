@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL = 'https://inmejora-dash-n45svwn6.manus.space';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
 export const useApi = () => {
   const [loading, setLoading] = useState(false);

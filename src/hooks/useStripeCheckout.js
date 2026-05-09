@@ -21,7 +21,7 @@ export const useStripeCheckout = () => {
 
     try {
       const response = await axios.post(
-        'https://inmejora-dash-n45svwn6.manus.space/api/horizon/checkout',
+        `${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon/checkout`,
         { 
           productId,
           userId: user?.id || null,

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_API_URL || 'https://inmejora-dash-n45svwn6.manus.space';
+const baseURL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
 export const apiClient = axios.create({
   baseURL,

@@ -17,7 +17,7 @@ export const useLeadRegistration = () => {
         localStorage.setItem('chat_session_id', sessionId);
       }
 
-      const response = await axios.post('https://3000-iq2uhcq4bsbq0f0nhc06a-14fd7811.us1.manus.computer/api/chat/register', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/chat/register`, {
         name,
         email,
         phone,

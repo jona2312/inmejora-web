@@ -24,7 +24,7 @@ const GenerateButton = ({ file, options, onGenerateSuccess, hasCredits }) => {
 
       const token = localStorage.getItem('inmejora_token');
       
-      const response = await fetch('https://inmejora-dash-n45svwn6.manus.space/api/horizon/renders/generate', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon/renders/generate`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

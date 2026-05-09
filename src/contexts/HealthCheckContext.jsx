@@ -14,7 +14,7 @@ export const HealthCheckProvider = ({ children }) => {
   const checkHealth = useCallback(async () => {
     setIsChecking(true);
     try {
-      const response = await axios.get('https://inmejora-dash-n45svwn6.manus.space/api/horizon/health');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon/health`);
       setHealthStatus({
         ok: true, // Assuming 200 OK means healthy if response structure varies
         service: response.data?.service || 'Online',

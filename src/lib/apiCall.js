@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://inmejora-dash-n45svwn6.manus.space/api/horizon';
+const BASE_URL = `${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon`;
 
 const apiCall = axios.create({
   baseURL: BASE_URL,

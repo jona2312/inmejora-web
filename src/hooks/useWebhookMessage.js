@@ -13,7 +13,7 @@ export const useWebhookMessage = () => {
 
     try {
       const response = await axios.post(
-        'https://inmejora-dash-n45svwn6.manus.space/api/webhook/guardar-mensaje',
+        `${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/webhook/guardar-mensaje`,
         {
           clientPhone,
           clientName,
