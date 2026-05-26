@@ -124,7 +124,7 @@ const InlineQuoter = ({ transformation, onClose }) => {
     const message = encodeURIComponent(
       `Hola! Me interesa una reforma de ${selectedRoom} de ${m2}m². El presupuesto estimado es $${calculatedPrice.toLocaleString('es-AR')}. ¿Podemos coordinar una visita?`
     );
-    window.open(`https://wa.me/5491139066429?text=${message}`, '_blank');
+    window.open(`https://wa.me/541139066429?text=${message}`, '_blank');
   };
 
   return (

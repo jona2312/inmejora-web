@@ -11,7 +11,7 @@ const ErrorModal = ({ message, customerEmail, sessionId }) => {
   const handleWhatsAppSupport = () => {
     // Basic redirect to WhatsApp API
     const text = `Hola, tuve un problema con mi pago en INMEJORA. ID de Sesión: ${sessionId}`;
-    window.open(`https://wa.me/5491112345678?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/541139066429?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (

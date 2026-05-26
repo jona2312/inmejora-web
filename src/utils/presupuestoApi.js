@@ -65,7 +65,7 @@ export const uploadPresupuestoPhoto = async (file) => {
 export const generateWhatsAppLink = (data) => {
   const message = `🎯 NUEVO PRESUPUESTO\nNombre: ${data.nombre}\nTeléfono: ${data.telefono}\nTipo: ${data.tipo_proyecto}\nMetraje: ${data.metraje}m²\nDescripción: ${data.descripcion}`;
   const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/5491139066429?text=${encodedMessage}`;
+  return `https://wa.me/541139066429?text=${encodedMessage}`;
 };
 
 export const submitPresupuesto = async (formData, photoFile) => {

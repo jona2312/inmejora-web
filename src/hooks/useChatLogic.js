@@ -121,7 +121,7 @@ export const useChatLogic = () => {
       const { name, email, phone, session_id } = payload;
       
       const whatsappText = encodeURIComponent(`Hola, soy ${name}. Acabo de registrarme en el chat de INMEJORA y quiero continuar mi consulta.`);
-      const whatsappLink = `https://wa.me/5491112345678?text=${whatsappText}`;
+      const whatsappLink = `https://wa.me/541139066429?text=${whatsappText}`;
 
       return {
         success: true,

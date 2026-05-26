@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight } from 'lucide-react';
@@ -27,6 +27,20 @@ const FAQSection = lazy(() => import('@/components/FAQSection.jsx'));
 
 const LandingPage = () => {
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
+
+  // Scroll automático al hash al montar — permite que links externos
+  // como qr.inmejora.com/?...#soluciones aterricen directo en la sección.
+  // El delay cubre el tiempo de renderizado lazy de los componentes.
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.replace('#', '');
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-background text-foreground relative overflow-x-hidden">

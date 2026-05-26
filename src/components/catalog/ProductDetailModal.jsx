@@ -81,7 +81,7 @@ const ProductDetailModal = ({ isOpen, onClose, product }) => {
           <div className="mt-auto pt-6 border-t border-[#333] grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Button 
               className="w-full bg-[#FCB048] text-black hover:bg-[#e09b3d] font-bold"
-              onClick={() => window.open('https://wa.me/5491100000000', '_blank')}
+              onClick={() => window.open('https://wa.me/541139066429', '_blank')}
             >
               Consultar Disponibilidad
             </Button>

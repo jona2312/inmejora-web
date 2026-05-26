@@ -28,7 +28,7 @@ export const useLeadRegistration = () => {
       setSuccess(true);
       
       // Attempt to open WhatsApp immediately
-      const whatsappLink = data.whatsapp_link || `https://wa.me/5491112345678?text=Hola,%20soy%20${encodeURIComponent(name)}`;
+      const whatsappLink = data.whatsapp_link || `https://wa.me/541139066429?text=Hola,%20soy%20${encodeURIComponent(name)}`;
       
       try {
         window.open(whatsappLink, '_blank');
