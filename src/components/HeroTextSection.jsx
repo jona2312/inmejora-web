@@ -51,7 +51,7 @@ const HeroTextSection = () => {
               Conectá tus productos con miles de clientes en proceso de reforma. Gestioná tus catálogos fácilmente y multiplicá tu alcance.
             </p>
             <p className="text-gray-400 text-sm md:text-base font-medium mb-10">
-                Pinturerías · Corralones · Iluminación · Sanitaros
+                Pinturerías · Corralones · Iluminación · Sanitarios
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -20,7 +20,9 @@ const ScrollTriggerRegistrationModal = () => {
   // Initialize checks immediately before mounting effects trigger side-effects
   useEffect(() => {
     const isRegistered = localStorage.getItem('inmejora_registered') === 'true';
-    const hasSeenPopup = sessionStorage.getItem(POPUP_KEY) === 'true';
+    const dismissedAt = parseInt(localStorage.getItem(POPUP_KEY + '_dismissed_at') || '0', 10);
+    const dismissedRecently = dismissedAt && (Date.now() - dismissedAt) < 7 * 24 * 60 * 60 * 1000; // 7 días
+    const hasSeenPopup = sessionStorage.getItem(POPUP_KEY) === 'true' || dismissedRecently;
 
     // 1. & 2. IMMEDIATELY check if we should even set up listeners
     if (isRegistered || hasSeenPopup) {
@@ -31,7 +33,8 @@ const ScrollTriggerRegistrationModal = () => {
 
     // 4. ONLY if session storage is empty, set up the listener
     const handleScroll = () => {
-      if (window.scrollY > 350) {
+      const scrolledEnough = window.scrollY > Math.max(1600, document.documentElement.scrollHeight * 0.45);
+      if (scrolledEnough) {
         // Double check just to be perfectly thread-safe
         if (sessionStorage.getItem(POPUP_KEY) !== 'true') {
           // 5. When scroll trigger fires, set storage flag
@@ -79,6 +82,7 @@ const ScrollTriggerRegistrationModal = () => {
   };
 
   const handleClose = () => {
+    localStorage.setItem(POPUP_KEY + '_dismissed_at', String(Date.now()));
     setIsOpen(false);
   };
 
@@ -154,9 +158,9 @@ const ScrollTriggerRegistrationModal = () => {
               variant="ghost"
               size="icon"
               onClick={handleClose}
-              className="absolute top-3 right-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-colors w-8 h-8 z-50"
+              className="absolute top-2 right-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-full transition-colors w-11 h-11 min-w-[44px] min-h-[44px] z-50"
             >
-              <X size={18} />
+              <X size={22} />
             </Button>
 
             <AnimatePresence>

@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, FileText, ChevronLeft, ChevronRight, Calculator, MessageCircle, X } from 'lucide-react';
+import { Sparkles, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { transformacionesData } from '@/data/TransformacionesRealesData';
 
 const BeforeAfterCard = ({ transformation }) => {
@@ -57,7 +56,7 @@ const BeforeAfterCard = ({ transformation }) => {
         src={transformation.afterImage}
         alt={`${transformation.roomType} Después`}
         className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
+        loading="lazy"
         draggable="false"
         style={{ objectFit: 'cover' }}
       />
@@ -75,7 +74,7 @@ const BeforeAfterCard = ({ transformation }) => {
           src={transformation.beforeImage}
           alt={`${transformation.roomType} Antes`}
           className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          loading="lazy"
           draggable="false"
           style={{ objectFit: 'cover' }}
         />
@@ -99,116 +98,8 @@ const BeforeAfterCard = ({ transformation }) => {
   );
 };
 
-const InlineQuoter = ({ transformation, onClose }) => {
-  const [m2, setM2] = useState('');
-  const [selectedRoom, setSelectedRoom] = useState(transformation.roomType);
-  const [calculatedPrice, setCalculatedPrice] = useState(null);
-
-  const roomOptions = ['Cocina', 'Baño', 'Living', 'Comedor', 'Habitación', 'Jardín'];
-
-  const calculatePrice = () => {
-    const m2Value = parseFloat(m2);
-    if (isNaN(m2Value) || m2Value < 1) {
-      return;
-    }
-
-    const basePrice = transformation.basePrice;
-    const basePricePerM2 = basePrice / 15;
-    const total = basePricePerM2 * m2Value * transformation.multiplier * 1.35 * 1.21;
-    setCalculatedPrice(Math.round(total));
-  };
-
-  const sendWhatsApp = () => {
-    if (!calculatedPrice) return;
-    
-    const message = encodeURIComponent(
-      `Hola! Me interesa una reforma de ${selectedRoom} de ${m2}m². El presupuesto estimado es $${calculatedPrice.toLocaleString('es-AR')}. ¿Podemos coordinar una visita?`
-    );
-    window.open(`https://wa.me/5491139066429?text=${message}`, '_blank');
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 1, height: 0 }}
-      animate={{ opacity: 1, height: 'auto' }}
-      exit={{ opacity: 1, height: 0 }}
-      className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 mt-4 overflow-hidden"
-    >
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">Calculá tu presupuesto</h3>
-        <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">
-          <X className="w-5 h-5" />
-        </button>
-      </div>
-
-      <div className="space-y-4">
-        <div>
-          <label className="text-sm text-gray-400 mb-2 block">Metros cuadrados (m²)</label>
-          <Input
-            type="number"
-            min="1"
-            step="0.1"
-            value={m2}
-            onChange={(e) => setM2(e.target.value)}
-            placeholder="Ingresá los m²"
-            className="bg-[#0a0a0a] border-[#2a2a2a] text-white"
-          />
-        </div>
-
-        <div>
-          <label className="text-sm text-gray-400 mb-2 block">Tipo de ambiente</label>
-          <select
-            value={selectedRoom}
-            onChange={(e) => setSelectedRoom(e.target.value)}
-            className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-[#c9a84c]"
-          >
-            {roomOptions.map((room) => (
-              <option key={room} value={room}>
-                {room}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <Button
-          onClick={calculatePrice}
-          className="w-full bg-[#c9a84c] hover:bg-[#b59840] text-black font-bold"
-        >
-          <Calculator className="w-4 h-4 mr-2" />
-          Calcular presupuesto
-        </Button>
-
-        {calculatedPrice && (
-          <motion.div
-            initial={{ opacity: 1, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-[#c9a84c]/10 border border-[#c9a84c]/30 rounded-lg p-4"
-          >
-            <p className="text-sm text-gray-400 mb-1">Presupuesto estimado</p>
-            <p className="text-3xl font-bold text-[#c9a84c]">
-              ${calculatedPrice.toLocaleString('es-AR')}
-            </p>
-            <p className="text-xs text-gray-500 mt-2">
-              Incluye materiales, mano de obra, IVA y buffer de imprevistos
-            </p>
-
-            <Button
-              onClick={sendWhatsApp}
-              className="w-full mt-4 bg-green-600 hover:bg-green-700 text-white font-bold"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              📱 Enviar por WhatsApp
-            </Button>
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
-
 const TransformacionesReales = () => {
   const navigate = useNavigate();
-  const [activeQuoter, setActiveQuoter] = useState(null);
 
   const stats = [
     { label: 'Renders generados', value: '1.100+' },
@@ -225,8 +116,8 @@ const TransformacionesReales = () => {
     },
     {
       icon: '📊',
-      title: 'Presupuesto Integrado',
-      description: 'Cotización automática basada en precios reales del mercado argentino.'
+      title: 'Cotización Personalizada',
+      description: 'Presupuesto a medida según superficie, materiales, estado del inmueble y alcance del trabajo.'
     },
     {
       icon: '💬',
@@ -252,7 +143,7 @@ const TransformacionesReales = () => {
             Transformaciones Reales
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            Más de 300 clientes confiaron en nosotros para transformar sus espacios. Mirá algunos de nuestros trabajos y calculá tu presupuesto al instante.
+            Más de 300 clientes confiaron en nosotros para transformar sus espacios. Mirá algunos de nuestros trabajos y pedí tu cotización personalizada.
           </p>
         </motion.div>
 
@@ -327,28 +218,14 @@ const TransformacionesReales = () => {
                   {transformation.description}
                 </p>
 
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-sm text-gray-500">Desde</span>
-                  <span className="text-2xl font-black text-[#c9a84c]">
-                    ${(transformation.basePrice / 1000).toFixed(0)}K
-                  </span>
-                </div>
-
                 <Button
-                  onClick={() => setActiveQuoter(activeQuoter === transformation.id ? null : transformation.id)}
+                  onClick={() => navigate('/presupuesto')}
                   variant="outline"
                   className="w-full border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c]/10 font-semibold"
                 >
-                  <Calculator className="w-4 h-4 mr-2" />
-                  📊 Cotizar esta reforma →
+                  <FileText className="w-4 h-4 mr-2" />
+                  Cotizar esta reforma →
                 </Button>
-
-                {activeQuoter === transformation.id && (
-                  <InlineQuoter
-                    transformation={transformation}
-                    onClose={() => setActiveQuoter(null)}
-                  />
-                )}
               </div>
             </motion.div>
           ))}

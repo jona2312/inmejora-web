@@ -7,37 +7,37 @@ import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
 const testimonials = [
   {
     id: 1,
-    name: "Arq. MarÃ­a GonzÃ¡lez",
-    company: "GonzÃ¡lez & Asociados Arquitectos",
+    name: "Arq. María González",
+    company: "González & Asociados Arquitectos",
     project: "Edificio Residencial - Belgrano, CABA",
-    quote: "La calidad de los renders superÃ³ nuestras expectativas. Nos permitieron vender el 40% del edificio en pozo antes de iniciar la obra. El nivel de detalle en la iluminaciÃ³n y materiales es excepcional.",
+    quote: "La calidad de los renders superó nuestras expectativas. Nos permitieron vender el 40% del edificio en pozo antes de iniciar la obra. El nivel de detalle en la iluminación y materiales es excepcional.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
     rating: 5
   },
   {
     id: 2,
-    name: "Ing. Carlos RodrÃ­guez",
-    company: "Constructora RodrÃ­guez S.A.",
+    name: "Ing. Carlos Rodríguez",
+    company: "Constructora Rodríguez S.A.",
     project: "Centro Comercial - La Plata",
-    quote: "Trabajar con INMEJORA nos ahorrÃ³ semanas de idas y vueltas con el cliente. Al ver el render final con calidad fotorrealista, aprobaron el diseÃ±o de inmediato. Su equipo es muy profesional y rÃ¡pido.",
+    quote: "Trabajar con INMEJORA nos ahorró semanas de idas y vueltas con el cliente. Al ver el render final con calidad fotorrealista, aprobaron el diseño de inmediato. Su equipo es muy profesional y rápido.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
     rating: 5
   },
   {
     id: 3,
-    name: "Arq. LucÃ­a FernÃ¡ndez",
-    company: "Estudio FernÃ¡ndez DiseÃ±o",
+    name: "Arq. Lucía Fernández",
+    company: "Estudio Fernández Diseño",
     project: "Vivienda Unifamiliar - San Isidro",
-    quote: "Es increÃ­ble cÃ³mo captan la esencia de cada espacio. Los renders de interiorismo que hicieron para esta casa lograron transmitir exactamente la calidez que buscÃ¡bamos. Mis clientes quedaron fascinados.",
+    quote: "Es increíble cómo captan la esencia de cada espacio. Los renders de interiorismo que hicieron para esta casa lograron transmitir exactamente la calidez que buscábamos. Mis clientes quedaron fascinados.",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
     rating: 5
   },
   {
     id: 4,
-    name: "Arq. Roberto MartÃ­nez",
-    company: "MartÃ­nez Proyectos Inmobiliarios",
+    name: "Arq. Roberto Martínez",
+    company: "Martínez Proyectos Inmobiliarios",
     project: "Complejo Residencial - Caballito",
-    quote: "Un servicio impecable de principio a fin. Los videos recorridos y las imÃ¡genes 4K fueron la pieza clave para nuestra campaÃ±a de marketing digital. Definitivamente volveremos a trabajar juntos.",
+    quote: "Un servicio impecable de principio a fin. Los videos recorridos y las imágenes 4K fueron la pieza clave para nuestra campaña de marketing digital. Definitivamente volveremos a trabajar juntos.",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80",
     rating: 5
   }
@@ -74,13 +74,13 @@ const TestimonialsSection = () => {
         <ScrollAnimationWrapper>
           <div className="text-center mb-16 md:mb-24">
             <span className="text-[hsl(var(--accent-cta))] text-sm font-bold uppercase tracking-wider mb-3 block">
-              Casos de Ãxito
+              Casos de Éxito
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
               Lo que dicen nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(var(--accent-cta))] to-[#d4af37]">clientes</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              Profesionales del sector ya confÃ­an en nosotros para visualizar y vender sus proyectos antes de poner un solo ladrillo.
+              Profesionales del sector ya confían en nosotros para visualizar y vender sus proyectos antes de poner un solo ladrillo.
             </p>
           </div>
         </ScrollAnimationWrapper>
@@ -130,7 +130,7 @@ const TestimonialsSection = () => {
         <ScrollAnimationWrapper delay={0.4}>
           <div className="mt-16 text-center">
             <CTAButton 
-              text="Ver mÃ¡s casos de Ã©xito" 
+              text="Ver más casos de éxito" 
               href="/presupuesto" 
               size="lg"
             />

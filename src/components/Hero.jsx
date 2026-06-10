@@ -58,8 +58,8 @@ const Hero = () => {
             className="w-full sm:w-auto" 
           />
           <CTAButton 
-            text="Ser Proveedor" 
-            href="/proveedores" 
+            text="Cotizar mi reforma" 
+            href="/presupuesto" 
             variant="secondary" 
             size="lg" 
             className="w-full sm:w-auto text-white border-white/50 hover:bg-white/10 hover:border-white bg-black/30 backdrop-blur-sm" 

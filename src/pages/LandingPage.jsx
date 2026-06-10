@@ -18,7 +18,7 @@ const ProyectosDestacados = lazy(() => import('@/components/ProyectosDestacados.
 const TransformacionesReales = lazy(() => import('@/components/TransformacionesReales.jsx'));
 const Visualizacion = lazy(() => import('@/components/Visualizacion.jsx'));
 const AsistenteIA = lazy(() => import('@/components/AsistenteIA.jsx'));
-const UrgencyCTA = lazy(() => import('@/components/UrgencyCTA.jsx'));
+// const UrgencyCTA = lazy(() => import('@/components/UrgencyCTA.jsx')); // oculto temporalmente de la home
 const Aliados = lazy(() => import('@/components/Aliados.jsx'));
 const ProveedoresCTA = lazy(() => import('@/components/ProveedoresCTA.jsx'));
 const WhyInmejora = lazy(() => import('@/components/WhyInmejora.jsx'));
@@ -51,7 +51,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
               onClick={() => setIsAIModalOpen(true)}
-              className="fixed bottom-6 right-6 z-40 bg-[hsl(var(--accent-cta))] text-white font-bold py-3 px-5 rounded-full shadow-[0_0_20px_hsl(var(--accent-cta)/0.5)] hover:shadow-[0_0_30px_hsl(var(--accent-cta)/0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
+              className="fixed bottom-24 right-6 z-40 bg-[hsl(var(--accent-cta))] text-white font-bold py-3 px-5 rounded-full shadow-[0_0_20px_hsl(var(--accent-cta)/0.5)] hover:shadow-[0_0_30px_hsl(var(--accent-cta)/0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
             >
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
               <span className="hidden sm:inline">Probar Asistente IA Gratis</span>
@@ -92,7 +92,8 @@ const LandingPage = () => {
                 <AsistenteIA />
             </div>
             
-            <UrgencyCTA />
+            {/* UrgencyCTA (proveedores) oculto temporalmente: comunicación B2B consolidada en ProveedoresCTA */}
+            {/* <UrgencyCTA /> */}
             
             <RegistrationSection />
             <Aliados />

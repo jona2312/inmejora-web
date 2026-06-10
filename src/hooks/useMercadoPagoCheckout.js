@@ -25,7 +25,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
       toast({
         variant: "destructive",
         title: "Error",
-        description: "ID de producto no vÃ¡lido o no definido.",
+        description: "ID de producto no válido o no definido.",
       });
       return;
     }
@@ -33,8 +33,8 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
     const token = localStorage.getItem('inmejora_token');
     if (!token) {
       toast({
-        title: "Inicia sesiÃ³n",
-        description: "Debes registrarte o iniciar sesiÃ³n para suscribirte.",
+        title: "Inicia sesión",
+        description: "Debes registrarte o iniciar sesión para suscribirte.",
       });
       navigate(`/registro?plan=${productId}`);
       return;
@@ -78,7 +78,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
         // Redirect user to init_point using window.location.href
         window.location.href = initPoint;
       } else {
-        throw new Error('La respuesta del servidor no incluyÃ³ un enlace de pago vÃ¡lido.');
+        throw new Error('La respuesta del servidor no incluyó un enlace de pago válido.');
       }
     } catch (error) {
       console.error('Checkout error:', error);
@@ -88,7 +88,7 @@ export const useMercadoPagoCheckout = (hookProductId = null) => {
       
       if (typeof error === 'object' && error !== null) {
         if (error.message && error.message.includes('not found')) {
-            errorMessage = "El plan seleccionado no estÃ¡ disponible.";
+            errorMessage = "El plan seleccionado no está disponible.";
         } else if (error.message) {
             errorMessage = error.message;
         }

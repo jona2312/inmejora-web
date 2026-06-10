@@ -30,8 +30,8 @@ const Visualizacion = () => {
             className="w-full lg:w-1/2"
           >
             <div className="relative rounded-xl overflow-hidden border border-[#D4AF37]/30 shadow-2xl shadow-[#D4AF37]/10 aspect-video group">
-              <img 
-                src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" 
+              <img loading="lazy" 
+                src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1280&auto=format&fit=crop" 
                 alt="Render vs Realidad" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

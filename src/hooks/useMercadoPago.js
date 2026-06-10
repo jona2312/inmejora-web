@@ -11,7 +11,7 @@ export const useMercadoPago = () => {
     try {
       toast({
         title: "Procesando pago",
-        description: `Preparando redirecciÃ³n para el plan ${planName || productId}...`,
+        description: `Preparando redirección para el plan ${planName || productId}...`,
         className: "bg-[#141414] border-[#FCB048] text-white",
       });
 
@@ -43,7 +43,7 @@ export const useMercadoPago = () => {
       console.error('Error creating checkout preference:', error);
       toast({
         variant: "destructive",
-        title: "Error de conexiÃ³n",
+        title: "Error de conexión",
         description: "No se pudo conectar con Mercado Pago. Intenta nuevamente.",
       });
     } finally {

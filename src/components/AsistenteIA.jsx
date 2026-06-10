@@ -13,7 +13,7 @@ const AsistenteIA = () => {
       icon: Upload,
       title: 'Subí tus fotos y contanos tu idea',
       description: 'Cargá imágenes, medidas aproximadas y qué te gustaría cambiar o mejorar.',
-      bgImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2531&auto=format&fit=crop',
+      bgImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1080&auto=format&fit=crop',
       alt: 'Living con sillón beige y ventana, representando el espacio a reformar.'
     },
     {
@@ -21,7 +21,7 @@ const AsistenteIA = () => {
       icon: Sparkles,
       title: 'InAI arma el preproyecto',
       description: 'Nuestro asistente InAI genera propuestas y renders iniciales pensados para tu espacio.',
-      bgImage: 'https://images.unsplash.com/photo-1618221381711-42ca8ab6e908?q=80&w=2670&auto=format&fit=crop',
+      bgImage: 'https://images.unsplash.com/photo-1618221381711-42ca8ab6e908?q=80&w=1080&auto=format&fit=crop',
       alt: 'Render de diseño interior generado por IA mostrando un living moderno.'
     },
     {
@@ -29,7 +29,7 @@ const AsistenteIA = () => {
       icon: Eye,
       title: 'Revisamos las ideas con vos',
       description: 'Te mostramos las opciones en menos de 72 horas y ajustamos el diseño a tu forma de vivir.',
-      bgImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2670&auto=format&fit=crop',
+      bgImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1080&auto=format&fit=crop',
       alt: 'Equipo de diseño revisando planos y propuestas con un cliente.'
     },
     {

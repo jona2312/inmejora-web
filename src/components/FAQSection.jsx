@@ -34,6 +34,45 @@ const faqs = [
 ];
 
 const FAQItem = ({ faq, isOpen, onClick }) => {
+
+  return (
+    <div className="border border-gray-800 bg-[#141414] rounded-xl overflow-hidden mb-4 hover:border-gray-700 transition-colors duration-300">
+      <button
+        className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group"
+        onClick={onClick}
+      >
+        <span className={`font-semibold text-lg transition-colors duration-300 ${isOpen ? 'text-[hsl(var(--accent-cta))]' : 'text-gray-200 group-hover:text-white'}`}>
+          {faq.question}
+        </span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className={`flex-shrink-0 ml-4 p-1 rounded-full ${isOpen ? 'bg-[hsl(var(--accent-cta))]/20 text-[hsl(var(--accent-cta))]' : 'bg-gray-800 text-gray-400 group-hover:bg-gray-700'}`}
+        >
+          <ChevronDown className="w-5 h-5" />
+        </motion.div>
+      </button>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="px-6 pb-6 pt-2 text-gray-400 leading-relaxed border-t border-gray-800/50 mx-6">
+              {faq.answer}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
   const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -79,49 +118,7 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
       }
     }
   ]
-};
-
-  return (
-    <>
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
-    <div className="border border-gray-800 bg-[#141414] rounded-xl overflow-hidden mb-4 hover:border-gray-700 transition-colors duration-300">
-      <button
-        className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group"
-        onClick={onClick}
-      >
-        <span className={`font-semibold text-lg transition-colors duration-300 ${isOpen ? 'text-[hsl(var(--accent-cta))]' : 'text-gray-200 group-hover:text-white'}`}>
-          {faq.question}
-        </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className={`flex-shrink-0 ml-4 p-1 rounded-full ${isOpen ? 'bg-[hsl(var(--accent-cta))]/20 text-[hsl(var(--accent-cta))]' : 'bg-gray-800 text-gray-400 group-hover:bg-gray-700'}`}
-        >
-          <ChevronDown className="w-5 h-5" />
-        </motion.div>
-      </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <div className="px-6 pb-6 pt-2 text-gray-400 leading-relaxed border-t border-gray-800/50 mx-6">
-              {faq.answer}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  };
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -129,6 +126,9 @@ const FAQSection = () => {
 
   return (
     <section className="py-20 md:py-32 bg-[#0a0a0a] relative" id="faq">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
       
       <div className="container mx-auto px-4 md:px-6">
@@ -178,7 +178,6 @@ const FAQSection = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 

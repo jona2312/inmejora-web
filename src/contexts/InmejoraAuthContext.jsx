@@ -64,7 +64,7 @@ export const InmejoraAuthProvider = ({ children }) => {
       const response = await res.json();
       
       if (!res.ok) {
-        throw new Error(response.error || response.message || 'Error al iniciar sesiÃ³n');
+        throw new Error(response.error || response.message || 'Error al iniciar sesión');
       }
 
       if (response.user) {
@@ -126,15 +126,15 @@ export const InmejoraAuthProvider = ({ children }) => {
       
       throw new Error('Datos de usuario no recibidos al registrar');
     } catch (err) {
-      let errorMessage = err.message || "OcurriÃ³ un error inesperado al procesar el registro.";
+      let errorMessage = err.message || "Ocurrió un error inesperado al procesar el registro.";
       
       const lowerError = errorMessage.toLowerCase();
       if (lowerError.includes('user already exists')) {
-        errorMessage = 'Este email ya estÃ¡ registrado';
+        errorMessage = 'Este email ya está registrado';
       } else if (lowerError.includes('invalid email')) {
-        errorMessage = 'Email invÃ¡lido';
+        errorMessage = 'Email inválido';
       } else if (lowerError.includes('invalid password')) {
-        errorMessage = 'La contraseÃ±a debe tener al menos 8 caracteres';
+        errorMessage = 'La contraseña debe tener al menos 8 caracteres';
       }
 
       return { success: false, ok: false, error: errorMessage };
@@ -145,7 +145,7 @@ export const InmejoraAuthProvider = ({ children }) => {
     localStorage.removeItem('inmejora_token');
     localStorage.removeItem('inmejora_user');
     setUser(null);
-    toast({ title: "SesiÃ³n cerrada", description: "Has cerrado sesiÃ³n correctamente." });
+    toast({ title: "Sesión cerrada", description: "Has cerrado sesión correctamente." });
     window.location.href = '/login';
   };
 
