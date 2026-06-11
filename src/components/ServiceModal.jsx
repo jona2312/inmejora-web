@@ -97,16 +97,24 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Button */}
+              {/* CTA Buttons */}
               <div className="mt-6">
-                <Button
-                  onClick={handleWhatsAppClick}
-                  className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold h-12 text-lg rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.2)] hover:shadow-[0_0_30px_rgba(37,211,102,0.4)] transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <MessageCircle size={20} />
-                  Cotizar por WhatsApp
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    onClick={() => { window.location.href = '/presupuesto'; }}
+                    className="flex-1 bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold h-12 text-lg rounded-xl"
+                  >
+                    Cotizar esta reforma
+                  </Button>
+                  <Button
+                    onClick={handleWhatsAppClick}
+                    variant="outline"
+                    className="flex-1 border-green-600 text-green-500 hover:bg-green-600/10 font-bold h-12 text-lg rounded-xl"
+                  >
+                    <MessageCircle size={20} className="mr-2" />
+                    Hablar por WhatsApp
+                  </Button>
+                </div>
                 <p className="text-center text-xs text-gray-500 mt-3">
                   Si ya tenés fotos, mandalas y te respondemos con la propuesta más rápida posible.
                 </p>

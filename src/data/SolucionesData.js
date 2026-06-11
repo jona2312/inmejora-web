@@ -1,15 +1,16 @@
-import { Hammer, Wrench, Zap, Tv as Cctv, Sofa, Flower2, Sparkles, Leaf } from 'lucide-react';
+import { Hammer, Wrench, Sofa, Flower2, Sparkles, ClipboardList } from 'lucide-react';
 
 export const solucionesData = [
   {
     id: 1,
-    name: "Reformas y Obra",
+    name: "Reformas integrales",
     icon: Hammer,
-    description: "Ejecutamos tu obra con equipos especializados y dirección técnica profesional, garantizando calidad y plazos.",
+    description: "Renovación de viviendas, departamentos, oficinas y locales. Coordinamos albañilería, pintura, instalaciones y terminaciones.",
     includes: [
       "Albañilería y demoliciones",
       "Pintura y revestimientos",
       "Construcción en seco (Durlock)",
+      "Instalaciones y artefactos",
       "Refacciones integrales"
     ],
     questions: [
@@ -17,133 +18,96 @@ export const solucionesData = [
       "¿Cuántos m² aproximados son?",
       "¿En qué barrio es la obra?"
     ],
-    whatsappMessage: "Hola, me interesa cotizar una Reforma u Obra. Tengo algunas dudas sobre..."
+    whatsappMessage: "Hola INMEJORA, quiero cotizar una reforma integral. Les cuento brevemente el proyecto y coordinamos:"
   },
   {
     id: 2,
-    name: "Mantenimiento",
+    name: "Mantenimiento y reparaciones",
     icon: Wrench,
-    description: "Soluciones rápidas y efectivas para los problemas cotidianos de tu hogar o comercio.",
+    description: "Soluciones para humedad, pintura, electricidad, plomería, carpintería y arreglos generales.",
     includes: [
+      "Reparación de humedades",
       "Plomería y gas",
       "Electricidad domiciliaria",
-      "Reparación de humedades",
-      "Arreglos generales"
+      "Carpintería y arreglos generales"
     ],
     questions: [
       "¿Qué necesitás reparar?",
       "¿Es urgente?",
       "¿Tenés fotos del problema?"
     ],
-    whatsappMessage: "Hola, necesito un servicio de Mantenimiento. El problema es..."
+    whatsappMessage: "Hola INMEJORA, necesito mantenimiento o una reparación. El problema es:"
   },
   {
     id: 3,
-    name: "Instalaciones",
-    icon: Zap,
-    description: "Instalación profesional de artefactos y equipos con garantía de funcionamiento seguro.",
-    includes: [
-      "Aires Acondicionados",
-      "Estufas y calefacción",
-      "Luminarias y ventiladores",
-      "Artefactos sanitarios"
-    ],
-    questions: [
-      "¿Qué equipo necesitás instalar?",
-      "¿Ya tenés el equipo comprado?",
-      "¿Hay instalación previa?"
-    ],
-    whatsappMessage: "Hola, quisiera cotizar una Instalación. Se trata de..."
-  },
-  {
-    id: 4,
-    name: "Cámaras y Electrónica",
-    icon: Cctv,
-    description: "Sistemas de seguridad y tecnología para proteger y modernizar tu espacio.",
-    includes: [
-      "Cámaras de seguridad (CCTV)",
-      "Alarmas monitoreadas",
-      "Porteros eléctricos",
-      "Automatización (Domótica)"
-    ],
-    questions: [
-      "¿Qué sistema te interesa?",
-      "¿Es para casa, edificio o local?",
-      "¿Cuántos puntos/cámaras estimás?"
-    ],
-    whatsappMessage: "Hola, me interesa saber más sobre Cámaras y sistemas de seguridad..."
-  },
-  {
-    id: 5,
-    name: "Diseño de Interiores",
+    name: "Diseño de interiores",
     icon: Sofa,
-    description: "Proyectos de interiorismo que fusionan estética y funcionalidad para potenciar tu calidad de vida.",
+    description: "Distribución, colores, iluminación, materiales, mobiliario y visualización previa del resultado.",
     includes: [
-      "Diseño de mobiliario a medida",
-      "Elección de paletas y texturas",
-      "Optimización de espacios",
-      "Planos técnicos y dirección"
+      "Distribución y optimización de espacios",
+      "Paletas de color y materiales",
+      "Iluminación y mobiliario",
+      "Visualización previa del resultado"
     ],
     questions: [
       "¿Qué ambiente querés renovar?",
       "¿Buscás proyecto o ejecución?",
       "¿Cuál es tu estilo preferido?"
     ],
-    whatsappMessage: "Hola, quiero consultar por un proyecto de Diseño de Interiores..."
+    whatsappMessage: "Hola INMEJORA, quiero consultar por un proyecto de diseño de interiores para:"
   },
   {
-    id: 6,
-    name: "Diseño de Exteriores",
+    id: 4,
+    name: "Exteriores y paisajismo",
     icon: Flower2,
-    description: "Transformamos patios, terrazas y jardines en espacios de disfrute y conexión con la naturaleza.",
+    description: "Patios, jardines, decks, pérgolas, iluminación exterior, riego y mantenimiento.",
     includes: [
       "Paisajismo y jardinería",
-      "Piletas y solariums",
+      "Decks y pérgolas",
       "Iluminación exterior",
-      "Pérgolas y decks"
+      "Sistemas de riego y mantenimiento"
     ],
     questions: [
       "¿Qué espacio exterior tenés?",
       "¿M² aproximados?",
       "¿Qué uso le querés dar?"
     ],
-    whatsappMessage: "Hola, me gustaría cotizar un Diseño de Exterior / Paisajismo..."
+    whatsappMessage: "Hola INMEJORA, quiero cotizar un trabajo de exteriores o paisajismo. El espacio es:"
   },
   {
-    id: 7,
+    id: 5,
     name: "Visualización con IA",
     icon: Sparkles,
-    description: "Visualizá el potencial de tu espacio en segundos con nuestra tecnología de Inteligencia Artificial.",
+    description: "Probá colores, materiales, muebles y estilos antes de comenzar la obra.",
     includes: [
-      "Renders hiperrealistas rápidos",
-      "Variaciones de estilo instantáneas",
+      "Renders a partir de fotos de tu espacio",
+      "Variaciones de estilo y materiales",
       "Pre-visualización de reformas",
-      "Costo accesible y entrega rápida"
+      "Apoyo para decidir antes de invertir"
     ],
     questions: [
       "¿Tenés foto del ambiente actual?",
       "¿Qué estilo te gustaría probar?",
-      "¿Qué uso tiene la habitación?"
+      "¿Qué uso tiene el ambiente?"
     ],
-    whatsappMessage: "Hola, quiero probar el servicio de Visualización con IA para mi espacio...",
-    extraNote: "Ideal para decidir antes de invertir."
+    whatsappMessage: "Hola INMEJORA, quiero probar la visualización con IA para mi espacio:"
   },
   {
-    id: 8,
-    name: "Parquización y Riego",
-    icon: Leaf,
-    description: "Dejamos tu jardín prolijo y funcional: césped, riego y mantenimiento.",
+    id: 6,
+    name: "Proyecto y presupuesto",
+    icon: ClipboardList,
+    description: "Relevamiento, definición de alcance, planificación por etapas y cotización personalizada.",
     includes: [
-      "Corte de pasto",
-      "Plantación de césped",
-      "Sistema de riego",
-      "Puesta a punto y mantenimiento"
+      "Relevamiento del espacio",
+      "Definición de alcance",
+      "Planificación por etapas",
+      "Cotización personalizada por escrito"
     ],
     questions: [
-      "¿Metros aprox?",
-      "¿Tenés riego hoy?",
-      "¿Zona? ¿Barrio?"
+      "¿Qué querés hacer en tu espacio?",
+      "¿Cuántos m² aproximados son?",
+      "¿En qué zona está el inmueble?"
     ],
-    whatsappMessage: "Hola INMEJORA, quiero parquización/riego. Zona: __. Metros aprox: __. Tengo riego actual: sí/no. Te envío fotos."
+    whatsappMessage: "Hola INMEJORA, quiero avanzar con un proyecto y necesito una cotización personalizada para:"
   }
 ];

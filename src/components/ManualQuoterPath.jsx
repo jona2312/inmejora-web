@@ -114,10 +114,10 @@ const ManualQuoterPath = ({
 
   const hasSelectedServices = Object.keys(selectedServices).length > 0;
 
-  const handleViewFullBudget = () => {
+  const handleSolicitarCotizacion = () => {
     if (!hasSelectedServices) return;
 
-    // Log usage
+    // Log usage (interno, no visible al cliente)
     const serviceIds = Object.values(selectedServices).map(s => s.data.id);
     logQuotationUsage(
       selectedZone === 'Buenos Aires/AMBA' ? 1 : selectedZone === 'Córdoba' ? 2 : 3,
@@ -125,8 +125,14 @@ const ManualQuoterPath = ({
       budget.total
     );
 
-    // Show paywall
-    onShowPaywall();
+    // Mensaje de relevamiento sin montos
+    const detalle = Object.values(selectedServices)
+      .map(s => `• ${s.data.servicio}: ${s.m2} ${s.data.unidad || 'm²'}`)
+      .join('\n');
+    const mensaje = encodeURIComponent(
+      `Hola INMEJORA, quiero una cotización personalizada.\nZona: ${selectedZone}\nTrabajos:\n${detalle}\n¿Me contactan para coordinar?`
+    );
+    window.open(`https://wa.me/5491139066429?text=${mensaje}`, '_blank');
   };
 
   return (
@@ -219,14 +225,7 @@ const ManualQuoterPath = ({
                                 </div>
                               )}
 
-                              {/* Subtotal */}
-                              {isSelected && (
-                                <div className="text-right min-w-[120px]">
-                                  <span className="text-gray-400 text-sm">
-                                    {formatCurrency(subtotal)}
-                                  </span>
-                                </div>
-                              )}
+                              {/* Subtotal oculto: la cotización es personalizada */}
                             </div>
                           </div>
                         );
@@ -254,7 +253,7 @@ const ManualQuoterPath = ({
         <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6 lg:sticky lg:top-24">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <FileText className="text-[#d4af37] w-5 h-5" />
-            Resumen de Presupuesto
+            Resumen de tu proyecto
           </h2>
 
           {!hasSelectedServices ? (
@@ -263,7 +262,7 @@ const ManualQuoterPath = ({
                 <FileText className="w-8 h-8 text-[#d4af37]/30" />
               </div>
               <p className="text-gray-500 text-sm">
-                Seleccioná servicios para ver el presupuesto
+                Seleccioná los trabajos que querés cotizar
               </p>
             </div>
           ) : (
@@ -281,59 +280,31 @@ const ManualQuoterPath = ({
                           {service.m2} {service.data.unidad}
                         </p>
                       </div>
-                      <p className="text-gray-400 text-sm whitespace-nowrap">
-                        {formatCurrency(calculateSubtotal(service))}
-                      </p>
+                      {/* monto oculto: cotización personalizada */}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Budget Breakdown */}
-              <div className="border-t border-[#2a2a2a] pt-4 space-y-3">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Subtotal Base</span>
-                  <span className="text-white font-medium">
-                    {formatCurrency(budget.subtotal)}
-                  </span>
-                </div>
-
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Buffer Imprevistos (35%)</span>
-                  <span className="text-white font-medium">
-                    {formatCurrency(budget.buffer)}
-                  </span>
-                </div>
-
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">IVA (21%)</span>
-                  <span className="text-white font-medium">
-                    {formatCurrency(budget.iva)}
-                  </span>
-                </div>
-
-                <div className="border-t border-[#2a2a2a] pt-3 mt-3">
-                  <div className="flex justify-between">
-                    <span className="text-white font-bold text-lg">TOTAL AL CLIENTE</span>
-                    <span className="text-[#d4af37] font-black text-xl">
-                      {formatCurrency(budget.total)}
-                    </span>
-                  </div>
-                </div>
+              {/* Desglose monetario oculto: la cotización es personalizada */}
+              <div className="border-t border-[#2a2a2a] pt-4">
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  Con esta información, INMEJORA prepara una <span className="text-[#d4af37] font-semibold">cotización personalizada</span> según superficie, materiales, estado del inmueble y alcance del trabajo.
+                </p>
               </div>
 
               {/* Zone Note */}
               <div className="text-xs text-gray-500 text-center">
-                Zona: {selectedZone} (coef. {zonaCoeficiente})
+                Zona: {selectedZone}
               </div>
 
               {/* View Full Budget Button */}
               <Button
-                onClick={handleViewFullBudget}
+                onClick={handleSolicitarCotizacion}
                 className="w-full bg-[#d4af37] hover:bg-[#b5952f] text-black font-bold py-6 rounded-xl text-lg shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] transition-all"
               >
                 <FileText className="w-5 h-5 mr-2" />
-                Ver Presupuesto Completo
+                Solicitar cotización personalizada
               </Button>
             </div>
           )}

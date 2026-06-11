@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Send, Sparkles, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { calculateServiceTotal, formatCurrency } from '@/utils/CalculationEngine';
+import { calculateServiceTotal } from '@/utils/CalculationEngine';
 import { logQuotationUsage } from '@/utils/UsageLogger';
 
 const AIAssistantPath = ({ 
@@ -148,17 +148,13 @@ const AIAssistantPath = ({
     );
 
     setTimeout(() => {
-      const breakdown = `📊 **Presupuesto Calculado**\n\n` +
+      const resumen = `✅ **Recibimos la información de tu proyecto.**\n\n` +
         `🏗️ Servicio: ${selectedService.servicio}\n` +
         `📐 Superficie: ${m2} m²\n` +
         `📍 Zona: ${selectedZone}\n\n` +
-        `💰 **Desglose de costos:**\n\n` +
-        `• Mano de obra base: ${formatCurrency(result.precio_base)}\n` +
-        `• Buffer imprevistos (35%): ${formatCurrency(result.buffer)}\n` +
-        `• IVA (21%): ${formatCurrency(result.iva)}\n\n` +
-        `✨ **TOTAL ESTIMADO: ${formatCurrency(result.total)}**`;
+        `INMEJORA preparará una cotización personalizada según superficie, materiales, estado del inmueble y alcance del trabajo.`;
 
-      addAssistantMessage(breakdown);
+      addAssistantMessage(resumen);
 
       // Log usage
       logQuotationUsage(
@@ -189,8 +185,17 @@ const AIAssistantPath = ({
     addAssistantMessage('¿Qué otro servicio querés cotizar?');
   };
 
-  const handleSaveBudget = () => {
-    onShowPaywall();
+  // handleSaveBudget (paywall) desactivado en el flujo público sin montos
+  // const handleSaveBudget = () => { onShowPaywall(); };
+
+  const handleSolicitarCotizacion = () => {
+    const detalle = quotedServices
+      .map(q => `• ${q.service.servicio}: ${q.m2} m²`)
+      .join('\n');
+    const mensaje = encodeURIComponent(
+      `Hola INMEJORA, quiero una cotización personalizada.\nZona: ${selectedZone}\nTrabajos:\n${detalle}\n¿Me contactan para coordinar?`
+    );
+    window.open(`https://wa.me/5491139066429?text=${mensaje}`, '_blank');
   };
 
   const groupedServices = services.reduce((acc, service) => {
@@ -282,10 +287,10 @@ const AIAssistantPath = ({
             className="flex flex-col sm:flex-row gap-3"
           >
             <Button
-              onClick={handleSaveBudget}
+              onClick={handleSolicitarCotizacion}
               className="bg-[#d4af37] hover:bg-[#b5952f] text-black font-bold"
             >
-              Guardar este presupuesto
+              Solicitar cotización personalizada
             </Button>
 
             <Button
@@ -342,7 +347,7 @@ const AIAssistantPath = ({
                   onClick={handleM2Submit}
                   className="bg-[#d4af37] hover:bg-[#b5952f] text-black"
                 >
-                  Calcular
+                  Enviar
                 </Button>
               </>
             )}

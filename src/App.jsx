@@ -24,7 +24,7 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import ProtectedAdminRoute from '@/components/admin/ProtectedAdminRoute';
 import OfflineBanner from '@/components/OfflineBanner';
 import ContactModal from '@/components/ContactModal';
-import ScrollTriggerRegistrationModal from '@/components/ScrollTriggerRegistrationModal';
+// import ScrollTriggerRegistrationModal from '@/components/ScrollTriggerRegistrationModal'; // popup automático desactivado
 import SupplierProtectedRoute from '@/components/SupplierProtectedRoute';
 import CookieBanner from '@/components/CookieBanner';
 
@@ -235,7 +235,7 @@ function App() {
                           <ScrollToTop />
                           <AppContent />
                           
-                          <ScrollTriggerRegistrationModal />
+                          {/* <ScrollTriggerRegistrationModal /> */}{/* popup automático desactivado; RegistrationSection estática se mantiene */}
                           <Toaster />
                           <SonnerToaster theme="dark" />
                           <WhatsAppButton />

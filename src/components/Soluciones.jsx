@@ -30,7 +30,7 @@ const Soluciones = () => {
               Soluciones Integrales
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              Explorá nuestros servicios y cotizá al instante. Desde pequeñas reparaciones hasta grandes reformas.
+              Explorá nuestros servicios y pedí tu cotización personalizada. Desde pequeñas reparaciones hasta grandes reformas.
             </p>
           </div>
         </ScrollAnimationWrapper>

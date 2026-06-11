@@ -19,10 +19,11 @@ const TransformacionesReales = lazy(() => import('@/components/TransformacionesR
 const Visualizacion = lazy(() => import('@/components/Visualizacion.jsx'));
 const AsistenteIA = lazy(() => import('@/components/AsistenteIA.jsx'));
 // const UrgencyCTA = lazy(() => import('@/components/UrgencyCTA.jsx')); // oculto temporalmente de la home
-const Aliados = lazy(() => import('@/components/Aliados.jsx'));
+// const Aliados = lazy(() => import('@/components/Aliados.jsx')); // oculto: autorización de marcas pendiente
 const ProveedoresCTA = lazy(() => import('@/components/ProveedoresCTA.jsx'));
 const WhyInmejora = lazy(() => import('@/components/WhyInmejora.jsx'));
-const TestimonialsSection = lazy(() => import('@/components/TestimonialsSection.jsx'));
+const ProcesoIntegral = lazy(() => import('@/components/ProcesoIntegral.jsx'));
+// const TestimonialsSection = lazy(() => import('@/components/TestimonialsSection.jsx')); // oculto: testimonios sin verificación
 const FAQSection = lazy(() => import('@/components/FAQSection.jsx'));
 
 const LandingPage = () => {
@@ -83,8 +84,9 @@ const LandingPage = () => {
                 </div>
             </div>
             
-            {/* Testimonials added after Soluciones */}
-            <TestimonialsSection />
+            {/* TestimonialsSection oculta temporalmente (testimonios no verificables) */}
+            {/* <TestimonialsSection /> */}
+            <ProcesoIntegral />
             
             <Visualizacion />
             
@@ -96,7 +98,7 @@ const LandingPage = () => {
             {/* <UrgencyCTA /> */}
             
             <RegistrationSection />
-            <Aliados />
+            {/* <Aliados /> */}{/* oculto: autorización de marcas pendiente */}
             <ProveedoresCTA />
             <WhyInmejora />
             

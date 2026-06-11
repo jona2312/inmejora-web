@@ -16,8 +16,8 @@ const WhyInmejora = () => {
     },
     {
       icon: Calculator,
-      title: "Presupuestos con precios reales",
-      description: "Cotizamos tu reforma basándonos en costos y variables actualizadas del mercado argentino, dándote un panorama claro antes de empezar."
+      title: "Presupuestos personalizados",
+      description: "Cotizamos tu reforma según superficie, materiales, estado del inmueble y alcance del trabajo, con seguimiento de nuestro equipo."
     },
     {
       icon: Palette,
@@ -79,7 +79,7 @@ const WhyInmejora = () => {
             ¿Por qué INMEJORA es diferente?
           </h2>
           <p className="text-[#d4af37] text-lg md:text-xl font-medium">
-            La única plataforma de IA diseñada exclusivamente para tu hogar
+            Una plataforma de IA pensada para tu hogar
           </p>
         </motion.div>
 
@@ -104,7 +104,8 @@ const WhyInmejora = () => {
         </div>
 
         {/* Comparison Table */}
-        <motion.div
+        {false && /* Tabla comparativa oculta: comparaciones absolutas sin respaldo */ (
+<motion.div
           initial={{ opacity: 1, y: 0 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -153,6 +154,7 @@ const WhyInmejora = () => {
             </div>
           </div>
         </motion.div>
+)}
       </div>
     </section>
   );

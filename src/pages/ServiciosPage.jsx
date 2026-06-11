@@ -63,6 +63,8 @@ const ServiciosPage = () => {
     return SERVICE_ICONS.default;
   };
 
+  // formatPrice ya no se usa públicamente (precios ocultos); se conserva por si se reactiva
+  // eslint-disable-next-line no-unused-vars
   const formatPrice = (price) => {
     if (!price) return 'Consultar';
     return new Intl.NumberFormat('es-AR', {
@@ -169,7 +171,9 @@ const ServiciosPage = () => {
                     {/* Category Badge */}
                     {service.categoria && (
                       <span className="inline-block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                        {service.categoria}
+                        {/^c(á|a)maras/i.test(service.categoria) || /electr(ó|o)nica/i.test(service.categoria)
+                          ? 'Instalaciones especiales y seguridad'
+                          : service.categoria}
                       </span>
                     )}
 
@@ -187,24 +191,19 @@ const ServiciosPage = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-gray-800">
                       <div>
                         <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
-                          Precio referencial
+                          Presupuesto
                         </p>
-                        <p className="text-xl font-bold text-[#D4AF37]">
-                          {formatPrice(service.precio_unitario)}
-                          {service.unidad && (
-                            <span className="text-sm text-gray-400 ml-1">
-                              / {service.unidad}
-                            </span>
-                          )}
+                        <p className="text-base font-bold text-[#D4AF37]">
+                          Cotización personalizada
                         </p>
                       </div>
-                      
-                      <Link to="/cotizador">
+
+                      <Link to="/presupuesto">
                         <Button
                           size="sm"
                           className="bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all group-hover:shadow-lg group-hover:shadow-[#D4AF37]/20"
                         >
-                          Cotizar
+                          Solicitar presupuesto
                           <ArrowRight className="w-4 h-4 ml-1" />
                         </Button>
                       </Link>

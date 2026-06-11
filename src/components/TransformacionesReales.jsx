@@ -84,6 +84,11 @@ const BeforeAfterCard = ({ transformation }) => {
         </div>
       </div>
 
+      {/* Etiqueta de transparencia: imagen no presentada como obra real */}
+      <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-gray-300 text-[10px] font-medium px-2 py-0.5 rounded-full z-10 pointer-events-none border border-white/10">
+        Visualización conceptual
+      </div>
+
       {/* Slider Handle */}
       <div
         className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
@@ -101,12 +106,8 @@ const BeforeAfterCard = ({ transformation }) => {
 const TransformacionesReales = () => {
   const navigate = useNavigate();
 
-  const stats = [
-    { label: 'Renders generados', value: '1.100+' },
-    { label: 'Clientes satisfechos', value: '300+' },
-    { label: 'Tiempo promedio', value: '30s' },
-    { label: 'Calificación', value: '★ 4.9' }
-  ];
+  // Stats ocultas temporalmente hasta contar con cifras verificables
+  // const stats = [ '1.100+ renders', '300+ clientes', '30s', '★ 4.9' ];
 
   const differentiators = [
     {
@@ -137,32 +138,17 @@ const TransformacionesReales = () => {
           className="text-center mb-16"
         >
           <div className="inline-block bg-[#c9a84c]/20 text-[#c9a84c] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-6 border border-[#c9a84c]/30">
-            PORTFOLIO
+            SIMULACIONES DE REFORMA
           </div>
           <h2 className="text-responsive-xl font-black text-white mb-6">
-            Transformaciones Reales
+            Visualizá el cambio
           </h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
-            Más de 300 clientes confiaron en nosotros para transformar sus espacios. Mirá algunos de nuestros trabajos y pedí tu cotización personalizada.
+            Así podría quedar tu espacio. Deslizá para comparar y pedí tu cotización personalizada.
           </p>
         </motion.div>
 
-        {/* Stats Row */}
-        <motion.div
-          initial={{ opacity: 1, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
-        >
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <p className="text-3xl md:text-4xl font-black text-[#c9a84c] mb-2">
-                {stat.value}
-              </p>
-              <p className="text-sm text-gray-400">{stat.label}</p>
-            </div>
-          ))}
-        </motion.div>
+        {/* Stats Row oculta temporalmente: cifras sin respaldo verificable */}
 
         {/* Hero CTA Card */}
         <motion.div
