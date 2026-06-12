@@ -244,12 +244,13 @@ const TransformacionesReales = () => {
           className="text-center"
         >
           <Button
-            onClick={() => window.open('https://www.instagram.com/inmejora.ar', '_blank')}
+            onClick={() => window.open('https://www.instagram.com/in_mejora/', '_blank', 'noopener,noreferrer')}
+            aria-label="Instagram de INMEJORA"
             className="gradient-instagram text-white font-bold py-6 px-8 rounded-xl text-lg shadow-[0_0_30px_rgba(131,58,180,0.5)] hover:shadow-[0_0_50px_rgba(131,58,180,0.7)] transition-all"
           >
             📸 Ver más en Instagram
           </Button>
-          <p className="text-gray-400 mt-4">@inmejora.ar</p>
+          <p className="text-gray-400 mt-4">@in_mejora</p>
         </motion.div>
       </div>
     </section>

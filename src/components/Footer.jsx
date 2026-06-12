@@ -25,10 +25,10 @@ const Footer = () => {
             </p>
             <div className="flex gap-4 justify-center md:justify-start">
               <a
-                href="https://www.instagram.com/inmejora.ar"
+                href="https://www.instagram.com/in_mejora/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Instagram de INMEJORA"
                 className="w-10 h-10 bg-[#1a1a1a] rounded-lg flex items-center justify-center transition-all duration-300 group border border-white/10 hover:border-[#d4af37] hover:bg-[#d4af37]"
               >
                 <Instagram className="text-gray-400 group-hover:text-black transition-colors w-5 h-5" />
