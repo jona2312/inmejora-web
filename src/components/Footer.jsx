@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react'; // Facebook oculto: perfil sin confirmar
 import { handleMiProyecto } from '@/utils/whatsappUtils';
 
 const Footer = () => {
@@ -33,6 +33,7 @@ const Footer = () => {
               >
                 <Instagram className="text-gray-400 group-hover:text-black transition-colors w-5 h-5" />
               </a>
+{/* Facebook oculto temporalmente: perfil sin confirmar bajo control de INMEJORA
               <a
                 href="https://facebook.com/inmejora"
                 target="_blank"
@@ -42,6 +43,7 @@ const Footer = () => {
               >
                 <Facebook className="text-gray-400 group-hover:text-black transition-colors w-5 h-5" />
               </a>
+              */}
             </div>
           </div>
 
