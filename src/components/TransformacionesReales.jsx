@@ -54,7 +54,7 @@ const BeforeAfterCard = ({ transformation }) => {
       {/* After Image */}
       <img
         src={transformation.afterImage}
-        alt={`${transformation.roomType} Después`}
+        alt={`Simulación ${transformation.roomType} Después — Visualización conceptual`}
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
         draggable="false"
@@ -72,7 +72,7 @@ const BeforeAfterCard = ({ transformation }) => {
       >
         <img
           src={transformation.beforeImage}
-          alt={`${transformation.roomType} Antes`}
+          alt={`Simulación ${transformation.roomType} Antes — Visualización conceptual`}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
           draggable="false"

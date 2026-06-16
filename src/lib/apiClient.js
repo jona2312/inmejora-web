@@ -1,5 +1,5 @@
 // File updated to remove external hardcoded domains
-const BASE_URL = import.meta.env.VITE_API_URL || '';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
 const handleResponse = async (response) => {
   if (!response.ok) {

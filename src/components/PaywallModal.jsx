@@ -23,8 +23,8 @@ const PaywallModal = ({ isOpen, onClose, currentPlan = 'free' }) => {
     },
     {
       name: 'BÁSICO',
-      price: '$4.999',
-      period: '/mes',
+      price: 'Consultar',
+      period: '',
       features: [
         '3 cotizaciones/mes',
         '3 ítems por cotización',
@@ -36,8 +36,8 @@ const PaywallModal = ({ isOpen, onClose, currentPlan = 'free' }) => {
     },
     {
       name: 'PRO',
-      price: '$9.999',
-      period: '/mes',
+      price: 'Consultar',
+      period: '',
       features: [
         'Cotizaciones ilimitadas',
         'Ítems ilimitados',

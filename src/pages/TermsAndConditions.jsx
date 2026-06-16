@@ -22,7 +22,7 @@ const TermsAndConditions = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-gold-light via-yellow-500 to-gold-light bg-clip-text text-transparent">Términos y Condiciones</h1>
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
             <p>Última actualización: 27 de Noviembre de 2025</p>
-            <p>Bienvenido a INMEJORA. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de INMEJORA, ubicado en [URL del sitio web]. Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones. No continúes usando INMEJORA si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.</p>
+            <p>Bienvenido a INMEJORA. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de INMEJORA, ubicado en https://inmejora.com. Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones. No continúes usando INMEJORA si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.</p>
             
             <h2 className="text-2xl font-semibold text-foreground !mt-12 !mb-4">1. Licencia</h2>
             <p>A menos que se indique lo contrario, INMEJORA y/o sus licenciantes son propietarios de los derechos de propiedad intelectual de todo el material en INMEJORA. Todos los derechos de propiedad intelectual están reservados. Puedes acceder a esto desde INMEJORA para tu propio uso personal sujeto a las restricciones establecidas en estos términos y condiciones.</p>

@@ -10,10 +10,10 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] flex flex-col">
       <Helmet>
-        <title>Planes y Precios | INMEJORA - Desde $15.000/mes</title>
-        <meta name="description" content="Plan Básico desde $15.000/mes y Plan Pro desde $22.000/mes. Renders con IA, cotizador de reformas y asesoramiento para tu hogar en Argentina." />
-        <meta property="og:title" content="Planes y Precios | INMEJORA - Desde $15.000/mes" />
-        <meta property="og:description" content="Plan Básico desde $15.000/mes y Plan Pro desde $22.000/mes. Renders con IA, cotizador de reformas y asesoramiento para tu hogar en Argentina." />
+        <title>Planes y Precios | INMEJORA - Elegí el plan adecuado para tu uso</title>
+        <meta name="description" content="Renders con IA, cotizador de reformas y asesoramiento personalizado para tu hogar en Argentina. Planes en actualización — consultá disponibilidad." />
+        <meta property="og:title" content="Planes y Precios | INMEJORA - Elegí el plan adecuado para tu uso" />
+        <meta property="og:description" content="Renders con IA, cotizador de reformas y asesoramiento personalizado para tu hogar en Argentina. Planes en actualización — consultá disponibilidad." />
         <meta property="og:url" content="https://inmejora.com/precios" />
         <link rel="canonical" href="https://inmejora.com/precios" />
       </Helmet>

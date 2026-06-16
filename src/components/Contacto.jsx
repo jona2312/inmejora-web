@@ -55,8 +55,8 @@ const Contacto = () => {
                         <div>
                             <h4 className="font-semibold text-white">Email</h4>
                             <p className="text-sm text-gray-400 mb-1">Consultas generales</p>
-                            <a href="mailto:info@inmejora.com" className="text-[#D4AF37] hover:underline font-medium">
-                                info@inmejora.com
+                            <a href="mailto:hola@inmejora.com" className="text-[#D4AF37] hover:underline font-medium">
+                                hola@inmejora.com
                             </a>
                         </div>
                     </div>

@@ -24,7 +24,7 @@ const PlanManagementPage = () => {
   const isPremium = user?.plan_id?.includes('pro') || false;
   const currentPlan = isPremium ? {
     name: "Pro Mensual",
-    price: "$12.500 ARS",
+    price: "Planes en actualización",
     period: "Mensual",
     nextBilling: "15 de Abril, 2026",
     autoRenew: true,
