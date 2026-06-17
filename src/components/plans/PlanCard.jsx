@@ -38,7 +38,7 @@ const PlanCard = ({ plan, isCurrentPlan, onSelect, loading }) => {
         }`}
       >
         {loading ? <Loader2 className="w-6 h-6 animate-spin mr-2" /> : null}
-        {isCurrentPlan && !loading ? 'Plan Actual' : (loading ? 'Procesando...' : 'Comprar Ahora')}
+        {isCurrentPlan && !loading ? 'Plan Actual' : (loading ? 'Procesando...' : 'Consultar disponibilidad')}
       </Button>
     </div>
   );

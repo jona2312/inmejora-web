@@ -41,9 +41,6 @@ const PricingPlans = () => {
           </button>
           <span className={`text-sm font-medium transition-colors flex items-center gap-2 ${isAnnual ? 'text-white' : 'text-gray-500'}`}>
             Anual
-            <span className="bg-green-500/20 text-green-400 text-[10px] px-2 py-0.5 rounded-full border border-green-500/30">
-              Ahorra 14%
-            </span>
           </span>
         </div>
       </div>

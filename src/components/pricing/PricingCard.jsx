@@ -9,6 +9,9 @@ import { useAuth } from '@/contexts/InmejoraAuthContext';
 import { trackPricingInquiry } from '@/utils/supabaseUtils';
 import { useToast } from '@/components/ui/use-toast';
 
+// Contención temporal: planes en actualización. Cambiar a true para reactivar compras.
+const PLANES_ACTIVOS = false;
+
 const PricingCard = ({ plan, isCurrentPlan, isAnnual }) => {
   const safePlan = plan || {};
   const { isAuthenticated } = useAuth();
@@ -33,13 +36,19 @@ const PricingCard = ({ plan, isCurrentPlan, isAnnual }) => {
   const handleAction = () => {
     if (isCurrentPlan || isMiProyecto) return;
 
-    if (!isAuthenticated) {
-      setShowInquiryModal(true);
+    if (isFree) {
+      navigate('/portal');
       return;
     }
 
-    if (isFree) {
-      navigate('/portal');
+    // Contención temporal: redirigir a contacto en lugar de iniciar pago
+    if (!PLANES_ACTIVOS) {
+      navigate('/contacto');
+      return;
+    }
+
+    if (!isAuthenticated) {
+      setShowInquiryModal(true);
       return;
     }
 
@@ -134,7 +143,7 @@ const PricingCard = ({ plan, isCurrentPlan, isAnnual }) => {
           
           <div className="flex items-baseline gap-1">
             <span className="text-4xl font-black text-white drop-shadow-sm">
-              {displayPrice !== "0" && displayPrice !== "A Medida" ? "$" : ""}
+              {displayPrice !== "0" && displayPrice !== "A Medida" && displayPrice !== "Consultar" ? "$" : ""}
               {displayPrice}
             </span>
           </div>

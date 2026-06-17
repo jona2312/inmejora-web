@@ -16,45 +16,45 @@ const PlansPage = () => {
   const { currentPlan, loading: currentPlanLoading } = useCurrentPlan();
   const { handleSubscribe, loadingProductId } = useMercadoPagoCheckout();
 
-  // Correct product IDs mapped here matching backend expectations
+  // Precios ocultos temporalmente — planes en actualización
   const plansData = [
     {
       id: 'basico_mensual',
       name: 'Plan Básico',
       description: 'Ideal para empezar a explorar tus espacios y generar renders básicos.',
-      priceString: '$15.000 ARS',
-      billingPeriod: 'por mes',
+      priceString: 'Consultar disponibilidad',
+      billingPeriod: '',
       features: ['3 análisis de ambiente con IA', 'Acceso a galería', 'Soporte básico'],
     },
     {
       id: 'pro_monthly',
       name: 'Pro Mensual',
       description: 'Para quienes buscan resultados profesionales y de alta calidad.',
-      priceString: '$22.000 ARS',
-      billingPeriod: 'por mes',
+      priceString: 'Consultar disponibilidad',
+      billingPeriod: '',
       features: ['5 renders de alta calidad/mes', 'Generación prioritaria', 'Soporte WhatsApp', 'Descargas 4K'],
     },
     {
       id: 'pro_annual',
       name: 'Pro Anual',
       description: 'La opción inteligente para uso continuo de las herramientas.',
-      priceString: '$168.000 ARS',
-      billingPeriod: 'por año',
+      priceString: 'Consultar disponibilidad',
+      billingPeriod: '',
       features: ['Todo lo de Pro Mensual', '2 meses bonificados', 'Acceso anticipado a funciones'],
     },
     {
       id: 'mi_proyecto',
       name: 'Mi Proyecto',
       description: 'Solución integral para reformar un espacio completo a medida.',
-      priceString: '$353.000 ARS',
-      billingPeriod: 'pago único',
+      priceString: 'Consultar disponibilidad',
+      billingPeriod: '',
       features: ['Renders ilimitados por proyecto', 'Asesor dedicado', 'Planos técnicos', 'Lista de compras'],
     }
   ];
 
   const handleSelectPlan = (plan) => {
-    // Passes the exact plan id to the checkout handler
-    handleSubscribe(plan.id);
+    // Contención temporal: planes en actualización — redirigir a contacto
+    navigate('/contacto');
   };
 
   return (
@@ -91,6 +91,13 @@ const PlansPage = () => {
                    Elige el plan que mejor se adapte a tus necesidades y comienza a transformar tus espacios.
                 </p>
             </motion.div>
+        </div>
+
+        {/* Aviso temporal — planes en actualización */}
+        <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mb-8 text-center">
+          <p className="text-amber-400 text-sm font-medium">
+            Estamos actualizando nuestros planes. Contactanos para conocer la opción adecuada para tu uso.
+          </p>
         </div>
 
         {/* Plans Grid */}

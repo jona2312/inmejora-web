@@ -103,7 +103,7 @@ const PaywallModal = ({ isOpen, onClose, currentPlan = 'free' }) => {
 
               {/* Description */}
               <p className="text-gray-400 text-center mb-10 text-lg max-w-2xl mx-auto">
-                Activá un plan pago para continuar cotizando y acceder a funciones avanzadas
+                Consultá nuestros planes disponibles para continuar cotizando y acceder a funciones avanzadas
               </p>
 
               {/* Plans Grid */}
@@ -157,7 +157,7 @@ const PaywallModal = ({ isOpen, onClose, currentPlan = 'free' }) => {
                   onClick={handleActivatePro}
                   className="bg-[#d4af37] hover:bg-[#b5952f] text-black font-bold py-6 px-8 rounded-xl text-lg shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] transition-all"
                 >
-                  Activar Plan Pro
+                  Consultar disponibilidad
                 </Button>
 
                 <Button

@@ -21,8 +21,9 @@ export const pricingPlans = [
   {
     id: 'basico',
     name: 'Básico',
-    price: { monthly: '15.000', annual: '150.000' },
-    period: { monthly: '/mes', annual: '/año' },
+    // Precios ocultos temporalmente — planes en actualización
+    price: 'Consultar',
+    period: '',
     renders: '10',
     description: 'Ideal para proyectos de redecoración de una habitación pequeña.',
     features: [
@@ -32,7 +33,7 @@ export const pricingPlans = [
       'Todos los estilos de diseño',
       'Soporte por email'
     ],
-    buttonText: 'Comprar Ahora',
+    buttonText: 'Consultar disponibilidad',
     color: '#fff',
     productId: { monthly: 'basico_mensual', annual: 'basico_anual' },
     type: 'paid'
@@ -40,8 +41,9 @@ export const pricingPlans = [
   {
     id: 'pro',
     name: 'Pro',
-    price: { monthly: '22.000', annual: '220.000' },
-    period: { monthly: '/mes', annual: '/año' },
+    // Precios ocultos temporalmente — planes en actualización
+    price: 'Consultar',
+    period: '',
     renders: '40',
     description: 'Para profesionales y personas reformando toda su casa.',
     badge: 'Más Popular',
@@ -54,7 +56,7 @@ export const pricingPlans = [
       'Soporte prioritario'
     ],
     exclusiveFeatures: ['Alta resolución Premium', 'Opciones avanzadas (luces, texturas)'],
-    buttonText: 'Comprar Ahora',
+    buttonText: 'Consultar disponibilidad',
     color: '#d4af37',
     productId: { monthly: 'pro_mensual', annual: 'pro_anual' },
     type: 'paid'
@@ -75,7 +77,7 @@ export const pricingPlans = [
       'Contacto con proveedores locales',
       'Soporte 1-a-1 por WhatsApp'
     ],
-    buttonText: 'Comprar Ahora',
+    buttonText: 'Consultar disponibilidad',
     color: '#10B981',
     productId: 'mi_proyecto',
     type: 'paid'

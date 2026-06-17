@@ -8,15 +8,18 @@ import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { pricingPlans } from '@/data/pricingData';
 import { useMercadoPagoCheckout } from '@/hooks/useMercadoPagoCheckout';
 
+// Contención temporal: deshabilitar flujo de compra público
+const PLANES_ACTIVOS = false;
+
 const CheckoutPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-  
+
   // Adjusted destructuring to match useMercadoPagoCheckout hook exports
   const { handleSubscribe: processPayment, loadingProductId } = useMercadoPagoCheckout();
   const isProcessing = !!loadingProductId;
-  
+
   const [plan, setPlan] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -26,6 +29,9 @@ const CheckoutPage = () => {
   });
 
   useEffect(() => {
+    // Contención: no procesar checkout mientras los planes están en actualización
+    if (!PLANES_ACTIVOS) return;
+
     if (!isAuthenticated) {
       navigate('/login');
       return;
@@ -60,6 +66,40 @@ const CheckoutPage = () => {
     e.preventDefault();
     processPayment(plan.id);
   };
+
+  // Contención: mostrar mensaje de actualización en lugar del formulario de pago
+  if (!PLANES_ACTIVOS) {
+    return (
+      <div className="min-h-screen bg-[#0f0f0f] text-white">
+        <header className="bg-[#1a1a1a] border-b border-[#333] h-16 flex items-center px-4 md:px-8">
+          <div className="container mx-auto flex items-center justify-between">
+            <Button variant="ghost" onClick={() => navigate('/precios')} className="text-gray-400 hover:text-white pl-0">
+              <ArrowLeft className="w-5 h-5 mr-2" /> Volver
+            </Button>
+            <span className="font-bold text-[#d4af37]">INMEJORA</span>
+            <div />
+          </div>
+        </header>
+        <main className="container mx-auto px-4 py-16 max-w-xl text-center">
+          <div className="bg-[#1a1a1a] rounded-2xl border border-[#333] p-10">
+            <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield className="w-8 h-8 text-amber-400" />
+            </div>
+            <h1 className="text-2xl font-bold mb-4">Planes en actualización</h1>
+            <p className="text-gray-400 mb-8">
+              Estamos actualizando nuestros planes. Contactanos para conocer la opción adecuada para tu uso.
+            </p>
+            <Button
+              onClick={() => navigate('/contacto')}
+              className="bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold py-4 px-8 rounded-xl"
+            >
+              Hablar con INMEJORA
+            </Button>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   if (!plan) return <div className="min-h-screen bg-[#0f0f0f] flex items-center justify-center"><Loader2 className="w-8 h-8 text-[#d4af37] animate-spin" /></div>;
 
