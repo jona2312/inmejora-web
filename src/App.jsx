@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, useNavigate } from 'react-router-dom';
 import { Toaster as SonnerToaster } from 'sonner';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
@@ -123,11 +123,18 @@ const AuthErrorHandler = () => {
     return null;
 };
 
+// Layout que incluye OfflineBanner — solo para rutas que dependen del backend (portal)
+const PortalLayoutWithBanner = () => (
+  <>
+    <OfflineBanner />
+    <Outlet />
+  </>
+);
+
 const AppContent = () => {
   return (
     <Suspense fallback={<div className="w-full h-screen bg-[#0f0f0f] flex items-center justify-center"><Spinner /></div>}>
       <AuthErrorHandler />
-      <OfflineBanner />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         
@@ -174,26 +181,34 @@ const AppContent = () => {
           } 
         />
 
-        {/* Portal Routes */}
-        <Route path="/portal" element={<ProtectedRoute><PortalPage /></ProtectedRoute>} />
-        <Route path="/portal/perfil" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-        <Route path="/portal/pagos" element={<ProtectedRoute><PaymentHistoryPage /></ProtectedRoute>} />
-        <Route path="/portal/renders" element={<ProtectedRoute><RenderGeneratorPage /></ProtectedRoute>} />
-        <Route path="/portal/renders/:id/edit" element={<ProtectedRoute><EditRenderPage /></ProtectedRoute>} />
-        <Route path="/portal/cotizaciones" element={<ProtectedRoute><PortalCotizaciones /></ProtectedRoute>} />
-
-        <Route path="/portal/dashboard" element={<ProtectedRoute><ClientDashboard /></ProtectedRoute>} />
-        <Route path="/portal/analizar" element={<ProtectedRoute><AnalysisPage /></ProtectedRoute>} />
-        <Route path="/portal/budgets" element={<ProtectedRoute><BudgetsPage /></ProtectedRoute>} />
-        <Route path="/portal/upload" element={<ProtectedRoute><ImageUploadPage /></ProtectedRoute>} />
-        <Route path="/portal/planes" element={<ProtectedRoute><PlansPage /></ProtectedRoute>} />
+        {/* Portal Routes — con OfflineBanner para usuarios autenticados que usan el backend */}
+        <Route element={<PortalLayoutWithBanner />}>
+          <Route path="/portal" element={<ProtectedRoute><PortalPage /></ProtectedRoute>} />
+          <Route path="/portal/perfil" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/portal/pagos" element={<ProtectedRoute><PaymentHistoryPage /></ProtectedRoute>} />
+          <Route path="/portal/renders" element={<ProtectedRoute><RenderGeneratorPage /></ProtectedRoute>} />
+          <Route path="/portal/renders/:id/edit" element={<ProtectedRoute><EditRenderPage /></ProtectedRoute>} />
+          <Route path="/portal/cotizaciones" element={<ProtectedRoute><PortalCotizaciones /></ProtectedRoute>} />
+          <Route path="/portal/dashboard" element={<ProtectedRoute><ClientDashboard /></ProtectedRoute>} />
+          <Route path="/portal/analizar" element={<ProtectedRoute><AnalysisPage /></ProtectedRoute>} />
+          <Route path="/portal/budgets" element={<ProtectedRoute><BudgetsPage /></ProtectedRoute>} />
+          <Route path="/portal/upload" element={<ProtectedRoute><ImageUploadPage /></ProtectedRoute>} />
+          <Route path="/portal/planes" element={<ProtectedRoute><PlansPage /></ProtectedRoute>} />
+        </Route>
 
         {/* Checkout Routes (Handles redirects back from Mercado Pago) */}
         <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
         <Route path="/checkout/error" element={<CheckoutErrorPage />} />
         <Route path="/checkout/pending" element={<CheckoutPendingPage />} />
 
-        <Route path="/admin-inmejora" element={<AdminInmejora />} />
+        <Route
+          path="/admin-inmejora"
+          element={
+            <ProtectedAdminRoute>
+              <AdminInmejora />
+            </ProtectedAdminRoute>
+          }
+        />
         <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
         <Route path="/terminos-y-condiciones" element={<TermsAndConditions />} />
 

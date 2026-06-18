@@ -175,12 +175,12 @@ const PresupuestoPage = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans">
-      <SEOHead 
-        title="Solicitar Presupuesto | INMEJORA - Renders 3D Gratis"
-        description="Solicita tu presupuesto de renders 3D gratis. Completa el formulario y nos contactaremos en breve con una propuesta personalizada."
-        ogUrl="https://inmejora.com/presupuesto"
-        ogTitle="Solicitar Presupuesto Gratis | INMEJORA"
-        ogDescription="Presupuesto gratis de renders 3D. Completa el formulario y recibe una propuesta personalizada."
+      <SEOHead
+        title="Solicitá tu presupuesto de reforma | INMEJORA"
+        description="Contanos qué querés mejorar en tu hogar y recibí una propuesta personalizada para tu reforma, mantenimiento o renovación."
+        ogUrl="https://inmejora.com.ar/presupuesto"
+        ogTitle="Solicitá tu presupuesto de reforma | INMEJORA"
+        ogDescription="Relevamos tu necesidad y te ayudamos a planificar una mejora real para tu casa, con propuesta visual y presupuesto personalizado."
       />
 
       <Header />
