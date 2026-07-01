@@ -9,10 +9,10 @@ ARG VITE_SUPABASE_ANON_KEY
 ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
 ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
 
-# Cache-bust arg — increment to force fresh build
-ARG CACHEBUST=2
-
 COPY package*.json ./
+
+# Cache-bust arg — increment to force fresh npm install
+ARG CACHEBUST=3
 RUN NODE_ENV=development npm install --production=false --legacy-peer-deps
 COPY . .
 RUN ./node_modules/.bin/vite build
