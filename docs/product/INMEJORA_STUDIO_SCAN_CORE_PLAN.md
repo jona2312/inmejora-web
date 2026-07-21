@@ -447,4 +447,3 @@ La recomendación es validar comercialmente Studio Web antes de comprometer el d
 4. Elegir una cola durable para renders.
 5. Diseñar el primer flujo `/studio → proyecto → ambiente → render → cotización`.
 6. Definir quién valida cotizaciones y medidas dentro del dashboard.
-
