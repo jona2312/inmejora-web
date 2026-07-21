@@ -175,6 +175,22 @@ El modelo se agrega al backend operativo, con claves externas hacia el usuario/s
 - `studio_approvals`
   - Decisión, usuario, versión aprobada, comentario y fecha.
 
+### Entidades diferidas para Scan Core
+
+Estas entidades se agregan recién en la fase de escaneo. No sustituyen el dominio transaccional existente: viven en MySQL/TiDB y se relacionan con `studio_projects`, `studio_rooms`, usuarios, créditos y trabajos.
+
+- `studio_capture_sessions`
+  - Ambiente, dispositivo, versión de app/esquema, capacidades AR, estado, timestamps y manifiesto.
+
+- `studio_processing_jobs`
+  - Sesión, tipo de pipeline, estado, progreso, intento, error, versión del worker y métricas.
+
+- `studio_room_layout_versions`
+  - Geometría canónica inmutable, origen, nivel de confianza, autor y relación con la versión anterior.
+
+- `studio_scan_validations`
+  - Nivel L1/L2/L3, controles aplicados, desvíos, observaciones, responsable y decisión.
+
 ### JSON manual inicial
 
 ```json
@@ -230,6 +246,13 @@ La API debe permitir que web, app y adaptadores externos compartan contratos:
 - `GET /api/v1/studio/projects/:id/quotes`
 - `POST /api/v1/studio/quotes/:id/request-review`
 - `POST /api/v1/studio/approvals/:id/decision`
+- `POST /api/v1/studio/rooms/:id/capture-sessions`
+- `POST /api/v1/studio/capture-sessions/:id/assets/upload-url`
+- `POST /api/v1/studio/capture-sessions/:id/complete`
+- `GET /api/v1/studio/capture-sessions/:id`
+- `GET /api/v1/studio/processing-jobs/:id`
+- `GET /api/v1/studio/rooms/:id/layout-versions`
+- `POST /api/v1/studio/layout-versions/:id/validations`
 
 Los endpoints de generación deben responder `202 Accepted` con un `jobId`; la app consulta estado o recibe una notificación cuando el resultado está listo.
 
@@ -276,7 +299,8 @@ Convertir una captura guiada en geometría medible con trazabilidad y nivel de c
 ### Arquitectura propuesta
 
 - Android nativo: Kotlin, Jetpack Compose, CameraX y ARCore.
-- Captura de frames, poses, profundidad y metadatos del dispositivo.
+- Captura guiada de video, frames, poses, intrínsecos, profundidad y metadatos del dispositivo.
+- Detección de capacidades para degradar con claridad entre profundidad AR, captura visual y medición manual.
 - Subida reanudable de una sesión de escaneo.
 - Worker Python con Open3D y OpenCV.
 - Reconstrucción y simplificación de nube de puntos.
@@ -284,6 +308,149 @@ Convertir una captura guiada en geometría medible con trazabilidad y nivel de c
 - Corrección manual obligatoria antes de usar medidas críticas.
 - Plano 2D y modelo GLB/GLTF.
 - Exportación IFC mediante IfcOpenShell en una fase posterior.
+
+La app Android no escribe en la base ni decide créditos. Consume `/api/v1`, recibe URLs firmadas y registra la sesión contra el backend Horizon. Los metadatos operativos quedan en MySQL/TiDB; los binarios se guardan mediante un servicio de storage intercambiable sobre S3 o Supabase Storage; una cola durable entrega el trabajo al worker geométrico.
+
+El producto móvil general sigue siendo iOS + Android. El primer Scan Core se implementa como módulo nativo Android para reducir el riesgo técnico con ARCore; iOS mantiene desde el P0 la captura guiada de fotos y medidas. Una implementación posterior con ARKit debe emitir el mismo manifiesto y `room_layout.json`, de modo que API, worker, cotización y visualización no dependan del proveedor AR del teléfono.
+
+```mermaid
+flowchart LR
+  A["Android Scan Core"] -->|"sesión + manifiesto"| B["API /api/v1"]
+  B --> C["MySQL/TiDB"]
+  B -->|"URL firmada"| D["Object storage"]
+  B --> E["Cola durable"]
+  E --> F["Worker Python"]
+  F --> D
+  F -->|"layout + métricas + estado"| B
+  B --> G["Studio Web / app móvil / dashboard"]
+```
+
+### Contrato de captura
+
+Cada sesión debe ser reproducible y auditable. El manifiesto mínimo incluye:
+
+- `schema_version`, `app_version`, `session_id`, `project_id` y `room_id`;
+- modelo de dispositivo, versión de Android/ARCore y capacidades disponibles;
+- timestamps monotónicos y UTC, orientación, resolución e intrínsecos de cámara;
+- streams presentes: video, poses, IMU, profundidad cruda, confianza y metadatos;
+- hashes, tamaño, MIME y secuencia de cada asset;
+- método de escala: AR, medida manual o distancia de control con láser;
+- consentimiento, política de retención y estado de subida.
+
+ARCore Recording & Playback puede registrar video, IMU y metadatos personalizados en MP4. Raw Depth debe tratarse como señal esparsa con imagen de confianza, no como una malla completa garantizada en todos los frames. La captura de alta resolución y el procesamiento de profundidad se deben perfilar en dispositivos reales porque agregan carga de CPU.
+
+### Pipeline geométrico
+
+1. Validar integridad, compatibilidad y sincronización de la sesión.
+2. Seleccionar frames útiles por tracking, desenfoque, exposición y cobertura.
+3. Proyectar profundidad válida a puntos 3D usando intrínsecos y poses.
+4. Filtrar outliers, fusionar nubes y estimar normales.
+5. Segmentar planos con RANSAC y clasificarlos como piso, techo o paredes.
+6. Detectar límites, intersecciones, aberturas y posibles discontinuidades.
+7. Resolver escala, cierre del ambiente y consistencia de altura.
+8. Generar `room_layout.json`, reporte de confianza, plano 2D y GLB.
+9. Exponer corrección manual y conservar una nueva versión, sin sobrescribir el resultado original.
+
+Open3D es adecuado para filtrado, estimación de normales y segmentación de planos; OpenCV cubre calibración, selección de imágenes y geometría 2D. IFC/DXF quedan detrás de un gate: se habilitan sólo cuando el layout canónico y la precisión de campo estén validados.
+
+### Modelo canónico `room_layout.json`
+
+El layout es el contrato compartido por visualización, cómputo, cotización y exportación. Todas las longitudes se almacenan en metros y las áreas en metros cuadrados.
+
+```json
+{
+  "schema_version": "1.0",
+  "layout_version_id": "rlv_001",
+  "room_id": "room_001",
+  "source": {
+    "type": "arcore_scan",
+    "capture_session_id": "cap_001",
+    "pipeline_version": "scan-worker-0.3.0"
+  },
+  "coordinate_system": {
+    "units": "m",
+    "up_axis": "Y",
+    "origin": [0, 0, 0]
+  },
+  "planes": [
+    {
+      "id": "wall_01",
+      "type": "wall",
+      "polygon": [[0, 0, 0], [4.8, 0, 0], [4.8, 2.6, 0], [0, 2.6, 0]],
+      "confidence": 0.91
+    }
+  ],
+  "openings": [
+    {
+      "id": "window_01",
+      "type": "window",
+      "host_plane_id": "wall_01",
+      "width_m": 1.2,
+      "height_m": 1.0,
+      "confidence": 0.74
+    }
+  ],
+  "metrics": {
+    "floor_area_m2": 14.88,
+    "wall_area_net_m2": 39.88,
+    "closure_error_m": 0.04
+  },
+  "validation": {
+    "level": "L1",
+    "requires_manual_review": true
+  }
+}
+```
+
+Cada corrección crea una versión inmutable con autor, fecha, motivo y relación con la versión anterior. Ninguna cotización histórica se recalcula silenciosamente: conserva el layout y el catálogo usados en su snapshot.
+
+### Estados y eventos
+
+Estados de captura: `draft → capturing → uploading → uploaded → processing → needs_review → validated | failed | cancelled`.
+
+Estados internos del worker: `queued → validating → extracting → reconstructing → segmenting → calculating → exporting → succeeded | failed`.
+
+Eventos mínimos:
+
+- `capture_session.created`, `capture_session.uploaded`;
+- `processing_job.started`, `processing_job.progressed`, `processing_job.failed`, `processing_job.succeeded`;
+- `room_layout.generated`, `room_layout.corrected`, `room_layout.validated`;
+- `quote.recalculation_requested`.
+
+Los consumidores deben ser idempotentes. Cada evento lleva `event_id`, versión de esquema, correlación, actor y timestamp; los reintentos no crean layouts, débitos ni cotizaciones duplicados.
+
+### Confianza y validación
+
+| Nivel | Significado | Uso permitido |
+| --- | --- | --- |
+| L1 — Estimación visual | Captura AR sin control físico suficiente o con cobertura parcial. | Diseño, render y rango preliminar. |
+| L2 — Verificada | Revisión manual más una o más distancias de control dentro de tolerancia. | Presupuesto preliminar con advertencias. |
+| L3 — Confirmada en campo | Validación por técnico o instrumental definido por INMEJORA. | Presupuesto final y ejecución según política interna. |
+
+El reporte debe calcular, como mínimo, cobertura, frames con tracking válido, profundidad utilizable, dispersión por plano, error de cierre, consistencia de altura, desvío contra distancia de control y porcentaje corregido manualmente. Los umbrales finales se fijan con el dataset piloto; no se deben prometer centímetros antes de medirlos por dispositivo y tipo de ambiente.
+
+### Privacidad y seguridad
+
+- Consentimiento explícito antes de capturar espacios interiores.
+- Buckets privados, URLs firmadas cortas y cifrado en tránsito y reposo.
+- Autorización por propietario/proyecto desde la API; ningún cliente confía en una ruta pública como control de acceso.
+- Retención configurable para video, profundidad y derivados, con borrado verificable.
+- Eliminación de proyecto que propaga una solicitud auditable a assets y derivados.
+- Logs sin imágenes, direcciones completas, tokens ni payloads sensibles.
+- Separación entre datos de producción, dataset de investigación y muestras de QA.
+- Auditoría de accesos, descargas, correcciones, validaciones y exportaciones.
+
+### QA y gates de salida
+
+El dataset piloto debe cubrir ambientes pequeños/grandes, luz baja/alta, paredes lisas, superficies reflectantes, puertas/ventanas, oclusiones, recorridos incompletos y varios dispositivos ARCore. Para cada caso se compara contra medición de referencia y se registra precisión, completitud, repetibilidad, tiempo de captura, tiempo de proceso y tasa de intervención manual.
+
+Gates propuestos:
+
+1. **Captura confiable:** al menos 90 % de sesiones completas sin pérdida ni corrupción de assets.
+2. **Reconstrucción útil:** al menos 80 % de ambientes piloto produce un layout corregible sin recaptura.
+3. **Precisión comercial:** tolerancias por caso de uso acordadas con operaciones y verificadas por dispositivo.
+4. **Operación sostenible:** tiempo, costo de cómputo y corrección manual dentro del objetivo de negocio.
+5. **Exportación:** IFC/DXF sólo después de superar los gates anteriores y validar archivos en herramientas destino.
 
 ### Artefactos de salida
 
@@ -293,6 +460,14 @@ Convertir una captura guiada en geometría medible con trazabilidad y nivel de c
 - `floor_plan.svg` o PDF
 - `room_model.glb`
 - IFC y DXF cuando el modelo geométrico esté validado
+
+### Referencias técnicas oficiales
+
+- [ARCore Recording & Playback](https://developers.google.com/ar/develop/recording-and-playback)
+- [ARCore Raw Depth API](https://developers.google.com/ar/develop/java/depth/raw-depth)
+- [ARCore Depth API](https://developers.google.com/ar/develop/depth)
+- [Dispositivos compatibles con ARCore](https://developers.google.com/ar/devices)
+- [Open3D: procesamiento y segmentación de nubes de puntos](https://www.open3d.org/docs/latest/tutorial/t_geometry/pointcloud.html)
 
 ## 10. Roadmap
 
@@ -339,10 +514,12 @@ Convertir una captura guiada en geometría medible con trazabilidad y nivel de c
 
 ### Fase 6 — Scan Core
 
-- Prueba de concepto ARCore.
-- Dataset de ambientes reales.
-- Worker geométrico y reporte de confianza.
-- Piloto de campo antes de BIM/IFC.
+- Semanas 1–2: spike Android, matriz de dispositivos y contrato de sesión.
+- Semanas 3–4: captura guiada, grabación, subida reanudable e integridad de assets.
+- Semanas 5–7: worker inicial, fusión, planos y primer `room_layout.json`.
+- Semanas 8–9: métricas de confianza, corrección manual, plano 2D y GLB.
+- Semanas 10–12: dataset de ambientes reales, calibración, piloto y decisión go/no-go.
+- IFC/DXF se planifica después del piloto, no dentro del compromiso del POC.
 
 ## 11. Backlog priorizado
 
