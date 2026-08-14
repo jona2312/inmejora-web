@@ -16,7 +16,7 @@ const ComingSoonBanner = () => {
 
   const handleCTA = () => {
     const message = encodeURIComponent('Hola! Me interesa el acceso anticipado al Self-Service de Renders 🚀');
-    window.open(`https://wa.me/5491168000741?text=${message}`, '_blank');
+    window.open(`https://wa.me/5491158300611?text=${message}`, '_blank');
   };
 
   return (

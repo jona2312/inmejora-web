@@ -19,7 +19,7 @@ const RegistrationSection = () => {
     newsletter_opt_in: true
   });
 
-  const COMPANY_WHATSAPP_NUMBER = '5491168000741';
+  const COMPANY_WHATSAPP_NUMBER = '5491158300611';
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;

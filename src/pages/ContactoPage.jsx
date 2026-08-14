@@ -61,7 +61,7 @@ const ContactoPage = () => {
                 </div>
                 <div>
                   <h3 className="font-medium text-lg">Teléfono / WhatsApp</h3>
-                  <p className="text-gray-400">+54 9 11 3906-6429</p>
+                  <p className="text-gray-400">+54 9 11 5830-0611</p>
                 </div>
               </div>
 

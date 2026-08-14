@@ -122,7 +122,7 @@ const AsistenteIA = () => {
                 className="bg-[#F59E0B] text-black hover:bg-[#D4AF37] text-lg px-8 py-6 rounded-md font-semibold shadow-lg shadow-[#F59E0B]/20"
               >
                 <Sparkles className="mr-2 h-5 w-5" />
-                Probar Asistente IA Gratis
+                Hablar con Jona por WhatsApp
               </Button>
             </motion.div>
             
@@ -131,7 +131,7 @@ const AsistenteIA = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8B5CF6] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8B5CF6]"></span>
               </span>
-              Asistente IA disponible: primeras pruebas gratuitas.
+              Atención manual activa. El asistente IA está en preparación.
             </div>
           </div>
 

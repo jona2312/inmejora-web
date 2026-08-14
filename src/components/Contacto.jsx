@@ -42,8 +42,8 @@ const Contacto = () => {
                         <div>
                             <h4 className="font-semibold text-white">WhatsApp</h4>
                             <p className="text-sm text-gray-400 mb-1">Respuesta rápida</p>
-                            <a href="https://wa.me/5491168000741" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline font-medium">
-                                +54 9 11 6800-0741
+                            <a href="https://wa.me/5491158300611" target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] hover:underline font-medium">
+                                +54 9 11 5830-0611
                             </a>
                         </div>
                     </div>

@@ -132,7 +132,7 @@ const ManualQuoterPath = ({
     const mensaje = encodeURIComponent(
       `Hola INMEJORA, quiero una cotización personalizada.\nZona: ${selectedZone}\nTrabajos:\n${detalle}\n¿Me contactan para coordinar?`
     );
-    window.open(`https://wa.me/5491139066429?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/5491158300611?text=${mensaje}`, '_blank');
   };
 
   return (

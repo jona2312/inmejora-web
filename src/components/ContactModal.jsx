@@ -13,7 +13,7 @@ const ContactModal = () => {
       label: 'WhatsApp',
       subtext: 'Respuesta inmediata',
       icon: Phone,
-      action: () => window.open('https://wa.me/5491168000741', '_blank'),
+      action: () => window.open('https://wa.me/5491158300611', '_blank'),
       isLink: true
     },
     {
