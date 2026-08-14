@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle as MessageCircleMore } from 'lucide-react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '+5491139066429';
+  const phoneNumber = '5491158300611';
   const prefilledMessage = encodeURIComponent('Hola, me interesa conocer más sobre los servicios de INMEJORA de reformas y diseño con IA.');
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${prefilledMessage}`;
 

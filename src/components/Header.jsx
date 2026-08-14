@@ -104,7 +104,7 @@ const Header = () => {
     { name: 'Servicios', href: '#servicios' },
     { name: 'Proyectos', href: '#proyectos' },
     { name: 'Cotizador', href: '/cotizador' },
-    { name: 'Asistente IA', href: '#asistente-ia' },
+    { name: 'Atención personalizada', href: '#asistente-ia' },
     { name: 'Precios', href: '/precios' },
     { name: 'Proveedores', href: '/proveedores' },
     { name: 'Contacto', href: '#contacto' },

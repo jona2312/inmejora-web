@@ -55,8 +55,8 @@ const LandingPage = () => {
               className="fixed bottom-24 right-6 z-40 bg-[hsl(var(--accent-cta))] text-white font-bold py-3 px-5 rounded-full shadow-[0_0_20px_hsl(var(--accent-cta)/0.5)] hover:shadow-[0_0_30px_hsl(var(--accent-cta)/0.8)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
             >
               <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              <span className="hidden sm:inline">Probar Asistente IA Gratis</span>
-              <span className="sm:hidden">Probar IA</span>
+              <span className="hidden sm:inline">Hablar con Jona por WhatsApp</span>
+              <span className="sm:hidden">WhatsApp</span>
             </motion.button>
             
             {/* Text Section immediately following Hero */}

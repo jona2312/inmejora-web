@@ -11,8 +11,8 @@ const AIAssistantModal = ({ isOpen, onClose }) => {
   const options = [
     {
       id: 'whatsapp',
-      title: 'Probar el Asistente IA',
-      description: 'Habla con nuestra IA por WhatsApp al instante.',
+      title: 'Hablar con Jona',
+      description: 'Atención directa por WhatsApp mientras preparamos el asistente.',
       icon: <MessageCircle className="w-8 h-8 text-[#25D366]" />,
       actionType: 'whatsapp',
       target: 'https://wa.me/5491158300611',
