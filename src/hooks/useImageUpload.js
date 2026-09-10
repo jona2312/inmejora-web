@@ -8,7 +8,7 @@ export const useImageUpload = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [data, setData] = useState(null);
-  const { logout } = useAuth();
+  useAuth();
   const navigate = useNavigate();
 
   const uploadImage = async (file, description) => {

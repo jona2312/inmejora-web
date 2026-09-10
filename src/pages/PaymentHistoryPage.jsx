@@ -35,7 +35,7 @@ const PaymentHistoryPage = () => {
     fetchPayments();
   }, [toast, offset]);
 
-  const handleDownload = async (id) => {
+  const handleDownload = async () => {
     toast({ title: "Preparando descarga", description: "Tu factura se descargará en unos instantes." });
   };
 

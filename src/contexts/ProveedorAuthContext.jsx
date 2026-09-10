@@ -50,7 +50,7 @@ export const ProveedorAuthProvider = ({ children }) => {
       const fetchTimeout = setTimeout(() => controller.abort(), 2500);
 
       try {
-        const response = await fetch('/api/provider/validate', {
+        await fetch('/api/provider/validate', {
           headers: { 'Authorization': `Bearer ${storedToken}` },
           signal: controller.signal
         }).catch(() => ({ ok: true })); // Mock fallback for missing backend
@@ -109,7 +109,7 @@ export const ProveedorAuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (providerData) => {
+  const register = async () => {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast({

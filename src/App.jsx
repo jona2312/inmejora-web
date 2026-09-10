@@ -61,7 +61,7 @@ const ServiciosPage = lazyWithRetry(() => import('@/pages/ServiciosPage'), 'Serv
 
 // NEW SUPPLIER ROUTES
 const SupplierLoginPage = lazyWithRetry(() => import('@/pages/SupplierLoginPage'), 'SupplierLoginPage');
-const SupplierRegistrationPage = lazyWithRetry(() => import('@/pages/SupplierRegistrationPage'), 'SupplierRegistrationPage');
+lazyWithRetry(() => import('@/pages/SupplierRegistrationPage'), 'SupplierRegistrationPage');
 const SupplierPortalPage = lazyWithRetry(() => import('@/pages/SupplierPortalPage'), 'SupplierPortalPage');
 
 const AdminProvidersPage = lazyWithRetry(() => import('@/pages/AdminProvidersPage'), 'AdminProvidersPage');

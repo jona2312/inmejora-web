@@ -6,7 +6,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { PackagePlus } from 'lucide-react';
 
 const AgregarProductoForm = () => {
-  const { proveedorFetch } = useProveedorAuth();
+  useProveedorAuth();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({

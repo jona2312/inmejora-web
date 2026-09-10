@@ -9,7 +9,7 @@ import '@/components/ui/button';
 import { Loader2, Download, Monitor, FileText, Image as ImageIcon } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
-const DownloadRenderModal = ({ isOpen, onClose, renderId, renderData }) => {
+const DownloadRenderModal = ({ isOpen, onClose, renderId }) => {
   const [downloading, setDownloading] = useState(null);
   const { toast } = useToast();
 

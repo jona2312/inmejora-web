@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Trash2, PackageSearch } from 'lucide-react';
 
 const ProveedorProductos = () => {
-  const { proveedorFetch } = useProveedorAuth();
+  useProveedorAuth();
   const { toast } = useToast();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);

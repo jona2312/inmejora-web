@@ -149,11 +149,11 @@ export const InmejoraAuthProvider = ({ children }) => {
     window.location.href = '/login';
   };
 
-  const forgotPassword = async (email) => {
+  const forgotPassword = async () => {
     return { success: true, ok: true }; // Mock implementation since external API removed
   };
 
-  const resetPassword = async (token, password) => {
+  const resetPassword = async () => {
     return { success: true, ok: true }; // Mock implementation since external API removed
   };
 

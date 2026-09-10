@@ -30,7 +30,6 @@ const BeforeAfterCard = ({ transformation }) => {
   };
 
   const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => setIsDragging(false);

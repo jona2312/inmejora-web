@@ -26,7 +26,6 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, category }) => {
   };
 
   const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => setIsDragging(false);

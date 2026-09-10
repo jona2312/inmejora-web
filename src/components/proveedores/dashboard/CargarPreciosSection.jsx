@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { UploadCloud, FileSpreadsheet, FileText, CheckCircle2 } from 'lucide-react';
 
 const CargarPreciosSection = () => {
-  const { proveedorFetch } = useProveedorAuth();
+  useProveedorAuth();
   const { toast } = useToast();
   const [loadingExcel, setLoadingExcel] = useState(false);
   const [loadingPdf, setLoadingPdf] = useState(false);
@@ -14,7 +14,6 @@ const CargarPreciosSection = () => {
     const file = e.target.files[0];
     if (!file) return;
 
-    const endpoint = type === 'excel' ? '/api/proveedores/upload-precios' : '/api/proveedores/upload-pdf';
     const setLoading = type === 'excel' ? setLoadingExcel : setLoadingPdf;
     
     setLoading(true);
