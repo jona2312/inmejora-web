@@ -118,7 +118,7 @@ const ScrollTriggerRegistrationModal = () => {
         });
       }
 
-    } catch (err) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",

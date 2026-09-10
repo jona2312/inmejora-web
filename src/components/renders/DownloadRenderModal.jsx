@@ -5,7 +5,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from '@/components/ui/button';
+import '@/components/ui/button';
 import { Loader2, Download, Monitor, FileText, Image as ImageIcon } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -35,7 +35,7 @@ const DownloadRenderModal = ({ isOpen, onClose, renderId, renderData }) => {
         onClose();
       }, 1000);
 
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error de descarga",

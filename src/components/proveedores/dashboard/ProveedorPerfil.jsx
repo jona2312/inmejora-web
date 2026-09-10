@@ -3,7 +3,7 @@ import { useProveedorAuth } from '@/contexts/ProveedorAuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
-import { Building2, Mail, Phone, MapPin, Globe, Briefcase, Percent } from 'lucide-react';
+import { Building2, Mail, Phone, MapPin, Briefcase, Percent } from 'lucide-react';
 
 const ProveedorPerfil = () => {
   const { proveedor, proveedorFetch } = useProveedorAuth();
@@ -25,7 +25,7 @@ const ProveedorPerfil = () => {
         description: "El descuento para INMEJORA fue actualizado correctamente.",
         className: "bg-[#141414] border-[#FCB048] text-white",
       });
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudo actualizar el perfil." });
     } finally {
       setSaving(false);

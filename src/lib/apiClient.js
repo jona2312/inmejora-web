@@ -9,7 +9,7 @@ const handleResponse = async (response) => {
     try {
       errorData = await response.json();
       errorMessage = errorData.message || errorData.error || errorMessage;
-    } catch (e) {
+    } catch {
       // Not JSON
     }
 

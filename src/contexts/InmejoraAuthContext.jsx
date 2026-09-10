@@ -37,7 +37,7 @@ export const InmejoraAuthProvider = ({ children }) => {
         setUser(null);
         return { success: false };
       }
-    } catch (e) {
+    } catch {
       setUser(null);
       return { success: false };
     } finally {

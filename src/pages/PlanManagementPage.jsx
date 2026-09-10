@@ -51,7 +51,7 @@ const PlanManagementPage = () => {
         description: "Tu plan se mantendrá activo hasta el final del ciclo de facturación actual.",
       });
       setShowCancelModal(false);
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",

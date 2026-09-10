@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import 'react';
 
 // Mock analytics hook - replace with actual provider (Segment, Mixpanel, etc.)
 export const usePresupuestoAnalytics = () => {

@@ -41,7 +41,7 @@ const LoginPage = () => {
         toast({ variant: "destructive", title: "Error de acceso", description: result?.error || "Las credenciales son incorrectas." });
         setIsLoading(false);
       }
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error inesperado", description: "No pudimos procesar tu inicio de sesión. Intenta de nuevo." });
       setIsLoading(false);
     }

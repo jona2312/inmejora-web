@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from '@/components/ui/button';
-import { Share2, Download, Trash2, Edit3, X, Calendar, Layers, Home, Loader2, Info } from 'lucide-react';
+import { X, Calendar, Loader2, Info } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
 
@@ -25,7 +25,7 @@ const RenderDetailModal = ({ isOpen, onClose, renderId, onDeleteSuccess }) => {
             
           if (error) throw error;
           setRender(data);
-        } catch (error) {
+        } catch {
           toast({ variant: "destructive", title: "Error", description: "No se pudo cargar el detalle del render." });
           onClose();
         } finally {

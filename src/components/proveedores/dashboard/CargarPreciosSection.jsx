@@ -33,7 +33,7 @@ const CargarPreciosSection = () => {
         description: `Se han actualizado los precios desde tu archivo ${type.toUpperCase()}.`,
         className: "bg-[#141414] border-[#FCB048] text-white",
       });
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "Hubo un problema al procesar el archivo." });
     } finally {
       setLoading(false);

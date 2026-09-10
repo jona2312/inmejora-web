@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from '@/components/ui/badge';
+import '@/components/ui/badge';
 
 const PricingDisplay = ({ priceString, billingPeriod, savingsText }) => {
   return (
