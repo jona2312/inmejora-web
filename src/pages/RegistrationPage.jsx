@@ -114,8 +114,11 @@ const RegistrationPage = () => {
     
     if (result && result.success) {
       if (planToSubscribe) {
-        toast({ title: "¡Bienvenido!", description: "Ahora redirigimos a Mercado Pago..." });
-        await handleSubscribe(planToSubscribe);
+        try {
+          await handleSubscribe(planToSubscribe);
+        } finally {
+          setIsLoading(false);
+        }
       } else {
         toast({ title: "¡Bienvenido!", description: "Redirigiendo al portal..." });
         setTimeout(() => navigate('/portal'), 1000);
@@ -156,7 +159,7 @@ const RegistrationPage = () => {
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-white">Crear Cuenta</h1>
           <p className="text-gray-400 mt-2">
-            {planToSubscribe ? "Crea tu cuenta para continuar con tu suscripción" : "Únete a la revolución del diseño de interiores"}
+            {planToSubscribe ? "Puedes crear tu cuenta; los pagos están temporalmente no disponibles." : "Únete a la revolución del diseño de interiores"}
           </p>
         </div>
 
