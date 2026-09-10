@@ -6,7 +6,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Building2, Mail, Phone, MapPin, Briefcase, Percent } from 'lucide-react';
 
 const ProveedorPerfil = () => {
-  const { proveedor, proveedorFetch } = useProveedorAuth();
+  const { proveedor } = useProveedorAuth();
   const { toast } = useToast();
   const [descuento, setDescuento] = useState(proveedor?.descuento_inmejora || 0);
   const [saving, setSaving] = useState(false);

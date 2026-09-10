@@ -176,11 +176,11 @@ const ManualQuoterPath = ({
                     className="overflow-hidden"
                   >
                     <div className="bg-[#1a1a1a]">
-                      {categoryServices.map((service, idx) => {
+                      {categoryServices.map((service) => {
                         const isSelected = !!selectedServices[service.id];
                         const isLocked = isServiceLocked(service.id);
                         const serviceData = selectedServices[service.id];
-                        const subtotal = isSelected ? calculateSubtotal(serviceData) : 0;
+                        if (isSelected) calculateSubtotal(serviceData);
 
                         return (
                           <div

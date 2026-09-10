@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast';
 export const useWebhookMessage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { toast } = useToast();
+  useToast();
 
   const sendWebhookMessage = async ({ clientPhone, clientName, message = "", tipo }) => {
     setLoading(true);

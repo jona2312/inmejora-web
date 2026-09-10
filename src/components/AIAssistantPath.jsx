@@ -98,7 +98,7 @@ const AIAssistantPath = ({
       const keyword = detectKeywords(input);
       
       if (keyword) {
-        const relevantServices = getServicesByKeyword(keyword);
+        getServicesByKeyword(keyword);
         setCurrentStep(2);
         
         setTimeout(() => {

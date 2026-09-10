@@ -132,7 +132,7 @@ export const SupplierProvider = ({ children }) => {
     window.location.href = '/proveedores/login';
   };
 
-  const updateProfile = async (_profileData) => {
+  const updateProfile = async () => {
     toast({ title: "\uD83D\uDD27 Funcionalidad de actualizaci\u00f3n en desarrollo" });
     return { success: true };
   };

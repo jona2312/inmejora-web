@@ -6,11 +6,11 @@ import { X, Calendar, Loader2, Info } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
 
-const RenderDetailModal = ({ isOpen, onClose, renderId, onDeleteSuccess }) => {
+const RenderDetailModal = ({ isOpen, onClose, renderId }) => {
   const [render, setRender] = useState(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
-  const navigate = useNavigate();
+  useNavigate();
 
   useEffect(() => {
     if (isOpen && renderId) {
