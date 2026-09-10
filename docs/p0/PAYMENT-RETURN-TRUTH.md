@@ -82,7 +82,7 @@ están disponibles en el lockfile; no se instaló otro transformador JSX.
   o malformados. Se comprueba HTML idéntico sin reflejar query ni afirmaciones
   antiguas, sin efectos ni navegación al renderizar. Los callbacks de botones se
   invocan y se verifican destinos exactos; la URL de ayuda se inspecciona sin abrir.
-- AST de App comprueba las tres rutas/componentes y destinos existentes. Otro
+- AST de App comprueba las tres rutas/componentes, su registro único y destinos existentes. Otro
   chequeo verifica imports revisados y ausencia de lecturas/efectos peligrosos.
   El inventario de modales permanece explícitamente estático.
 - `npm run build:ci`: **PASS**, 3149 módulos con configuración sintética y sin
@@ -96,6 +96,10 @@ están disponibles en el lockfile; no se instaló otro transformador JSX.
 No hubo servidor de desarrollo, navegador, prueba browser E2E, servicios reales ni
 auditoría visual de layout. SSR no verifica funcionamiento del router real,
 accesibilidad interactiva, entrega de soporte ni la página externa del proveedor.
+El árbol global conserva providers y AuthErrorHandler: no se afirma que abrir
+la URL completa no pueda hacer requests. La ausencia de consultas/efectos se
+refiere a los cuatro componentes revisados. SSR no ejecuta efectos de commit;
+el chequeo de fuente también rechaza useLayoutEffect/useInsertionEffect.
 El build compila el árbol real, no ejecuta servicios. Preservar estos límites en
 PRs y reportes de cierre.
 

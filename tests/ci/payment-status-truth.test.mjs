@@ -130,14 +130,19 @@ function walk(node, visitor) {
 test('actual route AST retains all three return pages and navigation destinations', () => {
   const ast = parse(readFileSync(resolve(root, 'src/App.jsx'), 'utf8'), { sourceType: 'module', plugins: ['jsx'] });
   const routes = new Map();
+  const routeCounts = new Map();
   walk(ast, node => {
     if (node.type !== 'JSXElement' || node.openingElement.name.name !== 'Route') return;
     const path = node.openingElement.attributes.find(attribute => attribute.name?.name === 'path')?.value?.value;
-    if (path) routes.set(path, node);
+    if (path) {
+      routes.set(path, node);
+      routeCounts.set(path, (routeCounts.get(path) ?? 0) + 1);
+    }
   });
   for (const page of pages) {
     const route = routes.get(page.route);
     assert.ok(route, page.route);
+    assert.equal(routeCounts.get(page.route), 1, `Unique return registration ${page.route}`);
     const element = route.openingElement.attributes.find(attribute => attribute.name?.name === 'element');
     assert.equal(element.value.expression.openingElement.name.name, page.name);
     for (const destination of page.destinations) assert.ok(routes.has(destination), `Existing navigation destination ${destination}`);
@@ -156,7 +161,7 @@ test('return modules use only reviewed dependencies with no query, identity, tra
     assert.deepEqual(imports.map(node => node.source.value), allowed);
     const router = imports.find(node => node.source.value === 'react-router-dom');
     if (router) assert.deepEqual(router.specifiers.map(node => node.imported.name), ['useNavigate']);
-    assert.doesNotMatch(source, /\b(?:useEffect|useState|useLocation|useSearchParams|URLSearchParams|fetch|axios|apiCall|localStorage|sessionStorage|useAuth|setTimeout|setInterval|window|location|Date|payment_id|preference_id|dangerouslySetInnerHTML)\b|import\.meta/);
+    assert.doesNotMatch(source, /\b(?:useEffect|useLayoutEffect|useInsertionEffect|useState|useLocation|useSearchParams|URLSearchParams|fetch|axios|apiCall|localStorage|sessionStorage|useAuth|setTimeout|setInterval|window|location|Date|payment_id|preference_id|dangerouslySetInnerHTML)\b|import\.meta/);
   }
 });
 
