@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useSubscription } from '@/contexts/SubscriptionContext';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
-import { Infinity } from 'lucide-react';
+import { Infinity as InfinityIcon } from 'lucide-react';
 
 const CreditsWidget = () => {
   const { currentSubscription, creditsRemaining, creditsTotal, creditsUsed, planColor, renewalDate, loading } = useSubscription();
@@ -128,7 +128,7 @@ const CreditsWidget = () => {
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 {isMiProyecto ? (
-                    <Infinity className="w-16 h-16 text-white" />
+                    <InfinityIcon className="w-16 h-16 text-white" />
                 ) : (
                     <span className="text-4xl font-black text-white">{safeCreditsRemaining}</span>
                 )}

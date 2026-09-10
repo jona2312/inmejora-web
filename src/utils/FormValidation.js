@@ -19,7 +19,7 @@ export const validatePhone = (phone) => {
     return { isValid: true, error: null };
   }
   // If provided, basic check (just digits and basic symbols)
-  const phoneRegex = /^[\d\s\-\+\(\)]{6,20}$/;
+  const phoneRegex = /^[\d\s\-+()]{6,20}$/;
   if (!phoneRegex.test(phone.trim())) {
     return { isValid: false, error: "Ingresá un teléfono válido." };
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Hammer, Shield, Calculator, Palette, CheckCircle2, XCircle } from 'lucide-react';
+import { Hammer, Shield, Calculator, Palette } from 'lucide-react';
 
 const WhyInmejora = () => {
   const cards = [
@@ -23,39 +23,6 @@ const WhyInmejora = () => {
       icon: Palette,
       title: "Productos que podés comprar",
       description: "Te sugerimos materiales, texturas y elementos que realmente existen y podés conseguir con nuestra red de proveedores locales."
-    }
-  ];
-
-  const comparisonData = [
-    {
-      feature: "Especialización",
-      inmejora: "Diseño de interiores y arquitectura",
-      generic: "Textos e imágenes aleatorias"
-    },
-    {
-      feature: "Fidelidad de imagen",
-      inmejora: "Mantiene estructura original",
-      generic: "Distorsiona el espacio"
-    },
-    {
-      feature: "Cotización integrada",
-      inmejora: "Sí, precios reales del mercado argentino",
-      generic: "No ofrece cotizaciones"
-    },
-    {
-      feature: "Productos reales",
-      inmejora: "Sí, del mercado local",
-      generic: "No, elementos inventados"
-    },
-    {
-      feature: "Margen de error",
-      inmejora: "Muy bajo",
-      generic: "Alto, resultados impredecibles"
-    },
-    {
-      feature: "Asistente especializado",
-      inmejora: "Sí, soporte continuo por WhatsApp",
-      generic: "No, solo plataforma web básica"
     }
   ];
 
@@ -103,58 +70,7 @@ const WhyInmejora = () => {
           ))}
         </div>
 
-        {/* Comparison Table */}
-        {false && /* Tabla comparativa oculta: comparaciones absolutas sin respaldo */ (
-<motion.div
-          initial={{ opacity: 1, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
-        >
-          <div className="bg-[#141414] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[700px]">
-                <thead>
-                  <tr>
-                    <th className="px-6 py-5 border-b border-white/10 bg-[#1a1a1a] text-gray-400 font-semibold w-1/3">
-                      Característica
-                    </th>
-                    <th className="px-6 py-5 border-b border-white/10 bg-[#1a1a1a] text-white font-bold w-1/3 text-center border-l border-r border-white/5 relative">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-[#d4af37]"></div>
-                      INMEJORA
-                    </th>
-                    <th className="px-6 py-5 border-b border-white/10 bg-[#1a1a1a] text-gray-400 font-medium w-1/3 text-center">
-                      Herramientas genéricas de IA
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5">
-                  {comparisonData.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="px-6 py-4 text-sm font-medium text-gray-300">
-                        {row.feature}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-center border-l border-r border-white/5 bg-[#d4af37]/5">
-                        <div className="flex flex-col items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-green-500" />
-                          <span className="text-white font-medium">{row.inmejora}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-center">
-                        <div className="flex flex-col items-center gap-2 opacity-60">
-                          <XCircle className="w-5 h-5 text-red-500" />
-                          <span className="text-gray-400">{row.generic}</span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </motion.div>
-)}
+        {/* La tabla comparativa sin respaldo permanece fuera de la UI. */}
       </div>
     </section>
   );
