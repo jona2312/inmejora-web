@@ -52,3 +52,40 @@ tested as a security fix rather than made green by changing a lint rule.
 
 Rollback is a Git revert. No deployment, credentials, data or infrastructure change
 was executed; no production environment file was loaded by verification.
+
+## Evidence files and remaining references
+
+- [Exact remaining lint diagnostics](lint-remaining.json): 10 errors and 10 warnings.
+- [Historical AST results](lint-ast-evidence.json): base/source SHAs and assertion scope.
+- Reproduce the AST audit with `node scripts/ci/audit-unused-bindings.mjs` from a
+  checkout containing the three referenced commits and the reconciled dependency
+  graph. It reads Git source without importing application modules or accessing services.
+- PR #6 CI [34478430196](https://github.com/jona2312/inmejora-web/actions/runs/34478430196):
+  offline isolation/build passed; lint failed on the remaining findings.
+- PR #7 source-change CI [34478948038](https://github.com/jona2312/inmejora-web/actions/runs/34478948038):
+  offline isolation/build passed; lint failed on the 10 remaining errors.
+
+The following links refer to the exact audited source revision, not a moving branch:
+
+| Level | Resource | Rule | Diagnostic |
+| --- | --- | --- | --- |
+| Warning | [src/components/chat/ChatWidget.jsx:19](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/chat/ChatWidget.jsx#L19) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'initializeSession'. Either include it or remove the dependency array. |
+| Error | [src/components/dashboard/CreditsWidget.jsx:7](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/dashboard/CreditsWidget.jsx#L7) | `no-shadow-restricted-names` | Shadowing of global property 'Infinity'. |
+| Warning | [src/components/ManualQuoterPath.jsx:42](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/ManualQuoterPath.jsx#L42) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'groupedServices'. Either include it or remove the dependency array. |
+| Warning | [src/components/proveedores/dashboard/ProveedorProductos.jsx:15](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/proveedores/dashboard/ProveedorProductos.jsx#L15) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'fetchProductos'. Either include it or remove the dependency array. |
+| Warning | [src/components/renders/RenderWizardStep2.jsx:55](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/renders/RenderWizardStep2.jsx#L55) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'stopRecording'. Either include it or remove the dependency array. |
+| Warning | [src/components/Testimonials.jsx:47](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/Testimonials.jsx#L47) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'nextTestimonial'. Either include it or remove the dependency array. |
+| Error | [src/components/WhyInmejora.jsx:107](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/components/WhyInmejora.jsx#L107) | `no-constant-binary-expression` | Unexpected constant truthiness on the left-hand side of a `&&` expression. |
+| Error | [src/contexts/ProveedorAuthContext.jsx:60](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/contexts/ProveedorAuthContext.jsx#L60) | `no-constant-condition` | Unexpected constant condition. |
+| Warning | [src/contexts/SupplierContext.jsx:63](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/contexts/SupplierContext.jsx#L63) | `unused-eslint-disable` | Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps'). |
+| Warning | [src/contexts/SupplierContext.jsx:80](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/contexts/SupplierContext.jsx#L80) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array. |
+| Warning | [src/pages/ImageUploadPage.jsx:81](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/pages/ImageUploadPage.jsx#L81) | `react-hooks/exhaustive-deps` | React Hook useCallback has a missing dependency: 'handleFile'. Either include it or remove the dependency array. |
+| Warning | [src/pages/PresupuestoPage.jsx:51](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/pages/PresupuestoPage.jsx#L51) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'trackView'. Either include it or remove the dependency array. |
+| Warning | [src/pages/QuoterPage.jsx:51](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/pages/QuoterPage.jsx#L51) | `react-hooks/exhaustive-deps` | React Hook useEffect has a missing dependency: 'checkUserPlan'. Either include it or remove the dependency array. |
+| Error | [src/utils/authValidation.js:83](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/authValidation.js#L83) | `no-prototype-builtins` | Do not access Object.prototype method 'hasOwnProperty' from target object. |
+| Error | [src/utils/authValidation.js:88](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/authValidation.js#L88) | `no-prototype-builtins` | Do not access Object.prototype method 'hasOwnProperty' from target object. |
+| Error | [src/utils/authValidation.js:93](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/authValidation.js#L93) | `no-prototype-builtins` | Do not access Object.prototype method 'hasOwnProperty' from target object. |
+| Error | [src/utils/authValidation.js:98](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/authValidation.js#L98) | `no-prototype-builtins` | Do not access Object.prototype method 'hasOwnProperty' from target object. |
+| Error | [src/utils/FormValidation.js:22](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/FormValidation.js#L22) | `no-useless-escape` | Unnecessary escape character: \+. |
+| Error | [src/utils/FormValidation.js:22](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/FormValidation.js#L22) | `no-useless-escape` | Unnecessary escape character: \(. |
+| Error | [src/utils/FormValidation.js:22](https://github.com/jona2312/inmejora-web/blob/c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74/src/utils/FormValidation.js#L22) | `no-useless-escape` | Unnecessary escape character: \). |
