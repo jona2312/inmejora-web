@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { AlertCircle, ArrowLeft, LayoutDashboard, MessageCircle } from 'lucide-react';
-import WhatsAppButton from '@/components/WhatsAppButton'; // Assuming we can trigger it or link similarly
+import '@/components/WhatsAppButton'; // Assuming we can trigger it or link similarly
 
 const ErrorModal = ({ message, customerEmail, sessionId }) => {
   const navigate = useNavigate();

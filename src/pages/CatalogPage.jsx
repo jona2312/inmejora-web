@@ -70,7 +70,7 @@ const CatalogPage = () => {
         setProducts(prev => offset === 0 ? items : [...prev, ...items]);
         setHasMore(items.length === limit);
       }
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudo cargar el catálogo." });
     } finally {
       setLoading(false);

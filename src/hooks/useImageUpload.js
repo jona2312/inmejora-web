@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/lib/customSupabaseClient';
+import '@/lib/customSupabaseClient';
 
 export const useImageUpload = () => {
   const [loading, setLoading] = useState(false);

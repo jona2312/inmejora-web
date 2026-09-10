@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, DialogContent, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Copy, X, Droplet } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';

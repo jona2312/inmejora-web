@@ -82,7 +82,7 @@ const ProveedorRegisterPage = () => {
       setTimeout(() => {
         navigate('/proveedores/login');
       }, 2000);
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error",

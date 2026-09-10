@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BeforeAfterSlider = ({ beforeImage, afterImage, category }) => {

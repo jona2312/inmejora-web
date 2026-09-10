@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronRight, Lock, FileText } from 'lucide-react';
+import { ChevronRight, Lock, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
-import { calculateGrandTotal, formatCurrency } from '@/utils/CalculationEngine';
+import { calculateGrandTotal } from '@/utils/CalculationEngine';
 import { logQuotationUsage } from '@/utils/UsageLogger';
 
 const ManualQuoterPath = ({ 

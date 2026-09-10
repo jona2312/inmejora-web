@@ -41,7 +41,7 @@ const EditRenderPage = () => {
       try {
         const data = await rendersAPI.detail(id);
         setOriginalImg(data.render?.imageUrl || data.imageUrl);
-      } catch (err) {
+      } catch {
         toast({ variant: "destructive", title: "Error", description: "No se pudo cargar el render original." });
         navigate('/portal/renders');
       } finally {

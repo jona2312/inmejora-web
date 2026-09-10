@@ -81,7 +81,7 @@ const NewsletterPopup = () => {
             description: res.message,
         });
       }
-    } catch (err) {
+    } catch {
       toast({
           variant: "destructive",
           title: 'Error inesperado',
