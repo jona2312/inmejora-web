@@ -1,0 +1,19 @@
+{
+  "schema_version": "lead.v1",
+  "idempotency_key": "00000000-0000-4000-8000-000000000001",
+  "source": { "channel": "web", "path": "/empezar", "campaign": null },
+  "project": {
+    "category": "pintar",
+    "locality": "Localidad de ejemplo",
+    "zone": null,
+    "property_type": "vivienda",
+    "room": "living",
+    "measurements": { "value": 20, "unit": "m2", "approximate": true },
+    "description": "Ejemplo sintético: renovar pintura de paredes."
+  },
+  "preferences": { "materials": null, "style": "colores claros" },
+  "attachment_refs": [],
+  "intent": "cotizacion",
+  "contact": { "name": "Persona de ejemplo", "channel": "email", "email": "persona@example.invalid" },
+  "consent": { "contact_requested": true, "notice_version": "DRAFT-NOT-APPROVED", "marketing": false }
+}

@@ -1,0 +1,50 @@
+{
+  "capturedAtUtc": "2026-09-11T13:17:55.6441068Z",
+  "baseSha": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+  "reviewedHead": "edaa757d6694997f85e718774b484fa9b8153001",
+  "node": "v20.20.2",
+  "npm": "10.8.2",
+  "install": {
+    "exitCode": 0,
+    "command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
+    "cacheRequired": true,
+    "packages": 716
+  },
+  "baselineTests": {
+    "fail": 0,
+    "pass": 47
+  },
+  "correctedTests": {
+    "fail": 0,
+    "pass": 50
+  },
+  "negativeControl": {
+    "pass": 2,
+    "fail": 1,
+    "description": "New regression test against original guard detects editable metadata/email access"
+  },
+  "lint": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 10
+  },
+  "build": {
+    "exitCode": 0,
+    "modules": 3149,
+    "command": "npm run build:ci",
+    "warnings": [
+      "Browserslist data stale",
+      "bundle exceeds 500 kB"
+    ]
+  },
+  "isolation": {
+    "github": "unshare --net for tests/build/lint; registry access for install",
+    "local": "Node guard; not OS namespace"
+  },
+  "limits": [
+    "No browser E2E",
+    "No production service contact",
+    "No RLS/storage/server authorization certification",
+    "No deploy or merge"
+  ]
+}

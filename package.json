@@ -10,7 +10,7 @@
     "build:ci": "node --import ./scripts/ci/offline-guard.mjs scripts/ci/build.mjs",
     "preview": "vite preview --host :: --port 3000",
     "lint": "eslint .",
-    "test:ci": "node --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs"
+    "test:ci": "node --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs tests/ci/admin-route.test.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
