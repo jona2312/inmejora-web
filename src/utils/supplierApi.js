@@ -1,22 +1,11 @@
-const API_BASE = 'https://dkarmazdckwlpmftcoeh.supabase.co/functions/v1';
-const TOKEN_KEY = 'supplier_token';
+import { supplierAuthBlocked, clearSupplierCache } from '../contexts/identityContainment.js';
 
-export const getSupplierToken = () => {
-  return localStorage.getItem(TOKEN_KEY);
-};
-
-export const setSupplierToken = (token) => {
-  localStorage.setItem(TOKEN_KEY, token);
-};
-
-export const clearSupplierToken = () => {
-  localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem('supplier_data');
-};
-
-export const isSupplierLoggedIn = () => {
-  return !!getSupplierToken() && !!localStorage.getItem('supplier_data');
-};
+// The active supplier API is contained until its session/ownership contract is
+// versioned. Neither local IDs nor JWT-shaped storage values are credentials.
+export const getSupplierToken = () => null;
+export const setSupplierToken = () => supplierAuthBlocked;
+export const clearSupplierToken = clearSupplierCache;
+export const isSupplierLoggedIn = () => false;
 
 export const convertFileToBase64 = (file) => {
   return new Promise((resolve, reject) => {
@@ -27,47 +16,6 @@ export const convertFileToBase64 = (file) => {
   });
 };
 
-export const supplierApiCall = async (endpoint, options = {}) => {
-  const token = getSupplierToken();
-  
-  const headers = {
-    'Content-Type': 'application/json',
-    ...(token ? { 'Authorization': `Bearer ${token}` } : {}),
-    ...options.headers,
-  };
-
-  const config = {
-    ...options,
-    headers,
-  };
-
-  try {
-    const url = endpoint.startsWith('http') ? endpoint : `${API_BASE}${endpoint}`;
-    const response = await fetch(url, config);
-    
-    let data;
-    const contentType = response.headers.get('content-type');
-    if (contentType && contentType.includes('application/json')) {
-      data = await response.json();
-    } else {
-      data = await response.text();
-    }
-
-    if (!response.ok) {
-      if (response.status === 401 || response.status === 403) {
-        clearSupplierToken();
-        window.dispatchEvent(new Event('supplier:unauthorized'));
-      }
-      throw {
-        status: response.status,
-        message: data?.message || data?.error || 'Error en la solicitud al servidor',
-        data
-      };
-    }
-
-    return data;
-  } catch (error) {
-    console.error(`[Supplier API Error] ${endpoint}:`, error);
-    throw error;
-  }
+export const supplierApiCall = async () => {
+  throw Object.assign(new Error(supplierAuthBlocked.error), { code: supplierAuthBlocked.code });
 };

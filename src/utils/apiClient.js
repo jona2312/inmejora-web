@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { clientAuthError } from '../contexts/identityContainment.js';
 
 const baseURL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
@@ -9,12 +10,8 @@ export const apiClient = axios.create({
   },
 });
 
-apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('inmejora_token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+apiClient.interceptors.request.use(() => {
+  throw clientAuthError();
 });
 
 apiClient.interceptors.response.use(
