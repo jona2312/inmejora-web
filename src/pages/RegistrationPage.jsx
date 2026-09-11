@@ -15,7 +15,7 @@ const RegistrationPage = () => {
   const [searchParams] = useSearchParams();
   const planToSubscribe = searchParams.get('plan');
   
-  const { register } = useAuth();
+  const { register, unavailableReason } = useAuth();
   const { toast } = useToast();
   const { handleSubscribe } = useMercadoPagoCheckout();
   
@@ -158,6 +158,7 @@ const RegistrationPage = () => {
       >
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-white">Crear Cuenta</h1>
+          {unavailableReason && <p role="status" className="mt-4 text-amber-300">{unavailableReason}</p>}
           <p className="text-gray-400 mt-2">
             {planToSubscribe ? "Puedes crear tu cuenta; los pagos están temporalmente no disponibles." : "Únete a la revolución del diseño de interiores"}
           </p>
@@ -173,7 +174,7 @@ const RegistrationPage = () => {
                 value={formData.name} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.name ? 'border-red-500' : ''}`}
                 placeholder="Juan Pérez"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               {validFields.name && <CheckCircle className="absolute right-3 h-5 w-5 text-green-500 pointer-events-none" />}
             </div>
@@ -189,7 +190,7 @@ const RegistrationPage = () => {
                 value={formData.email} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.email ? 'border-red-500' : ''}`}
                 placeholder="tu@email.com"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               {validFields.email && <CheckCircle className="absolute right-3 h-5 w-5 text-green-500 pointer-events-none" />}
             </div>
@@ -205,7 +206,7 @@ const RegistrationPage = () => {
                 value={formData.phone} onChange={handleChange}
                 className={`pl-10 pr-10 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.phone ? 'border-red-500' : ''}`}
                 placeholder="+54 9 11 1234-5678"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               {validFields.phone && formData.phone && <CheckCircle className="absolute right-3 h-5 w-5 text-green-500 pointer-events-none" />}
             </div>
@@ -221,13 +222,13 @@ const RegistrationPage = () => {
                 value={formData.password} onChange={handleChange}
                 className={`pl-10 pr-20 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.password ? 'border-red-500' : ''}`}
                 placeholder="••••••••"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               <button 
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-10 text-gray-400 hover:text-white transition-colors"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               >
                 {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
               </button>
@@ -246,13 +247,13 @@ const RegistrationPage = () => {
                 value={formData.confirmPassword} onChange={handleChange}
                 className={`pl-10 pr-20 bg-[#222] border-[#333] text-white focus-visible:ring-[#d4af37] rounded-lg ${errors.confirmPassword ? 'border-red-500' : ''}`}
                 placeholder="••••••••"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               <button 
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 className="absolute right-10 text-gray-400 hover:text-white transition-colors"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               >
                 {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
               </button>
@@ -266,7 +267,7 @@ const RegistrationPage = () => {
               type="checkbox" id="terms" name="terms"
               checked={formData.terms} onChange={handleChange}
               className="rounded border-[#333] text-[#d4af37] focus:ring-[#d4af37] bg-[#222] w-4 h-4" 
-              disabled={isLoading}
+              disabled={isLoading || Boolean(unavailableReason)}
             />
             <Label htmlFor="terms" className="text-sm font-normal text-gray-400 cursor-pointer">
               Acepto los <Link to="/terminos-y-condiciones" className="text-[#d4af37] hover:underline">términos y condiciones</Link>
@@ -275,7 +276,7 @@ const RegistrationPage = () => {
           {errors.terms && <p className="text-red-500 text-sm">{errors.terms}</p>}
 
           <Button 
-            type="submit" disabled={isLoading || !isFormValid}
+            type="submit" disabled={isLoading || Boolean(unavailableReason) || !isFormValid}
             className="w-full bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold py-6 text-lg mt-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : "Crear Cuenta"}
