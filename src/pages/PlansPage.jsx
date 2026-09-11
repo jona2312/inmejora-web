@@ -14,7 +14,7 @@ import { useMercadoPagoCheckout } from '@/hooks/useMercadoPagoCheckout';
 const PlansPage = () => {
   const navigate = useNavigate();
   const { currentPlan, loading: currentPlanLoading } = useCurrentPlan();
-  const { handleSubscribe, loadingProductId } = useMercadoPagoCheckout();
+  const { loadingProductId } = useMercadoPagoCheckout();
 
   // Precios ocultos temporalmente — planes en actualización
   const plansData = [
@@ -52,7 +52,7 @@ const PlansPage = () => {
     }
   ];
 
-  const handleSelectPlan = (plan) => {
+  const handleSelectPlan = () => {
     // Contención temporal: planes en actualización — redirigir a contacto
     navigate('/contacto');
   };

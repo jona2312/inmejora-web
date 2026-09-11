@@ -5,7 +5,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Trash2, PackageSearch } from 'lucide-react';
 
 const ProveedorProductos = () => {
-  const { proveedorFetch } = useProveedorAuth();
+  useProveedorAuth();
   const { toast } = useToast();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +24,7 @@ const ProveedorProductos = () => {
         { id: 1, nombre: 'Cemento Loma Negra', categoria: 'Materiales Básicos', precio_unitario: 8500, unidad: 'Bolsa', presentacion: '50kg', codigo: 'CEM-01' },
         { id: 2, nombre: 'Ladrillo Hueco 18x18x33', categoria: 'Mampostería', precio_unitario: 450, unidad: 'Unidad', presentacion: 'Pallet x 100', codigo: 'LAD-18' }
       ]);
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudieron cargar los productos." });
     } finally {
       setLoading(false);
@@ -39,7 +39,7 @@ const ProveedorProductos = () => {
       await new Promise(res => setTimeout(res, 400));
       setProductos(productos.filter(p => p.id !== id));
       toast({ title: "Producto eliminado", description: "El producto se eliminó correctamente." });
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudo eliminar." });
     }
   };

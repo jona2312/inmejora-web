@@ -36,7 +36,7 @@ const SupplierPortalPage = () => {
     try {
       const data = await supplierApiCall('/supplier-products', { method: 'GET' });
       setProducts(data || []);
-    } catch (err) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudieron cargar los productos." });
     } finally {
       setLoadingProducts(false);

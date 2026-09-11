@@ -1,16 +1,16 @@
 import { supabase } from '@/lib/customSupabaseClient';
 
 export const rendersAPI = {
-  upload: async (formData) => {
+  upload: async () => {
     return { ok: true, url: '' }; // Mock since external API removed
   },
-  generate: async (data) => {
+  generate: async () => {
     return { ok: true };
   },
-  edit: async (data) => {
+  edit: async () => {
     return { ok: true };
   },
-  list: async (params = {}) => {
+  list: async () => {
     const userStr = localStorage.getItem('inmejora_user');
     if (!userStr) return [];
     const user = JSON.parse(userStr);
@@ -39,7 +39,7 @@ export const rendersAPI = {
     if (error) throw error;
     return { ok: true };
   },
-  download: async (id, quality = 'high') => {
+  download: async () => {
     return { url: '' };
   }
 };

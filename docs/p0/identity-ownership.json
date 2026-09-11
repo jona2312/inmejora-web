@@ -1,0 +1,154 @@
+{
+  "scope": "Web source only; no production or effective server permission verification",
+  "base": "565bc8c71c558a47cf4da4767965457b191687c0",
+  "classificationLegend": {
+    "UI_ONLY": "Presentation/browser state; never a security boundary",
+    "BACKEND_REQUIRED": "Real session/permission/operation must be enforced by backend",
+    "OWNERSHIP_UNPROVEN": "Server/RLS/storage ownership or public-access policy not verified",
+    "CONTAINED": "Affected client/supplier identity capability blocked in this source revision"
+  },
+  "globalDependencies": [
+    { "source": "src/contexts/SupabaseAuthContext.jsx", "input": "getSession/onAuthStateChange user from browser session", "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "Independent Supabase flow unchanged; not a verified bridge to client/provider identities. Admin presentation preserved." },
+    { "source": "src/contexts/InmejoraAuthContext.jsx", "input": "Historical inmejora_user/inmejora_token; no longer read", "classification": ["CONTAINED", "BACKEND_REQUIRED"], "note": "Immutable denied context; no session request/listener/setter." },
+    { "source": "src/contexts/SupplierContext.jsx", "input": "Historical supplier_data/supplier_token; no longer read", "classification": ["CONTAINED", "BACKEND_REQUIRED"], "note": "Active supplier flow blocked; distinct from disabled legacy ProveedorAuthContext." },
+    { "source": "src/contexts/ProveedorAuthContext.jsx", "input": "Historical provider identity", "classification": ["CONTAINED"], "note": "Previous containment unchanged." },
+    { "source": "src/contexts/ChatContext.jsx", "input": "chat_session_id/chat_user_id/chat_is_registered", "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "Correlation/UX only; assistant backend untouched. IDs are not credentials." },
+    { "source": "src/contexts/SubscriptionContext.jsx", "input": "Supabase user.id; mock subscription/credits", "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "No payment/credit changes. No entitlement certification." },
+    { "source": "src/components/Header.jsx", "input": "Supabase useAuth and legacy provider UI fields", "classification": ["UI_ONLY"], "note": "Historical interface mismatch (isAuthenticated/logout absent from Supabase context) is not a client credential bridge. Do not treat header as auth." },
+    { "source": "src/contexts/ThemeContext.jsx", "input": "theme localStorage", "classification": ["UI_ONLY"], "note": "No permission role." },
+    { "source": "src/components/CookieBanner.jsx", "input": "inmejora_cookie_consent", "classification": ["UI_ONLY"], "note": "Consent UX, no identity authority." },
+    { "source": "src/App.jsx", "input": "sessionStorage inmejora_reloaded", "classification": ["UI_ONLY"], "note": "Chunk reload guard, not identity. Global providers apply to every route below." }
+  ],
+  "routeGroups": [
+    {
+      "routes": ["/", "/contacto", "/asistente-ia"],
+      "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/hooks/useLeadRegistration.js", "src/hooks/useChatLogic.js", "src/components/ContactForm.jsx"],
+      "input": "chat session/user IDs, contact inputs; inherited Header/Supabase presentation",
+      "boundary": "Public contact/chat submission stays separate. Server abuse control and contact ownership not audited; no identity permission inferred. No funnel/backend change."
+    },
+    {
+      "routes": ["/nosotros", "/proyectos", "/proveedores", "/politica-de-privacidad", "/terminos-y-condiciones", "*"],
+      "classification": ["UI_ONLY"],
+      "evidence": ["src/App.jsx", "src/components/Header.jsx"],
+      "input": "Global browser presentation state; static page/project identifiers",
+      "boundary": "No client/supplier permission from these page IDs. Global contact modal/provider caveats still apply."
+    },
+    {
+      "routes": ["/servicios", "/catalogo", "/catalogo/colores", "/catalogo/productos"],
+      "classification": ["BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/pages/ServiciosPage.jsx", "src/pages/CatalogPage.jsx", "src/utils/catalogAPI.js", "src/lib/apiClient.js"],
+      "input": "Public service/catalog filters and record IDs",
+      "boundary": "Only existing catalog GET endpoints pass legacy fetch transport without bearer. Public data policy requires backend; no catalog feature changed."
+    },
+    {
+      "routes": ["/cotizador"],
+      "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/pages/QuoterPage.jsx", "src/utils/UsageLogger.js", "src/utils/quoterAPI.js"],
+      "input": "Supabase user.id for users.plan, local inmejora_cotizador_usos, selected service IDs",
+      "boundary": "Public quoter unchanged. Local quota/plan is not authorization; server ownership/entitlements unverified. Legacy authenticated calculation transport is blocked; no Budget Engine changes."
+    },
+    {
+      "routes": ["/presupuesto"],
+      "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/utils/presupuestoApi.js", "src/pages/PresupuestoPage.jsx"],
+      "input": "Local rate limit, phone/description duplicate lookup, photo storage path/public URL",
+      "boundary": "Public intake unchanged. Browser rate limit is not security and bucket visibility/ownership not demonstrated. Not a session credential."
+    },
+    {
+      "routes": ["/precios", "/planes"],
+      "classification": ["UI_ONLY", "CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/hooks/useCurrentPlan.js", "src/components/pricing/PricingCard.jsx", "src/pages/PlansPage.jsx"],
+      "input": "Supabase display identity and historical client-token plan request",
+      "boundary": "Credential accessor returns null so old local ID cannot be sent as bearer for plan lookup. Payment logic and prior containment unchanged."
+    },
+    {
+      "routes": ["/login", "/registro"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED"],
+      "evidence": ["src/contexts/containedClientAuth.js", "src/pages/LoginPage.jsx", "src/pages/RegistrationPage.jsx"],
+      "input": "Email/password/form fields, plan query, historical browser user/token",
+      "boundary": "Visible notice, submit disabled; callable operations also deny. No account created, token invented or login request. Existing payment branch code preserved but never reached by blocked registration."
+    },
+    {
+      "routes": ["/forgot-password", "/reset-password"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED"],
+      "evidence": ["src/pages/ForgotPasswordPage.jsx", "src/pages/ResetPasswordPage.jsx", "src/components/IdentityUnavailable.jsx"],
+      "input": "Previously email/code/token/hash or cached Supabase session",
+      "boundary": "No page form, code exchange, OTP verification or updateUser. No claim of email sent/password changed. Independent global Supabase SDK may still process its own session; not accepted as client identity."
+    },
+    {
+      "routes": ["/proveedores/login", "/proveedores/registro"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED"],
+      "evidence": ["src/contexts/containedSupplierAuth.js", "src/pages/SupplierLoginPage.jsx", "src/pages/ProveedorRegisterPage.jsx"],
+      "input": "Credentials/company fields, historical supplier_data/token",
+      "boundary": "No active supplier identity and no mock registration success. Missing session contract is BLOCKED; not switched to legacy provider or Dashboard API."
+    },
+    {
+      "routes": ["/proveedores/portal"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/SupplierProtectedRoute.jsx", "src/pages/SupplierPortalPage.jsx", "src/utils/supplierApi.js"],
+      "input": "supplier fields and product.id in mutations",
+      "boundary": "Guard never mounts portal with current provider; direct supplierApiCall rejects before dispatch. Server product ownership and revocation unverified."
+    },
+    {
+      "routes": ["/portal", "/portal/dashboard"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/ProtectedRoute.jsx", "src/pages/PortalPage.jsx", "src/pages/ClientDashboard.jsx", "src/utils/dashboardAPI.js"],
+      "input": "user.id/client_id filters; historical inmejora_user parsed by dashboardAPI",
+      "boundary": "Contained at route via denied client context. Direct data modules unchanged; a filter is not RLS."
+    },
+    {
+      "routes": ["/portal/perfil"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED"],
+      "evidence": ["src/pages/ProfilePage.jsx", "src/contexts/containedClientAuth.js"],
+      "input": "Cached profile fields previously merged into local identity",
+      "boundary": "Route denies; updateProfile returns failure without storage mutation or simulated success."
+    },
+    {
+      "routes": ["/portal/pagos", "/portal/planes"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/ProtectedRoute.jsx", "src/utils/pagosAPI.js", "src/utils/paymentsAPI.js"],
+      "input": "Historical client bearer, payment/invoice IDs",
+      "boundary": "Denied client route and legacy credential transport. Payment modules unchanged; no verification of provider ownership or shutdown."
+    },
+    {
+      "routes": ["/portal/renders", "/portal/renders/:id/edit", "/portal/upload"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/ProtectedRoute.jsx", "src/utils/rendersAPI.js", "src/hooks/useImageUpload.js", "src/pages/EditRenderPage.jsx"],
+      "input": "URL id, user.id/client_id filter, local token precheck, storage/render IDs",
+      "boundary": "Contained only by client route/context. Renders/upload implementations and direct data helpers unchanged by scope; server/storage ownership unverified."
+    },
+    {
+      "routes": ["/portal/cotizaciones", "/portal/analizar", "/portal/budgets"],
+      "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/ProtectedRoute.jsx", "src/pages/PortalCotizaciones.jsx", "src/pages/AnalysisPage.jsx", "src/pages/BudgetsPage.jsx"],
+      "input": "Quote/budget placeholder UI; analysis uploads an image to an external webhook without a demonstrated user credential",
+      "boundary": "Denied route. No budget/render/webhook logic changed; direct external authorization and any future resource access need backend evidence."
+    },
+    {
+      "routes": ["/admin/proveedores", "/admin-inmejora"],
+      "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
+      "evidence": ["src/components/admin/ProtectedAdminRoute.jsx", "src/pages/AdminProvidersPage.jsx", "src/pages/AdminInmejora.jsx"],
+      "input": "Supabase browser session app_metadata.role, selected record IDs",
+      "boundary": "#17 preserved exactly. Admin guard is presentation only; current pages use mocks. Neither app_metadata cache nor route access proves backend authorization."
+    },
+    {
+      "routes": ["/checkout/success", "/checkout/error", "/checkout/pending"],
+      "classification": ["UI_ONLY"],
+      "evidence": ["src/components/checkout/UnverifiedPaymentNotice.jsx"],
+      "input": "Route names/query (not interpreted as identity or payment authority)",
+      "boundary": "Previous neutral payment notice unchanged. No payment work in this issue."
+    }
+  ],
+  "unmountedOrIndirectSources": [
+    { "sources": ["src/pages/ProveedorDashboard.jsx", "src/pages/ProveedorProductsPage.jsx", "src/pages/ProveedorProductFormPage.jsx", "src/pages/ProveedorLoginPage.jsx", "src/components/proveedores/ProtectedProveedorRoute.jsx"], "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "Legacy provider remains denied; no corresponding Route in App; provider.id and URL id are not credentials." },
+    { "sources": ["src/pages/SupplierRegistrationPage.jsx"], "classification": ["CONTAINED"], "note": "Lazy declaration exists but no Route; page also replaced with explicit blocked registration." },
+    { "sources": ["src/components/proveedores/dashboard/AgregarProductoForm.jsx", "src/components/proveedores/dashboard/CargarPreciosSection.jsx", "src/components/proveedores/dashboard/ProveedorPerfil.jsx", "src/components/proveedores/dashboard/ProveedorProductos.jsx"], "classification": ["CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "Legacy provider consumer tree; historical profile/product/upload mocks do not prove stored operations." },
+    { "sources": ["src/components/renders/GenerateButton.jsx", "src/components/renders/DownloadRenderModal.jsx", "src/pages/RendersPage.jsx", "src/pages/PortalRenders.jsx"], "classification": ["BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "No direct Route for these pages and no imports found for GenerateButton/DownloadRenderModal; raw token consumers remain unmodified under no-renders scope. Not certified safe standalone." },
+    { "sources": ["src/components/renders/RenderGallerySection.jsx", "src/components/renders/DeleteRenderModal.jsx"], "classification": ["BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "RenderGallerySection is a child of the contained /portal/renders page and also an unmounted RendersPage. Data helpers/filter/delete IDs have no demonstrated server ownership. Containment is at route/context, not standalone module authorization." },
+    { "sources": ["src/pages/PortalPerfil.jsx", "src/pages/PortalDashboard.jsx", "src/pages/PlanManagementPage.jsx", "src/pages/CheckoutPage.jsx"], "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "No Route in App; audit context selection before reuse. Client updateProfile now denies; independent Supabase/payment mocks unchanged." },
+    { "sources": ["src/hooks/useApi.js", "src/lib/apiCall.js", "src/utils/apiClient.js"], "classification": ["CONTAINED", "BACKEND_REQUIRED"], "note": "Generic legacy identity transports deny before network even if imported directly; no cached bearer accepted." },
+    { "sources": ["src/components/NewsletterPopup.jsx", "src/components/ScrollTriggerRegistrationModal.jsx"], "classification": ["UI_ONLY", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "Browser shown/dismissed/registered flags are UI hints, not identity. No active direct Route. Public capture is outside this issue." },
+    { "sources": ["src/utils/MercadoPagoWebhookHandler.js"], "classification": ["BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"], "note": "No consumer found; server-oriented helper in src. Not a browser auth authority; unchanged, no payment audit in this issue." }
+  ]
+}

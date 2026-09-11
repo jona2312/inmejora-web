@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertCircle, X, WifiOff, CreditCard } from 'lucide-react';
+import { AlertCircle, WifiOff, CreditCard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const UploadErrorModal = ({ isOpen, onClose, error, onRetry, navigate }) => {

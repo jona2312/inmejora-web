@@ -80,22 +80,22 @@ export const validateForm = (formData) => {
   const errors = {};
   let isValid = true;
 
-  if (formData.hasOwnProperty('name')) {
+  if (Object.prototype.hasOwnProperty.call(formData, 'name')) {
     const res = validateName(formData.name);
     if (!res.isValid) { errors.name = res.error; isValid = false; }
   }
   
-  if (formData.hasOwnProperty('email')) {
+  if (Object.prototype.hasOwnProperty.call(formData, 'email')) {
     const res = validateEmail(formData.email);
     if (!res.isValid) { errors.email = res.error; isValid = false; }
   }
 
-  if (formData.hasOwnProperty('password')) {
+  if (Object.prototype.hasOwnProperty.call(formData, 'password')) {
     const res = validatePassword(formData.password);
     if (!res.isValid) { errors.password = res.error; isValid = false; }
   }
 
-  if (formData.hasOwnProperty('phone')) {
+  if (Object.prototype.hasOwnProperty.call(formData, 'phone')) {
     const res = validatePhone(formData.phone);
     if (!res.isValid) { errors.phone = res.error; isValid = false; }
   }

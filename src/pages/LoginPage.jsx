@@ -12,7 +12,7 @@ import { validateEmail, validatePassword } from '@/utils/authValidation';
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, unavailableReason } = useAuth();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ email: '', password: '', remember: false });
@@ -41,7 +41,7 @@ const LoginPage = () => {
         toast({ variant: "destructive", title: "Error de acceso", description: result?.error || "Las credenciales son incorrectas." });
         setIsLoading(false);
       }
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error inesperado", description: "No pudimos procesar tu inicio de sesión. Intenta de nuevo." });
       setIsLoading(false);
     }
@@ -120,6 +120,7 @@ const LoginPage = () => {
         >
           <div className="mb-8">
             <h1 className="text-2xl font-bold text-white">Iniciar sesión</h1>
+            {unavailableReason && <p role="status" className="mt-4 text-amber-300">{unavailableReason}</p>}
             <p className="text-gray-400 mt-1">Accedé a tu panel de control</p>
           </div>
 
@@ -134,7 +135,7 @@ const LoginPage = () => {
                   onChange={e => setFormData({...formData, email: e.target.value})}
                   className={`pl-10 h-11 bg-[#1a1a1a] border-[#2a2a2a] text-white placeholder:text-gray-600 focus-visible:ring-[#d4af37] focus-visible:border-[#d4af37] rounded-lg transition-colors ${errors.email ? 'border-red-500' : ''}`}
                   placeholder="tu@email.com"
-                  disabled={isLoading}
+                  disabled={isLoading || Boolean(unavailableReason)}
                 />
               </div>
               {errors.email && <p className="text-red-400 text-xs">{errors.email}</p>}
@@ -154,7 +155,7 @@ const LoginPage = () => {
                 onChange={e => setFormData({...formData, password: e.target.value})}
                 className={`h-11 bg-[#1a1a1a] border-[#2a2a2a] text-white focus-visible:ring-[#d4af37] focus-visible:border-[#d4af37] rounded-lg transition-colors ${errors.password ? 'border-red-500' : ''}`}
                 placeholder="••••••••"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               {errors.password && <p className="text-red-400 text-xs">{errors.password}</p>}
             </div>
@@ -165,7 +166,7 @@ const LoginPage = () => {
                 checked={formData.remember}
                 onChange={e => setFormData({...formData, remember: e.target.checked})}
                 className="rounded border-[#333] text-[#d4af37] focus:ring-[#d4af37] bg-[#1a1a1a] w-4 h-4 cursor-pointer"
-                disabled={isLoading}
+                disabled={isLoading || Boolean(unavailableReason)}
               />
               <Label htmlFor="remember" className="text-sm font-normal text-gray-500 cursor-pointer">
                 Recuérdame
@@ -173,7 +174,7 @@ const LoginPage = () => {
             </div>
 
             <Button
-              type="submit" disabled={isLoading}
+              type="submit" disabled={isLoading || Boolean(unavailableReason)}
               className="w-full h-12 bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold text-base rounded-lg transition-colors mt-2"
             >
               {isLoading ? (

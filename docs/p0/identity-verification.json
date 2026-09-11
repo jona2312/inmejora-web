@@ -1,0 +1,60 @@
+{
+  "dateUtc": "2026-09-11T13:40:21.6216383Z",
+  "issue": 12,
+  "basePr": 17,
+  "baseSha": "565bc8c71c558a47cf4da4767965457b191687c0",
+  "node": "v20.20.2",
+  "npm": "10.8.2",
+  "install": {
+    "command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
+    "packages": 716,
+    "existingCacheRequired": true,
+    "exitCode": 0,
+    "lockChanged": false
+  },
+  "tests": {
+    "failed": 0,
+    "new": 20,
+    "existing": 50,
+    "command": "npm run test:ci",
+    "total": 70,
+    "passed": 70
+  },
+  "lint": {
+    "warnings": 8,
+    "removedWarnings": "SupplierContext effect and unused suppression disappeared with contained implementation; no rule/config changes",
+    "exitCode": 0,
+    "errors": 0
+  },
+  "build": {
+    "command": "npm run build:ci",
+    "modules": 3152,
+    "warnings": [
+      "Browserslist data stale",
+      "bundle >500 kB"
+    ],
+    "exitCode": 0
+  },
+  "matrix": {
+    "routes": 40,
+    "verification": "AST Route inventory equality and portal guard assertions"
+  },
+  "unchanged": [
+    "ProtectedAdminRoute from #17",
+    "SupabaseAuthContext",
+    "legacy ProveedorAuthContext",
+    "payment hooks/wrapper",
+    "rendersAPI",
+    "CalculationEngine",
+    "package-lock.json",
+    "eslint.config.js"
+  ],
+  "limits": [
+    "Frontend containment, not functional authenticated sessions",
+    "No live API/RLS/storage verification",
+    "Race coverage is stale denied action completion; supplier network responses never dispatched",
+    "Logout clears browser cache only; server revocation unverified",
+    "No browser E2E or production access",
+    "No Issue #13-16 work"
+  ]
+}

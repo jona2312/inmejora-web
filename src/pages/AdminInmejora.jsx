@@ -13,7 +13,7 @@ const AdminInmejora = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("leads");
+  const [, setActiveTab] = useState("leads");
   
   const [filters, setFilters] = useState({
     lead_status: '',
@@ -44,7 +44,7 @@ const AdminInmejora = () => {
     });
   };
 
-  const handleDelete = async (table, id) => {
+  const handleDelete = async () => {
     if(!confirm('¿Estás seguro de que querés borrar este item?')) return;
     
     // Mock delete

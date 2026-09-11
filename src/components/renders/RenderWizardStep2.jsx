@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mic, MicOff, Sparkles } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 
@@ -85,7 +85,7 @@ const RenderWizardStep2 = ({ description, onDescriptionChange }) => {
     if (recognitionRef.current) {
       try {
         recognitionRef.current.stop();
-      } catch (e) {
+      } catch {
         // Ignore if already stopped
       }
     }

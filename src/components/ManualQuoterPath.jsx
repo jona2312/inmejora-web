@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronRight, Lock, FileText } from 'lucide-react';
+import { ChevronRight, Lock, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
-import { calculateGrandTotal, formatCurrency } from '@/utils/CalculationEngine';
+import { calculateGrandTotal } from '@/utils/CalculationEngine';
 import { logQuotationUsage } from '@/utils/UsageLogger';
 
 const ManualQuoterPath = ({ 
@@ -176,11 +176,11 @@ const ManualQuoterPath = ({
                     className="overflow-hidden"
                   >
                     <div className="bg-[#1a1a1a]">
-                      {categoryServices.map((service, idx) => {
+                      {categoryServices.map((service) => {
                         const isSelected = !!selectedServices[service.id];
                         const isLocked = isServiceLocked(service.id);
                         const serviceData = selectedServices[service.id];
-                        const subtotal = isSelected ? calculateSubtotal(serviceData) : 0;
+                        if (isSelected) calculateSubtotal(serviceData);
 
                         return (
                           <div
@@ -194,6 +194,7 @@ const ManualQuoterPath = ({
                               <div className="flex items-center gap-3 flex-1 min-w-0">
                                 <div className="relative">
                                   <Checkbox
+                                    id={`service-${service.id}`}
                                     checked={isSelected}
                                     onCheckedChange={() => toggleService(service.id, service)}
                                     disabled={isLocked}
@@ -203,7 +204,7 @@ const ManualQuoterPath = ({
                                     <Lock className="w-3 h-3 text-gray-500 absolute -top-1 -right-1" />
                                   )}
                                 </div>
-                                <label className="text-white font-medium cursor-pointer truncate">
+                                <label htmlFor={`service-${service.id}`} className="text-white font-medium cursor-pointer truncate">
                                   {service.servicio}
                                 </label>
                               </div>
@@ -212,6 +213,7 @@ const ManualQuoterPath = ({
                               {isSelected && (
                                 <div className="flex items-center gap-2">
                                   <Input
+                                    aria-label={`Superficie de ${service.servicio}`}
                                     type="number"
                                     min="1"
                                     step="0.1"

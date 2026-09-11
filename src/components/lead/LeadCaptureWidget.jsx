@@ -7,7 +7,7 @@ import { useToast } from '@/components/ui/use-toast';
 
 const LeadCaptureWidget = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { register, loading, error, success } = useLeadRegistration();
+  const { register, loading, success } = useLeadRegistration();
   const { toast } = useToast();
 
   const handleOpenModal = () => setIsModalOpen(true);
