@@ -194,6 +194,7 @@ const ManualQuoterPath = ({
                               <div className="flex items-center gap-3 flex-1 min-w-0">
                                 <div className="relative">
                                   <Checkbox
+                                    id={`service-${service.id}`}
                                     checked={isSelected}
                                     onCheckedChange={() => toggleService(service.id, service)}
                                     disabled={isLocked}
@@ -203,7 +204,7 @@ const ManualQuoterPath = ({
                                     <Lock className="w-3 h-3 text-gray-500 absolute -top-1 -right-1" />
                                   )}
                                 </div>
-                                <label className="text-white font-medium cursor-pointer truncate">
+                                <label htmlFor={`service-${service.id}`} className="text-white font-medium cursor-pointer truncate">
                                   {service.servicio}
                                 </label>
                               </div>
@@ -212,6 +213,7 @@ const ManualQuoterPath = ({
                               {isSelected && (
                                 <div className="flex items-center gap-2">
                                   <Input
+                                    aria-label={`Superficie de ${service.servicio}`}
                                     type="number"
                                     min="1"
                                     step="0.1"

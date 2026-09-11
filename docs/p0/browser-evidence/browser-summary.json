@@ -1,0 +1,1988 @@
+{
+  "generatedAt": "2026-09-11T16:55:55.020Z",
+  "sourceBase": "0c2b9d4049411f2bb03536b5240e38b5dd041c2b",
+  "platform": "win32 10.0.26200",
+  "node": "v20.20.2",
+  "chromium": "153.0.8010.12",
+  "buildIndexSha256": "59078f6c9af7ea9ed440266bab78dfaae4a97352a0e430008ae45db2767e8206",
+  "stats": {
+    "startTime": "2026-09-11T16:53:36.060Z",
+    "duration": 128300.856,
+    "expected": 155,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "harness blocks forbidden transports and classifies unknown requests",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 538
+    },
+    {
+      "title": "harness blocks forbidden transports and classifies unknown requests",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 486
+    },
+    {
+      "title": "harness blocks forbidden transports and classifies unknown requests",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 498
+    },
+    {
+      "title": "harness blocks forbidden transports and classifies unknown requests",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 563
+    },
+    {
+      "title": "route /",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1107,
+      "requests": 68,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /precios",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 866,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /planes",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 888,
+      "requests": 17,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /servicios",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 874,
+      "requests": 21,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proyectos",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 975,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 877,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/colores",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 887,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/productos",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 837,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /cotizador",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 906,
+      "requests": 26,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /login",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 829,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /registro",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 805,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /forgot-password",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 768,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /reset-password",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 773,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /presupuesto",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 841,
+      "requests": 23,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /contacto",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 839,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /nosotros",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 882,
+      "requests": 12,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /asistente-ia",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 875,
+      "requests": 28,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1006,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/registro",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 794,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/login",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 789,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/success?status=approved&payment_id=synthetic",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 802,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/error?status=approved",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 793,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/pending?status=approved",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 785,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /politica-de-privacidad",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 810,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /terminos-y-condiciones",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 821,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /does-not-exist",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 873,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "cached identities cannot mount private routes",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 9402,
+      "requests": 206,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "navigation, history and contact keyboard",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 2273,
+      "requests": 72,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contained forms and payment actions stay truthful",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 4386,
+      "requests": 172,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contact form never reports a simulated delivery",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1841,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "public lead errors preserve form data",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 4183,
+      "requests": 70,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+        "Webhook error: AxiosError: Request failed with status code 503\n    at z_ (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:12214)\n    at XMLHttpRequest.m (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:19604)\n    at ql.request (http://127.0.0.1:4173/assets/index-3f57e4d7.js:142:2275)\n    at async sendWebhookMessage (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:451)\n    at async f (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:1588)"
+      ]
+    },
+    {
+      "title": "presupuesto validates, reports backend failure and allows retry",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1021,
+      "requests": 24,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ]
+    },
+    {
+      "title": "catalog rejects malformed payload without crashing",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 601,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "quoter empty data retry and populated manual path",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 2941,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=false",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1743,
+      "requests": 124,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=true",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1479,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "mobile menu Escape restores focus and scrolling",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 1804,
+      "requests": 68,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "main navigation resolves lazy home anchors",
+      "project": "360px",
+      "status": "expected",
+      "durationMs": 8529,
+      "requests": 238,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1034,
+      "requests": 68,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /precios",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 857,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /planes",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 937,
+      "requests": 17,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /servicios",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 908,
+      "requests": 21,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proyectos",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 938,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 848,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/colores",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 883,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/productos",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 886,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /cotizador",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 858,
+      "requests": 26,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /login",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 797,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /registro",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 809,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /forgot-password",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 784,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /reset-password",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 804,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /presupuesto",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 843,
+      "requests": 23,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /contacto",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 854,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /nosotros",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 912,
+      "requests": 12,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /asistente-ia",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 859,
+      "requests": 28,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 994,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/registro",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 772,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/login",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 788,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/success?status=approved&payment_id=synthetic",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 787,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/error?status=approved",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 769,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/pending?status=approved",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 805,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /politica-de-privacidad",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 856,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /terminos-y-condiciones",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 874,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /does-not-exist",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 922,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "cached identities cannot mount private routes",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 9279,
+      "requests": 206,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "navigation, history and contact keyboard",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 2371,
+      "requests": 72,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contained forms and payment actions stay truthful",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 4321,
+      "requests": 172,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contact form never reports a simulated delivery",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1816,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "public lead errors preserve form data",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 4160,
+      "requests": 70,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+        "Webhook error: AxiosError: Request failed with status code 503\n    at z_ (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:12214)\n    at XMLHttpRequest.m (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:19604)\n    at ql.request (http://127.0.0.1:4173/assets/index-3f57e4d7.js:142:2275)\n    at async sendWebhookMessage (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:451)\n    at async f (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:1588)"
+      ]
+    },
+    {
+      "title": "presupuesto validates, reports backend failure and allows retry",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1033,
+      "requests": 24,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ]
+    },
+    {
+      "title": "catalog rejects malformed payload without crashing",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 584,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "quoter empty data retry and populated manual path",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 2913,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=false",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1807,
+      "requests": 136,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=true",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1429,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "mobile menu Escape restores focus and scrolling",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 1836,
+      "requests": 68,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "main navigation resolves lazy home anchors",
+      "project": "390px",
+      "status": "expected",
+      "durationMs": 8490,
+      "requests": 238,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1085,
+      "requests": 56,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /precios",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 925,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /planes",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 904,
+      "requests": 17,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /servicios",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1011,
+      "requests": 21,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proyectos",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1026,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 906,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/colores",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 878,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/productos",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 937,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /cotizador",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 983,
+      "requests": 26,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /login",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 862,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /registro",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 858,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /forgot-password",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 847,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /reset-password",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 821,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /presupuesto",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 941,
+      "requests": 23,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /contacto",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 889,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /nosotros",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 935,
+      "requests": 12,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /asistente-ia",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 946,
+      "requests": 28,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1048,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/registro",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 820,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/login",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 820,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/success?status=approved&payment_id=synthetic",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 835,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/error?status=approved",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 823,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/pending?status=approved",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 851,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /politica-de-privacidad",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 947,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /terminos-y-condiciones",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 917,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /does-not-exist",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 925,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "cached identities cannot mount private routes",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 9529,
+      "requests": 206,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "navigation, history and contact keyboard",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 2591,
+      "requests": 72,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contained forms and payment actions stay truthful",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 4233,
+      "requests": 172,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contact form never reports a simulated delivery",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 524,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "public lead errors preserve form data",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 2774,
+      "requests": 70,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+        "Webhook error: AxiosError: Request failed with status code 503\n    at z_ (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:12214)\n    at XMLHttpRequest.m (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:19604)\n    at ql.request (http://127.0.0.1:4173/assets/index-3f57e4d7.js:142:2275)\n    at async sendWebhookMessage (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:451)\n    at async f (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:1588)"
+      ]
+    },
+    {
+      "title": "presupuesto validates, reports backend failure and allows retry",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1216,
+      "requests": 24,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ]
+    },
+    {
+      "title": "catalog rejects malformed payload without crashing",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 648,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "quoter empty data retry and populated manual path",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 2675,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=false",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1912,
+      "requests": 136,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=true",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1489,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "mobile menu Escape restores focus and scrolling",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 1824,
+      "requests": 56,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "main navigation resolves lazy home anchors",
+      "project": "768px",
+      "status": "expected",
+      "durationMs": 8188,
+      "requests": 238,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1096,
+      "requests": 67,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /precios",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1059,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /planes",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 966,
+      "requests": 17,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /servicios",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1012,
+      "requests": 21,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proyectos",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1037,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 976,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/colores",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1001,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /catalogo/productos",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 954,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /cotizador",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 988,
+      "requests": 26,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /login",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 888,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /registro",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 873,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /forgot-password",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 831,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /reset-password",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 839,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /presupuesto",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 998,
+      "requests": 23,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /contacto",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 975,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /nosotros",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1007,
+      "requests": 12,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /asistente-ia",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 967,
+      "requests": 28,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1022,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/registro",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 826,
+      "requests": 8,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /proveedores/login",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 854,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/success?status=approved&payment_id=synthetic",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 899,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/error?status=approved",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 861,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /checkout/pending?status=approved",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 857,
+      "requests": 11,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /politica-de-privacidad",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 988,
+      "requests": 16,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /terminos-y-condiciones",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 976,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "route /does-not-exist",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1031,
+      "requests": 15,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "cached identities cannot mount private routes",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 9615,
+      "requests": 206,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "navigation, history and contact keyboard",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 2593,
+      "requests": 71,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contained forms and payment actions stay truthful",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 3232,
+      "requests": 172,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "contact form never reports a simulated delivery",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 472,
+      "requests": 18,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "public lead errors preserve form data",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 2815,
+      "requests": 69,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+        "Webhook error: AxiosError: Request failed with status code 503\n    at z_ (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:12214)\n    at XMLHttpRequest.m (http://127.0.0.1:4173/assets/index-3f57e4d7.js:140:19604)\n    at ql.request (http://127.0.0.1:4173/assets/index-3f57e4d7.js:142:2275)\n    at async sendWebhookMessage (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:451)\n    at async f (http://127.0.0.1:4173/assets/LandingPage-eec402d6.js:11:1588)"
+      ]
+    },
+    {
+      "title": "presupuesto validates, reports backend failure and allows retry",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1258,
+      "requests": 24,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ]
+    },
+    {
+      "title": "catalog rejects malformed payload without crashing",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 633,
+      "requests": 20,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "quoter empty data retry and populated manual path",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 2631,
+      "requests": 29,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=false",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1974,
+      "requests": 134,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "admin UI metadata gate: app_metadata admin=true",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 1518,
+      "requests": 27,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    },
+    {
+      "title": "mobile menu Escape restores focus and scrolling",
+      "project": "1440px",
+      "status": "skipped",
+      "durationMs": 109,
+      "requests": 0,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": []
+    },
+    {
+      "title": "main navigation resolves lazy home anchors",
+      "project": "1440px",
+      "status": "expected",
+      "durationMs": 8153,
+      "requests": 235,
+      "forbidden": 0,
+      "unexpected": 0,
+      "consoleErrors": [
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839",
+        "❌ Service Worker registration failed: TypeError: Cannot read properties of undefined (reading 'scope')\n    at http://127.0.0.1:4173/assets/index-3f57e4d7.js:219:34839"
+      ]
+    }
+  ]
+}
