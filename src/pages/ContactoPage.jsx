@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -11,21 +11,14 @@ import { useToast } from '@/components/ui/use-toast';
 
 const ContactoPage = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Mensaje enviado",
-        description: "Nos pondremos en contacto contigo a la brevedad.",
-      });
-      e.target.reset();
-    }, 1000);
+    toast({
+      variant: "destructive",
+      title: "Envío no disponible",
+      description: "Tu mensaje no fue enviado ni guardado. Podés contactarnos por email o WhatsApp.",
+    });
   };
 
   return (
@@ -89,6 +82,7 @@ const ContactoPage = () => {
             {/* Contact Form */}
             <div className="bg-[#141414] p-8 rounded-2xl border border-gray-800">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <p role="status" className="text-amber-300 text-sm">El envío desde este formulario está temporalmente no disponible. Tu mensaje no se enviará ni guardará.</p>
                 <div className="space-y-2">
                   <Label htmlFor="name">Nombre completo</Label>
                   <Input id="name" required className="bg-gray-900 border-gray-700 text-white" placeholder="Tu nombre" />
@@ -104,12 +98,8 @@ const ContactoPage = () => {
                   <Textarea id="message" required rows={5} className="bg-gray-900 border-gray-700 resize-none text-white" placeholder="¿En qué te podemos ayudar?" />
                 </div>
                 
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-[#d4af37] hover:bg-[#b5952f] text-black">
-                  {isSubmitting ? "Enviando..." : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" /> Enviar Mensaje
-                    </>
-                  )}
+                <Button type="submit" className="w-full bg-[#d4af37] hover:bg-[#b5952f] text-black">
+                  <Send className="w-4 h-4 mr-2" /> Enviar Mensaje
                 </Button>
               </form>
             </div>

@@ -38,3 +38,37 @@ jobs:
         if: matrix.gate == 'lint'
         shell: bash
         run: sudo unshare --net -- "$(command -v node)" --import ./scripts/ci/offline-guard.mjs node_modules/eslint/bin/eslint.js .
+
+  browser:
+    name: Browser regression (isolated loopback)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20.20.2'
+          cache: npm
+      - name: Frozen dependencies and browser (installation only)
+        run: |
+          test "$(npm --version)" = "10.8.2"
+          npm ci --ignore-scripts --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Synthetic build without network
+        run: sudo unshare --net -- "$(command -v node)" scripts/ci/build.mjs
+      - name: Browser with only loopback enabled
+        shell: bash
+        run: |
+          sudo env CI=true PLAYWRIGHT_BROWSERS_PATH="$HOME/.cache/ms-playwright" unshare --net -- bash -c 'ip link set lo up; exec "$1" node_modules/@playwright/test/cli.js test' -- "$(command -v node)"
+      - name: Auditable browser results (synthetic data only)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: browser-regression-evidence
+          path: |
+            browser-results/
+            browser-report/
+            test-results/
+          retention-days: 14

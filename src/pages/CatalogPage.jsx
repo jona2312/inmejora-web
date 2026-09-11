@@ -57,6 +57,7 @@ const CatalogPage = () => {
           offset
         });
         const items = data.colors || data || [];
+        if (!Array.isArray(items)) throw new Error('Respuesta de catálogo inválida');
         setColors(prev => offset === 0 ? items : [...prev, ...items]);
         setHasMore(items.length === limit);
       } else {
@@ -67,6 +68,7 @@ const CatalogPage = () => {
           offset
         });
         const items = data.products || data || [];
+        if (!Array.isArray(items)) throw new Error('Respuesta de catálogo inválida');
         setProducts(prev => offset === 0 ? items : [...prev, ...items]);
         setHasMore(items.length === limit);
       }

@@ -1,5 +1,10 @@
 # P0 web: offline verification tooling
 
+Historical scope of the original offline tooling PR. Issue #13 subsequently adds
+an isolated Chromium/loopback job and synthetic report artifacts; see
+[current browser evidence](WEB-BROWSER-EVIDENCE.md). The original unit, lint and
+build gates below remain in place.
+
 Stacked on the lockfile reconciliation PR (#4), base commit
 `bc9a8da01f873eb8382e210898dc1c186e607c74`. This PR does not change application
 source or authorize deployment. The commercial frontend remains in this repository.

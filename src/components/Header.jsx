@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -25,6 +25,26 @@ const Header = () => {
   const { openContactModal } = useContactModal();
   const location = useLocation();
   const navigate = useNavigate();
+  const menuButtonRef = useRef(null);
+  const menuRef = useRef(null);
+
+  useEffect(() => { setIsOpen(false); }, [location.key]);
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKey = event => {
+      if (event.key === 'Escape') { setIsOpen(false); menuButtonRef.current?.focus(); }
+      if (event.key === 'Tab') {
+        const items = [menuButtonRef.current, ...menuRef.current.querySelectorAll('button, a[href]')].filter(el => el && el.getClientRects().length);
+        const first = items[0]; const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
+    document.addEventListener('keydown', handleKey);
+    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener('keydown', handleKey); };
+  }, [isOpen]);
 
   const isDashboard = location.pathname.startsWith('/portal') || location.pathname.startsWith('/proveedores/dashboard');
   const isPlansPage = location.pathname === '/portal/planes';
@@ -73,19 +93,7 @@ const Header = () => {
     const targetId = href === '#servicios' ? '#soluciones' : href;
 
     if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => {
-            const element = document.querySelector(targetId);
-            if (element) {
-                const headerOffset = 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - headerOffset;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }, 100);
+        navigate(`/${targetId}`);
     } else {
         const element = document.querySelector(targetId);
         if (element) {
@@ -277,6 +285,9 @@ const Header = () => {
                 size="icon" 
                 className="text-white hover:text-[#d4af37] hover:bg-white/10 h-10 w-10 p-2 rounded-lg transition-colors"
                 aria-label="Menu"
+                aria-expanded={isOpen}
+                aria-controls="mobile-navigation"
+                ref={menuButtonRef}
               >
                 {isOpen ? <X size={26} /> : <Menu size={26} />}
               </Button>
@@ -289,6 +300,8 @@ const Header = () => {
       <AnimatePresence>
       {isOpen && (
         <motion.div
+          id="mobile-navigation"
+          ref={menuRef}
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
