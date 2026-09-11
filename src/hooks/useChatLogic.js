@@ -60,7 +60,6 @@ export const useChatLogic = () => {
     setIsLoading,
     showRegistrationModal,
     setShowRegistrationModal,
-    quota,
     setQuota,
     isOpen,
     isSessionInitialized,
@@ -93,7 +92,7 @@ export const useChatLogic = () => {
     await new Promise(resolve => setTimeout(resolve, delay));
 
     if (endpoint === '/api/chat/send') {
-      const { session_id, message, is_first_message, user_id } = payload;
+      const { message } = payload;
       
       let intent = detectIntent(message);
       if (intent === lastIntentRef.current && intent === 'general') {
@@ -118,7 +117,7 @@ export const useChatLogic = () => {
     }
 
     if (endpoint === '/api/chat/register') {
-      const { name, email, phone, session_id } = payload;
+      const { name } = payload;
       
       const whatsappText = encodeURIComponent(`Hola, soy ${name}. Acabo de registrarme en el chat de INMEJORA y quiero continuar mi consulta.`);
       const whatsappLink = `https://wa.me/5491158300611?text=${whatsappText}`;

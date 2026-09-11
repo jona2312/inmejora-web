@@ -1,0 +1,142 @@
+[
+  {
+    "file": "src/components/chat/ChatWidget.jsx",
+    "line": 19,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'initializeSession'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/components/dashboard/CreditsWidget.jsx",
+    "line": 7,
+    "severity": 2,
+    "rule": "no-shadow-restricted-names",
+    "message": "Shadowing of global property 'Infinity'."
+  },
+  {
+    "file": "src/components/ManualQuoterPath.jsx",
+    "line": 42,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'groupedServices'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/components/proveedores/dashboard/ProveedorProductos.jsx",
+    "line": 15,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'fetchProductos'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/components/renders/RenderWizardStep2.jsx",
+    "line": 55,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'stopRecording'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/components/Testimonials.jsx",
+    "line": 47,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'nextTestimonial'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/components/WhyInmejora.jsx",
+    "line": 107,
+    "severity": 2,
+    "rule": "no-constant-binary-expression",
+    "message": "Unexpected constant truthiness on the left-hand side of a `&&` expression."
+  },
+  {
+    "file": "src/contexts/ProveedorAuthContext.jsx",
+    "line": 60,
+    "severity": 2,
+    "rule": "no-constant-condition",
+    "message": "Unexpected constant condition."
+  },
+  {
+    "file": "src/contexts/SupplierContext.jsx",
+    "line": 63,
+    "severity": 1,
+    "rule": "unused-eslint-disable",
+    "message": "Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')."
+  },
+  {
+    "file": "src/contexts/SupplierContext.jsx",
+    "line": 80,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'toast'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/pages/ImageUploadPage.jsx",
+    "line": 81,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useCallback has a missing dependency: 'handleFile'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/pages/PresupuestoPage.jsx",
+    "line": 51,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'trackView'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/pages/QuoterPage.jsx",
+    "line": 51,
+    "severity": 1,
+    "rule": "react-hooks/exhaustive-deps",
+    "message": "React Hook useEffect has a missing dependency: 'checkUserPlan'. Either include it or remove the dependency array."
+  },
+  {
+    "file": "src/utils/authValidation.js",
+    "line": 83,
+    "severity": 2,
+    "rule": "no-prototype-builtins",
+    "message": "Do not access Object.prototype method 'hasOwnProperty' from target object."
+  },
+  {
+    "file": "src/utils/authValidation.js",
+    "line": 88,
+    "severity": 2,
+    "rule": "no-prototype-builtins",
+    "message": "Do not access Object.prototype method 'hasOwnProperty' from target object."
+  },
+  {
+    "file": "src/utils/authValidation.js",
+    "line": 93,
+    "severity": 2,
+    "rule": "no-prototype-builtins",
+    "message": "Do not access Object.prototype method 'hasOwnProperty' from target object."
+  },
+  {
+    "file": "src/utils/authValidation.js",
+    "line": 98,
+    "severity": 2,
+    "rule": "no-prototype-builtins",
+    "message": "Do not access Object.prototype method 'hasOwnProperty' from target object."
+  },
+  {
+    "file": "src/utils/FormValidation.js",
+    "line": 22,
+    "severity": 2,
+    "rule": "no-useless-escape",
+    "message": "Unnecessary escape character: \\+."
+  },
+  {
+    "file": "src/utils/FormValidation.js",
+    "line": 22,
+    "severity": 2,
+    "rule": "no-useless-escape",
+    "message": "Unnecessary escape character: \\(."
+  },
+  {
+    "file": "src/utils/FormValidation.js",
+    "line": 22,
+    "severity": 2,
+    "rule": "no-useless-escape",
+    "message": "Unnecessary escape character: \\)."
+  }
+]

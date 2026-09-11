@@ -30,7 +30,7 @@ const ProveedorProductsPage = () => {
     }, 400);
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async () => {
     if (window.confirm('¿Seguro que deseas eliminar este producto?')) {
       toast({ title: "Eliminado", description: "Producto eliminado correctamente (Simulado)" });
       fetchProducts();

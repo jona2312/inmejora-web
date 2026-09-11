@@ -64,7 +64,7 @@ const ContactForm = () => {
               description: result.message || "No pudimos enviar tu mensaje.",
           });
       }
-    } catch (error) {
+    } catch {
       toast({
           variant: "destructive",
           title: "Error inesperado",

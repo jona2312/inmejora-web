@@ -26,9 +26,9 @@ const QuoterPage = () => {
   // Data states
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
-  const [zonas, setZonas] = useState([]);
+  const [, setZonas] = useState([]);
   const [servicios, setServicios] = useState([]);
-  const [tarifas, setTarifas] = useState([]);
+  const [, setTarifas] = useState([]);
 
   // UI states
   const [selectedZone, setSelectedZone] = useState('Buenos Aires/AMBA');

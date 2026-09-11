@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/lib/customSupabaseClient';
+import '@/lib/customSupabaseClient';
 
 export const useImageUpload = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [data, setData] = useState(null);
-  const { logout } = useAuth();
+  useAuth();
   const navigate = useNavigate();
 
   const uploadImage = async (file, description) => {

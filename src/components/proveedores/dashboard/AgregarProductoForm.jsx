@@ -6,7 +6,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { PackagePlus } from 'lucide-react';
 
 const AgregarProductoForm = () => {
-  const { proveedorFetch } = useProveedorAuth();
+  useProveedorAuth();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ const AgregarProductoForm = () => {
         nombre: '', categoria: '', precio_unitario: '',
         unidad: '', presentacion: '', codigo: ''
       });
-    } catch (error) {
+    } catch {
       toast({ variant: "destructive", title: "Error", description: "No se pudo agregar el producto." });
     } finally {
       setLoading(false);

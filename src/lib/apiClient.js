@@ -1,4 +1,5 @@
-// File updated to remove external hardcoded domains
+import { clientAuthError } from '../contexts/identityContainment.js';
+
 const BASE_URL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
 const handleResponse = async (response) => {
@@ -9,7 +10,7 @@ const handleResponse = async (response) => {
     try {
       errorData = await response.json();
       errorMessage = errorData.message || errorData.error || errorMessage;
-    } catch (e) {
+    } catch {
       // Not JSON
     }
 
@@ -60,14 +61,15 @@ const handleResponse = async (response) => {
 };
 
 export const apiCall = async (endpoint, method = 'GET', body = null) => {
-  const token = localStorage.getItem('inmejora_token');
+  // Only the two existing anonymous catalog reads remain available through this
+  // legacy transport. No cached ID/token is promoted to a credential.
+  if (method !== 'GET' || typeof endpoint !== 'string' ||
+      !/^\/api\/horizon\/catalogo\/(colores|productos)(\?[^#]*)?$/.test(endpoint)) {
+    throw clientAuthError();
+  }
   const headers = {
     'Content-Type': 'application/json',
   };
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
 
   const config = {
     method,
@@ -91,27 +93,8 @@ export const apiCall = async (endpoint, method = 'GET', body = null) => {
 };
 
 export const apiCallFormData = async (endpoint, method = 'POST', formData) => {
-  const token = localStorage.getItem('inmejora_token');
-  const headers = {};
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
-  const config = {
-    method,
-    headers,
-    body: formData,
-  };
-
-  try {
-    const url = endpoint.startsWith('http') ? endpoint : `${BASE_URL}${endpoint}`;
-    const response = await fetch(url, config);
-    return await handleResponse(response);
-  } catch (error) {
-    if (!error.status) {
-      throw new Error('Error de red al subir el archivo. Verifica tu conexión.');
-    }
-    throw error;
-  }
+  void endpoint;
+  void method;
+  void formData;
+  throw clientAuthError();
 };

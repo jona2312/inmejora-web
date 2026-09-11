@@ -53,7 +53,7 @@ const ProveedorRegistrationForm = () => {
         nombre: '', email: '', telefono: '', cuit: '', rubro: '', descripcion: '',
         ciudad: '', provincia: '', website: '', password: '', confirmPassword: ''
       });
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error de conexión",

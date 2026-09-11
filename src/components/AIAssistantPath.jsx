@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Sparkles, Plus } from 'lucide-react';
+import { Send, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { calculateServiceTotal } from '@/utils/CalculationEngine';
@@ -98,7 +98,7 @@ const AIAssistantPath = ({
       const keyword = detectKeywords(input);
       
       if (keyword) {
-        const relevantServices = getServicesByKeyword(keyword);
+        getServicesByKeyword(keyword);
         setCurrentStep(2);
         
         setTimeout(() => {

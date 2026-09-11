@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { clientAuthError } from '../contexts/identityContainment.js';
 
 const BASE_URL = `${import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar'}/api/horizon`;
 
@@ -9,14 +10,10 @@ const apiCall = axios.create({
   },
 });
 
-// Request Interceptor: Add Token
+// This legacy client has no verified credential contract.
 apiCall.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('inmejora_token');
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
+  () => {
+    throw clientAuthError();
   },
   (error) => {
     return Promise.reject(error);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { User, LogOut, LayoutDashboard, Settings, FileText, Image as ImageIcon, Crown, PlusCircle } from 'lucide-react';
+import { User, LogOut, Settings, FileText, Image as ImageIcon, Crown, PlusCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';

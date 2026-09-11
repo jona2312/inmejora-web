@@ -1,0 +1,22 @@
+[
+  {
+    "title": "P0 WEB: identidad cliente/proveedor y permisos efectivos antes de release",
+    "url": "https://github.com/jona2312/inmejora-web/issues/12"
+  },
+  {
+    "title": "P0 WEB: evidencias de release, regresión aislada y contención externa de pagos",
+    "url": "https://github.com/jona2312/inmejora-web/issues/13"
+  },
+  {
+    "title": "P1 WEB: catálogo comercial, casos verificables y verdad de cotizador/renders",
+    "url": "https://github.com/jona2312/inmejora-web/issues/14"
+  },
+  {
+    "title": "P1 WEB: contrato lead v1 y funnel progresivo con continuidad WhatsApp",
+    "url": "https://github.com/jona2312/inmejora-web/issues/15"
+  },
+  {
+    "title": "P1 WEB: SEO verificable, rutas comerciales y performance móvil",
+    "url": "https://github.com/jona2312/inmejora-web/issues/16"
+  }
+]

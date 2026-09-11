@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BeforeAfterSlider = ({ beforeImage, afterImage, category }) => {
@@ -26,7 +26,6 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, category }) => {
   };
 
   const handleMouseDown = () => setIsDragging(true);
-  const handleMouseUp = () => setIsDragging(false);
 
   useEffect(() => {
     const handleGlobalMouseUp = () => setIsDragging(false);

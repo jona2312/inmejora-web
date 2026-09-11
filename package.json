@@ -3,11 +3,15 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "npm@10.8.2",
   "scripts": {
     "dev": "vite --host :: --port 3000",
-    "build": "node tools/generate-llms.js || true && vite build",
+    "build": "vite build",
+    "build:ci": "node --import ./scripts/ci/offline-guard.mjs scripts/ci/build.mjs",
     "preview": "vite preview --host :: --port 3000",
-    "lint": "eslint . --quiet"
+    "lint": "eslint .",
+    "test:browser": "playwright test",
+    "test:ci": "node --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs tests/ci/admin-route.test.mjs tests/ci/identity-containment.test.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "^1.4.0",
@@ -66,6 +70,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@playwright/test": "1.63.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.17.10",
     "@types/react": "^18.2.0",

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, UploadCloud, X, Info, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import RenderOptionsForm from '@/components/renders/RenderOptionsForm';
-import CreditsDisplay from '@/components/renders/CreditsDisplay';
+import '@/components/renders/CreditsDisplay';
 import RenderGallerySection from '@/components/renders/RenderGallerySection';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
 import { rendersAPI } from '@/utils/rendersAPI';

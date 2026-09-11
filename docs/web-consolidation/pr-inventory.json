@@ -1,0 +1,415 @@
+[
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-payment-status-truth",
+      "headRefName": "codex/p0-web-lint-errors",
+      "headRefOid": "edaa757d6694997f85e718774b484fa9b8153001",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 11,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:45:11Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34497627409/job/102940009231",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T15:44:41Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:45:01Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34497627409/job/102940009374",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T15:44:39Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "P0.7: close web lint errors without suppressions",
+      "url": "https://github.com/jona2312/inmejora-web/pull/11"
+    },
+    "baseSha": "ebb7183faedb154ec720d899689a04818ad9e10c",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      ".github/workflows/p0-web-offline.yml",
+      "docs/p0/LINT-ERROR-CLOSURE.md",
+      "package.json",
+      "src/components/WhyInmejora.jsx",
+      "src/components/dashboard/CreditsWidget.jsx",
+      "src/utils/FormValidation.js",
+      "src/utils/authValidation.js",
+      "tests/ci/lint-error-regression.test.mjs"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-payment-containment",
+      "headRefName": "codex/p0-web-payment-status-truth",
+      "headRefOid": "ebb7183faedb154ec720d899689a04818ad9e10c",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 10,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:31:41Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34496170071/job/102935060026",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T15:31:17Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:31:34Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34496170071/job/102935059641",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T15:31:17Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "P0: report checkout return status as unverified",
+      "url": "https://github.com/jona2312/inmejora-web/pull/10"
+    },
+    "baseSha": "d986b38299ee07a92a0f31d219e8c24cf9226f66",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      ".github/workflows/p0-web-offline.yml",
+      "docs/p0/PAYMENT-RETURN-TRUTH.md",
+      "package.json",
+      "src/components/checkout/UnverifiedPaymentNotice.jsx",
+      "src/pages/CheckoutErrorPage.jsx",
+      "src/pages/CheckoutPendingPage.jsx",
+      "src/pages/CheckoutSuccessPage.jsx",
+      "tests/ci/payment-status-truth.test.mjs"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-provider-auth-lockdown",
+      "headRefName": "codex/p0-web-payment-containment",
+      "headRefOid": "d986b38299ee07a92a0f31d219e8c24cf9226f66",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 9,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:15:18Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34494344365/job/102928838165",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T15:14:49Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T15:15:07Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34494344365/job/102928837734",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T15:14:49Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "P0: contain frontend payment creation",
+      "url": "https://github.com/jona2312/inmejora-web/pull/9"
+    },
+    "baseSha": "4bd63f63b25d32147140bc7885e1b43f163597f2",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      ".github/workflows/p0-web-offline.yml",
+      "docs/p0/PAYMENT-UI-CONTAINMENT.md",
+      "package.json",
+      "src/hooks/useMercadoPago.js",
+      "src/hooks/useMercadoPagoCheckout.js",
+      "src/hooks/useStripeCheckout.js",
+      "src/pages/RegistrationPage.jsx",
+      "src/utils/mercadoPagoAPI.js",
+      "tests/ci/payment-containment.test.mjs"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-unused-local-bindings",
+      "headRefName": "codex/p0-provider-auth-lockdown",
+      "headRefOid": "4bd63f63b25d32147140bc7885e1b43f163597f2",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 8,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T13:15:24Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34481436642/job/102884937515",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T13:14:51Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T13:15:11Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34481436642/job/102884937690",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T13:14:51Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "security(p0): contain legacy provider auth; active supplier auth remains open",
+      "url": "https://github.com/jona2312/inmejora-web/pull/8"
+    },
+    "baseSha": "6c2594f20c60f7926bfbced0af491c54dce542f8",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      ".github/workflows/p0-web-offline.yml",
+      "docs/p0/PROVIDER-AUTH-CONTAINMENT.md",
+      "package.json",
+      "src/contexts/ProveedorAuthContext.jsx",
+      "src/contexts/disabledProveedorAuth.js",
+      "tests/ci/provider-containment.test.mjs"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-lint-cleanup",
+      "headRefName": "codex/p0-web-unused-local-bindings",
+      "headRefOid": "6c2594f20c60f7926bfbced0af491c54dce542f8",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 7,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:53:10Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34479229237/job/102877538173",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T12:52:48Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:53:08Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34479229237/job/102877538522",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T12:52:48Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "fix(lint): remove unused local results and callback parameters",
+      "url": "https://github.com/jona2312/inmejora-web/pull/7"
+    },
+    "baseSha": "66821f560e42e0d92b4f0081066425be33a50479",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      "docs/p0/LINT-LOCAL-BINDINGS.md",
+      "docs/p0/lint-ast-evidence.json",
+      "docs/p0/lint-remaining.json",
+      "scripts/ci/audit-unused-bindings.mjs",
+      "src/App.jsx",
+      "src/components/AIAssistantPath.jsx",
+      "src/components/BeforeAfterSlider.jsx",
+      "src/components/ManualQuoterPath.jsx",
+      "src/components/TransformacionesReales.jsx",
+      "src/components/lead/LeadCaptureWidget.jsx",
+      "src/components/proveedores/ProveedoresHero.jsx",
+      "src/components/proveedores/dashboard/AgregarProductoForm.jsx",
+      "src/components/proveedores/dashboard/CargarPreciosSection.jsx",
+      "src/components/proveedores/dashboard/ProveedorPerfil.jsx",
+      "src/components/proveedores/dashboard/ProveedorProductos.jsx",
+      "src/components/renders/DownloadRenderModal.jsx",
+      "src/components/renders/RenderDetailModal.jsx",
+      "src/contexts/InmejoraAuthContext.jsx",
+      "src/contexts/ProveedorAuthContext.jsx",
+      "src/contexts/SupplierContext.jsx",
+      "src/hooks/useChatLogic.js",
+      "src/hooks/useImageUpload.js",
+      "src/hooks/useWebhookMessage.js",
+      "src/pages/AdminInmejora.jsx",
+      "src/pages/ClientDashboard.jsx",
+      "src/pages/PaymentHistoryPage.jsx",
+      "src/pages/PlansPage.jsx",
+      "src/pages/ProveedorProductsPage.jsx",
+      "src/pages/QuoterPage.jsx",
+      "src/utils/MercadoPagoWebhookHandler.js",
+      "src/utils/rendersAPI.js"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-offline-ci",
+      "headRefName": "codex/p0-web-lint-cleanup",
+      "headRefOid": "66821f560e42e0d92b4f0081066425be33a50479",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 6,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:45:01Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34478430196/job/102874851484",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T12:44:32Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:44:55Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34478430196/job/102874851906",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T12:44:32Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "fix(lint): remove unused imports and catch bindings",
+      "url": "https://github.com/jona2312/inmejora-web/pull/6"
+    },
+    "baseSha": "e6960fbc919cde1fdc1316f616cab9184cabdf08",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      "docs/p0/LINT-IMPORTS-AND-CATCH.md",
+      "src/components/AIAssistantPath.jsx",
+      "src/components/BeforeAfterSlider.jsx",
+      "src/components/ContactForm.jsx",
+      "src/components/ManualQuoterPath.jsx",
+      "src/components/NewsletterPopup.jsx",
+      "src/components/ScrollToTop.jsx",
+      "src/components/ScrollTriggerRegistrationModal.jsx",
+      "src/components/catalog/ColorDetailModal.jsx",
+      "src/components/catalog/ProductDetailModal.jsx",
+      "src/components/checkout/ErrorModal.jsx",
+      "src/components/plans/PricingDisplay.jsx",
+      "src/components/proveedores/ProveedorRegistrationForm.jsx",
+      "src/components/proveedores/ProveedoresHero.jsx",
+      "src/components/proveedores/dashboard/AgregarProductoForm.jsx",
+      "src/components/proveedores/dashboard/CargarPreciosSection.jsx",
+      "src/components/proveedores/dashboard/ProveedorPerfil.jsx",
+      "src/components/proveedores/dashboard/ProveedorProductos.jsx",
+      "src/components/renders/DownloadRenderModal.jsx",
+      "src/components/renders/RenderDetailModal.jsx",
+      "src/components/renders/RenderWizardContainer.jsx",
+      "src/components/renders/RenderWizardStep2.jsx",
+      "src/components/upload/UploadErrorModal.jsx",
+      "src/contexts/ChatContext.jsx",
+      "src/contexts/InmejoraAuthContext.jsx",
+      "src/hooks/useImageUpload.js",
+      "src/hooks/usePresupuestoAnalytics.js",
+      "src/lib/apiClient.js",
+      "src/pages/CatalogPage.jsx",
+      "src/pages/EditRenderPage.jsx",
+      "src/pages/LoginPage.jsx",
+      "src/pages/PlanManagementPage.jsx",
+      "src/pages/PortalDashboard.jsx",
+      "src/pages/PortalPerfil.jsx",
+      "src/pages/ProveedorRegisterPage.jsx",
+      "src/pages/RenderGeneratorPage.jsx",
+      "src/pages/SupplierPortalPage.jsx",
+      "src/utils/presupuestoApi.js"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "codex/p0-web-reproducible-ci",
+      "headRefName": "codex/p0-web-offline-ci",
+      "headRefOid": "e6960fbc919cde1fdc1316f616cab9184cabdf08",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 5,
+      "statusCheckRollup": [
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:22:42Z",
+          "conclusion": "SUCCESS",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34476325127/job/102867855089",
+          "name": "isolation-and-build (offline)",
+          "startedAt": "2026-09-10T12:22:11Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        },
+        {
+          "__typename": "CheckRun",
+          "completedAt": "2026-09-10T12:22:29Z",
+          "conclusion": "FAILURE",
+          "detailsUrl": "https://github.com/jona2312/inmejora-web/actions/runs/34476325127/job/102867854768",
+          "name": "lint (offline)",
+          "startedAt": "2026-09-10T12:22:10Z",
+          "status": "COMPLETED",
+          "workflowName": "P0 Web offline CI"
+        }
+      ],
+      "title": "fix(ci): isolate web checks and expose existing lint failures",
+      "url": "https://github.com/jona2312/inmejora-web/pull/5"
+    },
+    "baseSha": "bc9a8da01f873eb8382e210898dc1c186e607c74",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      ".github/workflows/p0-web-offline.yml",
+      "docs/p0/OFFLINE-CI.md",
+      "eslint.config.js",
+      "package-lock.json",
+      "package.json",
+      "scripts/ci/build-options.mjs",
+      "scripts/ci/build.mjs",
+      "scripts/ci/offline-guard.mjs",
+      "tests/ci/isolation.test.mjs"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "main",
+      "headRefName": "codex/p0-web-reproducible-ci",
+      "headRefOid": "bc9a8da01f873eb8382e210898dc1c186e607c74",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 4,
+      "statusCheckRollup": [],
+      "title": "fix(ci): reconcile web dependency lock with manifest",
+      "url": "https://github.com/jona2312/inmejora-web/pull/4"
+    },
+    "baseSha": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+    "baseIsAncestor": true,
+    "changedFiles": [
+      "docs/p0/LOCKFILE-RECONCILIATION.md",
+      "docs/p0/lockfile-comparison.json",
+      "package-lock.json"
+    ]
+  },
+  {
+    "pr": {
+      "baseRefName": "main",
+      "headRefName": "agent/inmejora-studio-scan-core-plan",
+      "headRefOid": "cbbe89566305a4a402deae0256594856cf90b9d8",
+      "isDraft": true,
+      "mergeable": "MERGEABLE",
+      "number": 1,
+      "statusCheckRollup": [],
+      "title": "docs: add INMEJORA Studio + Scan Core production plan",
+      "url": "https://github.com/jona2312/inmejora-web/pull/1"
+    },
+    "baseSha": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+    "baseIsAncestor": false,
+    "changedFiles": [
+      "docs/product/INMEJORA_STUDIO_SCAN_CORE_PLAN.md"
+    ]
+  }
+]

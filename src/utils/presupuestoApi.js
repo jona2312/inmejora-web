@@ -22,7 +22,7 @@ const checkRateLimit = () => {
     requests.push(now);
     localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(requests));
     return { allowed: true };
-  } catch (e) {
+  } catch {
     return { allowed: true }; // Failsafe
   }
 };
