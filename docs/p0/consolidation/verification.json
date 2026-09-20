@@ -1,1192 +1,1222 @@
 {
-  "generatedAt": "2026-09-11T17:22:08.415Z",
+  "schemaVersion": 2,
+  "updatedAt": "2026-09-20",
+  "previousPR20Head": "71db9715199cd7539fdd3579d185cfb6db53ee49",
   "main": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
-  "source": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
-  "install": {
-    "command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
-    "packages": 719,
-    "node": "v20.20.2",
-    "npm": "10.8.2"
-  },
-  "unit": {
-    "passed": 70,
-    "failed": 0,
-    "command": "npm run test:ci"
-  },
-  "lint": {
-    "errors": 0,
-    "warnings": [
-      {
-        "file": "src/components/ManualQuoterPath.jsx",
-        "line": 42,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'groupedServices'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/components/Testimonials.jsx",
-        "line": 47,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'nextTestimonial'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/components/chat/ChatWidget.jsx",
-        "line": 19,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'initializeSession'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/components/proveedores/dashboard/ProveedorProductos.jsx",
-        "line": 15,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'fetchProductos'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/components/renders/RenderWizardStep2.jsx",
-        "line": 55,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'stopRecording'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/pages/ImageUploadPage.jsx",
-        "line": 81,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useCallback has a missing dependency: 'handleFile'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/pages/PresupuestoPage.jsx",
-        "line": 51,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'trackView'. Either include it or remove the dependency array."
-      },
-      {
-        "file": "src/pages/QuoterPage.jsx",
-        "line": 51,
-        "column": 6,
-        "severity": 1,
-        "rule": "react-hooks/exhaustive-deps",
-        "message": "React Hook useEffect has a missing dependency: 'checkUserPlan'. Either include it or remove the dependency array."
-      }
-    ]
-  },
-  "build": {
-    "modules": 3152,
-    "indexSha256": "59078f6c9af7ea9ed440266bab78dfaae4a97352a0e430008ae45db2767e8206",
-    "equalsSourceBuildIndex": true
-  },
-  "browser": {
-    "stats": {
-      "startTime": "2026-09-11T17:18:37.392Z",
-      "duration": 126064.68500000001,
-      "expected": 155,
-      "skipped": 1,
-      "unexpected": 0,
-      "flaky": 0
+  "sourcePR19": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
+  "exactEquivalenceWithPR19": false,
+  "authorizedDelta": [
+    "src/pages/RegistrationPage.jsx",
+    "tests/browser/regression.spec.mjs"
+  ],
+  "historicalBaselineVerification": {
+    "generatedAt": "2026-09-11T17:22:08.415Z",
+    "main": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+    "source": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
+    "install": {
+      "command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
+      "packages": 719,
+      "node": "v20.20.2",
+      "npm": "10.8.2"
     },
-    "cases": [
-      {
-        "title": "harness blocks forbidden transports and classifies unknown requests",
-        "project": "360px",
-        "status": "expected"
-      },
-      {
-        "title": "harness blocks forbidden transports and classifies unknown requests",
-        "project": "390px",
-        "status": "expected"
-      },
-      {
-        "title": "harness blocks forbidden transports and classifies unknown requests",
-        "project": "768px",
-        "status": "expected"
-      },
-      {
-        "title": "harness blocks forbidden transports and classifies unknown requests",
-        "project": "1440px",
-        "status": "expected"
-      },
-      {
-        "title": "route /",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /precios",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /planes",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /servicios",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proyectos",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/colores",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/productos",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /cotizador",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /login",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /registro",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /forgot-password",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /reset-password",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /presupuesto",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /contacto",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /nosotros",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /asistente-ia",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/registro",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/login",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/success?status=approved&payment_id=synthetic",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/error?status=approved",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/pending?status=approved",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /politica-de-privacidad",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /terminos-y-condiciones",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /does-not-exist",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "cached identities cannot mount private routes",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "navigation, history and contact keyboard",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contained forms and payment actions stay truthful",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contact form never reports a simulated delivery",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "public lead errors preserve form data",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "presupuesto validates, reports backend failure and allows retry",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "catalog rejects malformed payload without crashing",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "quoter empty data retry and populated manual path",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=false",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=true",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "mobile menu Escape restores focus and scrolling",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "main navigation resolves lazy home anchors",
-        "project": "360px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /precios",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /planes",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /servicios",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proyectos",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/colores",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/productos",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /cotizador",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /login",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /registro",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /forgot-password",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /reset-password",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /presupuesto",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /contacto",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /nosotros",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /asistente-ia",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/registro",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/login",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/success?status=approved&payment_id=synthetic",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/error?status=approved",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/pending?status=approved",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /politica-de-privacidad",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /terminos-y-condiciones",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /does-not-exist",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "cached identities cannot mount private routes",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "navigation, history and contact keyboard",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contained forms and payment actions stay truthful",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contact form never reports a simulated delivery",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "public lead errors preserve form data",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "presupuesto validates, reports backend failure and allows retry",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "catalog rejects malformed payload without crashing",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "quoter empty data retry and populated manual path",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=false",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=true",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "mobile menu Escape restores focus and scrolling",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "main navigation resolves lazy home anchors",
-        "project": "390px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /precios",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /planes",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /servicios",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proyectos",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/colores",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/productos",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /cotizador",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /login",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /registro",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /forgot-password",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /reset-password",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /presupuesto",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /contacto",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /nosotros",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /asistente-ia",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/registro",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/login",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/success?status=approved&payment_id=synthetic",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/error?status=approved",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/pending?status=approved",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /politica-de-privacidad",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /terminos-y-condiciones",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /does-not-exist",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "cached identities cannot mount private routes",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "navigation, history and contact keyboard",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contained forms and payment actions stay truthful",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contact form never reports a simulated delivery",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "public lead errors preserve form data",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "presupuesto validates, reports backend failure and allows retry",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "catalog rejects malformed payload without crashing",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "quoter empty data retry and populated manual path",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=false",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=true",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "mobile menu Escape restores focus and scrolling",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "main navigation resolves lazy home anchors",
-        "project": "768px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /precios",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /planes",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /servicios",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proyectos",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/colores",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /catalogo/productos",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /cotizador",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /login",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /registro",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /forgot-password",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /reset-password",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /presupuesto",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /contacto",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /nosotros",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /asistente-ia",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/registro",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /proveedores/login",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/success?status=approved&payment_id=synthetic",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/error?status=approved",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /checkout/pending?status=approved",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /politica-de-privacidad",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /terminos-y-condiciones",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "route /does-not-exist",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "cached identities cannot mount private routes",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "navigation, history and contact keyboard",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contained forms and payment actions stay truthful",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "contact form never reports a simulated delivery",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "public lead errors preserve form data",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "presupuesto validates, reports backend failure and allows retry",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "catalog rejects malformed payload without crashing",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "quoter empty data retry and populated manual path",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=false",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "admin UI metadata gate: app_metadata admin=true",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "mobile menu Escape restores focus and scrolling",
-        "project": "1440px",
-        "status": "skipped",
-        "forbidden": 0,
-        "unexpected": 0
-      },
-      {
-        "title": "main navigation resolves lazy home anchors",
-        "project": "1440px",
-        "status": "expected",
-        "forbidden": 0,
-        "unexpected": 0
-      }
+    "unit": {
+      "passed": 70,
+      "failed": 0,
+      "command": "npm run test:ci"
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": [
+        {
+          "file": "src/components/ManualQuoterPath.jsx",
+          "line": 42,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'groupedServices'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/components/Testimonials.jsx",
+          "line": 47,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'nextTestimonial'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/components/chat/ChatWidget.jsx",
+          "line": 19,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'initializeSession'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/components/proveedores/dashboard/ProveedorProductos.jsx",
+          "line": 15,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'fetchProductos'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/components/renders/RenderWizardStep2.jsx",
+          "line": 55,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'stopRecording'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/pages/ImageUploadPage.jsx",
+          "line": 81,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useCallback has a missing dependency: 'handleFile'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/pages/PresupuestoPage.jsx",
+          "line": 51,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'trackView'. Either include it or remove the dependency array."
+        },
+        {
+          "file": "src/pages/QuoterPage.jsx",
+          "line": 51,
+          "column": 6,
+          "severity": 1,
+          "rule": "react-hooks/exhaustive-deps",
+          "message": "React Hook useEffect has a missing dependency: 'checkUserPlan'. Either include it or remove the dependency array."
+        }
+      ]
+    },
+    "build": {
+      "modules": 3152,
+      "indexSha256": "59078f6c9af7ea9ed440266bab78dfaae4a97352a0e430008ae45db2767e8206",
+      "equalsSourceBuildIndex": true
+    },
+    "browser": {
+      "stats": {
+        "startTime": "2026-09-11T17:18:37.392Z",
+        "duration": 126064.68500000001,
+        "expected": 155,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "harness blocks forbidden transports and classifies unknown requests",
+          "project": "360px",
+          "status": "expected"
+        },
+        {
+          "title": "harness blocks forbidden transports and classifies unknown requests",
+          "project": "390px",
+          "status": "expected"
+        },
+        {
+          "title": "harness blocks forbidden transports and classifies unknown requests",
+          "project": "768px",
+          "status": "expected"
+        },
+        {
+          "title": "harness blocks forbidden transports and classifies unknown requests",
+          "project": "1440px",
+          "status": "expected"
+        },
+        {
+          "title": "route /",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /precios",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /planes",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /servicios",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proyectos",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/colores",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/productos",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /cotizador",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /login",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /registro",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /forgot-password",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /reset-password",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /presupuesto",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /contacto",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /nosotros",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /asistente-ia",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/registro",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/login",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/success?status=approved&payment_id=synthetic",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/error?status=approved",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/pending?status=approved",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /politica-de-privacidad",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /terminos-y-condiciones",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /does-not-exist",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "cached identities cannot mount private routes",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "navigation, history and contact keyboard",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contained forms and payment actions stay truthful",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contact form never reports a simulated delivery",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "public lead errors preserve form data",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "presupuesto validates, reports backend failure and allows retry",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "catalog rejects malformed payload without crashing",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "quoter empty data retry and populated manual path",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=false",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=true",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "mobile menu Escape restores focus and scrolling",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "main navigation resolves lazy home anchors",
+          "project": "360px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /precios",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /planes",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /servicios",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proyectos",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/colores",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/productos",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /cotizador",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /login",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /registro",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /forgot-password",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /reset-password",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /presupuesto",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /contacto",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /nosotros",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /asistente-ia",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/registro",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/login",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/success?status=approved&payment_id=synthetic",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/error?status=approved",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/pending?status=approved",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /politica-de-privacidad",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /terminos-y-condiciones",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /does-not-exist",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "cached identities cannot mount private routes",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "navigation, history and contact keyboard",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contained forms and payment actions stay truthful",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contact form never reports a simulated delivery",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "public lead errors preserve form data",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "presupuesto validates, reports backend failure and allows retry",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "catalog rejects malformed payload without crashing",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "quoter empty data retry and populated manual path",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=false",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=true",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "mobile menu Escape restores focus and scrolling",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "main navigation resolves lazy home anchors",
+          "project": "390px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /precios",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /planes",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /servicios",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proyectos",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/colores",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/productos",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /cotizador",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /login",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /registro",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /forgot-password",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /reset-password",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /presupuesto",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /contacto",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /nosotros",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /asistente-ia",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/registro",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/login",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/success?status=approved&payment_id=synthetic",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/error?status=approved",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/pending?status=approved",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /politica-de-privacidad",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /terminos-y-condiciones",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /does-not-exist",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "cached identities cannot mount private routes",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "navigation, history and contact keyboard",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contained forms and payment actions stay truthful",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contact form never reports a simulated delivery",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "public lead errors preserve form data",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "presupuesto validates, reports backend failure and allows retry",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "catalog rejects malformed payload without crashing",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "quoter empty data retry and populated manual path",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=false",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=true",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "mobile menu Escape restores focus and scrolling",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "main navigation resolves lazy home anchors",
+          "project": "768px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /precios",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /planes",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /servicios",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proyectos",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/colores",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /catalogo/productos",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /cotizador",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /login",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /registro",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /forgot-password",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /reset-password",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /presupuesto",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /contacto",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /nosotros",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /asistente-ia",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/registro",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /proveedores/login",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/success?status=approved&payment_id=synthetic",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/error?status=approved",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /checkout/pending?status=approved",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /politica-de-privacidad",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /terminos-y-condiciones",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "route /does-not-exist",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "cached identities cannot mount private routes",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "navigation, history and contact keyboard",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contained forms and payment actions stay truthful",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "contact form never reports a simulated delivery",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "public lead errors preserve form data",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "presupuesto validates, reports backend failure and allows retry",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "catalog rejects malformed payload without crashing",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "quoter empty data retry and populated manual path",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=false",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "admin UI metadata gate: app_metadata admin=true",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "mobile menu Escape restores focus and scrolling",
+          "project": "1440px",
+          "status": "skipped",
+          "forbidden": 0,
+          "unexpected": 0
+        },
+        {
+          "title": "main navigation resolves lazy home anchors",
+          "project": "1440px",
+          "status": "expected",
+          "forbidden": 0,
+          "unexpected": 0
+        }
+      ]
+    },
+    "ci": "Authoritative results are the three checks of the consolidation PR at its final head; see PR body for run and artifact links.",
+    "documentationOnlyDifferences": [
+      "docs/p0/consolidation/REPORT.md",
+      "docs/p0/consolidation/inventory.json",
+      "docs/p0/consolidation/verification.json"
     ]
   },
-  "ci": "Authoritative results are the three checks of the consolidation PR at its final head; see PR body for run and artifact links.",
-  "documentationOnlyDifferences": [
-    "docs/p0/consolidation/REPORT.md",
-    "docs/p0/consolidation/inventory.json",
-    "docs/p0/consolidation/verification.json"
-  ]
+  "currentVerification": {
+    "status": "PENDING_CI",
+    "localExecution": "Only syntax/document integrity checks; full runtime gates execute through the existing GitHub Actions workflow.",
+    "requiredJobs": [
+      "isolation-and-build (offline)",
+      "lint (offline)",
+      "Browser regression (isolated loopback)"
+    ],
+    "expectedBrowserDelta": 4,
+    "networkIsolation": "Unchanged: OS network namespace for tests/build/lint; loopback-only namespace, route interception and proxy/DNS restrictions for browser; dependencies/browser installation precedes isolation."
+  },
+  "productionProvenance": {
+    "status": "UNKNOWN / BLOCKED",
+    "publicRead": "https://inmejora.com returned a minimal HTML shell via read-only web fetch; no trustworthy deployment SHA/branch/repository obtained.",
+    "publicHeaders": "Direct public HEAD attempt blocked by local socket permissions; no credentials used.",
+    "coolifyMergeTrigger": "UNKNOWN; GitHub Actions workflow contains no deploy; external Coolify configuration not accessible. No credentials, restarts or mutations."
+  },
+  "mergeRecommendation": "HOLD"
 }

@@ -1,886 +1,1037 @@
 {
+  "schemaVersion": 2,
+  "updatedAt": "2026-09-20",
   "main": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
   "source": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
-  "sourceTree": "504ff93bacb19f0f744c48fc45ccf04a06c58304",
-  "appliedTreeBeforeDocumentation": "504ff93bacb19f0f744c48fc45ccf04a06c58304",
-  "method": "new branch from remote main; git restore source #19 into index and worktree; no merges/cherry-picks",
-  "sourceDelta": {
-    "totals": {
-      "A": 59,
-      "M": 81
+  "previousPR20Head": "71db9715199cd7539fdd3579d185cfb6db53ee49",
+  "exactEquivalenceWithPR19": false,
+  "scope": "Authorized registration-with-plan copy correction and associated browser regression; consolidation metadata renewed. No feature reactivation.",
+  "preChangeRevalidation": {
+    "noDrift": true,
+    "commitsAheadOfMain": 1,
+    "commitsBehindMain": 0,
+    "previousHeadParent": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+    "sourceNonDirectoryEntries": 321,
+    "previousHeadNonDirectoryEntries": 324,
+    "onlyDifferencesFromPR19": [
+      "docs/p0/consolidation/REPORT.md",
+      "docs/p0/consolidation/inventory.json",
+      "docs/p0/consolidation/verification.json"
+    ]
+  },
+  "historicalBaselineInventory": {
+    "main": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+    "source": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
+    "sourceTree": "504ff93bacb19f0f744c48fc45ccf04a06c58304",
+    "appliedTreeBeforeDocumentation": "504ff93bacb19f0f744c48fc45ccf04a06c58304",
+    "method": "new branch from remote main; git restore source #19 into index and worktree; no merges/cherry-picks",
+    "sourceDelta": {
+      "totals": {
+        "A": 59,
+        "M": 81
+      },
+      "categories": {
+        "workflows": 1,
+        "tooling": 10,
+        "documentation": 33,
+        "package-lock": 2,
+        "runtime": 84,
+        "tests": 10
+      },
+      "entries": [
+        {
+          "status": "A",
+          "path": ".github/workflows/p0-web-offline.yml",
+          "category": "workflows",
+          "sourceBlob": "3e669179c93d5d81003b42747f94de9608998370"
+        },
+        {
+          "status": "M",
+          "path": ".gitignore",
+          "category": "tooling",
+          "sourceBlob": "f1ff458b24b1c9202e22b5393a9c4722adbddf2b"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/LINT-ERROR-CLOSURE.md",
+          "category": "documentation",
+          "sourceBlob": "ee6d4e7171e6c46f28e966d3db06939f6dad5e93"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/LINT-IMPORTS-AND-CATCH.md",
+          "category": "documentation",
+          "sourceBlob": "d9a0873b4509e4d2fe5d5c983c77b6267f9f2c77"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/LINT-LOCAL-BINDINGS.md",
+          "category": "documentation",
+          "sourceBlob": "9aa1fea1166837731c853ff80182d028caeb3fbd"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/LOCKFILE-RECONCILIATION.md",
+          "category": "documentation",
+          "sourceBlob": "edde205483f1832dc1fd177958d6e4a85142b4a4"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/OFFLINE-CI.md",
+          "category": "documentation",
+          "sourceBlob": "598ab9c848e522021452c1d2ec83aebb29b8477c"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/PAYMENT-RETURN-TRUTH.md",
+          "category": "documentation",
+          "sourceBlob": "5bad72bff9665ffaa48eb25e836e40866de32514"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/PAYMENT-UI-CONTAINMENT.md",
+          "category": "documentation",
+          "sourceBlob": "50f1fa6e44aef1704735a9de1191891fd0e314bc"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/PROVIDER-AUTH-CONTAINMENT.md",
+          "category": "documentation",
+          "sourceBlob": "0e22b45226da37c8784ce01408485971f00e3362"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/WEB-BROWSER-EVIDENCE.md",
+          "category": "documentation",
+          "sourceBlob": "81efd4ff3f624d56a39f0f5b9be97d7dc6add08b"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/WEB-IDENTITY.md",
+          "category": "documentation",
+          "sourceBlob": "d4b442860bfe5d0674f49664c49937467c6a3ae3"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/before-contact-escape-390.png",
+          "category": "documentation",
+          "sourceBlob": "675b3ab69ed7708bdf05f20decaa700d1f230654"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/browser-summary.json",
+          "category": "documentation",
+          "sourceBlob": "d3d57e462cfb0270ef7d9a4ec9e391743dff7692"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/contact-1440px.png",
+          "category": "documentation",
+          "sourceBlob": "1d1720b357c5f645bb683cb455a0fdb1789c44b9"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/contact-360px.png",
+          "category": "documentation",
+          "sourceBlob": "4322c2affcbcf9ff577815f7fa0057c063105074"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/contact-390px.png",
+          "category": "documentation",
+          "sourceBlob": "50c677b2e5cb11aeb6d25b51e9fdabe58d718695"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/contact-768px.png",
+          "category": "documentation",
+          "sourceBlob": "d042ace7413bd66d4eecd37eef83ac6129026133"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/home-1440px.png",
+          "category": "documentation",
+          "sourceBlob": "9bda6e67b1085b96daac0d43990f15818ba7ba78"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/home-360px.png",
+          "category": "documentation",
+          "sourceBlob": "39f5cc179f0eb56a0d865b089140fa864440e77f"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/home-390px.png",
+          "category": "documentation",
+          "sourceBlob": "1f6bb17797075a286767a8db879cdd580852643c"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/home-768px.png",
+          "category": "documentation",
+          "sourceBlob": "2a69cd13b40e0f52c3c2deb491b7d90cd8dd0b2b"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/browser-evidence/pr-inventory.json",
+          "category": "documentation",
+          "sourceBlob": "cf657b97abae4c339420ba8e1157fa645bf8f1b6"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/identity-ownership.json",
+          "category": "documentation",
+          "sourceBlob": "db3554ee25c0331e1f44c13c2543bdf399b8129e"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/identity-verification.json",
+          "category": "documentation",
+          "sourceBlob": "68a92f7f4f5b1ec6eee1ff63a6fd6d77d35c730e"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/lint-ast-evidence.json",
+          "category": "documentation",
+          "sourceBlob": "fe38eed0e16a491fb9263efc32db2cb750643bdb"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/lint-remaining.json",
+          "category": "documentation",
+          "sourceBlob": "b9b3ef788ef1c545d95282f1eecdf074494253bc"
+        },
+        {
+          "status": "A",
+          "path": "docs/p0/lockfile-comparison.json",
+          "category": "documentation",
+          "sourceBlob": "843ad9a30673b1a269804a4041d81181fc019afe"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/COMMERCIAL-ARCHITECTURE.md",
+          "category": "documentation",
+          "sourceBlob": "a134f9e0ae34127e51a9988471443e71ea50af9b"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/REPORT.md",
+          "category": "documentation",
+          "sourceBlob": "564c48807deb436e2cf5e20274b6ec28b6969474"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/issue-proposals.json",
+          "category": "documentation",
+          "sourceBlob": "4f1dbd5aeda0f8e10335b13acf3c6d64d990526f"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/issues-created.json",
+          "category": "documentation",
+          "sourceBlob": "beb56e2f0b6df478da9d3928468fd28dc1117766"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/lead-v1.example.json",
+          "category": "documentation",
+          "sourceBlob": "015e251f031dff1942183118630ab83f0e00e0f3"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/pr-inventory.json",
+          "category": "documentation",
+          "sourceBlob": "511aab6edd264a7ba6de288e83918704e5d968cd"
+        },
+        {
+          "status": "A",
+          "path": "docs/web-consolidation/verification.json",
+          "category": "documentation",
+          "sourceBlob": "7df58626d4cd26bc6868c3cfaff0be653db83672"
+        },
+        {
+          "status": "A",
+          "path": "eslint.config.js",
+          "category": "tooling",
+          "sourceBlob": "2a32d7e9cc62af080fe1c15e864a3d207ee9b8ce"
+        },
+        {
+          "status": "M",
+          "path": "package-lock.json",
+          "category": "package-lock",
+          "sourceBlob": "9d9ec255ba1147986850bfcbfab6269552f5889f"
+        },
+        {
+          "status": "M",
+          "path": "package.json",
+          "category": "package-lock",
+          "sourceBlob": "b7f793440ffcd3fc5d2bfe8a39f1339ad14d6879"
+        },
+        {
+          "status": "A",
+          "path": "playwright.config.mjs",
+          "category": "tooling",
+          "sourceBlob": "273f8fe16ce65e81a24dd8d4af4d2dbb15f05622"
+        },
+        {
+          "status": "A",
+          "path": "scripts/browser/inspect.mjs",
+          "category": "tooling",
+          "sourceBlob": "d11716d746187093aaf3f683c65694506b47758a"
+        },
+        {
+          "status": "A",
+          "path": "scripts/browser/server.mjs",
+          "category": "tooling",
+          "sourceBlob": "d80f5940aa013ffe0d87c85e9d3db181dcbec359"
+        },
+        {
+          "status": "A",
+          "path": "scripts/browser/summarize.mjs",
+          "category": "tooling",
+          "sourceBlob": "65d08ec5fe8bab159e7ab666cf5196f988ca4874"
+        },
+        {
+          "status": "A",
+          "path": "scripts/ci/audit-unused-bindings.mjs",
+          "category": "tooling",
+          "sourceBlob": "5c7313866016c8cb8f34a95cfc957b1e575c2422"
+        },
+        {
+          "status": "A",
+          "path": "scripts/ci/build-options.mjs",
+          "category": "tooling",
+          "sourceBlob": "ef915e7d4bc65cf884ac6f1910b3a1ab804a701b"
+        },
+        {
+          "status": "A",
+          "path": "scripts/ci/build.mjs",
+          "category": "tooling",
+          "sourceBlob": "39d81a901f53041cdae313cc759662f5902f29da"
+        },
+        {
+          "status": "A",
+          "path": "scripts/ci/offline-guard.mjs",
+          "category": "tooling",
+          "sourceBlob": "5374d81904c59020e042d83b23d6c13d8b8dd5a5"
+        },
+        {
+          "status": "M",
+          "path": "src/App.jsx",
+          "category": "runtime",
+          "sourceBlob": "1aa9f60f65a5a4d19b0cc63090cbd7c5272daa0b"
+        },
+        {
+          "status": "M",
+          "path": "src/components/AIAssistantPath.jsx",
+          "category": "runtime",
+          "sourceBlob": "2c26acbce7eabe760cd19b8f640b145e0a73de4b"
+        },
+        {
+          "status": "M",
+          "path": "src/components/BeforeAfterSlider.jsx",
+          "category": "runtime",
+          "sourceBlob": "ce73803c26afbd2417f9461f49082c3405aaa71a"
+        },
+        {
+          "status": "M",
+          "path": "src/components/ContactForm.jsx",
+          "category": "runtime",
+          "sourceBlob": "85820af324a604d00be362f7050e8c0d199bcbe3"
+        },
+        {
+          "status": "M",
+          "path": "src/components/ContactModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "e72f38d2f3186fb8cdcc451f6a57d218a831a322"
+        },
+        {
+          "status": "M",
+          "path": "src/components/Header.jsx",
+          "category": "runtime",
+          "sourceBlob": "3170e3413f2e1a51e92fa11d3db1eb4748952bc2"
+        },
+        {
+          "status": "A",
+          "path": "src/components/IdentityUnavailable.jsx",
+          "category": "runtime",
+          "sourceBlob": "9d9e9dd5ffd9dbf988892aac10653fb0b04f2969"
+        },
+        {
+          "status": "M",
+          "path": "src/components/ManualQuoterPath.jsx",
+          "category": "runtime",
+          "sourceBlob": "5341850ff5daaf4f6735560309cc9211f9d05946"
+        },
+        {
+          "status": "M",
+          "path": "src/components/NewsletterPopup.jsx",
+          "category": "runtime",
+          "sourceBlob": "67e33d804f40c9f15675977266c636a2572f9cb7"
+        },
+        {
+          "status": "M",
+          "path": "src/components/ScrollToTop.jsx",
+          "category": "runtime",
+          "sourceBlob": "35ce79fbf3b1f6f9671a00c9caaf6ca14b9022c5"
+        },
+        {
+          "status": "M",
+          "path": "src/components/ScrollTriggerRegistrationModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "d09ad445e7c833e4a9eee2a33cf832efc5c03b5c"
+        },
+        {
+          "status": "M",
+          "path": "src/components/TransformacionesReales.jsx",
+          "category": "runtime",
+          "sourceBlob": "ac6d609e016fb53fcf45bb22fdc98f95bc2d76be"
+        },
+        {
+          "status": "M",
+          "path": "src/components/WhyInmejora.jsx",
+          "category": "runtime",
+          "sourceBlob": "220460f3cbbe9b5c5b3954d227bec5dd55972532"
+        },
+        {
+          "status": "M",
+          "path": "src/components/admin/ProtectedAdminRoute.jsx",
+          "category": "runtime",
+          "sourceBlob": "9b72661d1d1836bee02f4aada9d1bffca7987b52"
+        },
+        {
+          "status": "M",
+          "path": "src/components/catalog/ColorDetailModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "e351af599da0452174e010ed2d8f0bdfd5d0f6eb"
+        },
+        {
+          "status": "M",
+          "path": "src/components/catalog/ProductDetailModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "a0dd78d1f686cb2cfc21217fc6f608c28a34edfb"
+        },
+        {
+          "status": "M",
+          "path": "src/components/checkout/ErrorModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "d391d683488d0bc654d465090a94fa0384150612"
+        },
+        {
+          "status": "A",
+          "path": "src/components/checkout/UnverifiedPaymentNotice.jsx",
+          "category": "runtime",
+          "sourceBlob": "a77c60e70a3a428aff825b325ee52da8754463a6"
+        },
+        {
+          "status": "M",
+          "path": "src/components/dashboard/CreditsWidget.jsx",
+          "category": "runtime",
+          "sourceBlob": "56038c3fa230761cda336aa55b624704e447d038"
+        },
+        {
+          "status": "M",
+          "path": "src/components/lead/LeadCaptureWidget.jsx",
+          "category": "runtime",
+          "sourceBlob": "17eb96494571178cd89d1abf9bf72482f2ae4218"
+        },
+        {
+          "status": "M",
+          "path": "src/components/plans/PricingDisplay.jsx",
+          "category": "runtime",
+          "sourceBlob": "3883f093f81c68181179e3c7ba37b6cf078722fb"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/ProveedorRegistrationForm.jsx",
+          "category": "runtime",
+          "sourceBlob": "0cef7ea7b1a935c198295412a9c2b96a8b844cab"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/ProveedoresHero.jsx",
+          "category": "runtime",
+          "sourceBlob": "7e9775b20721069aa93374edef1d16a07d7fe4f2"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/dashboard/AgregarProductoForm.jsx",
+          "category": "runtime",
+          "sourceBlob": "f3efd561b103ab64706f2aaf44e50dbc67695674"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/dashboard/CargarPreciosSection.jsx",
+          "category": "runtime",
+          "sourceBlob": "cde1b1fbcd6028be37985bec3d8dce542553b672"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/dashboard/ProveedorPerfil.jsx",
+          "category": "runtime",
+          "sourceBlob": "f20abfba6eb96c8ab7133f3665e0c93b4ca962c0"
+        },
+        {
+          "status": "M",
+          "path": "src/components/proveedores/dashboard/ProveedorProductos.jsx",
+          "category": "runtime",
+          "sourceBlob": "9b1e2493751073896ac0c9e5bb0d12197cfd3dcf"
+        },
+        {
+          "status": "M",
+          "path": "src/components/renders/DownloadRenderModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "90551edf6d34e0e8d1077dbc3c2a634c01c4344a"
+        },
+        {
+          "status": "M",
+          "path": "src/components/renders/RenderDetailModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "42a211d31090fe69a5c7ad2ec686cae39fd7145c"
+        },
+        {
+          "status": "M",
+          "path": "src/components/renders/RenderWizardContainer.jsx",
+          "category": "runtime",
+          "sourceBlob": "b9551b82d0ec1b8d07d8ef73bef50660a02ff9c7"
+        },
+        {
+          "status": "M",
+          "path": "src/components/renders/RenderWizardStep2.jsx",
+          "category": "runtime",
+          "sourceBlob": "b27aa35a8ab6925263cb922ce04e2076de5a145f"
+        },
+        {
+          "status": "M",
+          "path": "src/components/upload/UploadErrorModal.jsx",
+          "category": "runtime",
+          "sourceBlob": "e871af3c7d82cdaba6f36f44cbb3789215a29073"
+        },
+        {
+          "status": "M",
+          "path": "src/contexts/ChatContext.jsx",
+          "category": "runtime",
+          "sourceBlob": "5434dd55d88949b98a2dae429970e2d74f33174e"
+        },
+        {
+          "status": "M",
+          "path": "src/contexts/InmejoraAuthContext.jsx",
+          "category": "runtime",
+          "sourceBlob": "4a954dfd954c9190866688818be70099933ad14b"
+        },
+        {
+          "status": "M",
+          "path": "src/contexts/ProveedorAuthContext.jsx",
+          "category": "runtime",
+          "sourceBlob": "07b52c8f6ed289dbd056de357c2bb828e7c7e615"
+        },
+        {
+          "status": "M",
+          "path": "src/contexts/SupplierContext.jsx",
+          "category": "runtime",
+          "sourceBlob": "45cfca0083730ef51fff59ba3be3e1ead3ed4e79"
+        },
+        {
+          "status": "A",
+          "path": "src/contexts/containedClientAuth.js",
+          "category": "runtime",
+          "sourceBlob": "47a8f4ea931b654e96b87fc98128e65a00f5cd21"
+        },
+        {
+          "status": "A",
+          "path": "src/contexts/containedSupplierAuth.js",
+          "category": "runtime",
+          "sourceBlob": "be57809cb5174a5f71f4c314c577c4e7b40e6be4"
+        },
+        {
+          "status": "A",
+          "path": "src/contexts/disabledProveedorAuth.js",
+          "category": "runtime",
+          "sourceBlob": "878d54779c977a0dcad0e244b1e1358c4c8d9390"
+        },
+        {
+          "status": "A",
+          "path": "src/contexts/identityContainment.js",
+          "category": "runtime",
+          "sourceBlob": "f1a09b56462b2ce8b56a0cdce8e3301f2c9985d3"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useApi.js",
+          "category": "runtime",
+          "sourceBlob": "206992a3d9e03d4eef539ab91ce532447d68fc90"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useChatLogic.js",
+          "category": "runtime",
+          "sourceBlob": "66ae3a9427d73000dae322f46ba561754ae9a068"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useCurrentPlan.js",
+          "category": "runtime",
+          "sourceBlob": "064258ca7e6da83bec15f0db4239bfe70f13dcfb"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useImageUpload.js",
+          "category": "runtime",
+          "sourceBlob": "e93423501dc55c37770cc97ccc36ee45d14488a8"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useMercadoPago.js",
+          "category": "runtime",
+          "sourceBlob": "0f95bd73f98ebc8deead911ba8822e0b65dc5197"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useMercadoPagoCheckout.js",
+          "category": "runtime",
+          "sourceBlob": "3e3324f86f4e1bbc4328f313c3cb3b61c14d5f44"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/usePresupuestoAnalytics.js",
+          "category": "runtime",
+          "sourceBlob": "328cfe9b62034c36937fb250f7181ef14c401d2e"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useStripeCheckout.js",
+          "category": "runtime",
+          "sourceBlob": "6dde58607a3c6f5097fb92b3de7428d775eeb541"
+        },
+        {
+          "status": "M",
+          "path": "src/hooks/useWebhookMessage.js",
+          "category": "runtime",
+          "sourceBlob": "99c8daa632a67436e2d0681089a325e7f4ac2a62"
+        },
+        {
+          "status": "M",
+          "path": "src/lib/apiCall.js",
+          "category": "runtime",
+          "sourceBlob": "1779f3a9d89258b7c680acb0865a7c195b4e1e2c"
+        },
+        {
+          "status": "M",
+          "path": "src/lib/apiClient.js",
+          "category": "runtime",
+          "sourceBlob": "b9cd2a6af7a550e8cdd411c0c8d71d4252b042ba"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/AdminInmejora.jsx",
+          "category": "runtime",
+          "sourceBlob": "698b5d2856eff3cd451d7d68160876c497691970"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/CatalogPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "59a6af82155dc569773a4f8fa563d23cf758cf79"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/CheckoutErrorPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "238fc23387579593265bc58499199f487d288774"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/CheckoutPendingPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "cbbba0415f9e530d2fd209e7e5422814ec30c3cd"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/CheckoutSuccessPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "d7def3700bc6fa1125454013cb39ff55cae16549"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ClientDashboard.jsx",
+          "category": "runtime",
+          "sourceBlob": "b4b221a2608000a29ffe7c765a3346647d6d208d"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ContactoPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "77461e422afd03fe74fe24906e7c4528948f8037"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/EditRenderPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "3a262b94423c35842720b7d1652d2f3aa801aecb"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ForgotPasswordPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "339549f80c4c458fdb1cff971d4b9ce6ca7364e2"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/LoginPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "29ffa7a2a20cdbe7115d723f4ff6f9fc67edd3af"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PaymentHistoryPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "5c3645a7feee833a55fd7fd59148234a7994e326"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PlanManagementPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "daec30dba45532d3911057c2afd63bd2908eca61"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PlansPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "88d19a04098ad1f4f3bff88eb15b35040c3daed3"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PortalDashboard.jsx",
+          "category": "runtime",
+          "sourceBlob": "f934636e9b94d75d09cb8d8355a7b3e03b1b632d"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PortalPerfil.jsx",
+          "category": "runtime",
+          "sourceBlob": "dd1e5dbc28278bb56ee92884dbec013eeab8503f"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/PresupuestoPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "1ec55ae6c0cec1611d866c89242fa74641555e96"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ProveedorProductsPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "d57f1f3896dd3b8e787aa0bf767e11c69e9e7eac"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ProveedorRegisterPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "feade8d7c1f5e3f60e80d2dd40f3f29a46b86dcb"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/QuoterPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "70251f47d1b7cfa3bbd6e58f7772e7457bb9294f"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/RegistrationPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "fdcd8ddb43ea518e7deff80c32ed3ba259113f6b"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/RenderGeneratorPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "271260dbbb3b357a49290f81f17baf6848d8a9c1"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/ResetPasswordPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "339549f80c4c458fdb1cff971d4b9ce6ca7364e2"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/SupplierLoginPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "e13a578e05ae3e5ec6ba6024f068a5340e506d45"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/SupplierPortalPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "fef4ddf7c35e92f77538b2218ad20464e00dd6de"
+        },
+        {
+          "status": "M",
+          "path": "src/pages/SupplierRegistrationPage.jsx",
+          "category": "runtime",
+          "sourceBlob": "feade8d7c1f5e3f60e80d2dd40f3f29a46b86dcb"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/FormValidation.js",
+          "category": "runtime",
+          "sourceBlob": "f73047da2e8ff17894e2ee46b98b7f97b6f1c977"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/MercadoPagoWebhookHandler.js",
+          "category": "runtime",
+          "sourceBlob": "43756fbe3ef2f1b0ed9e4df31933340d3509528c"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/apiClient.js",
+          "category": "runtime",
+          "sourceBlob": "8c977ba16bd770efcddefdd59b30d8e6e676b6f1"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/authValidation.js",
+          "category": "runtime",
+          "sourceBlob": "b38375d228eb6171d2ea5dfcca932a1f06f1e8e9"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/mercadoPagoAPI.js",
+          "category": "runtime",
+          "sourceBlob": "1c921b952ce903e90518aaa7ab529db465b752e2"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/presupuestoApi.js",
+          "category": "runtime",
+          "sourceBlob": "29309a1c63c5f32bb0fc97c3ddb0c2dc3078f2be"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/rendersAPI.js",
+          "category": "runtime",
+          "sourceBlob": "a2c6ddf77e8cd8d37d78a9267f154e4b4910f508"
+        },
+        {
+          "status": "M",
+          "path": "src/utils/supplierApi.js",
+          "category": "runtime",
+          "sourceBlob": "99203197309cc2c29e44ac4661388a23a451ea42"
+        },
+        {
+          "status": "A",
+          "path": "tests/browser/isolation.mjs",
+          "category": "tests",
+          "sourceBlob": "a53289f26ba94c7e51ac993969fbfd4757cbd428"
+        },
+        {
+          "status": "A",
+          "path": "tests/browser/isolation.spec.mjs",
+          "category": "tests",
+          "sourceBlob": "e5304154215218f1fe65427eb6fa4c2516ee1bf2"
+        },
+        {
+          "status": "A",
+          "path": "tests/browser/regression.spec.mjs",
+          "category": "tests",
+          "sourceBlob": "e1f57186c1304cbd5d71a370a6e9ad2d1ee507a7"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/admin-route.test.mjs",
+          "category": "tests",
+          "sourceBlob": "9b10eb58aa99bd6289490c0ffed58ebc3102c443"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/identity-containment.test.mjs",
+          "category": "tests",
+          "sourceBlob": "f1f9c5bff9e6e6471bc74a9936b14e148bbdb473"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/isolation.test.mjs",
+          "category": "tests",
+          "sourceBlob": "639999c4a876868e44226b9d0a67449f97f2ad7c"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/lint-error-regression.test.mjs",
+          "category": "tests",
+          "sourceBlob": "96d23df5e3ba18e4cff80f30a56a8dcf6976f9b3"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/payment-containment.test.mjs",
+          "category": "tests",
+          "sourceBlob": "32d2146630fbadd0dc3a7c2917e06c9c78e68c76"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/payment-status-truth.test.mjs",
+          "category": "tests",
+          "sourceBlob": "bbc4bfcfa6d9a850c7fa1a474b0ae4155f0776c9"
+        },
+        {
+          "status": "A",
+          "path": "tests/ci/provider-containment.test.mjs",
+          "category": "tests",
+          "sourceBlob": "26f7cab6c28b4a683596d11316b206acdee69823"
+        }
+      ]
     },
-    "categories": {
-      "workflows": 1,
-      "tooling": 10,
-      "documentation": 33,
-      "package-lock": 2,
-      "runtime": 84,
-      "tests": 10
+    "consolidationOnly": [
+      {
+        "status": "A",
+        "category": "documentation",
+        "path": "docs/p0/consolidation/REPORT.md"
+      },
+      {
+        "status": "A",
+        "category": "documentation",
+        "path": "docs/p0/consolidation/inventory.json"
+      },
+      {
+        "status": "A",
+        "category": "documentation",
+        "path": "docs/p0/consolidation/verification.json"
+      }
+    ],
+    "excludedPR1": {
+      "head": "cbbe89566305a4a402deae0256594856cf90b9d8",
+      "sourceCommitOverlap": []
     },
-    "entries": [
+    "historicalPRs": [
       {
-        "status": "A",
-        "path": ".github/workflows/p0-web-offline.yml",
-        "category": "workflows",
-        "sourceBlob": "3e669179c93d5d81003b42747f94de9608998370"
+        "baseRefName": "codex/p0-web-identity",
+        "headRefName": "codex/p0-web-browser-evidence",
+        "headRefOid": "1ea6494cac1c1b5769fe861fbb530fe6a348384f",
+        "isDraft": true,
+        "number": 19
       },
       {
-        "status": "M",
-        "path": ".gitignore",
-        "category": "tooling",
-        "sourceBlob": "f1ff458b24b1c9202e22b5393a9c4722adbddf2b"
+        "baseRefName": "codex/web-consolidation-audit",
+        "headRefName": "codex/p0-web-identity",
+        "headRefOid": "0c2b9d4049411f2bb03536b5240e38b5dd041c2b",
+        "isDraft": true,
+        "number": 18
       },
       {
-        "status": "A",
-        "path": "docs/p0/LINT-ERROR-CLOSURE.md",
-        "category": "documentation",
-        "sourceBlob": "ee6d4e7171e6c46f28e966d3db06939f6dad5e93"
+        "baseRefName": "codex/p0-web-lint-errors",
+        "headRefName": "codex/web-consolidation-audit",
+        "headRefOid": "565bc8c71c558a47cf4da4767965457b191687c0",
+        "isDraft": true,
+        "number": 17
       },
       {
-        "status": "A",
-        "path": "docs/p0/LINT-IMPORTS-AND-CATCH.md",
-        "category": "documentation",
-        "sourceBlob": "d9a0873b4509e4d2fe5d5c983c77b6267f9f2c77"
+        "baseRefName": "codex/p0-web-payment-status-truth",
+        "headRefName": "codex/p0-web-lint-errors",
+        "headRefOid": "edaa757d6694997f85e718774b484fa9b8153001",
+        "isDraft": true,
+        "number": 11
       },
       {
-        "status": "A",
-        "path": "docs/p0/LINT-LOCAL-BINDINGS.md",
-        "category": "documentation",
-        "sourceBlob": "9aa1fea1166837731c853ff80182d028caeb3fbd"
+        "baseRefName": "codex/p0-web-payment-containment",
+        "headRefName": "codex/p0-web-payment-status-truth",
+        "headRefOid": "ebb7183faedb154ec720d899689a04818ad9e10c",
+        "isDraft": true,
+        "number": 10
       },
       {
-        "status": "A",
-        "path": "docs/p0/LOCKFILE-RECONCILIATION.md",
-        "category": "documentation",
-        "sourceBlob": "edde205483f1832dc1fd177958d6e4a85142b4a4"
+        "baseRefName": "codex/p0-provider-auth-lockdown",
+        "headRefName": "codex/p0-web-payment-containment",
+        "headRefOid": "d986b38299ee07a92a0f31d219e8c24cf9226f66",
+        "isDraft": true,
+        "number": 9
       },
       {
-        "status": "A",
-        "path": "docs/p0/OFFLINE-CI.md",
-        "category": "documentation",
-        "sourceBlob": "598ab9c848e522021452c1d2ec83aebb29b8477c"
+        "baseRefName": "codex/p0-web-unused-local-bindings",
+        "headRefName": "codex/p0-provider-auth-lockdown",
+        "headRefOid": "4bd63f63b25d32147140bc7885e1b43f163597f2",
+        "isDraft": true,
+        "number": 8
       },
       {
-        "status": "A",
-        "path": "docs/p0/PAYMENT-RETURN-TRUTH.md",
-        "category": "documentation",
-        "sourceBlob": "5bad72bff9665ffaa48eb25e836e40866de32514"
+        "baseRefName": "codex/p0-web-lint-cleanup",
+        "headRefName": "codex/p0-web-unused-local-bindings",
+        "headRefOid": "6c2594f20c60f7926bfbced0af491c54dce542f8",
+        "isDraft": true,
+        "number": 7
       },
       {
-        "status": "A",
-        "path": "docs/p0/PAYMENT-UI-CONTAINMENT.md",
-        "category": "documentation",
-        "sourceBlob": "50f1fa6e44aef1704735a9de1191891fd0e314bc"
+        "baseRefName": "codex/p0-web-offline-ci",
+        "headRefName": "codex/p0-web-lint-cleanup",
+        "headRefOid": "66821f560e42e0d92b4f0081066425be33a50479",
+        "isDraft": true,
+        "number": 6
       },
       {
-        "status": "A",
-        "path": "docs/p0/PROVIDER-AUTH-CONTAINMENT.md",
-        "category": "documentation",
-        "sourceBlob": "0e22b45226da37c8784ce01408485971f00e3362"
+        "baseRefName": "codex/p0-web-reproducible-ci",
+        "headRefName": "codex/p0-web-offline-ci",
+        "headRefOid": "e6960fbc919cde1fdc1316f616cab9184cabdf08",
+        "isDraft": true,
+        "number": 5
       },
       {
-        "status": "A",
-        "path": "docs/p0/WEB-BROWSER-EVIDENCE.md",
-        "category": "documentation",
-        "sourceBlob": "81efd4ff3f624d56a39f0f5b9be97d7dc6add08b"
+        "baseRefName": "main",
+        "headRefName": "codex/p0-web-reproducible-ci",
+        "headRefOid": "bc9a8da01f873eb8382e210898dc1c186e607c74",
+        "isDraft": true,
+        "number": 4
       },
       {
-        "status": "A",
-        "path": "docs/p0/WEB-IDENTITY.md",
-        "category": "documentation",
-        "sourceBlob": "d4b442860bfe5d0674f49664c49937467c6a3ae3"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/before-contact-escape-390.png",
-        "category": "documentation",
-        "sourceBlob": "675b3ab69ed7708bdf05f20decaa700d1f230654"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/browser-summary.json",
-        "category": "documentation",
-        "sourceBlob": "d3d57e462cfb0270ef7d9a4ec9e391743dff7692"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/contact-1440px.png",
-        "category": "documentation",
-        "sourceBlob": "1d1720b357c5f645bb683cb455a0fdb1789c44b9"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/contact-360px.png",
-        "category": "documentation",
-        "sourceBlob": "4322c2affcbcf9ff577815f7fa0057c063105074"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/contact-390px.png",
-        "category": "documentation",
-        "sourceBlob": "50c677b2e5cb11aeb6d25b51e9fdabe58d718695"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/contact-768px.png",
-        "category": "documentation",
-        "sourceBlob": "d042ace7413bd66d4eecd37eef83ac6129026133"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/home-1440px.png",
-        "category": "documentation",
-        "sourceBlob": "9bda6e67b1085b96daac0d43990f15818ba7ba78"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/home-360px.png",
-        "category": "documentation",
-        "sourceBlob": "39f5cc179f0eb56a0d865b089140fa864440e77f"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/home-390px.png",
-        "category": "documentation",
-        "sourceBlob": "1f6bb17797075a286767a8db879cdd580852643c"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/home-768px.png",
-        "category": "documentation",
-        "sourceBlob": "2a69cd13b40e0f52c3c2deb491b7d90cd8dd0b2b"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/browser-evidence/pr-inventory.json",
-        "category": "documentation",
-        "sourceBlob": "cf657b97abae4c339420ba8e1157fa645bf8f1b6"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/identity-ownership.json",
-        "category": "documentation",
-        "sourceBlob": "db3554ee25c0331e1f44c13c2543bdf399b8129e"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/identity-verification.json",
-        "category": "documentation",
-        "sourceBlob": "68a92f7f4f5b1ec6eee1ff63a6fd6d77d35c730e"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/lint-ast-evidence.json",
-        "category": "documentation",
-        "sourceBlob": "fe38eed0e16a491fb9263efc32db2cb750643bdb"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/lint-remaining.json",
-        "category": "documentation",
-        "sourceBlob": "b9b3ef788ef1c545d95282f1eecdf074494253bc"
-      },
-      {
-        "status": "A",
-        "path": "docs/p0/lockfile-comparison.json",
-        "category": "documentation",
-        "sourceBlob": "843ad9a30673b1a269804a4041d81181fc019afe"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/COMMERCIAL-ARCHITECTURE.md",
-        "category": "documentation",
-        "sourceBlob": "a134f9e0ae34127e51a9988471443e71ea50af9b"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/REPORT.md",
-        "category": "documentation",
-        "sourceBlob": "564c48807deb436e2cf5e20274b6ec28b6969474"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/issue-proposals.json",
-        "category": "documentation",
-        "sourceBlob": "4f1dbd5aeda0f8e10335b13acf3c6d64d990526f"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/issues-created.json",
-        "category": "documentation",
-        "sourceBlob": "beb56e2f0b6df478da9d3928468fd28dc1117766"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/lead-v1.example.json",
-        "category": "documentation",
-        "sourceBlob": "015e251f031dff1942183118630ab83f0e00e0f3"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/pr-inventory.json",
-        "category": "documentation",
-        "sourceBlob": "511aab6edd264a7ba6de288e83918704e5d968cd"
-      },
-      {
-        "status": "A",
-        "path": "docs/web-consolidation/verification.json",
-        "category": "documentation",
-        "sourceBlob": "7df58626d4cd26bc6868c3cfaff0be653db83672"
-      },
-      {
-        "status": "A",
-        "path": "eslint.config.js",
-        "category": "tooling",
-        "sourceBlob": "2a32d7e9cc62af080fe1c15e864a3d207ee9b8ce"
-      },
-      {
-        "status": "M",
-        "path": "package-lock.json",
-        "category": "package-lock",
-        "sourceBlob": "9d9ec255ba1147986850bfcbfab6269552f5889f"
-      },
-      {
-        "status": "M",
-        "path": "package.json",
-        "category": "package-lock",
-        "sourceBlob": "b7f793440ffcd3fc5d2bfe8a39f1339ad14d6879"
-      },
-      {
-        "status": "A",
-        "path": "playwright.config.mjs",
-        "category": "tooling",
-        "sourceBlob": "273f8fe16ce65e81a24dd8d4af4d2dbb15f05622"
-      },
-      {
-        "status": "A",
-        "path": "scripts/browser/inspect.mjs",
-        "category": "tooling",
-        "sourceBlob": "d11716d746187093aaf3f683c65694506b47758a"
-      },
-      {
-        "status": "A",
-        "path": "scripts/browser/server.mjs",
-        "category": "tooling",
-        "sourceBlob": "d80f5940aa013ffe0d87c85e9d3db181dcbec359"
-      },
-      {
-        "status": "A",
-        "path": "scripts/browser/summarize.mjs",
-        "category": "tooling",
-        "sourceBlob": "65d08ec5fe8bab159e7ab666cf5196f988ca4874"
-      },
-      {
-        "status": "A",
-        "path": "scripts/ci/audit-unused-bindings.mjs",
-        "category": "tooling",
-        "sourceBlob": "5c7313866016c8cb8f34a95cfc957b1e575c2422"
-      },
-      {
-        "status": "A",
-        "path": "scripts/ci/build-options.mjs",
-        "category": "tooling",
-        "sourceBlob": "ef915e7d4bc65cf884ac6f1910b3a1ab804a701b"
-      },
-      {
-        "status": "A",
-        "path": "scripts/ci/build.mjs",
-        "category": "tooling",
-        "sourceBlob": "39d81a901f53041cdae313cc759662f5902f29da"
-      },
-      {
-        "status": "A",
-        "path": "scripts/ci/offline-guard.mjs",
-        "category": "tooling",
-        "sourceBlob": "5374d81904c59020e042d83b23d6c13d8b8dd5a5"
-      },
-      {
-        "status": "M",
-        "path": "src/App.jsx",
-        "category": "runtime",
-        "sourceBlob": "1aa9f60f65a5a4d19b0cc63090cbd7c5272daa0b"
-      },
-      {
-        "status": "M",
-        "path": "src/components/AIAssistantPath.jsx",
-        "category": "runtime",
-        "sourceBlob": "2c26acbce7eabe760cd19b8f640b145e0a73de4b"
-      },
-      {
-        "status": "M",
-        "path": "src/components/BeforeAfterSlider.jsx",
-        "category": "runtime",
-        "sourceBlob": "ce73803c26afbd2417f9461f49082c3405aaa71a"
-      },
-      {
-        "status": "M",
-        "path": "src/components/ContactForm.jsx",
-        "category": "runtime",
-        "sourceBlob": "85820af324a604d00be362f7050e8c0d199bcbe3"
-      },
-      {
-        "status": "M",
-        "path": "src/components/ContactModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "e72f38d2f3186fb8cdcc451f6a57d218a831a322"
-      },
-      {
-        "status": "M",
-        "path": "src/components/Header.jsx",
-        "category": "runtime",
-        "sourceBlob": "3170e3413f2e1a51e92fa11d3db1eb4748952bc2"
-      },
-      {
-        "status": "A",
-        "path": "src/components/IdentityUnavailable.jsx",
-        "category": "runtime",
-        "sourceBlob": "9d9e9dd5ffd9dbf988892aac10653fb0b04f2969"
-      },
-      {
-        "status": "M",
-        "path": "src/components/ManualQuoterPath.jsx",
-        "category": "runtime",
-        "sourceBlob": "5341850ff5daaf4f6735560309cc9211f9d05946"
-      },
-      {
-        "status": "M",
-        "path": "src/components/NewsletterPopup.jsx",
-        "category": "runtime",
-        "sourceBlob": "67e33d804f40c9f15675977266c636a2572f9cb7"
-      },
-      {
-        "status": "M",
-        "path": "src/components/ScrollToTop.jsx",
-        "category": "runtime",
-        "sourceBlob": "35ce79fbf3b1f6f9671a00c9caaf6ca14b9022c5"
-      },
-      {
-        "status": "M",
-        "path": "src/components/ScrollTriggerRegistrationModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "d09ad445e7c833e4a9eee2a33cf832efc5c03b5c"
-      },
-      {
-        "status": "M",
-        "path": "src/components/TransformacionesReales.jsx",
-        "category": "runtime",
-        "sourceBlob": "ac6d609e016fb53fcf45bb22fdc98f95bc2d76be"
-      },
-      {
-        "status": "M",
-        "path": "src/components/WhyInmejora.jsx",
-        "category": "runtime",
-        "sourceBlob": "220460f3cbbe9b5c5b3954d227bec5dd55972532"
-      },
-      {
-        "status": "M",
-        "path": "src/components/admin/ProtectedAdminRoute.jsx",
-        "category": "runtime",
-        "sourceBlob": "9b72661d1d1836bee02f4aada9d1bffca7987b52"
-      },
-      {
-        "status": "M",
-        "path": "src/components/catalog/ColorDetailModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "e351af599da0452174e010ed2d8f0bdfd5d0f6eb"
-      },
-      {
-        "status": "M",
-        "path": "src/components/catalog/ProductDetailModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "a0dd78d1f686cb2cfc21217fc6f608c28a34edfb"
-      },
-      {
-        "status": "M",
-        "path": "src/components/checkout/ErrorModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "d391d683488d0bc654d465090a94fa0384150612"
-      },
-      {
-        "status": "A",
-        "path": "src/components/checkout/UnverifiedPaymentNotice.jsx",
-        "category": "runtime",
-        "sourceBlob": "a77c60e70a3a428aff825b325ee52da8754463a6"
-      },
-      {
-        "status": "M",
-        "path": "src/components/dashboard/CreditsWidget.jsx",
-        "category": "runtime",
-        "sourceBlob": "56038c3fa230761cda336aa55b624704e447d038"
-      },
-      {
-        "status": "M",
-        "path": "src/components/lead/LeadCaptureWidget.jsx",
-        "category": "runtime",
-        "sourceBlob": "17eb96494571178cd89d1abf9bf72482f2ae4218"
-      },
-      {
-        "status": "M",
-        "path": "src/components/plans/PricingDisplay.jsx",
-        "category": "runtime",
-        "sourceBlob": "3883f093f81c68181179e3c7ba37b6cf078722fb"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/ProveedorRegistrationForm.jsx",
-        "category": "runtime",
-        "sourceBlob": "0cef7ea7b1a935c198295412a9c2b96a8b844cab"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/ProveedoresHero.jsx",
-        "category": "runtime",
-        "sourceBlob": "7e9775b20721069aa93374edef1d16a07d7fe4f2"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/dashboard/AgregarProductoForm.jsx",
-        "category": "runtime",
-        "sourceBlob": "f3efd561b103ab64706f2aaf44e50dbc67695674"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/dashboard/CargarPreciosSection.jsx",
-        "category": "runtime",
-        "sourceBlob": "cde1b1fbcd6028be37985bec3d8dce542553b672"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/dashboard/ProveedorPerfil.jsx",
-        "category": "runtime",
-        "sourceBlob": "f20abfba6eb96c8ab7133f3665e0c93b4ca962c0"
-      },
-      {
-        "status": "M",
-        "path": "src/components/proveedores/dashboard/ProveedorProductos.jsx",
-        "category": "runtime",
-        "sourceBlob": "9b1e2493751073896ac0c9e5bb0d12197cfd3dcf"
-      },
-      {
-        "status": "M",
-        "path": "src/components/renders/DownloadRenderModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "90551edf6d34e0e8d1077dbc3c2a634c01c4344a"
-      },
-      {
-        "status": "M",
-        "path": "src/components/renders/RenderDetailModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "42a211d31090fe69a5c7ad2ec686cae39fd7145c"
-      },
-      {
-        "status": "M",
-        "path": "src/components/renders/RenderWizardContainer.jsx",
-        "category": "runtime",
-        "sourceBlob": "b9551b82d0ec1b8d07d8ef73bef50660a02ff9c7"
-      },
-      {
-        "status": "M",
-        "path": "src/components/renders/RenderWizardStep2.jsx",
-        "category": "runtime",
-        "sourceBlob": "b27aa35a8ab6925263cb922ce04e2076de5a145f"
-      },
-      {
-        "status": "M",
-        "path": "src/components/upload/UploadErrorModal.jsx",
-        "category": "runtime",
-        "sourceBlob": "e871af3c7d82cdaba6f36f44cbb3789215a29073"
-      },
-      {
-        "status": "M",
-        "path": "src/contexts/ChatContext.jsx",
-        "category": "runtime",
-        "sourceBlob": "5434dd55d88949b98a2dae429970e2d74f33174e"
-      },
-      {
-        "status": "M",
-        "path": "src/contexts/InmejoraAuthContext.jsx",
-        "category": "runtime",
-        "sourceBlob": "4a954dfd954c9190866688818be70099933ad14b"
-      },
-      {
-        "status": "M",
-        "path": "src/contexts/ProveedorAuthContext.jsx",
-        "category": "runtime",
-        "sourceBlob": "07b52c8f6ed289dbd056de357c2bb828e7c7e615"
-      },
-      {
-        "status": "M",
-        "path": "src/contexts/SupplierContext.jsx",
-        "category": "runtime",
-        "sourceBlob": "45cfca0083730ef51fff59ba3be3e1ead3ed4e79"
-      },
-      {
-        "status": "A",
-        "path": "src/contexts/containedClientAuth.js",
-        "category": "runtime",
-        "sourceBlob": "47a8f4ea931b654e96b87fc98128e65a00f5cd21"
-      },
-      {
-        "status": "A",
-        "path": "src/contexts/containedSupplierAuth.js",
-        "category": "runtime",
-        "sourceBlob": "be57809cb5174a5f71f4c314c577c4e7b40e6be4"
-      },
-      {
-        "status": "A",
-        "path": "src/contexts/disabledProveedorAuth.js",
-        "category": "runtime",
-        "sourceBlob": "878d54779c977a0dcad0e244b1e1358c4c8d9390"
-      },
-      {
-        "status": "A",
-        "path": "src/contexts/identityContainment.js",
-        "category": "runtime",
-        "sourceBlob": "f1a09b56462b2ce8b56a0cdce8e3301f2c9985d3"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useApi.js",
-        "category": "runtime",
-        "sourceBlob": "206992a3d9e03d4eef539ab91ce532447d68fc90"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useChatLogic.js",
-        "category": "runtime",
-        "sourceBlob": "66ae3a9427d73000dae322f46ba561754ae9a068"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useCurrentPlan.js",
-        "category": "runtime",
-        "sourceBlob": "064258ca7e6da83bec15f0db4239bfe70f13dcfb"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useImageUpload.js",
-        "category": "runtime",
-        "sourceBlob": "e93423501dc55c37770cc97ccc36ee45d14488a8"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useMercadoPago.js",
-        "category": "runtime",
-        "sourceBlob": "0f95bd73f98ebc8deead911ba8822e0b65dc5197"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useMercadoPagoCheckout.js",
-        "category": "runtime",
-        "sourceBlob": "3e3324f86f4e1bbc4328f313c3cb3b61c14d5f44"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/usePresupuestoAnalytics.js",
-        "category": "runtime",
-        "sourceBlob": "328cfe9b62034c36937fb250f7181ef14c401d2e"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useStripeCheckout.js",
-        "category": "runtime",
-        "sourceBlob": "6dde58607a3c6f5097fb92b3de7428d775eeb541"
-      },
-      {
-        "status": "M",
-        "path": "src/hooks/useWebhookMessage.js",
-        "category": "runtime",
-        "sourceBlob": "99c8daa632a67436e2d0681089a325e7f4ac2a62"
-      },
-      {
-        "status": "M",
-        "path": "src/lib/apiCall.js",
-        "category": "runtime",
-        "sourceBlob": "1779f3a9d89258b7c680acb0865a7c195b4e1e2c"
-      },
-      {
-        "status": "M",
-        "path": "src/lib/apiClient.js",
-        "category": "runtime",
-        "sourceBlob": "b9cd2a6af7a550e8cdd411c0c8d71d4252b042ba"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/AdminInmejora.jsx",
-        "category": "runtime",
-        "sourceBlob": "698b5d2856eff3cd451d7d68160876c497691970"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/CatalogPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "59a6af82155dc569773a4f8fa563d23cf758cf79"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/CheckoutErrorPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "238fc23387579593265bc58499199f487d288774"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/CheckoutPendingPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "cbbba0415f9e530d2fd209e7e5422814ec30c3cd"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/CheckoutSuccessPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "d7def3700bc6fa1125454013cb39ff55cae16549"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ClientDashboard.jsx",
-        "category": "runtime",
-        "sourceBlob": "b4b221a2608000a29ffe7c765a3346647d6d208d"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ContactoPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "77461e422afd03fe74fe24906e7c4528948f8037"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/EditRenderPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "3a262b94423c35842720b7d1652d2f3aa801aecb"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ForgotPasswordPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "339549f80c4c458fdb1cff971d4b9ce6ca7364e2"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/LoginPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "29ffa7a2a20cdbe7115d723f4ff6f9fc67edd3af"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PaymentHistoryPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "5c3645a7feee833a55fd7fd59148234a7994e326"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PlanManagementPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "daec30dba45532d3911057c2afd63bd2908eca61"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PlansPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "88d19a04098ad1f4f3bff88eb15b35040c3daed3"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PortalDashboard.jsx",
-        "category": "runtime",
-        "sourceBlob": "f934636e9b94d75d09cb8d8355a7b3e03b1b632d"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PortalPerfil.jsx",
-        "category": "runtime",
-        "sourceBlob": "dd1e5dbc28278bb56ee92884dbec013eeab8503f"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/PresupuestoPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "1ec55ae6c0cec1611d866c89242fa74641555e96"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ProveedorProductsPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "d57f1f3896dd3b8e787aa0bf767e11c69e9e7eac"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ProveedorRegisterPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "feade8d7c1f5e3f60e80d2dd40f3f29a46b86dcb"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/QuoterPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "70251f47d1b7cfa3bbd6e58f7772e7457bb9294f"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/RegistrationPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "fdcd8ddb43ea518e7deff80c32ed3ba259113f6b"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/RenderGeneratorPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "271260dbbb3b357a49290f81f17baf6848d8a9c1"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/ResetPasswordPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "339549f80c4c458fdb1cff971d4b9ce6ca7364e2"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/SupplierLoginPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "e13a578e05ae3e5ec6ba6024f068a5340e506d45"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/SupplierPortalPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "fef4ddf7c35e92f77538b2218ad20464e00dd6de"
-      },
-      {
-        "status": "M",
-        "path": "src/pages/SupplierRegistrationPage.jsx",
-        "category": "runtime",
-        "sourceBlob": "feade8d7c1f5e3f60e80d2dd40f3f29a46b86dcb"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/FormValidation.js",
-        "category": "runtime",
-        "sourceBlob": "f73047da2e8ff17894e2ee46b98b7f97b6f1c977"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/MercadoPagoWebhookHandler.js",
-        "category": "runtime",
-        "sourceBlob": "43756fbe3ef2f1b0ed9e4df31933340d3509528c"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/apiClient.js",
-        "category": "runtime",
-        "sourceBlob": "8c977ba16bd770efcddefdd59b30d8e6e676b6f1"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/authValidation.js",
-        "category": "runtime",
-        "sourceBlob": "b38375d228eb6171d2ea5dfcca932a1f06f1e8e9"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/mercadoPagoAPI.js",
-        "category": "runtime",
-        "sourceBlob": "1c921b952ce903e90518aaa7ab529db465b752e2"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/presupuestoApi.js",
-        "category": "runtime",
-        "sourceBlob": "29309a1c63c5f32bb0fc97c3ddb0c2dc3078f2be"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/rendersAPI.js",
-        "category": "runtime",
-        "sourceBlob": "a2c6ddf77e8cd8d37d78a9267f154e4b4910f508"
-      },
-      {
-        "status": "M",
-        "path": "src/utils/supplierApi.js",
-        "category": "runtime",
-        "sourceBlob": "99203197309cc2c29e44ac4661388a23a451ea42"
-      },
-      {
-        "status": "A",
-        "path": "tests/browser/isolation.mjs",
-        "category": "tests",
-        "sourceBlob": "a53289f26ba94c7e51ac993969fbfd4757cbd428"
-      },
-      {
-        "status": "A",
-        "path": "tests/browser/isolation.spec.mjs",
-        "category": "tests",
-        "sourceBlob": "e5304154215218f1fe65427eb6fa4c2516ee1bf2"
-      },
-      {
-        "status": "A",
-        "path": "tests/browser/regression.spec.mjs",
-        "category": "tests",
-        "sourceBlob": "e1f57186c1304cbd5d71a370a6e9ad2d1ee507a7"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/admin-route.test.mjs",
-        "category": "tests",
-        "sourceBlob": "9b10eb58aa99bd6289490c0ffed58ebc3102c443"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/identity-containment.test.mjs",
-        "category": "tests",
-        "sourceBlob": "f1f9c5bff9e6e6471bc74a9936b14e148bbdb473"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/isolation.test.mjs",
-        "category": "tests",
-        "sourceBlob": "639999c4a876868e44226b9d0a67449f97f2ad7c"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/lint-error-regression.test.mjs",
-        "category": "tests",
-        "sourceBlob": "96d23df5e3ba18e4cff80f30a56a8dcf6976f9b3"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/payment-containment.test.mjs",
-        "category": "tests",
-        "sourceBlob": "32d2146630fbadd0dc3a7c2917e06c9c78e68c76"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/payment-status-truth.test.mjs",
-        "category": "tests",
-        "sourceBlob": "bbc4bfcfa6d9a850c7fa1a474b0ae4155f0776c9"
-      },
-      {
-        "status": "A",
-        "path": "tests/ci/provider-containment.test.mjs",
-        "category": "tests",
-        "sourceBlob": "26f7cab6c28b4a683596d11316b206acdee69823"
+        "baseRefName": "main",
+        "headRefName": "agent/inmejora-studio-scan-core-plan",
+        "headRefOid": "cbbe89566305a4a402deae0256594856cf90b9d8",
+        "isDraft": true,
+        "number": 1
       }
     ]
   },
-  "consolidationOnly": [
+  "authorizedRuntimeAndTestDelta": [
     {
-      "status": "A",
-      "category": "documentation",
-      "path": "docs/p0/consolidation/REPORT.md"
+      "path": "src/pages/RegistrationPage.jsx",
+      "status": "M",
+      "category": "runtime-copy",
+      "before": "Puedes crear tu cuenta; los pagos están temporalmente no disponibles.",
+      "after": "El registro y los pagos están temporalmente no disponibles."
     },
     {
-      "status": "A",
-      "category": "documentation",
-      "path": "docs/p0/consolidation/inventory.json"
-    },
-    {
-      "status": "A",
-      "category": "documentation",
-      "path": "docs/p0/consolidation/verification.json"
+      "path": "tests/browser/regression.spec.mjs",
+      "status": "M",
+      "category": "browser-regression",
+      "test": "registration with a selected plan denies account and payment effects",
+      "projects": [
+        360,
+        390,
+        768,
+        1440
+      ]
     }
   ],
-  "excludedPR1": {
-    "head": "cbbe89566305a4a402deae0256594856cf90b9d8",
-    "sourceCommitOverlap": []
+  "renewedMetadata": [
+    "docs/p0/consolidation/REPORT.md",
+    "docs/p0/consolidation/inventory.json",
+    "docs/p0/consolidation/verification.json"
+  ],
+  "deltaFromPreviousPR20": {
+    "modified": 5,
+    "added": 0,
+    "deleted": 0
   },
+  "deltaFromPR19": {
+    "modified": 2,
+    "added": 3,
+    "deleted": 0
+  },
+  "deltaFromMain": {
+    "modified": 81,
+    "added": 62,
+    "deleted": 0,
+    "total": 143
+  },
+  "unchanged": "All other paths/blobs/modes, package manifests, lockfile, workflows, isolation scripts, auth/payment handlers and previous tests. Documentation hashes intentionally excluded to avoid self-reference.",
   "historicalPRs": [
     {
       "baseRefName": "codex/p0-web-identity",

@@ -60,6 +60,59 @@ test('navigation, history and contact keyboard', async ({ page }, info) => {
   if (mobile) await expect(page.getByRole('button', { name: 'Menu', exact: true })).toBeFocused();
 });
 
+
+test('registration with a selected plan denies account and payment effects', async ({ page, context, audit }, info) => {
+  await context.addInitScript(() => {
+    if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential');
+  });
+  await page.goto('/registro?plan=pro_mensual');
+  await ready(page);
+  await expect(page.getByText('El registro y los pagos están temporalmente no disponibles.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('status').filter({ hasText: 'No se realizó la operación.' })).toBeVisible();
+  await expect(page.getByText(/Puedes crear tu cuenta|Ahora redirigimos a Mercado Pago/)).toHaveCount(0);
+
+  const form = page.locator('form');
+  const submit = form.locator('button[type="submit"]');
+  await expect(submit).toBeDisabled();
+  for (const name of ['name', 'email', 'phone', 'password', 'confirmPassword', 'terms']) {
+    await expect(form.locator('[name="' + name + '"]')).toBeDisabled();
+  }
+  await info.attach('registration-plan-unavailable', { body: await page.screenshot(), contentType: 'image/png' });
+
+  // Synthetic DOM tampering exercises the real submit/provider rejection too.
+  // This never enables registration in the application or contacts a backend.
+  for (const [name, value] of [
+    ['name', 'Persona Sintética'],
+    ['email', 'fixture@example.invalid'],
+    ['phone', '1100000000'],
+    ['password', 'Synthetic-Only-123!'],
+    ['confirmPassword', 'Synthetic-Only-123!'],
+  ]) {
+    const input = form.locator('[name="' + name + '"]');
+    await input.evaluate(element => { element.disabled = false; });
+    await input.fill(value);
+  }
+  const terms = form.locator('[name="terms"]');
+  await terms.evaluate(element => { element.disabled = false; });
+  await terms.check();
+  await expect(submit).toBeDisabled();
+  await form.dispatchEvent('submit');
+
+  await expect(page.getByText('Error al registrarse', { exact: true })).toBeVisible();
+  await expect(page.getByText('Error de validación', { exact: true })).toHaveCount(0);
+  await expect(page.getByText(/¡Bienvenido!|Redirigiendo al portal|Ahora redirigimos a Mercado Pago/)).toHaveCount(0);
+  // The contained checkout hook would emit this toast if incorrectly reached.
+  await expect(page.getByText('Pagos temporalmente no disponibles', { exact: true })).toHaveCount(0);
+  await expect(submit).toBeDisabled();
+  await expect(page).toHaveURL(/\/registro\?plan=pro_mensual$/);
+  expect(context.pages()).toHaveLength(1);
+  expect(await page.evaluate(() => ['inmejora_token', 'inmejora_user'].map(key => globalThis.localStorage.getItem(key)))).toEqual([null, null]);
+  expect(audit.requests.filter(request => request.method !== 'GET'), 'no account or payment writes').toEqual([]);
+  expect(audit.requests.filter(request => /auth[-/]register|checkout|mercadopago|stripe|create.preference/i.test(request.url)), 'no registration or checkout transport').toEqual([]);
+  expect(audit.forbidden).toEqual([]);
+  expect(audit.unexpected).toEqual([]);
+});
+
 test('contained forms and payment actions stay truthful', async ({ page, context }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   for (const route of ['/login', '/registro', '/proveedores/login']) {

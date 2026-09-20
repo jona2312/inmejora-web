@@ -160,7 +160,7 @@ const RegistrationPage = () => {
           <h1 className="text-2xl font-bold text-white">Crear Cuenta</h1>
           {unavailableReason && <p role="status" className="mt-4 text-amber-300">{unavailableReason}</p>}
           <p className="text-gray-400 mt-2">
-            {planToSubscribe ? "Puedes crear tu cuenta; los pagos están temporalmente no disponibles." : "Únete a la revolución del diseño de interiores"}
+            {planToSubscribe ? "El registro y los pagos están temporalmente no disponibles." : "Únete a la revolución del diseño de interiores"}
           </p>
         </div>
 
