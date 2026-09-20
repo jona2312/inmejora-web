@@ -43,7 +43,21 @@ El caso se ejecuta a 360/390/768/1440 px y adjunta captura del estado inicial y 
 
 ## Gates nuevos
 
-Estado de esta actualización: **PENDING CI**. Los tres gates deben volver a ejecutarse; no se atribuye a este nuevo árbol el verde histórico de 70 tests y 155 casos browser. La regresión añade cuatro ejecuciones de navegador; el recuento final se actualizará sólo con evidencia.
+Ejecución nueva comprobada: [run 35536102816](https://github.com/jona2312/inmejora-web/actions/runs/35536102816), head de código **9c546daa01b6bdc84a74f57142175e64a5741779**.
+
+| Gate | Resultado observado |
+|---|---|
+| Frozen install sin lifecycle scripts | 719 paquetes; Node 20.20.2 / npm 10.8.2 |
+| Tests offline | 70 PASS / 0 FAIL / 0 cancelados / 0 skipped |
+| Lint offline | 0 errores / los mismos 8 warnings |
+| Build offline | PASS; 3152 módulos |
+| Chromium/Playwright | 159 PASS / 0 FAIL / 1 skip desktop preexistente; retries=0 |
+| Regresión nueva /registro?plan=pro_mensual | 4/4 PASS: 360, 390, 768 y 1440 px |
+| CI | Tres jobs SUCCESS; artifact browser-regression-evidence publicado |
+
+La primera ejecución [35535883452](https://github.com/jona2312/inmejora-web/actions/runs/35535883452) tuvo 155 PASS y cuatro fallos en la nueva aserción: clasificaba el chunk estático local useMercadoPagoCheckout como transporte de checkout. Se corrigió sólo esa clasificación de assets del mismo origen, coherente con el harness existente; no se debilitó el bloqueo de escrituras, servicios externos ni forbidden/unexpected. No se ocultó el fallo ni se alteró runtime para hacerlo pasar.
+
+Esta evidencia queda incorporada mediante un commit documental posterior que mantiene exactamente los blobs de fuente/tests probados. La CI completa del head final se vuelve a verificar y se enlaza en el cuerpo del PR; no se inventa un SHA autorreferencial en estos archivos.
 
 La verificación completa se ejecuta en el pipeline existente, no se presenta como una ejecución local. Localmente sólo se comprueban sintaxis e integridad del delta/documentos. Node 20.20.2 / npm 10.8.2; instalación frozen sin lifecycle scripts; lock y dependencias intactos.
 
@@ -71,7 +85,7 @@ El cambio de una línea no agrega una función comercial. Las indisponibilidades
 
 **UNKNOWN / BLOCKED**: no se pudo vincular inmejora.com con un repositorio, rama, SHA y digest productivo confiables.
 
-Inspección read-only de la web pública mediante fetch: HTML mínimo, sin identificador de despliegue verificable. Intento HEAD público desde el entorno local: bloqueado por permisos de socket; no se usaron credenciales ni se modificó infraestructura. El estado de commit main consultado no contiene statuses que aporten provenance. Estos negativos no prueban ausencia de deployment.
+Inspección read-only de la web pública mediante fetch: HTML mínimo, sin identificador de despliegue verificable. HEAD público respondió 200, Server nginx/1.31.3 y Last-Modified Fri, 14 Aug 2026 19:55:57 GMT; no devolvió X-Commit-Sha, X-Revision ni X-Deployment-Id. Last-Modified no acredita fecha de deploy ni identidad del código. El primer intento local tuvo una restricción de socket; la consulta pública autorizada posterior funcionó sin credenciales ni cambios de infraestructura. El estado de commit main consultado no contiene statuses que aporten provenance. Estos negativos no prueban ausencia de deployment.
 
 El único workflow GitHub inspeccionado ejecuta checks de pull_request/workflow_dispatch y no contiene deploy. La configuración externa de Coolify no es accesible en este flujo sin credenciales. **Trigger ante merge a main: UNKNOWN.** Un comentario de “trigger redeploy” en código no es evidencia de un hook actual. No se cambió Coolify, reinició servicio, consultó .env ni utilizó credencial productiva.
 

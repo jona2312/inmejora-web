@@ -1202,20 +1202,105 @@
     ]
   },
   "currentVerification": {
-    "status": "PENDING_CI",
-    "localExecution": "Only syntax/document integrity checks; full runtime gates execute through the existing GitHub Actions workflow.",
-    "requiredJobs": [
-      "isolation-and-build (offline)",
-      "lint (offline)",
-      "Browser regression (isolated loopback)"
+    "status": "SUCCESS",
+    "testedCodeHead": "9c546daa01b6bdc84a74f57142175e64a5741779",
+    "runId": 35536102816,
+    "url": "https://github.com/jona2312/inmejora-web/actions/runs/35536102816",
+    "localExecution": "Syntax check of the added test only; no local application install/build/browser run. Full runtime gates freshly executed on GitHub Actions.",
+    "install": {
+      "packages": 719,
+      "node": "20.20.2",
+      "npm": "10.8.2",
+      "lifecycleScripts": false,
+      "lockfileChanged": false
+    },
+    "unit": {
+      "passed": 70,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 8,
+      "rulesUnchanged": true
+    },
+    "build": {
+      "status": "PASS",
+      "modules": 3152
+    },
+    "browser": {
+      "passed": 159,
+      "failed": 0,
+      "skipped": 1,
+      "retriesConfigured": 0,
+      "newRegistrationPlanCases": 4,
+      "projects": [
+        360,
+        390,
+        768,
+        1440
+      ],
+      "skipReason": "Pre-existing desktop exclusion of the mobile-menu test"
+    },
+    "jobs": [
+      {
+        "id": 106145302960,
+        "name": "lint (offline)",
+        "conclusion": "success",
+        "headSha": "9c546daa01b6bdc84a74f57142175e64a5741779"
+      },
+      {
+        "id": 106145303116,
+        "name": "Browser regression (isolated loopback)",
+        "conclusion": "success",
+        "headSha": "9c546daa01b6bdc84a74f57142175e64a5741779"
+      },
+      {
+        "id": 106145303130,
+        "name": "isolation-and-build (offline)",
+        "conclusion": "success",
+        "headSha": "9c546daa01b6bdc84a74f57142175e64a5741779"
+      }
     ],
-    "expectedBrowserDelta": 4,
-    "networkIsolation": "Unchanged: OS network namespace for tests/build/lint; loopback-only namespace, route interception and proxy/DNS restrictions for browser; dependencies/browser installation precedes isolation."
+    "networkIsolation": "Unchanged: OS network namespace for tests/build/lint; loopback-only namespace, service workers blocked, route interception and proxy/DNS restrictions for browser. Dependencies/browser installation precedes isolation.",
+    "finalEvidenceCommit": "The documentation-only successor preserves these source/test blobs. Its full CI must also pass and is linked in the PR body; this record is not a fabricated self-referential final commit SHA.",
+    "artifacts": {
+      "artifacts": [
+        {
+          "id": 10612957148,
+          "name": "browser-regression-evidence",
+          "size_in_bytes": 17165192,
+          "url": "https://api.github.com/repos/jona2312/inmejora-web/actions/artifacts/10612957148",
+          "archive_download_url": "https://api.github.com/repos/jona2312/inmejora-web/actions/artifacts/10612957148/zip",
+          "expired": false,
+          "created_at": "2026-09-20T20:40:37Z",
+          "expires_at": "2026-10-04T20:40:35Z",
+          "updated_at": "2026-09-20T20:40:37Z",
+          "digest": "sha256:8a621fbc55837744a1a6d5c985ad9d4d801aa6169a0855328b750b9760cecba5",
+          "workflow_run": {
+            "id": 35536102816,
+            "repository_id": 1219222830,
+            "head_repository_id": 1219222830,
+            "head_branch": "codex/web-consolidated-audited-baseline",
+            "head_sha": "9c546daa01b6bdc84a74f57142175e64a5741779"
+          }
+        }
+      ]
+    }
   },
   "productionProvenance": {
     "status": "UNKNOWN / BLOCKED",
     "publicRead": "https://inmejora.com returned a minimal HTML shell via read-only web fetch; no trustworthy deployment SHA/branch/repository obtained.",
-    "publicHeaders": "Direct public HEAD attempt blocked by local socket permissions; no credentials used.",
+    "publicHeaders": {
+      "statusCode": 200,
+      "server": "nginx/1.31.3",
+      "lastModified": "Fri, 14 Aug 2026 19:55:57 GMT",
+      "xCommitSha": null,
+      "xRevision": null,
+      "xDeploymentId": null,
+      "interpretation": "HTTP metadata only; does not establish deployment date, repository, branch or SHA. Read-only public HEAD without credentials."
+    },
     "coolifyMergeTrigger": "UNKNOWN; GitHub Actions workflow contains no deploy; external Coolify configuration not accessible. No credentials, restarts or mutations."
   },
   "mergeRecommendation": "HOLD",

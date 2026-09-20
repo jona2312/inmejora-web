@@ -995,7 +995,9 @@
       "status": "M",
       "category": "runtime-copy",
       "before": "Puedes crear tu cuenta; los pagos están temporalmente no disponibles.",
-      "after": "El registro y los pagos están temporalmente no disponibles."
+      "after": "El registro y los pagos están temporalmente no disponibles.",
+      "previousPR20Blob": "fdcd8ddb43ea518e7deff80c32ed3ba259113f6b",
+      "currentBlob": "87f1fa7e6ccc2c9741047237dc2ff8c846753388"
     },
     {
       "path": "tests/browser/regression.spec.mjs",
@@ -1007,7 +1009,9 @@
         390,
         768,
         1440
-      ]
+      ],
+      "previousPR20Blob": "e1f57186c1304cbd5d71a370a6e9ad2d1ee507a7",
+      "currentBlob": "16a47c367db4001dc1439e31fe6760d09e20cc90"
     }
   ],
   "renewedMetadata": [
