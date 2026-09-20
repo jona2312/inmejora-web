@@ -1218,5 +1218,31 @@
     "publicHeaders": "Direct public HEAD attempt blocked by local socket permissions; no credentials used.",
     "coolifyMergeTrigger": "UNKNOWN; GitHub Actions workflow contains no deploy; external Coolify configuration not accessible. No credentials, restarts or mutations."
   },
-  "mergeRecommendation": "HOLD"
+  "mergeRecommendation": "HOLD",
+  "attempts": [
+    {
+      "head": "d772dad7be9ee7cd925043eaab95c02131a3c204",
+      "runId": 35535883452,
+      "url": "https://github.com/jona2312/inmejora-web/actions/runs/35535883452",
+      "unit": {
+        "passed": 70,
+        "failed": 0
+      },
+      "lint": {
+        "errors": 0,
+        "warnings": 8
+      },
+      "build": {
+        "modules": 3152,
+        "status": "PASS"
+      },
+      "browser": {
+        "passed": 155,
+        "failed": 4,
+        "skipped": 1
+      },
+      "failure": "The new request assertion misclassified the same-origin static useMercadoPagoCheckout JavaScript chunk as a checkout service request.",
+      "correction": "Classify same-origin /assets/ as static assets, matching the existing isolation harness. Preserve zero writes, no provider transports, forbidden/unexpected assertions and all existing tests."
+    }
+  ]
 }

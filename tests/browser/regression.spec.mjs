@@ -108,7 +108,8 @@ test('registration with a selected plan denies account and payment effects', asy
   expect(context.pages()).toHaveLength(1);
   expect(await page.evaluate(() => ['inmejora_token', 'inmejora_user'].map(key => globalThis.localStorage.getItem(key)))).toEqual([null, null]);
   expect(audit.requests.filter(request => request.method !== 'GET'), 'no account or payment writes').toEqual([]);
-  expect(audit.requests.filter(request => /auth[-/]register|checkout|mercadopago|stripe|create.preference/i.test(request.url)), 'no registration or checkout transport').toEqual([]);
+  const serviceAttempts = audit.requests.filter(request => !request.url.startsWith('http://127.0.0.1:4173/assets/'));
+  expect(serviceAttempts.filter(request => /auth[-/]register|checkout|mercadopago|stripe|create.preference/i.test(request.url)), 'no registration or checkout transport').toEqual([]);
   expect(audit.forbidden).toEqual([]);
   expect(audit.unexpected).toEqual([]);
 });
