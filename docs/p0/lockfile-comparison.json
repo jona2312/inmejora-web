@@ -1,0 +1,2639 @@
+{
+  "base": "0388791316d3ea7b9a03257cd46fa36b0465dda8",
+  "generatedAt": "2026-09-10",
+  "npm": "10.8.2",
+  "counts": {
+    "old": 684,
+    "new": 738,
+    "added": 255,
+    "removed": 201,
+    "changed": 75
+  },
+  "direct": [
+    {
+      "name": "@emotion/is-prop-valid",
+      "range": "^1.4.0",
+      "before": null,
+      "after": "1.4.0"
+    },
+    {
+      "name": "@radix-ui/react-accordion",
+      "range": "^1.2.12",
+      "before": null,
+      "after": "1.2.20"
+    },
+    {
+      "name": "@radix-ui/react-alert-dialog",
+      "range": "^1.1.4",
+      "before": "1.1.4",
+      "after": "1.1.4"
+    },
+    {
+      "name": "@radix-ui/react-aspect-ratio",
+      "range": "^1.1.8",
+      "before": null,
+      "after": "1.1.15"
+    },
+    {
+      "name": "@radix-ui/react-avatar",
+      "range": "^1.1.2",
+      "before": "1.1.2",
+      "after": "1.1.2"
+    },
+    {
+      "name": "@radix-ui/react-checkbox",
+      "range": "^1.1.3",
+      "before": "1.1.3",
+      "after": "1.1.3"
+    },
+    {
+      "name": "@radix-ui/react-collapsible",
+      "range": "^1.1.12",
+      "before": null,
+      "after": "1.1.20"
+    },
+    {
+      "name": "@radix-ui/react-context-menu",
+      "range": "^2.2.16",
+      "before": null,
+      "after": "2.3.7"
+    },
+    {
+      "name": "@radix-ui/react-dialog",
+      "range": "^1.1.4",
+      "before": "1.1.15",
+      "after": "1.1.23"
+    },
+    {
+      "name": "@radix-ui/react-dropdown-menu",
+      "range": "^2.1.4",
+      "before": "2.1.4",
+      "after": "2.1.4"
+    },
+    {
+      "name": "@radix-ui/react-hover-card",
+      "range": "^1.1.15",
+      "before": null,
+      "after": "1.1.23"
+    },
+    {
+      "name": "@radix-ui/react-label",
+      "range": "^2.1.1",
+      "before": "2.1.1",
+      "after": "2.1.1"
+    },
+    {
+      "name": "@radix-ui/react-menubar",
+      "range": "^1.1.16",
+      "before": null,
+      "after": "1.1.24"
+    },
+    {
+      "name": "@radix-ui/react-navigation-menu",
+      "range": "^1.2.14",
+      "before": null,
+      "after": "1.2.22"
+    },
+    {
+      "name": "@radix-ui/react-popover",
+      "range": "^1.1.15",
+      "before": null,
+      "after": "1.1.23"
+    },
+    {
+      "name": "@radix-ui/react-progress",
+      "range": "^1.1.8",
+      "before": null,
+      "after": "1.1.16"
+    },
+    {
+      "name": "@radix-ui/react-radio-group",
+      "range": "^1.3.8",
+      "before": null,
+      "after": "1.4.7"
+    },
+    {
+      "name": "@radix-ui/react-scroll-area",
+      "range": "^1.2.10",
+      "before": null,
+      "after": "1.2.18"
+    },
+    {
+      "name": "@radix-ui/react-select",
+      "range": "^2.2.6",
+      "before": null,
+      "after": "2.3.7"
+    },
+    {
+      "name": "@radix-ui/react-separator",
+      "range": "^1.1.8",
+      "before": null,
+      "after": "1.1.15"
+    },
+    {
+      "name": "@radix-ui/react-slider",
+      "range": "^1.2.2",
+      "before": "1.2.2",
+      "after": "1.2.2"
+    },
+    {
+      "name": "@radix-ui/react-slot",
+      "range": "^1.1.1",
+      "before": "1.1.1",
+      "after": "1.1.1"
+    },
+    {
+      "name": "@radix-ui/react-switch",
+      "range": "^1.2.6",
+      "before": null,
+      "after": "1.3.7"
+    },
+    {
+      "name": "@radix-ui/react-tabs",
+      "range": "^1.1.2",
+      "before": "1.1.2",
+      "after": "1.1.2"
+    },
+    {
+      "name": "@radix-ui/react-toast",
+      "range": "^1.2.4",
+      "before": "1.2.4",
+      "after": "1.2.4"
+    },
+    {
+      "name": "@radix-ui/react-toggle",
+      "range": "^1.1.10",
+      "before": null,
+      "after": "1.1.18"
+    },
+    {
+      "name": "@radix-ui/react-toggle-group",
+      "range": "^1.1.11",
+      "before": null,
+      "after": "1.1.19"
+    },
+    {
+      "name": "@radix-ui/react-tooltip",
+      "range": "^1.2.8",
+      "before": null,
+      "after": "1.2.16"
+    },
+    {
+      "name": "@supabase/supabase-js",
+      "range": "2.30.0",
+      "before": "2.30.0",
+      "after": "2.30.0"
+    },
+    {
+      "name": "axios",
+      "range": "^1.6.2",
+      "before": null,
+      "after": "1.20.0"
+    },
+    {
+      "name": "class-variance-authority",
+      "range": "^0.7.1",
+      "before": "0.7.1",
+      "after": "0.7.1"
+    },
+    {
+      "name": "clsx",
+      "range": "^2.1.1",
+      "before": "2.1.1",
+      "after": "2.1.1"
+    },
+    {
+      "name": "cmdk",
+      "range": "^1.1.1",
+      "before": null,
+      "after": "1.1.1"
+    },
+    {
+      "name": "date-fns",
+      "range": "^4.1.0",
+      "before": "4.1.0",
+      "after": "4.1.0"
+    },
+    {
+      "name": "embla-carousel-react",
+      "range": "^8.6.0",
+      "before": null,
+      "after": "8.6.0"
+    },
+    {
+      "name": "framer-motion",
+      "range": "^11.15.0",
+      "before": "11.15.0",
+      "after": "11.15.0"
+    },
+    {
+      "name": "input-otp",
+      "range": "^1.4.2",
+      "before": null,
+      "after": "1.5.0"
+    },
+    {
+      "name": "lucide-react",
+      "range": "^0.469.0",
+      "before": "0.469.0",
+      "after": "0.469.0"
+    },
+    {
+      "name": "next-themes",
+      "range": "^0.4.6",
+      "before": null,
+      "after": "0.4.6"
+    },
+    {
+      "name": "react",
+      "range": "^18.2.0",
+      "before": "19.2.3",
+      "after": "18.3.1"
+    },
+    {
+      "name": "react-countup",
+      "range": "^6.5.3",
+      "before": "6.5.3",
+      "after": "6.5.3"
+    },
+    {
+      "name": "react-day-picker",
+      "range": "^9.14.0",
+      "before": null,
+      "after": "9.14.0"
+    },
+    {
+      "name": "react-dom",
+      "range": "^18.2.0",
+      "before": "19.2.3",
+      "after": "18.3.1"
+    },
+    {
+      "name": "react-helmet",
+      "range": "^6.1.0",
+      "before": "6.1.0",
+      "after": "6.1.0"
+    },
+    {
+      "name": "react-hook-form",
+      "range": "^7.71.2",
+      "before": null,
+      "after": "7.87.0"
+    },
+    {
+      "name": "react-intersection-observer",
+      "range": "^9.10.3",
+      "before": "9.16.0",
+      "after": "9.16.0"
+    },
+    {
+      "name": "react-resizable-panels",
+      "range": "^4.7.3",
+      "before": null,
+      "after": "4.12.4"
+    },
+    {
+      "name": "react-router-dom",
+      "range": "^6.20.0",
+      "before": "7.11.0",
+      "after": "6.30.6"
+    },
+    {
+      "name": "recharts",
+      "range": "^3.8.0",
+      "before": null,
+      "after": "3.10.1"
+    },
+    {
+      "name": "sonner",
+      "range": "^1.7.1",
+      "before": null,
+      "after": "1.7.4"
+    },
+    {
+      "name": "tailwind-merge",
+      "range": "^2.6.0",
+      "before": "2.6.0",
+      "after": "2.6.0"
+    },
+    {
+      "name": "tailwindcss-animate",
+      "range": "^1.0.7",
+      "before": "1.0.7",
+      "after": "1.0.7"
+    },
+    {
+      "name": "vaul",
+      "range": "^1.1.2",
+      "before": null,
+      "after": "1.1.2"
+    },
+    {
+      "name": "zod",
+      "range": "^3.22.4",
+      "before": null,
+      "after": "3.25.76"
+    },
+    {
+      "name": "@tailwindcss/typography",
+      "range": "^0.5.13",
+      "before": "0.5.19",
+      "after": "0.5.19"
+    },
+    {
+      "name": "@types/node",
+      "range": "^20.17.10",
+      "before": "20.17.10",
+      "after": "20.17.10"
+    },
+    {
+      "name": "@types/react",
+      "range": "^18.2.0",
+      "before": "18.3.18",
+      "after": "18.3.18"
+    },
+    {
+      "name": "@types/react-dom",
+      "range": "^18.2.0",
+      "before": "18.3.5",
+      "after": "18.3.5"
+    },
+    {
+      "name": "@vitejs/plugin-react",
+      "range": "^4.3.4",
+      "before": "4.3.4",
+      "after": "4.3.4"
+    },
+    {
+      "name": "autoprefixer",
+      "range": "^10.4.20",
+      "before": "10.4.20",
+      "after": "10.4.20"
+    },
+    {
+      "name": "eslint",
+      "range": "^9.39.4",
+      "before": "8.57.1",
+      "after": "9.39.5"
+    },
+    {
+      "name": "eslint-import-resolver-alias",
+      "range": "^1.1.2",
+      "before": null,
+      "after": "1.1.2"
+    },
+    {
+      "name": "eslint-plugin-import",
+      "range": "^2.32.0",
+      "before": "2.31.0",
+      "after": "2.32.0"
+    },
+    {
+      "name": "eslint-plugin-react",
+      "range": "^7.37.5",
+      "before": "7.37.3",
+      "after": "7.37.5"
+    },
+    {
+      "name": "eslint-plugin-react-hooks",
+      "range": "^5.1.0",
+      "before": "4.6.2",
+      "after": "5.2.0"
+    },
+    {
+      "name": "globals",
+      "range": "^15.14.0",
+      "before": "11.12.0",
+      "after": "15.15.0"
+    },
+    {
+      "name": "postcss",
+      "range": "^8.4.49",
+      "before": "8.4.49",
+      "after": "8.4.49"
+    },
+    {
+      "name": "tailwindcss",
+      "range": "^3.4.17",
+      "before": "3.4.17",
+      "after": "3.4.17"
+    },
+    {
+      "name": "terser",
+      "range": "^5.39.0",
+      "before": "5.44.1",
+      "after": "5.44.1"
+    },
+    {
+      "name": "vite",
+      "range": "^4.4.5",
+      "before": "4.5.5",
+      "after": "4.5.5"
+    }
+  ],
+  "changed": [
+    {
+      "path": "node_modules/@eslint-community/eslint-utils",
+      "before": "4.4.1",
+      "after": "4.10.1"
+    },
+    {
+      "path": "node_modules/@eslint/eslintrc",
+      "before": "2.1.4",
+      "after": "3.3.7"
+    },
+    {
+      "path": "node_modules/@eslint/eslintrc/node_modules/globals",
+      "before": "13.24.0",
+      "after": "14.0.0"
+    },
+    {
+      "path": "node_modules/@eslint/js",
+      "before": "8.57.1",
+      "after": "9.39.5"
+    },
+    {
+      "path": "node_modules/@floating-ui/core",
+      "before": "1.7.3",
+      "after": "1.8.0"
+    },
+    {
+      "path": "node_modules/@floating-ui/dom",
+      "before": "1.7.4",
+      "after": "1.8.0"
+    },
+    {
+      "path": "node_modules/@floating-ui/react-dom",
+      "before": "2.1.6",
+      "after": "2.1.9"
+    },
+    {
+      "path": "node_modules/@floating-ui/utils",
+      "before": "0.2.10",
+      "after": "0.2.12"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-arrow",
+      "before": "1.1.1",
+      "after": "1.1.15"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collection",
+      "before": "1.1.1",
+      "after": "1.1.15"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog",
+      "before": "1.1.15",
+      "after": "1.1.23"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/primitive",
+      "before": "1.1.3",
+      "after": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-compose-refs",
+      "before": "1.1.2",
+      "after": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-context",
+      "before": "1.1.2",
+      "after": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-focus-guards",
+      "before": "1.1.3",
+      "after": "1.1.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-id",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-presence",
+      "before": "1.1.5",
+      "after": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-slot",
+      "before": "1.2.3",
+      "after": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-use-controllable-state",
+      "before": "1.2.2",
+      "after": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-use-layout-effect",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer",
+      "before": "1.1.11",
+      "after": "1.1.19"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/primitive",
+      "before": "1.1.3",
+      "after": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-compose-refs",
+      "before": "1.1.2",
+      "after": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-use-callback-ref",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-focus-scope",
+      "before": "1.1.7",
+      "after": "1.1.16"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-compose-refs",
+      "before": "1.1.2",
+      "after": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-use-callback-ref",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu",
+      "before": "2.1.4",
+      "after": "2.1.24"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper",
+      "before": "1.2.1",
+      "after": "1.3.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-portal",
+      "before": "1.1.9",
+      "after": "1.1.17"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-use-layout-effect",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-primitive",
+      "before": "2.0.1",
+      "after": "2.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus",
+      "before": "1.1.1",
+      "after": "1.1.19"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-effect-event",
+      "before": "0.0.2",
+      "after": "0.0.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-effect-event/node_modules/@radix-ui/react-use-layout-effect",
+      "before": "1.1.1",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-escape-keydown",
+      "before": "1.1.1",
+      "after": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-rect",
+      "before": "1.1.0",
+      "after": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-visually-hidden",
+      "before": "1.1.1",
+      "after": "1.2.11"
+    },
+    {
+      "path": "node_modules/@radix-ui/rect",
+      "before": "1.1.0",
+      "after": "1.1.3"
+    },
+    {
+      "path": "node_modules/ajv",
+      "before": "6.12.6",
+      "after": "6.15.0"
+    },
+    {
+      "path": "node_modules/array-includes",
+      "before": "3.1.8",
+      "after": "3.1.9"
+    },
+    {
+      "path": "node_modules/array.prototype.findlastindex",
+      "before": "1.2.5",
+      "after": "1.2.6"
+    },
+    {
+      "path": "node_modules/call-bind",
+      "before": "1.0.8",
+      "after": "1.0.9"
+    },
+    {
+      "path": "node_modules/call-bind-apply-helpers",
+      "before": "1.0.1",
+      "after": "1.0.2"
+    },
+    {
+      "path": "node_modules/call-bound",
+      "before": "1.0.3",
+      "after": "1.0.4"
+    },
+    {
+      "path": "node_modules/es-abstract",
+      "before": "1.23.8",
+      "after": "1.24.2"
+    },
+    {
+      "path": "node_modules/es-object-atoms",
+      "before": "1.0.0",
+      "after": "1.1.2"
+    },
+    {
+      "path": "node_modules/es-set-tostringtag",
+      "before": "2.0.3",
+      "after": "2.1.0"
+    },
+    {
+      "path": "node_modules/es-shim-unscopables",
+      "before": "1.0.2",
+      "after": "1.1.0"
+    },
+    {
+      "path": "node_modules/eslint",
+      "before": "8.57.1",
+      "after": "9.39.5"
+    },
+    {
+      "path": "node_modules/eslint-module-utils",
+      "before": "2.12.0",
+      "after": "2.14.0"
+    },
+    {
+      "path": "node_modules/eslint-plugin-import",
+      "before": "2.31.0",
+      "after": "2.32.0"
+    },
+    {
+      "path": "node_modules/eslint-plugin-react",
+      "before": "7.37.3",
+      "after": "7.37.5"
+    },
+    {
+      "path": "node_modules/eslint-plugin-react-hooks",
+      "before": "4.6.2",
+      "after": "5.2.0"
+    },
+    {
+      "path": "node_modules/eslint-scope",
+      "before": "7.2.2",
+      "after": "8.4.0"
+    },
+    {
+      "path": "node_modules/espree",
+      "before": "9.6.1",
+      "after": "10.4.0"
+    },
+    {
+      "path": "node_modules/file-entry-cache",
+      "before": "6.0.1",
+      "after": "8.0.0"
+    },
+    {
+      "path": "node_modules/flat-cache",
+      "before": "3.2.0",
+      "after": "4.0.1"
+    },
+    {
+      "path": "node_modules/flatted",
+      "before": "3.3.2",
+      "after": "3.4.4"
+    },
+    {
+      "path": "node_modules/for-each",
+      "before": "0.3.3",
+      "after": "0.3.5"
+    },
+    {
+      "path": "node_modules/get-intrinsic",
+      "before": "1.2.6",
+      "after": "1.3.0"
+    },
+    {
+      "path": "node_modules/globals",
+      "before": "11.12.0",
+      "after": "15.15.0"
+    },
+    {
+      "path": "node_modules/hasown",
+      "before": "2.0.2",
+      "after": "2.0.4"
+    },
+    {
+      "path": "node_modules/is-weakref",
+      "before": "1.1.0",
+      "after": "1.1.1"
+    },
+    {
+      "path": "node_modules/js-yaml",
+      "before": "4.1.0",
+      "after": "4.3.2"
+    },
+    {
+      "path": "node_modules/minimatch",
+      "before": "3.1.2",
+      "after": "3.1.5"
+    },
+    {
+      "path": "node_modules/object-inspect",
+      "before": "1.13.3",
+      "after": "1.13.4"
+    },
+    {
+      "path": "node_modules/object.entries",
+      "before": "1.1.8",
+      "after": "1.1.9"
+    },
+    {
+      "path": "node_modules/react",
+      "before": "19.2.3",
+      "after": "18.3.1"
+    },
+    {
+      "path": "node_modules/react-dom",
+      "before": "19.2.3",
+      "after": "18.3.1"
+    },
+    {
+      "path": "node_modules/react-router",
+      "before": "7.11.0",
+      "after": "6.30.6"
+    },
+    {
+      "path": "node_modules/react-router-dom",
+      "before": "7.11.0",
+      "after": "6.30.6"
+    },
+    {
+      "path": "node_modules/regexp.prototype.flags",
+      "before": "1.5.3",
+      "after": "1.5.4"
+    },
+    {
+      "path": "node_modules/scheduler",
+      "before": "0.27.0",
+      "after": "0.23.2"
+    },
+    {
+      "path": "node_modules/which-typed-array",
+      "before": "1.1.18",
+      "after": "1.1.22"
+    }
+  ],
+  "added": [
+    {
+      "path": "node_modules/@babel/traverse/node_modules/globals",
+      "version": "11.12.0"
+    },
+    {
+      "path": "node_modules/@date-fns/tz",
+      "version": "1.5.0"
+    },
+    {
+      "path": "node_modules/@emotion/is-prop-valid",
+      "version": "1.4.0"
+    },
+    {
+      "path": "node_modules/@emotion/memoize",
+      "version": "0.9.0"
+    },
+    {
+      "path": "node_modules/@eslint/config-array",
+      "version": "0.21.2"
+    },
+    {
+      "path": "node_modules/@eslint/config-helpers",
+      "version": "0.4.2"
+    },
+    {
+      "path": "node_modules/@eslint/core",
+      "version": "0.17.0"
+    },
+    {
+      "path": "node_modules/@eslint/object-schema",
+      "version": "2.1.7"
+    },
+    {
+      "path": "node_modules/@eslint/plugin-kit",
+      "version": "0.4.1"
+    },
+    {
+      "path": "node_modules/@humanfs/core",
+      "version": "0.19.2"
+    },
+    {
+      "path": "node_modules/@humanfs/node",
+      "version": "0.16.8"
+    },
+    {
+      "path": "node_modules/@humanfs/types",
+      "version": "0.15.0"
+    },
+    {
+      "path": "node_modules/@humanwhocodes/retry",
+      "version": "0.4.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion",
+      "version": "1.2.20"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-accordion/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-alert-dialog/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-aspect-ratio",
+      "version": "1.1.15"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-avatar/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-checkbox/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible",
+      "version": "1.1.20"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collapsible/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-collection/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-context-menu",
+      "version": "2.3.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-context-menu/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-context-menu/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-context-menu/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-context-menu/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-arrow",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-collection",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-dismissable-layer",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-focus-scope",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-menu",
+      "version": "2.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-popper",
+      "version": "1.2.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-portal",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-roving-focus",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/react-use-rect",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dropdown-menu/node_modules/@radix-ui/rect",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card",
+      "version": "1.1.23"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-hover-card/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-label/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-focus-guards",
+      "version": "1.1.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar",
+      "version": "1.1.24"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menubar/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu",
+      "version": "1.2.22"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-navigation-menu/node_modules/@radix-ui/react-use-previous",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover",
+      "version": "1.1.23"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-focus-guards",
+      "version": "1.1.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popover/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-popper/node_modules/@radix-ui/react-use-size",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-primitive/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-progress",
+      "version": "1.1.16"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-progress/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group",
+      "version": "1.4.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-radio-group/node_modules/@radix-ui/react-use-size",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-roving-focus/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area",
+      "version": "1.2.18"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/number",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-scroll-area/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select",
+      "version": "2.3.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/number",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-focus-guards",
+      "version": "1.1.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-select/node_modules/@radix-ui/react-use-previous",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-separator",
+      "version": "1.1.15"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-slider/node_modules/@radix-ui/react-collection",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-slider/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch",
+      "version": "1.3.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-switch/node_modules/@radix-ui/react-use-size",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tabs/node_modules/@radix-ui/react-collection",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tabs/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tabs/node_modules/@radix-ui/react-roving-focus",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toast/node_modules/@radix-ui/react-collection",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toast/node_modules/@radix-ui/react-primitive",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toast/node_modules/@radix-ui/react-visually-hidden",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle",
+      "version": "1.1.18"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group",
+      "version": "1.1.19"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group/node_modules/@radix-ui/react-direction",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle-group/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toggle/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip",
+      "version": "1.2.16"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/primitive",
+      "version": "1.1.7"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.5"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-context",
+      "version": "1.2.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-id",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-presence",
+      "version": "1.1.10"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-slot",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-use-controllable-state",
+      "version": "1.2.6"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-tooltip/node_modules/@radix-ui/react-use-layout-effect",
+      "version": "1.1.4"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-is-hydrated",
+      "version": "0.1.3"
+    },
+    {
+      "path": "node_modules/@reduxjs/toolkit",
+      "version": "2.12.0"
+    },
+    {
+      "path": "node_modules/@remix-run/router",
+      "version": "1.23.4"
+    },
+    {
+      "path": "node_modules/@standard-schema/spec",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@standard-schema/utils",
+      "version": "0.3.0"
+    },
+    {
+      "path": "node_modules/@tabby_ai/hijri-converter",
+      "version": "1.0.5"
+    },
+    {
+      "path": "node_modules/@types/d3-array",
+      "version": "3.2.2"
+    },
+    {
+      "path": "node_modules/@types/d3-color",
+      "version": "3.1.3"
+    },
+    {
+      "path": "node_modules/@types/d3-ease",
+      "version": "3.0.2"
+    },
+    {
+      "path": "node_modules/@types/d3-interpolate",
+      "version": "3.0.4"
+    },
+    {
+      "path": "node_modules/@types/d3-path",
+      "version": "3.1.1"
+    },
+    {
+      "path": "node_modules/@types/d3-scale",
+      "version": "4.0.9"
+    },
+    {
+      "path": "node_modules/@types/d3-shape",
+      "version": "3.2.0"
+    },
+    {
+      "path": "node_modules/@types/d3-time",
+      "version": "3.0.4"
+    },
+    {
+      "path": "node_modules/@types/d3-timer",
+      "version": "3.0.2"
+    },
+    {
+      "path": "node_modules/@types/estree",
+      "version": "1.0.9"
+    },
+    {
+      "path": "node_modules/@types/use-sync-external-store",
+      "version": "0.0.6"
+    },
+    {
+      "path": "node_modules/agent-base",
+      "version": "6.0.2"
+    },
+    {
+      "path": "node_modules/asynckit",
+      "version": "0.4.0"
+    },
+    {
+      "path": "node_modules/axios",
+      "version": "1.20.0"
+    },
+    {
+      "path": "node_modules/cmdk",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/combined-stream",
+      "version": "1.0.8"
+    },
+    {
+      "path": "node_modules/d3-array",
+      "version": "3.2.4"
+    },
+    {
+      "path": "node_modules/d3-color",
+      "version": "3.1.0"
+    },
+    {
+      "path": "node_modules/d3-ease",
+      "version": "3.0.1"
+    },
+    {
+      "path": "node_modules/d3-format",
+      "version": "3.1.2"
+    },
+    {
+      "path": "node_modules/d3-interpolate",
+      "version": "3.0.1"
+    },
+    {
+      "path": "node_modules/d3-path",
+      "version": "3.1.0"
+    },
+    {
+      "path": "node_modules/d3-scale",
+      "version": "4.0.2"
+    },
+    {
+      "path": "node_modules/d3-shape",
+      "version": "3.2.0"
+    },
+    {
+      "path": "node_modules/d3-time",
+      "version": "3.1.0"
+    },
+    {
+      "path": "node_modules/d3-time-format",
+      "version": "4.1.0"
+    },
+    {
+      "path": "node_modules/d3-timer",
+      "version": "3.0.1"
+    },
+    {
+      "path": "node_modules/date-fns-jalali",
+      "version": "4.1.0-0"
+    },
+    {
+      "path": "node_modules/decimal.js-light",
+      "version": "2.5.1"
+    },
+    {
+      "path": "node_modules/delayed-stream",
+      "version": "1.0.0"
+    },
+    {
+      "path": "node_modules/embla-carousel",
+      "version": "8.6.0"
+    },
+    {
+      "path": "node_modules/embla-carousel-react",
+      "version": "8.6.0"
+    },
+    {
+      "path": "node_modules/embla-carousel-reactive-utils",
+      "version": "8.6.0"
+    },
+    {
+      "path": "node_modules/es-toolkit",
+      "version": "1.52.0"
+    },
+    {
+      "path": "node_modules/eslint-import-resolver-alias",
+      "version": "1.1.2"
+    },
+    {
+      "path": "node_modules/eslint/node_modules/eslint-visitor-keys",
+      "version": "4.2.1"
+    },
+    {
+      "path": "node_modules/espree/node_modules/eslint-visitor-keys",
+      "version": "4.2.1"
+    },
+    {
+      "path": "node_modules/eventemitter3",
+      "version": "5.0.4"
+    },
+    {
+      "path": "node_modules/follow-redirects",
+      "version": "1.16.0"
+    },
+    {
+      "path": "node_modules/form-data",
+      "version": "4.0.6"
+    },
+    {
+      "path": "node_modules/get-proto",
+      "version": "1.0.1"
+    },
+    {
+      "path": "node_modules/https-proxy-agent",
+      "version": "5.0.1"
+    },
+    {
+      "path": "node_modules/immer",
+      "version": "11.1.18"
+    },
+    {
+      "path": "node_modules/input-otp",
+      "version": "1.5.0"
+    },
+    {
+      "path": "node_modules/internmap",
+      "version": "2.0.3"
+    },
+    {
+      "path": "node_modules/is-negative-zero",
+      "version": "2.0.3"
+    },
+    {
+      "path": "node_modules/mime-db",
+      "version": "1.52.0"
+    },
+    {
+      "path": "node_modules/mime-types",
+      "version": "2.1.35"
+    },
+    {
+      "path": "node_modules/next-themes",
+      "version": "0.4.6"
+    },
+    {
+      "path": "node_modules/proxy-from-env",
+      "version": "2.1.0"
+    },
+    {
+      "path": "node_modules/react-day-picker",
+      "version": "9.14.0"
+    },
+    {
+      "path": "node_modules/react-hook-form",
+      "version": "7.87.0"
+    },
+    {
+      "path": "node_modules/react-redux",
+      "version": "9.3.0"
+    },
+    {
+      "path": "node_modules/react-resizable-panels",
+      "version": "4.12.4"
+    },
+    {
+      "path": "node_modules/recharts",
+      "version": "3.10.1"
+    },
+    {
+      "path": "node_modules/redux",
+      "version": "5.0.1"
+    },
+    {
+      "path": "node_modules/redux-thunk",
+      "version": "3.1.0"
+    },
+    {
+      "path": "node_modules/reselect",
+      "version": "5.2.0"
+    },
+    {
+      "path": "node_modules/set-proto",
+      "version": "1.0.0"
+    },
+    {
+      "path": "node_modules/sonner",
+      "version": "1.7.4"
+    },
+    {
+      "path": "node_modules/stop-iteration-iterator",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/tiny-invariant",
+      "version": "1.3.3"
+    },
+    {
+      "path": "node_modules/use-sync-external-store",
+      "version": "1.7.0"
+    },
+    {
+      "path": "node_modules/vaul",
+      "version": "1.1.2"
+    },
+    {
+      "path": "node_modules/victory-vendor",
+      "version": "37.3.6"
+    },
+    {
+      "path": "node_modules/zod",
+      "version": "3.25.76"
+    }
+  ],
+  "removed": [
+    {
+      "path": "node_modules/@babel/eslint-parser",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/eslint-parser/node_modules/eslint-visitor-keys",
+      "version": "2.1.0"
+    },
+    {
+      "path": "node_modules/@babel/helper-annotate-as-pure",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-create-class-features-plugin",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-create-regexp-features-plugin",
+      "version": "7.26.3"
+    },
+    {
+      "path": "node_modules/@babel/helper-define-polyfill-provider",
+      "version": "0.6.3"
+    },
+    {
+      "path": "node_modules/@babel/helper-member-expression-to-functions",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-optimise-call-expression",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-remap-async-to-generator",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-replace-supers",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-skip-transparent-expression-wrappers",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/helper-wrap-function",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-bugfix-firefox-class-in-computed-class-key",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-bugfix-safari-class-field-initializer-scope",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-class-properties",
+      "version": "7.18.6"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-decorators",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-nullish-coalescing-operator",
+      "version": "7.18.6"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-numeric-separator",
+      "version": "7.18.6"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-optional-chaining",
+      "version": "7.21.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-private-methods",
+      "version": "7.18.6"
+    },
+    {
+      "path": "node_modules/@babel/plugin-proposal-private-property-in-object",
+      "version": "7.21.0-placeholder-for-preset-env.2"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-decorators",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-flow",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-import-assertions",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-import-attributes",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-jsx",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-nullish-coalescing-operator",
+      "version": "7.8.3"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-numeric-separator",
+      "version": "7.10.4"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-optional-chaining",
+      "version": "7.8.3"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-typescript",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-syntax-unicode-sets-regex",
+      "version": "7.18.6"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-arrow-functions",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-async-generator-functions",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-async-to-generator",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-block-scoped-functions",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-block-scoping",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-class-properties",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-class-static-block",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-classes",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-computed-properties",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-destructuring",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-dotall-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-duplicate-keys",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-duplicate-named-capturing-groups-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-dynamic-import",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-exponentiation-operator",
+      "version": "7.26.3"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-export-namespace-from",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-flow-strip-types",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-for-of",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-function-name",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-json-strings",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-literals",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-logical-assignment-operators",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-member-expression-literals",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-modules-amd",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-modules-commonjs",
+      "version": "7.26.3"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-modules-systemjs",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-modules-umd",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-named-capturing-groups-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-new-target",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-nullish-coalescing-operator",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-numeric-separator",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-object-rest-spread",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-object-super",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-optional-catch-binding",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-optional-chaining",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-parameters",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-private-methods",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-private-property-in-object",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-property-literals",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-react-display-name",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-react-jsx",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-react-jsx-development",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-react-pure-annotations",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-regenerator",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-regexp-modifiers",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-reserved-words",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-runtime",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-shorthand-properties",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-spread",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-sticky-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-template-literals",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-typeof-symbol",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-typescript",
+      "version": "7.26.3"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-unicode-escapes",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-unicode-property-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-unicode-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/plugin-transform-unicode-sets-regex",
+      "version": "7.25.9"
+    },
+    {
+      "path": "node_modules/@babel/preset-env",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/preset-modules",
+      "version": "0.1.6-no-external-plugins"
+    },
+    {
+      "path": "node_modules/@babel/preset-react",
+      "version": "7.26.3"
+    },
+    {
+      "path": "node_modules/@babel/preset-typescript",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@babel/runtime",
+      "version": "7.26.0"
+    },
+    {
+      "path": "node_modules/@humanwhocodes/config-array",
+      "version": "0.13.0"
+    },
+    {
+      "path": "node_modules/@humanwhocodes/object-schema",
+      "version": "2.0.3"
+    },
+    {
+      "path": "node_modules/@nicolo-ribaudo/eslint-scope-5-internals",
+      "version": "5.1.1-v1"
+    },
+    {
+      "path": "node_modules/@nicolo-ribaudo/eslint-scope-5-internals/node_modules/eslint-scope",
+      "version": "5.1.1"
+    },
+    {
+      "path": "node_modules/@nicolo-ribaudo/eslint-scope-5-internals/node_modules/estraverse",
+      "version": "4.3.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-alert-dialog/node_modules/@radix-ui/react-use-escape-keydown",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dialog/node_modules/@radix-ui/react-primitive",
+      "version": "2.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-primitive",
+      "version": "2.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-dismissable-layer/node_modules/@radix-ui/react-slot",
+      "version": "1.2.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-primitive",
+      "version": "2.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-focus-scope/node_modules/@radix-ui/react-slot",
+      "version": "1.2.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-dismissable-layer",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-focus-scope",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-portal",
+      "version": "1.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-menu/node_modules/@radix-ui/react-use-escape-keydown",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-compose-refs",
+      "version": "1.1.2"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-primitive",
+      "version": "2.1.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-portal/node_modules/@radix-ui/react-slot",
+      "version": "1.2.3"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-toast/node_modules/@radix-ui/react-use-escape-keydown",
+      "version": "1.1.0"
+    },
+    {
+      "path": "node_modules/@radix-ui/react-use-escape-keydown/node_modules/@radix-ui/react-use-callback-ref",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/@rushstack/eslint-patch",
+      "version": "1.10.4"
+    },
+    {
+      "path": "node_modules/@types/parse-json",
+      "version": "4.0.2"
+    },
+    {
+      "path": "node_modules/@types/semver",
+      "version": "7.5.8"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/eslint-plugin",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/eslint-plugin/node_modules/semver",
+      "version": "7.6.3"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/experimental-utils",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/parser",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/scope-manager",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/type-utils",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/types",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/typescript-estree",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/typescript-estree/node_modules/semver",
+      "version": "7.6.3"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/utils",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/utils/node_modules/eslint-scope",
+      "version": "5.1.1"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/utils/node_modules/estraverse",
+      "version": "4.3.0"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/utils/node_modules/semver",
+      "version": "7.6.3"
+    },
+    {
+      "path": "node_modules/@typescript-eslint/visitor-keys",
+      "version": "5.62.0"
+    },
+    {
+      "path": "node_modules/@ungap/structured-clone",
+      "version": "1.2.1"
+    },
+    {
+      "path": "node_modules/aria-query",
+      "version": "5.3.2"
+    },
+    {
+      "path": "node_modules/array-union",
+      "version": "2.1.0"
+    },
+    {
+      "path": "node_modules/ast-types-flow",
+      "version": "0.0.8"
+    },
+    {
+      "path": "node_modules/axe-core",
+      "version": "4.10.2"
+    },
+    {
+      "path": "node_modules/axobject-query",
+      "version": "4.1.0"
+    },
+    {
+      "path": "node_modules/babel-plugin-macros",
+      "version": "3.1.0"
+    },
+    {
+      "path": "node_modules/babel-plugin-polyfill-corejs2",
+      "version": "0.4.12"
+    },
+    {
+      "path": "node_modules/babel-plugin-polyfill-corejs3",
+      "version": "0.10.6"
+    },
+    {
+      "path": "node_modules/babel-plugin-polyfill-regenerator",
+      "version": "0.6.3"
+    },
+    {
+      "path": "node_modules/babel-plugin-transform-react-remove-prop-types",
+      "version": "0.4.24"
+    },
+    {
+      "path": "node_modules/babel-preset-react-app",
+      "version": "10.0.1"
+    },
+    {
+      "path": "node_modules/confusing-browser-globals",
+      "version": "1.0.11"
+    },
+    {
+      "path": "node_modules/cookie",
+      "version": "1.1.1"
+    },
+    {
+      "path": "node_modules/core-js-compat",
+      "version": "3.39.0"
+    },
+    {
+      "path": "node_modules/cosmiconfig",
+      "version": "7.1.0"
+    },
+    {
+      "path": "node_modules/damerau-levenshtein",
+      "version": "1.0.8"
+    },
+    {
+      "path": "node_modules/dir-glob",
+      "version": "3.0.1"
+    },
+    {
+      "path": "node_modules/doctrine",
+      "version": "3.0.0"
+    },
+    {
+      "path": "node_modules/error-ex",
+      "version": "1.3.2"
+    },
+    {
+      "path": "node_modules/eslint-config-react-app",
+      "version": "7.0.1"
+    },
+    {
+      "path": "node_modules/eslint-plugin-flowtype",
+      "version": "8.0.3"
+    },
+    {
+      "path": "node_modules/eslint-plugin-jest",
+      "version": "25.7.0"
+    },
+    {
+      "path": "node_modules/eslint-plugin-jsx-a11y",
+      "version": "6.10.2"
+    },
+    {
+      "path": "node_modules/eslint-plugin-testing-library",
+      "version": "5.11.1"
+    },
+    {
+      "path": "node_modules/eslint/node_modules/globals",
+      "version": "13.24.0"
+    },
+    {
+      "path": "node_modules/fs.realpath",
+      "version": "1.0.0"
+    },
+    {
+      "path": "node_modules/glob",
+      "version": "7.2.3"
+    },
+    {
+      "path": "node_modules/globby",
+      "version": "11.1.0"
+    },
+    {
+      "path": "node_modules/graphemer",
+      "version": "1.4.0"
+    },
+    {
+      "path": "node_modules/inflight",
+      "version": "1.0.6"
+    },
+    {
+      "path": "node_modules/inherits",
+      "version": "2.0.4"
+    },
+    {
+      "path": "node_modules/is-arrayish",
+      "version": "0.2.1"
+    },
+    {
+      "path": "node_modules/is-path-inside",
+      "version": "3.0.3"
+    },
+    {
+      "path": "node_modules/json-parse-even-better-errors",
+      "version": "2.3.1"
+    },
+    {
+      "path": "node_modules/language-subtag-registry",
+      "version": "0.3.23"
+    },
+    {
+      "path": "node_modules/language-tags",
+      "version": "1.0.9"
+    },
+    {
+      "path": "node_modules/lodash",
+      "version": "4.17.21"
+    },
+    {
+      "path": "node_modules/lodash.debounce",
+      "version": "4.0.8"
+    },
+    {
+      "path": "node_modules/natural-compare-lite",
+      "version": "1.4.0"
+    },
+    {
+      "path": "node_modules/once",
+      "version": "1.4.0"
+    },
+    {
+      "path": "node_modules/parse-json",
+      "version": "5.2.0"
+    },
+    {
+      "path": "node_modules/path-is-absolute",
+      "version": "1.0.1"
+    },
+    {
+      "path": "node_modules/path-type",
+      "version": "4.0.0"
+    },
+    {
+      "path": "node_modules/regenerate",
+      "version": "1.4.2"
+    },
+    {
+      "path": "node_modules/regenerate-unicode-properties",
+      "version": "10.2.0"
+    },
+    {
+      "path": "node_modules/regenerator-runtime",
+      "version": "0.14.1"
+    },
+    {
+      "path": "node_modules/regenerator-transform",
+      "version": "0.15.2"
+    },
+    {
+      "path": "node_modules/regexpu-core",
+      "version": "6.2.0"
+    },
+    {
+      "path": "node_modules/regjsgen",
+      "version": "0.8.0"
+    },
+    {
+      "path": "node_modules/regjsparser",
+      "version": "0.12.0"
+    },
+    {
+      "path": "node_modules/regjsparser/node_modules/jsesc",
+      "version": "3.0.2"
+    },
+    {
+      "path": "node_modules/rimraf",
+      "version": "3.0.2"
+    },
+    {
+      "path": "node_modules/set-cookie-parser",
+      "version": "2.7.2"
+    },
+    {
+      "path": "node_modules/slash",
+      "version": "3.0.0"
+    },
+    {
+      "path": "node_modules/string-natural-compare",
+      "version": "3.0.1"
+    },
+    {
+      "path": "node_modules/string.prototype.includes",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/text-table",
+      "version": "0.2.0"
+    },
+    {
+      "path": "node_modules/tsutils",
+      "version": "3.21.0"
+    },
+    {
+      "path": "node_modules/tsutils/node_modules/tslib",
+      "version": "1.14.1"
+    },
+    {
+      "path": "node_modules/type-fest",
+      "version": "0.20.2"
+    },
+    {
+      "path": "node_modules/typescript",
+      "version": "5.7.2"
+    },
+    {
+      "path": "node_modules/unicode-canonical-property-names-ecmascript",
+      "version": "2.0.1"
+    },
+    {
+      "path": "node_modules/unicode-match-property-ecmascript",
+      "version": "2.0.0"
+    },
+    {
+      "path": "node_modules/unicode-match-property-value-ecmascript",
+      "version": "2.2.0"
+    },
+    {
+      "path": "node_modules/unicode-property-aliases-ecmascript",
+      "version": "2.1.0"
+    },
+    {
+      "path": "node_modules/wrappy",
+      "version": "1.0.2"
+    },
+    {
+      "path": "node_modules/yaml",
+      "version": "1.10.2"
+    }
+  ]
+}

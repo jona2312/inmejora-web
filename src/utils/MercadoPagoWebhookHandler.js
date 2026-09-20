@@ -54,7 +54,7 @@ export class MercadoPagoWebhookHandler {
    * @param {function} updateDatabaseCb - Callback to update DB
    */
   async processPaymentWebhook(payload, updateDatabaseCb) {
-    const { action, data, type } = payload;
+    const { data, type } = payload;
 
     // We only care about payment updates
     if (type !== 'payment') {

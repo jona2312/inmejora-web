@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
+import { getClientCredential } from '@/contexts/identityContainment';
 
 const BASE_URL = import.meta.env.VITE_API_URL || 'https://aprobacion.inmejora.com.ar';
 
@@ -11,8 +12,9 @@ export const useCurrentPlan = () => {
   const [error, setError] = useState(null);
 
   const fetchCurrentPlan = useCallback(async () => {
-    const token = localStorage.getItem('inmejora_token');
+    const token = getClientCredential();
     if (!token) {
+      setCurrentPlan(null);
       setLoading(false);
       return;
     }

@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label';
 const SupplierLoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { login } = useSupplier();
+  const { login, unavailableReason } = useSupplier();
   const { toast } = useToast();
   
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +46,7 @@ const SupplierLoginPage = () => {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-[450px] bg-[#1a1a1a] border border-[#333] rounded-2xl p-8 shadow-2xl">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-white">Acceso Proveedores</h1>
+          {unavailableReason && <p role="status" className="mt-4 text-amber-300">{unavailableReason}</p>}
           <p className="text-gray-400 mt-2">Gestiona tus productos y listas de precios</p>
         </div>
 
@@ -89,7 +90,7 @@ const SupplierLoginPage = () => {
             </div>
           </div>
 
-          <Button type="submit" disabled={isLoading} className="w-full bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold py-6 text-lg mt-4 rounded-lg">
+          <Button type="submit" disabled={isLoading || Boolean(unavailableReason)} className="w-full bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold py-6 text-lg mt-4 rounded-lg">
             {isLoading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : "Ingresar al Portal"}
           </Button>
         </form>

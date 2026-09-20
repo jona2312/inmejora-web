@@ -1,22 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { ArrowRight, LogIn } from 'lucide-react';
 
 const ProveedoresHero = () => {
-  const { toast } = useToast();
+  useToast();
   const navigate = useNavigate();
-
-  const handleNotImplemented = (e, path) => {
-    e.preventDefault();
-    toast({
-      title: "Próximamente",
-      description: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-      variant: "default",
-    });
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

@@ -1,0 +1,13 @@
+import { chromium } from '@playwright/test';
+import { startServer } from './server.mjs';
+import { isolate, launchOptions, origin } from '../../tests/browser/isolation.mjs';
+import { mkdtemp } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+const server = await startServer();
+const context = await chromium.launchPersistentContext(await mkdtemp(path.join(os.tmpdir(), 'web-fixture-')), { ...launchOptions, headless: true, serviceWorkers: 'block', viewport: { width: 390, height: 844 }, args: [...launchOptions.args, '--remote-debugging-port=9223'] });
+const evidence = await isolate(context);
+await context.pages()[0].goto(origin);
+console.log('Isolated browser ready on CDP 9223');
+const interval = setInterval(() => console.log(JSON.stringify({ requests: evidence.requests.length, forbidden: evidence.forbidden.length, unexpected: evidence.unexpected.length })), 60000);
+process.on('SIGINT', async () => { clearInterval(interval); await context.close(); server.close(); });

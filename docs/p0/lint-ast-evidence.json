@@ -1,0 +1,18 @@
+{
+  "base": "e6960fbc919cde1fdc1316f616cab9184cabdf08",
+  "importsAndCatch": {
+    "sha": "66821f560e42e0d92b4f0081066425be33a50479",
+    "files": 37,
+    "astParity": true
+  },
+  "localBindings": {
+    "sha": "c3734b7e986d3f9d479f4a2cdb97c7bf5dc20f74",
+    "preserved": {
+      "files": 27,
+      "hooks": 138,
+      "listeners": 10,
+      "requests": 39
+    }
+  },
+  "limitations": "Historical static assertions only. The second comparison verifies selected calls and hook dependencies, not every possible runtime behavior. Browser/business regressions remain unverified."
+}

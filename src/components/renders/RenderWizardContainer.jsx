@@ -96,7 +96,7 @@ const RenderWizardContainer = () => {
         setSelectedSpace('');
       }, 3000);
 
-    } catch (error) {
+    } catch {
       toast({
         variant: "destructive",
         title: "Error al enviar",

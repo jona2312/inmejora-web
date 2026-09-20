@@ -266,8 +266,10 @@ const PresupuestoPage = () => {
                     const Icon = tipo.icon;
                     const isSelected = formData.tipo_proyecto === tipo.id;
                     return (
-                      <div
+                      <button
                         key={tipo.id}
+                        type="button"
+                        aria-pressed={isSelected}
                         onClick={() => handleSelectTipo(tipo.id)}
                         className={`cursor-pointer rounded-xl border p-4 flex flex-col items-center justify-center gap-2 transition-all duration-200 ${
                           isSelected 
@@ -277,7 +279,7 @@ const PresupuestoPage = () => {
                       >
                         <Icon className={`w-6 h-6 ${isSelected ? 'text-[#d4af37]' : 'text-gray-500'}`} />
                         <span className="text-sm font-medium text-center">{tipo.label}</span>
-                      </div>
+                      </button>
                     )
                   })}
                 </div>
