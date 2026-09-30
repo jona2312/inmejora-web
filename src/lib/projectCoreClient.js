@@ -12,7 +12,7 @@ const viewSchema = z.object({
   conversation: z.object({id: z.string().uuid(), project_id: z.string().uuid()}),
 });
 const publicThreadSchema = z.object({
-  conversation: z.object({id:z.string().uuid(), project_id:z.string().uuid(), mode:z.enum(['paused','human']), revision:z.number().int().positive()}),
+  conversation: z.object({id:z.string().uuid(), project_id:z.string().uuid(), mode:z.enum(['paused','human','auto']), revision:z.number().int().positive()}),
   events: z.array(z.object({id:z.string().uuid(), sequence:z.number().int().positive(), kind:z.string(), content:z.string(),
     visibility:z.literal('client'), actor_user_id:z.null(), created_at:z.string()})),
   can_message:z.boolean(), can_handoff:z.literal(false),
