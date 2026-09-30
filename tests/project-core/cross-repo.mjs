@@ -5,6 +5,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import { chromium, expect } from '@playwright/test';
 import { startLocalWeb } from '../../scripts/project-core/local-web.mjs';
+import { conversationContinuity } from './conversation-continuity.mjs';
 
 const [core, root] = process.argv.slice(2);
 if (!core || !root) throw new Error('Run through scripts/project-core/run.mjs');
@@ -15,7 +16,7 @@ let closing = false;
 h.admin.on('error',()=>{if(!closing)throw new Error('SYNTHETIC_CORE_DATABASE_DISCONNECTED');});
 const portProbe=createServer();await new Promise(r=>portProbe.listen(0,'127.0.0.1',r));const port=portProbe.address().port;await new Promise(r=>portProbe.close(r));
 let web, browser;
-const evidence={core_sha:'cde1af7caccedb1ed33900a09900fe5b394ef44b',web_base:'14f1894ec2091497668b6a5c8609ef7fc36406f3',passed:[],requests:[],external:[],pageErrors:[],correlated:null};
+const evidence={core_sha:'6f301022400fea6c47aafe266204073f3f2b3c5e',core_base:'cde1af7caccedb1ed33900a09900fe5b394ef44b',web_base:'6a52a156e8ba055cf83ca7b83de19e0b9e94d0b5',passed:[],requests:[],external:[],pageErrors:[],correlated:null};
 const output=resolve(root,'.project-core-evidence');
 async function record(name,fn){await fn();evidence.passed.push(name);console.log('PASS '+name);}
 const contexts=[];
@@ -54,7 +55,7 @@ try {
  browser=await chromium.launch({headless:true,args:['--disable-background-networking','--disable-component-update','--disable-sync','--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1'],proxy:{server:'http://127.0.0.1:9',bypass:'127.0.0.1'}});
  const visitor=await context(),page=await openForm(visitor);
  let receipt,ids;
- await record('real /contacto → Core #39 COMMIT → receipt → correlated PostgreSQL chain',async()=>{
+ await record('real /contacto → Core child of #39 COMMIT → receipt → correlated PostgreSQL chain',async()=>{
   const response=page.waitForResponse(r=>r.url().endsWith('/api/v1/leads')&&r.request().method()==='POST');
   await page.getByRole('button',{name:'Enviar Mensaje',exact:true}).click();const r=await response;assert.equal(r.status(),201);receipt=await r.json();ids=await confirmed(page);
   assert.equal(ids.project_id,receipt.project_id);assert.equal(ids.conversation_id,receipt.conversation_id);
@@ -138,6 +139,7 @@ try {
   await expect(p.getByLabel('Mensaje',{exact:true})).toHaveValue('Pintar las paredes del living: consulta desde Web real.');
   await h.startApp();await p.getByRole('button',{name:'Reintentar el mismo envío',exact:true}).click();await confirmed(p);
  });
+ await conversationContinuity({h,web,context,visitor,page,ids,call,record,evidence,output});
  assert.deepEqual(evidence.external,[]);assert.deepEqual(evidence.pageErrors,[]);
  evidence.status='PASS';await writeFile(resolve(output,'cross-repo.json'),JSON.stringify(evidence,null,2));
  console.log(`CROSS-REPO E2E ${evidence.passed.length}/${evidence.passed.length} PASS; project ${ids.project_id}; conversation ${ids.conversation_id}`);

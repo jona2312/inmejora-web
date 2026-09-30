@@ -11,6 +11,12 @@ const viewSchema = z.object({
   project: z.object({id: z.string().uuid(), core_state: state}),
   conversation: z.object({id: z.string().uuid(), project_id: z.string().uuid()}),
 });
+const publicThreadSchema = z.object({
+  conversation: z.object({id:z.string().uuid(), project_id:z.string().uuid(), mode:z.enum(['paused','human']), revision:z.number().int().positive()}),
+  events: z.array(z.object({id:z.string().uuid(), sequence:z.number().int().positive(), kind:z.string(), content:z.string(),
+    visibility:z.literal('client'), actor_user_id:z.null(), created_at:z.string()})),
+  can_message:z.boolean(), can_handoff:z.literal(false),
+});
 export class ProjectCoreError extends Error {
   constructor(code, status = 0) { super(code); this.code = code; this.status = status; }
 }
@@ -31,7 +37,7 @@ export function toLeadRequest(values, key) {
 }
 
 export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globalThis), enabled = localCoreEnabled, timeoutMs = 8000} = {}) {
-  let csrf, initialization, pendingBody, submission;
+  let csrf, initialization, pendingBody, submission, pendingMessage, messageSubmission;
   async function request(path, method = 'GET', body) {
     if (!enabled()) throw new ProjectCoreError('LOCAL_CORE_DISABLED');
     const controller = new AbortController();
@@ -86,5 +92,34 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     })().catch(error => {if (error.status === 422) pendingBody = undefined; throw error;}).finally(() => {submission = undefined;});
     return submission;
   }
-  return {initialize, submit, current};
+  function threadPath(context) {
+    if (!z.string().uuid().safeParse(context.project_id).success || !z.string().uuid().safeParse(context.conversation_id).success)
+      throw new ProjectCoreError('INVALID_THREAD_IDS');
+    return '/projects/' + context.project_id + '/conversations/' + context.conversation_id;
+  }
+  function publicThread(data, context) {
+    const parsed = publicThreadSchema.safeParse(data);
+    if (!parsed.success || parsed.data.conversation.id !== context.conversation_id || parsed.data.conversation.project_id !== context.project_id ||
+      parsed.data.events.some((e,i,all)=>i>0 && e.sequence<=all[i-1].sequence)) throw new ProjectCoreError('INVALID_PUBLIC_THREAD');
+    return {mode:parsed.data.conversation.mode, can_message:parsed.data.can_message,
+      events:parsed.data.events.map(({id,sequence,kind,content,created_at})=>({id,sequence,kind,content,created_at}))};
+  }
+  async function thread(context) {
+    await initialize();
+    return publicThread(await request(threadPath(context)),context);
+  }
+  function message(context, content) {
+    if (messageSubmission) return messageSubmission;
+    const path=threadPath(context)+'/messages';
+    if (pendingMessage && pendingMessage.path!==path) return Promise.reject(new ProjectCoreError('PENDING_THREAD_MISMATCH'));
+    pendingMessage ??= {path,body:{idempotency_key:globalThis.crypto.randomUUID(),content,visibility:'client'}};
+    messageSubmission=(async()=>{
+      await initialize();
+      const result=publicThread(await request(path,'POST',pendingMessage.body),context);
+      pendingMessage=undefined;
+      return result;
+    })().catch(error=>{if(error.status===422)pendingMessage=undefined;throw error;}).finally(()=>{messageSubmission=undefined;});
+    return messageSubmission;
+  }
+  return {initialize, submit, current, thread, message};
 }

@@ -1,0 +1,395 @@
+{
+  "core_sha": "6f301022400fea6c47aafe266204073f3f2b3c5e",
+  "core_base": "cde1af7caccedb1ed33900a09900fe5b394ef44b",
+  "web_base": "6a52a156e8ba055cf83ca7b83de19e0b9e94d0b5",
+  "passed": [
+    "real /contacto → Core child of #39 COMMIT → receipt → correlated PostgreSQL chain",
+    "separate signed operator context → Dashboard CRM same project/client/conversation",
+    "reload restores allowed Web context and current backend state without localStorage identity",
+    "double submit creates exactly one aggregate",
+    "lost response after real commit → original request/key retry → same IDs with no duplicate",
+    "invalid CSRF fails in real Core and Web shows no success",
+    "actual browser timeout after commit preserves request/key and retry returns same IDs",
+    "expired capability denies submit without silent new intake or success",
+    "fabricated project and foreign context give no authority even with forged localStorage",
+    "tampered client_id rejected by Core; no Web success",
+    "tampered user_id rejected by Core; no Web success",
+    "same contact in independent browser sessions is not identity or ownership",
+    "transport Origin cannot be laundered through the local proxy",
+    "real backend outage produces 503 and no confirmation; retry survives restart",
+    "conversation: visitor sends through real Web → assigned CRM sees same message and IDs",
+    "conversation: operator reply returns to Web on explicit refetch",
+    "conversation: internal notes isolated in GET, POST, current and project projections",
+    "conversation: handoff paused → human audited on same thread",
+    "conversation: visitor double click creates one message",
+    "conversation: visitor lost response after COMMIT → identical retry without duplicate",
+    "conversation: operator lost response after COMMIT → identical retry without duplicate",
+    "conversation: crossed project/thread, unassigned operator and forged authority are denied",
+    "conversation: operator double submit persists exactly one reply",
+    "conversation: concurrent writers preserve unique stable sequence and same-key retries",
+    "conversation: app restart preserves messages, human mode, IDs and public isolation",
+    "conversation: archived/read-only denies both composers and writes",
+    "conversation: expired capability cannot read thread, recover context or write"
+  ],
+  "external": [],
+  "pageErrors": [],
+  "correlated": {
+    "receipt": {
+      "schema_version": "intake-result.v1",
+      "user_id": null,
+      "client_id": "6462b664-89d7-42bf-b93a-8a76da19dd1a",
+      "project_id": "094aac3c-f289-453c-8484-bfb7807beb35",
+      "lead_id": "ad7783f1-e0f8-49e1-9aec-c4d6ed9157f2",
+      "conversation_id": "e2372c26-23b2-48cd-aa2d-e096f35d45c0",
+      "status": "received",
+      "project_state": "submitted",
+      "revision": 1,
+      "next_action": "await_operator"
+    },
+    "db": {
+      "project_id": "094aac3c-f289-453c-8484-bfb7807beb35",
+      "client_id": "6462b664-89d7-42bf-b93a-8a76da19dd1a",
+      "lead_id": "ad7783f1-e0f8-49e1-9aec-c4d6ed9157f2",
+      "conversation_id": "e2372c26-23b2-48cd-aa2d-e096f35d45c0",
+      "conversation_client": "6462b664-89d7-42bf-b93a-8a76da19dd1a",
+      "lead_project": "094aac3c-f289-453c-8484-bfb7807beb35"
+    }
+  },
+  "conversation": {
+    "project_id": "094aac3c-f289-453c-8484-bfb7807beb35",
+    "conversation_id": "e2372c26-23b2-48cd-aa2d-e096f35d45c0",
+    "mode": "human",
+    "events": [
+      {
+        "id": "75b32b5b-278c-4eda-b187-4c834f2531af",
+        "sequence": 1,
+        "kind": "intake.received",
+        "content": "Proyecto recibido",
+        "visibility": "client"
+      },
+      {
+        "id": "54b69d09-a2cf-4240-9a49-dfffcee51b61",
+        "sequence": 2,
+        "kind": "project.updated",
+        "content": "Proyecto actualizado: active",
+        "visibility": "client"
+      },
+      {
+        "id": "67d74130-debb-4ceb-b2be-356bb924167f",
+        "sequence": 3,
+        "kind": "message",
+        "content": "Necesito coordinar una visita sintética.",
+        "visibility": "client"
+      },
+      {
+        "id": "1efda387-d9d7-4aa9-a252-ec9a6f68ace5",
+        "sequence": 4,
+        "kind": "message",
+        "content": "Podemos revisar las medidas en esta conversación local.",
+        "visibility": "client"
+      },
+      {
+        "id": "4382d9bc-a45e-4b4f-8c73-d05a28297d0e",
+        "sequence": 5,
+        "kind": "message",
+        "content": "NOTA INTERNA: coordinación exclusiva del operador.",
+        "visibility": "internal"
+      },
+      {
+        "id": "45e1a3cf-7118-43af-a601-a5e7e997ed6f",
+        "sequence": 6,
+        "kind": "message",
+        "content": "Otro mensaje público.",
+        "visibility": "client"
+      },
+      {
+        "id": "27795eea-a1a4-4b8f-bf1c-9902714671b7",
+        "sequence": 7,
+        "kind": "handoff.active",
+        "content": "Un operador continúa la conversación",
+        "visibility": "client"
+      },
+      {
+        "id": "9c1c4906-effc-4555-bf31-307d5555c842",
+        "sequence": 8,
+        "kind": "message",
+        "content": "Doble click sintético.",
+        "visibility": "client"
+      },
+      {
+        "id": "6d315b5f-89bd-4f00-b47f-2ae96122f43f",
+        "sequence": 9,
+        "kind": "message",
+        "content": "visitor respuesta perdida",
+        "visibility": "client"
+      },
+      {
+        "id": "caffc901-1431-46ef-b4a3-db82792614c0",
+        "sequence": 10,
+        "kind": "message",
+        "content": "operator respuesta perdida",
+        "visibility": "client"
+      },
+      {
+        "id": "045daf95-9d56-479f-9a1a-c22e7fb6866b",
+        "sequence": 11,
+        "kind": "message",
+        "content": "Respuesta única del operador.",
+        "visibility": "client"
+      },
+      {
+        "id": "292e0eb1-b204-4176-8303-0f1252eef6be",
+        "sequence": 12,
+        "kind": "message",
+        "content": "Secuencia concurrente 1",
+        "visibility": "client"
+      },
+      {
+        "id": "79cb229a-fcd3-4761-89ad-1a8dee43c3d0",
+        "sequence": 13,
+        "kind": "message",
+        "content": "Secuencia concurrente 0",
+        "visibility": "client"
+      },
+      {
+        "id": "7f0c70ea-72f0-4e25-aa38-0d2825a24c4a",
+        "sequence": 14,
+        "kind": "message",
+        "content": "Secuencia concurrente 2",
+        "visibility": "client"
+      },
+      {
+        "id": "cfbe5c72-2cc1-4f21-baf9-929a8a6714ef",
+        "sequence": 15,
+        "kind": "message",
+        "content": "Secuencia concurrente 4",
+        "visibility": "client"
+      },
+      {
+        "id": "c99e323e-06e7-4971-b424-e10570758462",
+        "sequence": 16,
+        "kind": "message",
+        "content": "Secuencia concurrente 6",
+        "visibility": "client"
+      },
+      {
+        "id": "bf25a1c9-fadb-4424-b567-9d23dad02a3a",
+        "sequence": 17,
+        "kind": "message",
+        "content": "Secuencia concurrente 8",
+        "visibility": "client"
+      },
+      {
+        "id": "1822974d-9c38-4369-8221-8559cca92d52",
+        "sequence": 18,
+        "kind": "message",
+        "content": "Secuencia concurrente 3",
+        "visibility": "client"
+      },
+      {
+        "id": "ba5f6944-21e1-4ada-8c40-e1f3166d52d6",
+        "sequence": 19,
+        "kind": "message",
+        "content": "Secuencia concurrente 5",
+        "visibility": "client"
+      },
+      {
+        "id": "3fc20bc1-e37a-4851-b282-ee6d80353c05",
+        "sequence": 20,
+        "kind": "message",
+        "content": "Secuencia concurrente 7",
+        "visibility": "client"
+      },
+      {
+        "id": "d6717d36-ff8e-4b6c-9f6f-ed7a86d73677",
+        "sequence": 21,
+        "kind": "message",
+        "content": "Secuencia concurrente 9",
+        "visibility": "client"
+      }
+    ],
+    "public_events": [
+      {
+        "id": "75b32b5b-278c-4eda-b187-4c834f2531af",
+        "sequence": 1,
+        "kind": "intake.received",
+        "content": "Proyecto recibido",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T22:59:58.774Z"
+      },
+      {
+        "id": "54b69d09-a2cf-4240-9a49-dfffcee51b61",
+        "sequence": 2,
+        "kind": "project.updated",
+        "content": "Proyecto actualizado: active",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T22:59:59.287Z"
+      },
+      {
+        "id": "67d74130-debb-4ceb-b2be-356bb924167f",
+        "sequence": 3,
+        "kind": "message",
+        "content": "Necesito coordinar una visita sintética.",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:14.504Z"
+      },
+      {
+        "id": "1efda387-d9d7-4aa9-a252-ec9a6f68ace5",
+        "sequence": 4,
+        "kind": "message",
+        "content": "Podemos revisar las medidas en esta conversación local.",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:14.842Z"
+      },
+      {
+        "id": "45e1a3cf-7118-43af-a601-a5e7e997ed6f",
+        "sequence": 6,
+        "kind": "message",
+        "content": "Otro mensaje público.",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:15.229Z"
+      },
+      {
+        "id": "27795eea-a1a4-4b8f-bf1c-9902714671b7",
+        "sequence": 7,
+        "kind": "handoff.active",
+        "content": "Un operador continúa la conversación",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:15.431Z"
+      },
+      {
+        "id": "9c1c4906-effc-4555-bf31-307d5555c842",
+        "sequence": 8,
+        "kind": "message",
+        "content": "Doble click sintético.",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:15.937Z"
+      },
+      {
+        "id": "6d315b5f-89bd-4f00-b47f-2ae96122f43f",
+        "sequence": 9,
+        "kind": "message",
+        "content": "visitor respuesta perdida",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.031Z"
+      },
+      {
+        "id": "caffc901-1431-46ef-b4a3-db82792614c0",
+        "sequence": 10,
+        "kind": "message",
+        "content": "operator respuesta perdida",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.227Z"
+      },
+      {
+        "id": "045daf95-9d56-479f-9a1a-c22e7fb6866b",
+        "sequence": 11,
+        "kind": "message",
+        "content": "Respuesta única del operador.",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.832Z"
+      },
+      {
+        "id": "292e0eb1-b204-4176-8303-0f1252eef6be",
+        "sequence": 12,
+        "kind": "message",
+        "content": "Secuencia concurrente 1",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.896Z"
+      },
+      {
+        "id": "79cb229a-fcd3-4761-89ad-1a8dee43c3d0",
+        "sequence": 13,
+        "kind": "message",
+        "content": "Secuencia concurrente 0",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.895Z"
+      },
+      {
+        "id": "7f0c70ea-72f0-4e25-aa38-0d2825a24c4a",
+        "sequence": 14,
+        "kind": "message",
+        "content": "Secuencia concurrente 2",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.933Z"
+      },
+      {
+        "id": "cfbe5c72-2cc1-4f21-baf9-929a8a6714ef",
+        "sequence": 15,
+        "kind": "message",
+        "content": "Secuencia concurrente 4",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.94Z"
+      },
+      {
+        "id": "c99e323e-06e7-4971-b424-e10570758462",
+        "sequence": 16,
+        "kind": "message",
+        "content": "Secuencia concurrente 6",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.945Z"
+      },
+      {
+        "id": "bf25a1c9-fadb-4424-b567-9d23dad02a3a",
+        "sequence": 17,
+        "kind": "message",
+        "content": "Secuencia concurrente 8",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:17.002Z"
+      },
+      {
+        "id": "1822974d-9c38-4369-8221-8559cca92d52",
+        "sequence": 18,
+        "kind": "message",
+        "content": "Secuencia concurrente 3",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.968Z"
+      },
+      {
+        "id": "ba5f6944-21e1-4ada-8c40-e1f3166d52d6",
+        "sequence": 19,
+        "kind": "message",
+        "content": "Secuencia concurrente 5",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:16.988Z"
+      },
+      {
+        "id": "3fc20bc1-e37a-4851-b282-ee6d80353c05",
+        "sequence": 20,
+        "kind": "message",
+        "content": "Secuencia concurrente 7",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:17.009Z"
+      },
+      {
+        "id": "d6717d36-ff8e-4b6c-9f6f-ed7a86d73677",
+        "sequence": 21,
+        "kind": "message",
+        "content": "Secuencia concurrente 9",
+        "visibility": "client",
+        "actor_user_id": null,
+        "created_at": "2026-09-30T23:00:17.028Z"
+      }
+    ]
+  },
+  "status": "PASS"
+}

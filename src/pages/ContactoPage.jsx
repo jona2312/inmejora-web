@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { createProjectCoreClient, localCoreEnabled } from '@/lib/projectCoreClient';
+import ProjectThread from '@/components/ProjectThread';
 
 const ContactoPage = () => {
   const { toast } = useToast();
@@ -120,6 +121,7 @@ const ContactoPage = () => {
                   <dt className="mt-3">Conversación</dt><dd data-testid="conversation-id">{context.conversation_id}</dd>
                   <dt className="mt-3">Estado</dt><dd data-testid="project-state">{context.state}</dd></dl>
                 <Button type="button" onClick={async () => {try {setContext(await client.current.current()); setFailure('');} catch {setFailure('No se pudo actualizar el contexto del proyecto.');}}}>Actualizar proyecto</Button>
+                <ProjectThread client={client.current} context={context} onRefresh={async()=>setContext(await client.current.current())} />
               </section> :
               <form onSubmit={handleSubmit} className="space-y-6">
                 {!local && <p role="status" className="text-amber-300 text-sm">El envío desde este formulario está temporalmente no disponible. Tu mensaje no se enviará ni guardará.</p>}

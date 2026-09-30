@@ -28,3 +28,26 @@ test('an expired submit does not create a fresh intake or lose its key/body', as
  await assert.rejects(client.submit(values));await assert.rejects(client.submit({...values,message:'changed'}));
  assert.equal(posts,1);assert.equal(bodies[0],bodies[1]);
 });
+
+const ids={project_id:'00000000-0000-4000-8000-000000000001',conversation_id:'00000000-0000-4000-8000-000000000002'};
+const publicView=()=>({conversation:{id:ids.conversation_id,project_id:ids.project_id,mode:'paused',revision:1},events:[],can_message:true,can_handoff:false});
+test('visitor adapter fails closed on internal timeline content or actor identifiers',async()=>{
+ for(const event of [
+  {visibility:'internal',actor_user_id:null},
+  {visibility:'client',actor_user_id:ids.project_id},
+ ]) {
+  const client=createProjectCoreClient({enabled:()=>true,fetchImpl:async path=>Response.json(path.endsWith('/current')?{csrf_token:'a'.repeat(64),receipt:null}:{...publicView(),events:[{id:ids.project_id,sequence:1,kind:'message',content:'private',created_at:'date',...event}]})});
+  await assert.rejects(client.thread(ids),/INVALID_PUBLIC_THREAD/);
+ }
+});
+test('message retry preserves original body and key, and cannot switch thread',async()=>{
+ const bodies=[];let failure=true;
+ const client=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+  if(path.endsWith('/current'))return Response.json({csrf_token:'a'.repeat(64),receipt:null});
+  bodies.push(options.body);return failure?new Response('{}',{status:503}):Response.json(publicView());
+ }});
+ await assert.rejects(client.message(ids,'original'));
+ await assert.rejects(client.message({...ids,conversation_id:ids.project_id},'other'),/PENDING_THREAD_MISMATCH/);
+ failure=false;await client.message(ids,'edited');assert.equal(bodies[0],bodies[1]);
+ await client.message(ids,'next');assert.notEqual(bodies[1],bodies[2]);
+});

@@ -3,7 +3,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { existsSync } from 'node:fs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-export const CORE_SHA = 'cde1af7caccedb1ed33900a09900fe5b394ef44b';
+export const CORE_SHA = '6f301022400fea6c47aafe266204073f3f2b3c5e';
 const core = resolve(process.env.PROJECT_CORE_CHECKOUT || '../identity-project-local-slice');
 const git = (...args) => {
   const result = spawnSync('git', ['-C', core, ...args], {encoding: 'utf8'});
