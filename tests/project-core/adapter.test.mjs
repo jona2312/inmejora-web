@@ -31,6 +31,15 @@ test('an expired submit does not create a fresh intake or lose its key/body', as
 
 const ids={project_id:'00000000-0000-4000-8000-000000000001',conversation_id:'00000000-0000-4000-8000-000000000002'};
 const publicView=()=>({conversation:{id:ids.conversation_id,project_id:ids.project_id,mode:'paused',revision:1},events:[],can_message:true,can_handoff:false});
+
+test('canonical auto mode is displayable; unknown modes still fail closed',async()=>{
+ for(const mode of ['auto','invented']) {
+  const view=publicView();view.conversation.mode=mode;
+  const client=createProjectCoreClient({enabled:()=>true,fetchImpl:async path=>Response.json(path.endsWith('/current')?{csrf_token:'a'.repeat(64),receipt:null}:view)});
+  if(mode==='auto') assert.equal((await client.thread(ids)).mode,'auto');
+  else await assert.rejects(client.thread(ids),/INVALID_PUBLIC_THREAD/);
+ }
+});
 test('visitor adapter fails closed on internal timeline content or actor identifiers',async()=>{
  for(const event of [
   {visibility:'internal',actor_user_id:null},
