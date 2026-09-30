@@ -1,0 +1,45 @@
+{
+  "core_sha": "cde1af7caccedb1ed33900a09900fe5b394ef44b",
+  "web_base": "14f1894ec2091497668b6a5c8609ef7fc36406f3",
+  "passed": [
+    "real /contacto → Core #39 COMMIT → receipt → correlated PostgreSQL chain",
+    "separate signed operator context → Dashboard CRM same project/client/conversation",
+    "reload restores allowed Web context and current backend state without localStorage identity",
+    "double submit creates exactly one aggregate",
+    "lost response after real commit → original request/key retry → same IDs with no duplicate",
+    "invalid CSRF fails in real Core and Web shows no success",
+    "actual browser timeout after commit preserves request/key and retry returns same IDs",
+    "expired capability denies submit without silent new intake or success",
+    "fabricated project and foreign context give no authority even with forged localStorage",
+    "tampered client_id rejected by Core; no Web success",
+    "tampered user_id rejected by Core; no Web success",
+    "same contact in independent browser sessions is not identity or ownership",
+    "transport Origin cannot be laundered through the local proxy",
+    "real backend outage produces 503 and no confirmation; retry survives restart"
+  ],
+  "external": [],
+  "pageErrors": [],
+  "correlated": {
+    "receipt": {
+      "schema_version": "intake-result.v1",
+      "user_id": null,
+      "client_id": "825f2bfb-da6c-4103-9925-192d2ecf898a",
+      "project_id": "4af13a55-9b92-47d5-ad35-b7ce9b810dd9",
+      "lead_id": "0cba28ab-54e6-4a0d-a725-59901c5167f0",
+      "conversation_id": "74eefe27-e2c2-4922-bf90-2ff89d1c0204",
+      "status": "received",
+      "project_state": "submitted",
+      "revision": 1,
+      "next_action": "await_operator"
+    },
+    "db": {
+      "project_id": "4af13a55-9b92-47d5-ad35-b7ce9b810dd9",
+      "client_id": "825f2bfb-da6c-4103-9925-192d2ecf898a",
+      "lead_id": "0cba28ab-54e6-4a0d-a725-59901c5167f0",
+      "conversation_id": "74eefe27-e2c2-4922-bf90-2ff89d1c0204",
+      "conversation_client": "825f2bfb-da6c-4103-9925-192d2ecf898a",
+      "lead_project": "4af13a55-9b92-47d5-ad35-b7ce9b810dd9"
+    }
+  },
+  "status": "PASS"
+}
