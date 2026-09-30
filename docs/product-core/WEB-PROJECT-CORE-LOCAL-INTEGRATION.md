@@ -1,5 +1,7 @@
 # Web → mismo Project Core local
 
+> Evidencia histórica de PR #21. En la rama de continuidad, usar [LOCAL-CONVERSATION-CONTINUITY.md](LOCAL-CONVERSATION-CONTINUITY.md) para el pin Core hijo y la reproducción actual.
+
 Estado: **PASS local**, pendiente de revisión Jona/ARKOS. Sin merge, deploy, producción ni apply.
 
 ## Bases y alcance
