@@ -1,0 +1,20 @@
+import { spawn, spawnSync } from 'node:child_process';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { existsSync } from 'node:fs';
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+export const CORE_SHA = 'cde1af7caccedb1ed33900a09900fe5b394ef44b';
+const core = resolve(process.env.PROJECT_CORE_CHECKOUT || '../identity-project-local-slice');
+const git = (...args) => {
+  const result = spawnSync('git', ['-C', core, ...args], {encoding: 'utf8'});
+  if (result.status !== 0) throw new Error('PINNED_CORE_CHECKOUT_REQUIRED');
+  return result.stdout.trim();
+};
+if (git('rev-parse', 'HEAD') !== CORE_SHA || git('status', '--porcelain', '--untracked-files=no') !== '') throw new Error('CORE_SHA_OR_TRACKED_CONTENT_DRIFT');
+if (!existsSync(resolve(core, '.project-core-build/index.html'))) throw new Error('Run pnpm build:project-core in the pinned Core checkout first');
+const env = {};
+for (const key of ['PATH','Path','SystemRoot','WINDIR','TEMP','TMP','HOME','USERPROFILE','LOCALAPPDATA','APPDATA','PLAYWRIGHT_BROWSERS_PATH','CI']) if (process.env[key]) env[key] = process.env[key];
+env.NODE_ENV = 'test'; env.TSX_TSCONFIG_PATH = resolve(core, 'tsconfig.json');
+const child = spawn(process.execPath, [resolve(core, 'node_modules/tsx/dist/cli.mjs'), '--tsconfig', resolve(core, 'tsconfig.json'), resolve(root, 'tests/project-core/cross-repo.mjs'), core, root, ...process.argv.slice(2)], {cwd: core, env, stdio: 'inherit', windowsHide: true});
+process.once('SIGINT', () => child.kill('SIGINT')); process.once('SIGTERM', () => child.kill('SIGTERM'));
+child.once('exit', code => {process.exitCode = code ?? 1;});

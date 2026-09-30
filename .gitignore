@@ -7,3 +7,5 @@ dist/
 /browser-report/
 /browser-results/
 /test-results/
+/.project-core-evidence/
+/.project-core-runtime/
