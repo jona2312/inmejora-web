@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +12,7 @@ const ErrorModal = ({ message, customerEmail, sessionId }) => {
   const handleWhatsAppSupport = () => {
     // Basic redirect to WhatsApp API
     const text = `Hola, tuve un problema con mi pago en INMEJORA. ID de Sesión: ${sessionId}`;
-    window.open(`https://wa.me/5491158300611?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/${COMMERCIAL.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (

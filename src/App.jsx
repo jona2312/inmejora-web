@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Toaster as SonnerToaster } from 'sonner';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
@@ -19,11 +19,11 @@ import { ChatProvider } from '@/contexts/ChatContext';
 // Standard Components
 import ScrollToTop from '@/components/ScrollToTop';
 import Spinner from '@/components/Spinner';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import { SalesWhatsAppButton } from '@/components/sales/SalesLayout';
+import { COMMERCIAL } from '@/config/commercial';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import ProtectedAdminRoute from '@/components/admin/ProtectedAdminRoute';
 import OfflineBanner from '@/components/OfflineBanner';
-import ContactModal from '@/components/ContactModal';
 // import ScrollTriggerRegistrationModal from '@/components/ScrollTriggerRegistrationModal'; // popup automático desactivado
 import SupplierProtectedRoute from '@/components/SupplierProtectedRoute';
 import CookieBanner from '@/components/CookieBanner';
@@ -58,6 +58,17 @@ const PresupuestoPage = lazyWithRetry(() => import('@/pages/PresupuestoPage'), '
 const ContactoPage = lazyWithRetry(() => import('@/pages/ContactoPage'), 'ContactoPage');
 const ProjectosPage = lazyWithRetry(() => import('@/pages/ProjectosPage'), 'ProjectosPage');
 const ServiciosPage = lazyWithRetry(() => import('@/pages/ServiciosPage'), 'ServiciosPage');
+const ZonaPage = lazyWithRetry(() => import('@/pages/ZonaPage'), 'ZonaPage');
+
+// Sales launch: commercial pages only. Plans, payments, catalog, quoter and account creation are not part of the
+// commercial offer yet, so those URLs lead to the single consultation funnel instead of showing unavailable features.
+const SALES = COMMERCIAL.salesLaunchMode;
+const SALES_REDIRECTS = {
+  '/precios': '/contacto', '/planes': '/contacto', '/cotizador': '/contacto', '/presupuesto': '/contacto',
+  '/asistente-ia': '/contacto', '/registro': '/contacto', '/proyectos': '/servicios', '/nosotros': '/',
+  '/catalogo': '/servicios', '/catalogo/colores': '/servicios', '/catalogo/productos': '/servicios',
+  '/checkout/success': '/contacto', '/checkout/error': '/contacto', '/checkout/pending': '/contacto',
+};
 
 // NEW SUPPLIER ROUTES
 const SupplierLoginPage = lazyWithRetry(() => import('@/pages/SupplierLoginPage'), 'SupplierLoginPage');
@@ -132,6 +143,10 @@ const PortalLayoutWithBanner = () => (
 );
 
 const AppContent = () => {
+  const { pathname } = useLocation();
+  // Redirect before any legacy page mounts, so no unavailable feature renders or fetches.
+  const salesTarget = SALES ? SALES_REDIRECTS[pathname.replace(/\/+$/, '') || '/'] : undefined;
+  if (salesTarget) return <Navigate to={salesTarget} replace />;
   return (
     <Suspense fallback={<div className="w-full h-screen bg-[#0f0f0f] flex items-center justify-center"><Spinner /></div>}>
       <AuthErrorHandler />
@@ -141,6 +156,7 @@ const AppContent = () => {
         {/* Public Routes */}
         <Route path="/precios" element={<PricingPage />} />
         <Route path="/servicios" element={<ServiciosPage />} />
+        <Route path="/zonas/:slug" element={<ZonaPage />} />
         <Route path="/proyectos" element={<ProjectosPage />} />
         <Route path="/catalogo" element={<CatalogPage />} />
         <Route path="/catalogo/colores" element={<CatalogPage />} />
@@ -215,7 +231,6 @@ const AppContent = () => {
         {/* 404 Catch-All Route - MUST BE LAST */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <ContactModal />
     </Suspense>
   );
 };
@@ -253,7 +268,7 @@ function App() {
                           {/* <ScrollTriggerRegistrationModal /> */}{/* popup automático desactivado; RegistrationSection estática se mantiene */}
                           <Toaster />
                           <SonnerToaster theme="dark" />
-                          <WhatsAppButton />
+                          <SalesWhatsAppButton />
                           <CookieBanner />
                         </Router>
                       </ChatProvider>

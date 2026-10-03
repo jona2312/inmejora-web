@@ -16,6 +16,11 @@ const test = base.extend({
     expect(evidence.unexpected, 'unclassified external attempts').toEqual([]);
   }, { auto: true }],
 });
+// Sales launch candidate: the pages these legacy tests cover (registration, plans, quoter, catalog, presupuesto, old contact
+// dialog) are redirected to the consultation funnel, so those tests are skipped here. Route, identity-containment and admin
+// tests still run. VITE_SALES_LAUNCH_MODE=false is NOT a tested rollback: roll back by redeploying the previous image.
+const SALES = process.env.VITE_SALES_LAUNCH_MODE !== 'false';
+const legacy = SALES ? test.skip : test;
 async function ready(page) {
   await expect(page.locator('h1:visible,h2:visible').first()).toBeVisible();
   await page.waitForTimeout(500);
@@ -38,7 +43,7 @@ test('cached identities cannot mount private routes', async ({ page, context }) 
     await ready(page);
   }
 });
-test('navigation, history and contact keyboard', async ({ page }, info) => {
+legacy('navigation, history and contact keyboard', async ({ page }, info) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Solo esenciales', exact: true }).click();
   const mobile = info.project.use.viewport.width < 1024;
@@ -61,7 +66,7 @@ test('navigation, history and contact keyboard', async ({ page }, info) => {
 });
 
 
-test('registration with a selected plan denies account and payment effects', async ({ page, context, audit }, info) => {
+legacy('registration with a selected plan denies account and payment effects', async ({ page, context, audit }, info) => {
   await context.addInitScript(() => {
     if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential');
   });
@@ -114,7 +119,7 @@ test('registration with a selected plan denies account and payment effects', asy
   expect(audit.unexpected).toEqual([]);
 });
 
-test('contained forms and payment actions stay truthful', async ({ page, context }) => {
+legacy('contained forms and payment actions stay truthful', async ({ page, context }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   for (const route of ['/login', '/registro', '/proveedores/login']) {
     await page.goto(route);
@@ -145,7 +150,7 @@ test('contained forms and payment actions stay truthful', async ({ page, context
   }
 });
 
-test('contact form never reports a simulated delivery', async ({ page, context }) => {
+legacy('contact form never reports a simulated delivery', async ({ page, context }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   await page.goto('/contacto');
   await page.getByLabel('Nombre completo').fill('Persona Sintética');
@@ -157,7 +162,7 @@ test('contact form never reports a simulated delivery', async ({ page, context }
   await expect(page.getByLabel('Mensaje', { exact: true })).toHaveValue('Consulta sintética sin envío real.');
 });
 
-test('public lead errors preserve form data', async ({ page, context, audit }) => {
+legacy('public lead errors preserve form data', async ({ page, context, audit }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   audit.responses['/api/webhook/guardar-mensaje'] = { status: 503, json: { success: false, message: 'Fixture: servicio no disponible' } };
   await page.goto('/');
@@ -171,7 +176,7 @@ test('public lead errors preserve form data', async ({ page, context, audit }) =
   expect(audit.requests.filter(r => r.method === 'POST' && r.url.includes('/api/webhook/guardar-mensaje'))).toHaveLength(1);
 });
 
-test('presupuesto validates, reports backend failure and allows retry', async ({ page, context, audit }) => {
+legacy('presupuesto validates, reports backend failure and allows retry', async ({ page, context, audit }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   audit.responses['/rest/v1/presupuestos_publicos'] = { status: 503, json: { message: 'Fixture: solicitud no guardada' } };
   await page.goto('/presupuesto');
@@ -189,14 +194,14 @@ test('presupuesto validates, reports backend failure and allows retry', async ({
   await expect(page.getByRole('button', { name: 'Solicitar Presupuesto', exact: true })).toBeEnabled();
 });
 
-test('catalog rejects malformed payload without crashing', async ({ page, audit }) => {
+legacy('catalog rejects malformed payload without crashing', async ({ page, audit }) => {
   audit.responses['/api/horizon/catalogo/colores'] = { json: { unexpected: true } };
   await page.goto('/catalogo');
   await expect(page.getByText('No se pudo cargar el catálogo.', { exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: /Catálogo Virtual/ })).toBeVisible();
 });
 
-test('quoter empty data retry and populated manual path', async ({ page, context, audit }) => {
+legacy('quoter empty data retry and populated manual path', async ({ page, context, audit }) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   await page.goto('/cotizador');
   await expect(page.getByRole('heading', { name: 'Error al cargar datos' })).toBeVisible();
@@ -228,7 +233,7 @@ for (const admin of [false, true]) test(`admin UI metadata gate: app_metadata ad
   }
 });
 
-test('mobile menu Escape restores focus and scrolling', async ({ page }, info) => {
+legacy('mobile menu Escape restores focus and scrolling', async ({ page }, info) => {
   test.skip(info.project.use.viewport.width >= 1024, 'Desktop uses visible navigation');
   await page.goto('/');
   await page.getByRole('button', { name: 'Solo esenciales', exact: true }).click();
@@ -244,7 +249,7 @@ test('mobile menu Escape restores focus and scrolling', async ({ page }, info) =
 });
 
 
-test('main navigation resolves lazy home anchors', async ({ page, context }, info) => {
+legacy('main navigation resolves lazy home anchors', async ({ page, context }, info) => {
   await context.addInitScript(() => { if (globalThis.location.origin === 'http://127.0.0.1:4173') globalThis.localStorage.setItem('inmejora_cookie_consent', 'essential'); });
   await context.route('**/assets/LandingPage-*.js', async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.fallback(); });
   await page.goto('/precios');

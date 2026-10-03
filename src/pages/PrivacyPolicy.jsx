@@ -1,6 +1,6 @@
 import React from 'react';
 import SEOHead from '@/components/SEOHead';
-import Header from '@/components/Header';
+import { SalesHeader as Header } from '@/components/sales/SalesLayout';
 import Footer from '@/components/Footer';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
         ogUrl="https://inmejora.com/politica-de-privacidad"
       />
       <Header />
-      <main className="container mx-auto px-4 py-24 pt-32">
+      <main id="main-content" className="container mx-auto px-4 py-24 pt-32">
         <div className="max-w-4xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 text-gold-light hover:text-foreground transition-colors mb-8">
             <ArrowLeft size={16} />

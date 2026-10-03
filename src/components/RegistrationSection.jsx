@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -19,7 +20,7 @@ const RegistrationSection = () => {
     newsletter_opt_in: true
   });
 
-  const COMPANY_WHATSAPP_NUMBER = '5491158300611';
+  const COMPANY_WHATSAPP_NUMBER = COMMERCIAL.whatsapp;
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;

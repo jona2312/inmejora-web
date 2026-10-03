@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -28,7 +29,7 @@ export const useLeadRegistration = () => {
       setSuccess(true);
       
       // Attempt to open WhatsApp immediately
-      const whatsappLink = `https://wa.me/5491158300611?text=Hola,%20soy%20${encodeURIComponent(name)}`;
+      const whatsappLink = `https://wa.me/${COMMERCIAL.whatsapp}?text=Hola,%20soy%20${encodeURIComponent(name)}`;
       
       try {
         window.open(whatsappLink, '_blank');

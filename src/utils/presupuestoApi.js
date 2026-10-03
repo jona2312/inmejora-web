@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import { supabase } from '@/lib/customSupabaseClient';
 
 const RATE_LIMIT_KEY = 'inmejora_presupuestos_rate_limit';
@@ -65,7 +66,7 @@ export const uploadPresupuestoPhoto = async (file) => {
 export const generateWhatsAppLink = (data) => {
   const message = `🎯 NUEVO PRESUPUESTO\nNombre: ${data.nombre}\nTeléfono: ${data.telefono}\nTipo: ${data.tipo_proyecto}\nMetraje: ${data.metraje}m²\nDescripción: ${data.descripcion}`;
   const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/5491158300611?text=${encodedMessage}`;
+  return `https://wa.me/${COMMERCIAL.whatsapp}?text=${encodedMessage}`;
 };
 
 export const submitPresupuesto = async (formData, photoFile) => {

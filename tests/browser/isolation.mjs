@@ -1,5 +1,6 @@
 export const origin = 'http://127.0.0.1:4173';
 export const launchOptions = {
+  ...(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}),
   args: ['--disable-background-networking', '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1, EXCLUDE localhost'],
   proxy: { server: 'http://127.0.0.1:9', bypass: '127.0.0.1,localhost' },
 };

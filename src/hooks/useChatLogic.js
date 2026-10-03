@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import { useState, useEffect, useRef } from 'react';
 import { useChat, CHAT_CONFIG } from '@/contexts/ChatContext';
 
@@ -120,7 +121,7 @@ export const useChatLogic = () => {
       const { name } = payload;
       
       const whatsappText = encodeURIComponent(`Hola, soy ${name}. Acabo de registrarme en el chat de INMEJORA y quiero continuar mi consulta.`);
-      const whatsappLink = `https://wa.me/5491158300611?text=${whatsappText}`;
+      const whatsappLink = `https://wa.me/${COMMERCIAL.whatsapp}?text=${whatsappText}`;
 
       return {
         success: true,

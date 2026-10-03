@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle, Image as ImageIcon, Tag, UserPlus } from 'lucide-react';
@@ -15,7 +16,7 @@ const AIAssistantModal = ({ isOpen, onClose }) => {
       description: 'Atención directa por WhatsApp mientras preparamos el asistente.',
       icon: <MessageCircle className="w-8 h-8 text-[#25D366]" />,
       actionType: 'whatsapp',
-      target: 'https://wa.me/5491158300611',
+      target: `https://wa.me/${COMMERCIAL.whatsapp}`,
       hoverBorder: 'hover:border-[#25D366]',
       hoverBg: 'group-hover:bg-[#25D366]/5'
     },

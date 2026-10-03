@@ -4,10 +4,16 @@ WORKDIR /app
 # Accept build args from Coolify (marked as "Available at Buildtime")
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY
+# Commercial WhatsApp (international digits, no "+"). Empty = documented fallback in src/config/commercial.js.
+ARG VITE_COMMERCIAL_WHATSAPP
+# "false" re-exposes legacy routes (plans, quoter, catalog, account creation). Default: sales launch mode.
+ARG VITE_SALES_LAUNCH_MODE
 
 # Convert ARGs to ENV so Vite can read them via process.env during build
 ENV VITE_SUPABASE_URL=$VITE_SUPABASE_URL
 ENV VITE_SUPABASE_ANON_KEY=$VITE_SUPABASE_ANON_KEY
+ENV VITE_COMMERCIAL_WHATSAPP=$VITE_COMMERCIAL_WHATSAPP
+ENV VITE_SALES_LAUNCH_MODE=$VITE_SALES_LAUNCH_MODE
 
 COPY package*.json ./
 
