@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { isolate, origin } from './isolation.mjs';
 
 const SALES = process.env.VITE_SALES_LAUNCH_MODE !== 'false';
-const NUMBER = (process.env.VITE_COMMERCIAL_WHATSAPP || '').replace(/\D/g, '') || '5491158300611';
+const NUMBER = (process.env.VITE_COMMERCIAL_WHATSAPP || '').replace(/\D/g, '') || '5491100000000';
 const SHOTS = process.env.SHOTS === '1';
 const shotDir = 'docs/sales-launch/screenshots';
 

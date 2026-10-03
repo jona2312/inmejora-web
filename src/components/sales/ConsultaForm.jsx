@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MessageCircle, Copy, Check } from 'lucide-react';
-import { PROMISE, buildWhatsappUrl } from '@/config/commercial';
+import { COMMERCIAL, PROMISE, buildWhatsappUrl } from '@/config/commercial';
 import { ZONES, TIMING_OPTIONS, serviceBySlug, zoneBySlug } from '@/data/salesContent';
 import { SERVICE_OPTIONS, buildConsultaMessage, validateConsulta, LIMITS } from '@/utils/consultaMessage';
 import { track } from '@/utils/track';
@@ -22,6 +22,7 @@ const ConsultaForm = () => {
 
   const submit = event => {
     event.preventDefault();
+    if (!COMMERCIAL.channelEnabled) return; // fail-closed: no number configured, nothing is prepared or opened
     const found = validateConsulta(values);
     setErrors(found);
     if (Object.keys(found).length) {
@@ -45,6 +46,15 @@ const ConsultaForm = () => {
       setCopied(false);
     }
   };
+
+  if (!COMMERCIAL.channelEnabled) {
+    return (
+      <div role="alert" className="rounded-xl border border-red-400/40 bg-red-400/5 p-6 text-gray-200" data-channel="disabled">
+        <p className="font-bold text-white">Por el momento no podemos recibir consultas por este medio.</p>
+        <p className="mt-2 text-sm">Escribinos a <a className="underline text-[#d4af37]" href={`mailto:${COMMERCIAL.email}`}>{COMMERCIAL.email}</a> y te respondemos por ahí.</p>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={submit} noValidate className="space-y-5" aria-describedby="consulta-note">

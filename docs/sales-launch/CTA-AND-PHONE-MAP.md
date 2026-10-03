@@ -26,7 +26,7 @@ Untouched and unlinked (future authenticated portal / B2B): `/login /forgot-pass
 There is no second competing primary action (no "Probá gratis", "Registrarme", "Cotizador", plans).
 
 ## Phone and link map
-Single source: `src/config/commercial.js` (`VITE_COMMERCIAL_WHATSAPP`, fallback `5491158300611` = current production number).
+Single source: `src/config/commercial.js` (`VITE_COMMERCIAL_WHATSAPP`, **required for production builds; no fallback** — the build fails without it, and a build that somehow lacks it renders the channel disabled).
 | Use | Resolved from config |
 |---|---|
 | Form message, floating button, footer WhatsApp, zone/service WhatsApp fallbacks | `https://wa.me/<number>` |

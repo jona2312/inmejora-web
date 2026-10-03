@@ -2,7 +2,7 @@
 
 Branch `claude/web-sales-launch-candidate`, based on #20 (`14f1894ec2091497668b6a5c8609ef7fc36406f3`). **No deploy.** No Project Core, no Dashboard, no Codex branch touched. No new backend: every consultation ends in the commercial WhatsApp channel, which the visitor sends manually.
 
-**`WEB_SALES_LAUNCH_CANDIDATE = READY` (technical)** — all 12 criteria below pass. **Publication is blocked** by the decisions in "Blockers for publishing"; none of them is a code defect.
+**`WEB_SALES_LAUNCH_CANDIDATE = READY` (technical)** — all 12 criteria below pass. Publication follows [`PUBLICATION-CHECKLIST.md`](PUBLICATION-CHECKLIST.md); the items under "Blockers for publishing" are owner inputs, not code defects. Update 2: the WhatsApp channel is now **fail-closed** and analytics are **consent-gated**.
 
 ## What the visitor gets
 Home → `Reformas y terminaciones en Hudson, Berazategui y Quilmes`, the 7 services, how it works, **Tu presupuesto, en 24 a 72 horas.\*** (with the clarification), zones, FAQ, one CTA: **Contanos tu proyecto**. The CTA opens a minimal form (service, locality, description required; room, measures, timing, name optional) that prepares the WhatsApp message. The page never says the consultation was sent: *"Preparamos tu mensaje. Todavía no fue enviado."*
@@ -29,9 +29,14 @@ Set the build variable (Coolify: *Build Variable*, "available at build time") an
 ```
 VITE_COMMERCIAL_WHATSAPP=<country code + number, digits only>
 ```
-Everything follows from it: every `wa.me` link, the floating button, footer phone and `tel:` link, and the JSON-LD `telephone`. A test fails if a number is hard-coded anywhere else. Without the variable (or if invalid) the site falls back to the **current production number** (`+54 9 11 5830-0611`), so a missing build arg never produces a broken link — but it also never switches silently. **After deploy, check the footer phone on `/contacto`.**
+Everything follows from it: every `wa.me` link, the floating button, footer phone and `tel:` link, and the JSON-LD `telephone`. A test fails if a number is hard-coded anywhere else.
 
-Proof: building with `VITE_COMMERCIAL_WHATSAPP=5491139066429` leaves that number in the bundle, and the previous number only as the documented fallback constant. The earlier site metadata listed `+54 9 11 3906-6429` as the business phone, so I assume the 6429 number is `5491139066429` — **Jona must confirm the full number**.
+**Fail-closed (no fallback number):**
+- A **production build** (`vite build`, i.e. the Dockerfile) **fails** with `COMMERCIAL_WHATSAPP_REQUIRED` if the variable is missing, empty or not 10–15 digits. No artifact is produced, so nothing can be deployed with a wrong channel.
+- If a build without a number ever reached a browser anyway, the commercial channel renders **explicitly disabled**: `/contacto` shows "Por el momento no podemos recibir consultas por este medio" (email only), there is no form, no floating WhatsApp, no `wa.me`/`tel:` link, no phone in the footer or JSON-LD.
+- The provisional number (0611) no longer exists anywhere in the source or in any bundle (test-enforced). The only placeholder (`5491100000000`, obviously fake) is used by `vite dev` and by the synthetic CI build; **never deploy the output of `npm run build:ci`**.
+
+Proof (tests): production build without / with empty / invalid value → fails; with `5491139066429` → succeeds and the bundle holds that number and never the provisional one; fail-closed browser variant at 5 viewports. The earlier site metadata listed `+54 9 11 3906-6429` as the business phone, so I assume the 6429 number is `5491139066429` — **Jona must confirm the full number**.
 
 ## What changed (summary)
 - New commercial layer: `src/config/commercial.js` (number, promise, mode), `src/data/salesContent.js` (services, zones, steps, FAQ, real works), `src/components/sales/*`, pages Home/Servicios/Contacto + `/zonas/{berazategui,hudson,quilmes}`.
@@ -45,7 +50,7 @@ Proof: building with `VITE_COMMERCIAL_WHATSAPP=5491139066429` leaves that number
 1. **6429 must be Connected and operational** (your gate) and the full number confirmed.
 2. **Real works**: the home section "Obras realizadas" is built but hidden because `WORKS` is empty. There are no verified real photos in the repo; the old "Proyectos/Transformaciones" used stock images presented as real work and were removed. Provide real photos with the client's consent (item shape documented in `src/data/salesContent.js`). Never use AI/stock images there.
 3. **Copy approval** (Jona): hero text, services descriptions (what we can really do; "Construcción y ampliaciones" and "Diseño y visualización" most of all), the FAQ answer about AI, the zones wording ("confirmamos la cobertura").
-4. **Analytics vs. consent**: `index.html` loads Google Analytics and Microsoft Clarity unconditionally; the cookie banner's "Solo esenciales" does not stop them (pre-existing). Decide whether to gate them on consent before promoting traffic (Ley 25.326 wording is in the banner).
+4. ~~Analytics vs. consent~~ **Resolved in this update**: Google Analytics and Clarity are no longer in `index.html`; `src/utils/analytics.js` loads them only after "Aceptar todo" (also restored on later visits). No choice yet, "Solo esenciales", or blocked storage → they never load. Verified in the browser (first visit, essentials + reload + navigation, accept + reload). Not a CMP: a single stored choice, no per-category settings and no way to withdraw consent after accepting (clear site data).
 5. **Business data removed from structured data**: the previous JSON-LD carried legal name, tax ID, a street address and a founder name (the founder name differed from the one on `/nosotros`). I did not carry them over. Re-add only what Jona confirms.
 6. **Visit/relevamiento wording** and **"Parte del grupo INB"** (removed from the footer) need an owner decision.
 7. **Project Core intake** remains HOLD and is intentionally not used. When its production contract closes, a `core` intake mode can be added behind `COMMERCIAL.intakeMode` without touching the pages.

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cookie, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { enableAnalytics } from '@/utils/analytics';
 
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,6 +21,7 @@ const CookieBanner = () => {
 
   const handleAcceptAll = () => {
     localStorage.setItem('inmejora_cookie_consent', 'all');
+    enableAnalytics();
     setIsVisible(false);
   };
 

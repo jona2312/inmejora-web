@@ -13,18 +13,28 @@ const walk = dir => readdirSync(dir).flatMap(name => {
 const read = file => readFileSync(file, 'utf8');
 const src = walk('src').filter(f => /\.(jsx?|css)$/.test(f));
 
-test('commercial number: a single configurable setting with a safe fallback', () => {
-  assert.equal(resolveWhatsapp('5491139066429'), '5491139066429');
-  assert.equal(resolveWhatsapp('+54 9 11 3906-6429'), '5491139066429');
-  assert.equal(resolveWhatsapp(''), '5491158300611');
-  assert.equal(resolveWhatsapp(undefined), '5491158300611');
-  assert.equal(resolveWhatsapp('123'), '5491158300611');
-  assert.equal(resolveWhatsapp('1'.repeat(16)), '5491158300611');
+test('commercial number: one configurable setting, fail-closed outside development', () => {
+  assert.equal(resolveWhatsapp('5491139066429', 'production'), '5491139066429');
+  assert.equal(resolveWhatsapp('+54 9 11 3906-6429', 'production'), '5491139066429');
+  // Production / CI modes: missing or invalid => '' (channel disabled). Never a fallback number.
+  for (const bad of ['', undefined, null, '123', '1'.repeat(16), 'abc']) {
+    assert.equal(resolveWhatsapp(bad, 'production'), '', String(bad));
+    assert.equal(resolveWhatsapp(bad, 'ci'), '', String(bad));
+  }
+  // Only development / mode-less unit tests may use the clearly fake placeholder, never the provisional personal number.
+  assert.equal(resolveWhatsapp('', 'development'), '5491100000000');
+  assert.equal(resolveWhatsapp('', undefined), '5491100000000');
+  assert.notEqual(resolveWhatsapp('', 'development'), '5491158300611');
   assert.equal(formatPhone('5491139066429'), '+54 9 11 3906-6429');
-  assert.equal(formatPhone('5491158300611'), '+54 9 11 5830-0611');
+  assert.equal(formatPhone(''), '');
   assert.match(buildWhatsappUrl('Hola ñ & +', '5491139066429'), /^https:\/\/wa\.me\/5491139066429\?text=Hola%20%C3%B1%20%26%20%2B$/);
   assert.equal(buildWhatsappUrl('', '5491139066429'), 'https://wa.me/5491139066429');
+  assert.equal(buildWhatsappUrl('Hola', ''), null, 'no link is built without a number');
   assert.equal(COMMERCIAL.intakeMode, 'whatsapp');
+});
+
+test('the provisional number is not present anywhere in the source or in index.html', () => {
+  for (const file of [...src, 'index.html', 'vite.config.js']) assert.doesNotMatch(read(file), /5491158300611|5830-?0611/, file);
 });
 
 test('no WhatsApp number or wa.me literal exists outside the single config', () => {
@@ -120,6 +130,17 @@ test('the form never states that the consultation was sent', () => {
   assert.match(form, /Todavía no fue enviado/);
   assert.match(form, /llega a INMEJORA cuando la enviás desde WhatsApp/);
   assert.doesNotMatch(form, /fetch\(|axios|XMLHttpRequest|sendBeacon/);
+});
+
+test('analytics are not part of index.html and load only through the consent module', () => {
+  const html = read('index.html');
+  assert.doesNotMatch(html, /googletagmanager|clarity\.ms|gtag\(|G-YRGYGVND3E|wexia9sgu8/i);
+  const analytics = read('src/utils/analytics.js');
+  assert.match(analytics, /getItem\(CONSENT_KEY\) === 'all'/);
+  const banner = read('src/components/CookieBanner.jsx');
+  assert.match(banner, /enableAnalytics\(\)/);
+  const essential = banner.slice(banner.indexOf('handleEssentialOnly = () =>'), banner.indexOf('return (', banner.indexOf('handleEssentialOnly = () =>')));
+  assert.doesNotMatch(essential, /enableAnalytics/, '"Solo esenciales" must never load analytics');
 });
 
 test('robots and sitemap list only commercial pages', () => {

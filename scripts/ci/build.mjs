@@ -8,4 +8,6 @@ for (const key of Object.keys(process.env)) {
 
 const { build } = await import('vite');
 const { default: config } = await import('../../vite.config.js');
-await build(offlineBuildOptions(config));
+const options = offlineBuildOptions(config);
+// CI_OUT_DIR lets the fail-closed browser variant build next to the normal dist.
+await build({ ...options, build: { ...options.build, outDir: process.env.CI_OUT_DIR ?? options.build?.outDir } });

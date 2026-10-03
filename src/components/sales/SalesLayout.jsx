@@ -74,8 +74,10 @@ export const SalesFooter = () => (
       <div>
         <p className="font-bold text-white">Contacto</p>
         <ul className="mt-4 space-y-3 list-none p-0 text-gray-400">
+          {COMMERCIAL.channelEnabled && (<>
           <li><a href={buildWhatsappUrl('Hola, quiero consultar por un proyecto con INMEJORA.')} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#d4af37]"><MessageCircle className="w-4 h-4" aria-hidden="true" /> WhatsApp</a></li>
           <li><a href={phoneTelHref()} className="inline-flex items-center gap-2 hover:text-[#d4af37]"><Phone className="w-4 h-4" aria-hidden="true" /> {phoneDisplay()}</a></li>
+          </>)}
           <li><a href={`mailto:${COMMERCIAL.email}`} className="inline-flex items-center gap-2 hover:text-[#d4af37]"><Mail className="w-4 h-4" aria-hidden="true" /> {COMMERCIAL.email}</a></li>
         </ul>
       </div>
@@ -96,7 +98,7 @@ export const SalesFooter = () => (
 
 export const SalesWhatsAppButton = () => {
   const location = useLocation();
-  if (location.pathname === '/contacto') return null; // the consultation page already has its own WhatsApp step
+  if (!COMMERCIAL.channelEnabled || location.pathname === '/contacto') return null; // the consultation page already has its own WhatsApp step
   return (
     <a href={buildWhatsappUrl('Hola, quiero consultar por un proyecto con INMEJORA.')} target="_blank" rel="noopener noreferrer" aria-label="Escribinos por WhatsApp" data-cta="whatsapp-float" className="fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 font-bold text-black shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
       <MessageCircle size={26} aria-hidden="true" /><span className="hidden sm:inline">WhatsApp</span>

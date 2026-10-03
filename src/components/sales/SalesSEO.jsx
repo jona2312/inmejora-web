@@ -9,7 +9,7 @@ export const localBusinessSchema = () => ({
   '@type': 'HomeAndConstructionBusiness',
   name: 'INMEJORA',
   url: COMMERCIAL.siteUrl,
-  telephone: `+${COMMERCIAL.whatsapp}`,
+  ...(COMMERCIAL.whatsapp ? { telephone: `+${COMMERCIAL.whatsapp}` } : {}),
   email: COMMERCIAL.email,
   image: `${COMMERCIAL.siteUrl}/og-image.jpg`,
   description: `Reformas y terminaciones en zona sur del GBA. ${PROMISE.short} desde que tenemos la información necesaria.`,

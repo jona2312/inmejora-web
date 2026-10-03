@@ -4,7 +4,7 @@ WORKDIR /app
 # Accept build args from Coolify (marked as "Available at Buildtime")
 ARG VITE_SUPABASE_URL
 ARG VITE_SUPABASE_ANON_KEY
-# Commercial WhatsApp (international digits, no "+"). Empty = documented fallback in src/config/commercial.js.
+# REQUIRED. Commercial WhatsApp (country code + number, digits only). Missing/invalid = the build FAILS (no fallback number).
 ARG VITE_COMMERCIAL_WHATSAPP
 # "false" re-exposes legacy routes (plans, quoter, catalog, account creation). Default: sales launch mode.
 ARG VITE_SALES_LAUNCH_MODE
