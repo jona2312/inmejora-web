@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, Lock, FileText } from 'lucide-react';
@@ -132,7 +133,7 @@ const ManualQuoterPath = ({
     const mensaje = encodeURIComponent(
       `Hola INMEJORA, quiero una cotización personalizada.\nZona: ${selectedZone}\nTrabajos:\n${detalle}\n¿Me contactan para coordinar?`
     );
-    window.open(`https://wa.me/5491158300611?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/${COMMERCIAL.whatsapp}?text=${mensaje}`, '_blank');
   };
 
   return (

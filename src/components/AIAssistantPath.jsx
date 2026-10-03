@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Plus } from 'lucide-react';
@@ -195,7 +196,7 @@ const AIAssistantPath = ({
     const mensaje = encodeURIComponent(
       `Hola INMEJORA, quiero una cotización personalizada.\nZona: ${selectedZone}\nTrabajos:\n${detalle}\n¿Me contactan para coordinar?`
     );
-    window.open(`https://wa.me/5491158300611?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/${COMMERCIAL.whatsapp}?text=${mensaje}`, '_blank');
   };
 
   const groupedServices = services.reduce((acc, service) => {

@@ -43,5 +43,6 @@ test('build refuses env loading and overrides API constants while preserving app
   assert.equal(JSON.parse(options.define['import.meta.env.VITE_API_URL']), 'https://api.example.invalid');
   assert.equal(JSON.parse(options.define['import.meta.env.VITE_SUPABASE_URL']), 'https://supabase.example.invalid');
   assert.equal(JSON.parse(options.define['import.meta.env.VITE_SUPABASE_ANON_KEY']), 'synthetic-not-a-credential');
+  assert.equal(JSON.parse(options.define['import.meta.env.VITE_COMMERCIAL_WHATSAPP']), '5491100000000');
   assert.equal(base.envFile, true);
 });

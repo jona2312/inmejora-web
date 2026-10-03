@@ -1,0 +1,1200 @@
+{
+  "/": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=remodelaciones",
+      "text": "Consultar por remodelaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pintura-y-terminaciones",
+      "text": "Consultar por pintura y terminaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=impermeabilizacion",
+      "text": "Consultar por impermeabilización",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pisos-y-revestimientos",
+      "text": "Consultar por pisos y revestimientos",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=construccion-y-ampliaciones",
+      "text": "Consultar por construcción y ampliaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=diseno-y-visualizacion",
+      "text": "Consultar por diseño y visualización",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=presupuestos-y-relevamientos",
+      "text": "Consultar por presupuestos y relevamientos",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/servicios": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=remodelaciones",
+      "text": "Consultar por remodelaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pintura-y-terminaciones",
+      "text": "Consultar por pintura y terminaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=impermeabilizacion",
+      "text": "Consultar por impermeabilización",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pisos-y-revestimientos",
+      "text": "Consultar por pisos y revestimientos",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=construccion-y-ampliaciones",
+      "text": "Consultar por construcción y ampliaciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=diseno-y-visualizacion",
+      "text": "Consultar por diseño y visualización",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=presupuestos-y-relevamientos",
+      "text": "Consultar por presupuestos y relevamientos",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/contacto": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    }
+  ],
+  "/zonas/berazategui": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?zona=berazategui",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=remodelaciones&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pintura-y-terminaciones&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=impermeabilizacion&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pisos-y-revestimientos&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=construccion-y-ampliaciones&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=diseno-y-visualizacion&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=presupuestos-y-relevamientos&zona=berazategui",
+      "text": "Consultar desde Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/zonas/hudson": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?zona=hudson",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=remodelaciones&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pintura-y-terminaciones&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=impermeabilizacion&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pisos-y-revestimientos&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=construccion-y-ampliaciones&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=diseno-y-visualizacion&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=presupuestos-y-relevamientos&zona=hudson",
+      "text": "Consultar desde Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/zonas/quilmes": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?zona=quilmes",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=remodelaciones&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pintura-y-terminaciones&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=impermeabilizacion&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=pisos-y-revestimientos&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=construccion-y-ampliaciones&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=diseno-y-visualizacion&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto?servicio=presupuestos-y-relevamientos&zona=quilmes",
+      "text": "Consultar desde Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/politica-de-privacidad": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "Volver al inicio",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ],
+  "/terminos-y-condiciones": [
+    {
+      "href": "#main-content",
+      "text": "Saltar al contenido principal",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "IN\nMEJORA",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/servicios",
+      "text": "Servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#como-funciona",
+      "text": "Cómo funciona",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#zonas",
+      "text": "Zonas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/#preguntas",
+      "text": "Preguntas",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/contacto",
+      "text": "Contanos tu proyecto",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/",
+      "text": "Volver al inicio",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://www.instagram.com/in_mejora/",
+      "text": "Instagram de INMEJORA",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/servicios",
+      "text": "Todos los servicios",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/berazategui",
+      "text": "Reformas en Berazategui",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/hudson",
+      "text": "Reformas en Hudson",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/zonas/quilmes",
+      "text": "Reformas en Quilmes",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:+5491158300611",
+      "text": "+54 9 11 5830-0611",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "mailto:hola@inmejora.com",
+      "text": "hola@inmejora.com",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/politica-de-privacidad",
+      "text": "Política de privacidad",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "/terminos-y-condiciones",
+      "text": "Términos y condiciones",
+      "target": null,
+      "rel": null
+    },
+    {
+      "href": "https://wa.me/5491158300611?text=Hola%2C%20quiero%20consultar%20por%20un%20proyecto%20con%20INMEJORA.",
+      "text": "WhatsApp",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    }
+  ]
+}

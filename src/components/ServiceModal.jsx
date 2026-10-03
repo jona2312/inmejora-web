@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, MessageCircle, HelpCircle } from 'lucide-react';
@@ -9,7 +10,7 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
   // Function to open WhatsApp
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(service.whatsappMessage);
-    window.open(`https://wa.me/5491158300611?text=${message}`, '_blank');
+    window.open(`https://wa.me/${COMMERCIAL.whatsapp}?text=${message}`, '_blank');
   };
 
   return (

@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Check, MessageCircle, Sparkles } from 'lucide-react';
@@ -16,7 +17,7 @@ const ComingSoonBanner = () => {
 
   const handleCTA = () => {
     const message = encodeURIComponent('Hola! Me interesa el acceso anticipado al Self-Service de Renders 🚀');
-    window.open(`https://wa.me/5491158300611?text=${message}`, '_blank');
+    window.open(`https://wa.me/${COMMERCIAL.whatsapp}?text=${message}`, '_blank');
   };
 
   return (

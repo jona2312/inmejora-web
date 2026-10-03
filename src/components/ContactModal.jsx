@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React, { useRef } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { X, Phone, Mail, MapPin } from 'lucide-react';
@@ -27,7 +28,7 @@ const ContactModal = () => {
             <Dialog.Close aria-label="Cerrar contacto" className="p-2 rounded-full hover:bg-white/10"><X size={20} /></Dialog.Close>
           </div>
           <div className="p-6 space-y-4">
-            <a href="https://wa.me/5491158300611" target="_blank" rel="noopener noreferrer" className={optionClass}>
+            <a href={`https://wa.me/${COMMERCIAL.whatsapp}`} target="_blank" rel="noopener noreferrer" className={optionClass}>
               <Phone className="shrink-0 text-[#FCD34D]" /><span><strong>WhatsApp</strong><span className="block text-sm text-gray-400">Respuesta inmediata</span></span>
             </a>
             <a href="mailto:hola@inmejora.com" className={optionClass}>

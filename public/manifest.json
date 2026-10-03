@@ -1,7 +1,7 @@
 {
-  "name": "INMEJORA - Reformas y Diseño de Interiores con IA",
+  "name": "INMEJORA - Reformas y terminaciones",
   "short_name": "INMEJORA",
-  "description": "Reformas y Diseño de Interiores con IA en Buenos Aires. Visualizá tu reforma antes de hacerla con renders fotorrealistas.",
+  "description": "Remodelaciones, pintura, impermeabilización, pisos y ampliaciones en zona sur del GBA.",
   "theme_color": "#D4AF37",
   "background_color": "#1a1a1a",
   "display": "standalone",
@@ -22,23 +22,9 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshots/home.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "platform": "wide",
-      "label": "Pantalla principal de INMEJORA"
-    },
-    {
-      "src": "/screenshots/renders.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "platform": "narrow",
-      "label": "Generador de renders con IA"
-    }
+  "categories": [
+    "business"
   ],
-  "categories": ["business", "productivity"],
   "lang": "es-AR",
   "dir": "ltr"
 }

@@ -28,6 +28,13 @@
       "boundary": "Public contact/chat submission stays separate. Server abuse control and contact ownership not audited; no identity permission inferred. No funnel/backend change."
     },
     {
+      "routes": ["/zonas/:slug"],
+      "classification": ["UI_ONLY"],
+      "evidence": ["src/App.jsx", "src/pages/ZonaPage.jsx", "src/data/salesContent.js"],
+      "input": "Static zone slug from the URL; an unknown slug redirects to /servicios",
+      "boundary": "Public commercial page. No identity, ownership, backend call or account state. The consultation ends in an external WhatsApp link that the visitor sends manually."
+    },
+    {
       "routes": ["/nosotros", "/proyectos", "/proveedores", "/politica-de-privacidad", "/terminos-y-condiciones", "*"],
       "classification": ["UI_ONLY"],
       "evidence": ["src/App.jsx", "src/components/Header.jsx"],

@@ -1,3 +1,4 @@
+import { COMMERCIAL } from '@/config/commercial';
 import React from 'react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -81,7 +82,7 @@ const ProductDetailModal = ({ isOpen, onClose, product }) => {
           <div className="mt-auto pt-6 border-t border-[#333] grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Button 
               className="w-full bg-[#FCB048] text-black hover:bg-[#e09b3d] font-bold"
-              onClick={() => window.open('https://wa.me/5491158300611', '_blank')}
+              onClick={() => window.open(`https://wa.me/${COMMERCIAL.whatsapp}`, '_blank')}
             >
               Consultar Disponibilidad
             </Button>

@@ -6,7 +6,7 @@ import { Menu, X, Sun, Moon, User, LogOut, LayoutDashboard, ChevronRight, Credit
 import { ThemeContext } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { useProveedorAuth } from '@/contexts/ProveedorAuthContext';
-import { useContactModal } from '@/contexts/ContactModalContext';
+import { COMMERCIAL, PRIMARY_CTA } from '@/config/commercial';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,7 +22,6 @@ const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { isAuthenticated, user, logout: clientLogout } = useAuth();
   const { token: isProveedorAuthenticated, proveedor, logout: proveedorLogout } = useProveedorAuth();
-  const { openContactModal } = useContactModal();
   const location = useLocation();
   const navigate = useNavigate();
   const menuButtonRef = useRef(null);
@@ -78,7 +77,7 @@ const Header = () => {
     
     // Special handling for Contact modal
     if (href === '#contacto') {
-      openContactModal();
+      navigate('/contacto');
       return;
     }
 
@@ -108,7 +107,10 @@ const Header = () => {
     }
   };
 
-  const navLinks = [
+  const navLinks = COMMERCIAL.salesLaunchMode ? [
+    { name: 'Servicios', href: '/servicios' },
+    { name: PRIMARY_CTA, href: '/contacto' },
+  ] : [
     { name: 'Servicios', href: '#servicios' },
     { name: 'Proyectos', href: '#proyectos' },
     { name: 'Cotizador', href: '/cotizador' },
@@ -267,11 +269,11 @@ const Header = () => {
                             Iniciar Sesión
                         </Button>
                       </Link>
-                      <Link to="/registro">
+                      {!COMMERCIAL.salesLaunchMode && (<Link to="/registro">
                         <Button className="bg-[#d4af37] text-black hover:bg-[#b5952f] font-semibold animate-button-glow hover:shadow-[0_0_50px_rgba(212,175,55,0.8)] transition-all duration-300">
                             Registrarme
                         </Button>
-                      </Link>
+                      </Link>)}
                     </>
                   )}
               </div>
@@ -382,11 +384,11 @@ const Header = () => {
                                 Iniciar Sesión
                             </Button>
                         </Link>
-                        <Link to="/registro" onClick={closeMenu} className="w-full">
+                        {!COMMERCIAL.salesLaunchMode && (<Link to="/registro" onClick={closeMenu} className="w-full">
                             <Button className="bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold text-lg w-full py-6 animate-button-glow hover:shadow-[0_0_50px_rgba(212,175,55,0.8)] transition-all duration-300">
                                 Registrarme
                             </Button>
-                        </Link>
+                        </Link>)}
                       </>
                     )}
                 </>
