@@ -17,7 +17,7 @@ const LandingPage = () => {
         path="/"
         schema
         title="Reformas y terminaciones en Hudson, Berazategui y Quilmes | INMEJORA"
-        description="Remodelaciones, pintura, impermeabilización, pisos y ampliaciones en zona sur del GBA. Contanos tu proyecto y recibí tu presupuesto en 24 a 72 horas desde que tenemos la información necesaria."
+        description="Remodelaciones, pintura, impermeabilización, pisos y ampliaciones en zona sur del GBA. Contanos tu proyecto y solicitá una revisión inicial humana en un plazo objetivo de 24 a 72 horas hábiles desde que tenemos la información necesaria."
       />
       <SalesHeader />
       <main id="main-content">

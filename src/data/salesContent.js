@@ -86,14 +86,14 @@ export const ZONES = [
 export const STEPS = [
   { n: 1, title: 'Contanos tu proyecto', text: 'Qué querés hacer, dónde y para cuándo. Podés sumar fotos y medidas por WhatsApp.' },
   { n: 2, title: 'Revisamos tu consulta', text: 'Si falta información, te la pedimos. Si hace falta una visita o un relevamiento, te lo decimos en esta etapa.' },
-  { n: 3, title: 'Recibís tu presupuesto', text: 'En 24 a 72 horas desde que tenemos la información necesaria.' },
+  { n: 3, title: 'Recibís una revisión humana', text: 'El objetivo de revisión inicial es de 24 a 72 horas hábiles desde que tenemos la información necesaria.' },
   { n: 4, title: 'Decidís con información', text: 'Revisás el presupuesto, hacés tus preguntas y definís si seguimos.' },
 ];
 
 export const FAQS = [
   {
-    q: '¿Cuándo recibo el presupuesto?',
-    a: 'En 24 a 72 horas desde que tenemos la información necesaria. Si tu trabajo requiere una visita o un relevamiento, te lo informamos durante la consulta.',
+    q: '¿Cuándo revisan mi consulta?',
+    a: 'El objetivo de revisión inicial es de 24 a 72 horas hábiles desde que tenemos la información necesaria. Si requiere una visita o un relevamiento, el plazo comienza al completarlo. El presupuesto formal requiere aprobación humana y no se envía automáticamente.',
   },
   {
     q: '¿Trabajan en mi zona?',

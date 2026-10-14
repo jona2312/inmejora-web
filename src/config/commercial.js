@@ -53,9 +53,9 @@ export const COMMERCIAL = Object.freeze({
 export const PRIMARY_CTA = 'Contanos tu proyecto';
 
 export const PROMISE = Object.freeze({
-  headline: 'Tu presupuesto, en 24 a 72 horas.',
-  short: 'Presupuesto en 24 a 72 horas',
-  note: 'El plazo cuenta desde que tenemos la información necesaria para presupuestar. Si tu trabajo requiere una visita o un relevamiento, te lo informamos durante la consulta.',
+  headline: 'Revisión inicial humana en 24 a 72 horas hábiles.',
+  short: 'Revisión humana en 24 a 72 horas hábiles',
+  note: 'El plazo objetivo cuenta desde que tenemos la información necesaria para revisar tu proyecto. Si requiere una visita o un relevamiento, comienza al completarlo. El presupuesto formal requiere aprobación humana; no se envía automáticamente.',
 });
 
 export const phoneDisplay = () => formatPhone(COMMERCIAL.whatsapp);
