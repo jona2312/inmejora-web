@@ -13,6 +13,18 @@ const walk = dir => readdirSync(dir).flatMap(name => {
 const read = file => readFileSync(file, 'utf8');
 const src = walk('src').filter(f => /\.(jsx?|css)$/.test(f));
 
+test('P0 promises human review, never automatic pricing; web origin is declared only', () => {
+  assert.match(PROMISE.headline, /Revisión inicial humana/);
+  assert.match(PROMISE.short, /24 a 72 horas hábiles/);
+  assert.match(PROMISE.note, /plazo objetivo/);
+  assert.match(PROMISE.note, /comienza al completarlo/);
+  assert.match(PROMISE.note, /aprobación humana/);
+  assert.match(PROMISE.note, /no se envía automáticamente/);
+  const message = buildConsultaMessage({servicio:'pintura-y-terminaciones', localidad:'Quilmes', descripcion:'Pintura de una habitación'});
+  assert.match(message, /Origen: formulario web INMEJORA/);
+  assert.doesNotMatch(message, /lead_id|project_id|conversation_id|ARS|80\.000|150\.000|300\.000/);
+});
+
 test('commercial number: one configurable setting, fail-closed outside development', () => {
   assert.equal(resolveWhatsapp('5491139066429', 'production'), '5491139066429');
   assert.equal(resolveWhatsapp('+54 9 11 3906-6429', 'production'), '5491139066429');
@@ -49,7 +61,7 @@ test('no WhatsApp number or wa.me literal exists outside the single config', () 
 });
 
 test('promise copy is exact and careful', () => {
-  assert.equal(PROMISE.headline, 'Tu presupuesto, en 24 a 72 horas.');
+  assert.equal(PROMISE.headline, 'Revisión inicial humana en 24 a 72 horas hábiles.');
   assert.match(PROMISE.note, /desde que tenemos la información necesaria/);
   assert.match(PROMISE.note, /visita o un relevamiento/);
   assert.equal(PRIMARY_CTA, 'Contanos tu proyecto');

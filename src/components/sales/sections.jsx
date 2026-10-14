@@ -29,7 +29,7 @@ export const SalesHero = () => (
         Reformas y terminaciones en <span className="text-[#d4af37]">Hudson, Berazategui y Quilmes</span>
       </h1>
       <p className="mt-4 md:mt-6 text-base md:text-xl text-gray-300 max-w-2xl mx-auto">
-        Remodelaciones, pintura, impermeabilización, pisos y ampliaciones. Contanos tu proyecto y recibí tu presupuesto en 24 a 72 horas.
+        Remodelaciones, pintura, impermeabilización, pisos y ampliaciones. Contanos tu proyecto y solicitá una revisión inicial humana en un plazo objetivo de 24 a 72 horas hábiles desde que contamos con información suficiente.
       </p>
       <div className="mt-6 md:mt-8 flex flex-col items-center gap-3 md:gap-4">
         <PrimaryCTA />

@@ -69,7 +69,7 @@ test.describe('sales launch mode', () => {
     for (const service of ['Remodelaciones', 'Pintura y terminaciones', 'Impermeabilización', 'Pisos y revestimientos', 'Construcción y ampliaciones', 'Diseño y visualización', 'Presupuestos y relevamientos']) {
       await expect(page.getByRole('heading', { level: 3, name: service })).toBeVisible();
     }
-    await expect(page.getByText('Tu presupuesto, en 24 a 72 horas.', { exact: true })).toBeVisible();
+    await expect(page.getByText('Revisión inicial humana en 24 a 72 horas hábiles.', { exact: true })).toBeVisible();
     await expect(page.getByText(/desde que tenemos la información necesaria/).first()).toBeVisible();
     await expect(page.getByText(/visita o un relevamiento/).first()).toBeVisible();
     const primary = page.locator('[data-cta="primary"]');
