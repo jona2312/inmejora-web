@@ -1,0 +1,459 @@
+
+> web-app@0.0.0 test:ci
+> node --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs tests/ci/sales-launch.test.mjs tests/ci/whatsapp-fail-closed.test.mjs tests/ci/admin-route.test.mjs tests/ci/identity-containment.test.mjs
+
+TAP version 13
+# (node:53356) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: loading and missing session never mount privileged children
+ok 1 - loading and missing session never mount privileged children
+  ---
+  duration_ms: 6.6021
+  ...
+# Subtest: forged metadata, historical admin email and malformed roles deny access
+ok 2 - forged metadata, historical admin email and malformed roles deny access
+  ---
+  duration_ms: 11.6458
+  ...
+# Subtest: explicit app role preserves admin UI access without user metadata
+ok 3 - explicit app role preserves admin UI access without user metadata
+  ---
+  duration_ms: 1.1699
+  ...
+# (node:52592) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: client: anonymous and mounted providers always deny, even with forged provider props
+ok 4 - client: anonymous and mounted providers always deny, even with forged provider props
+  ---
+  duration_ms: 4.4395
+  ...
+# Subtest: client: missing, malformed, expired, revoked and manipulated cached identities are not credentials
+ok 5 - client: missing, malformed, expired, revoked and manipulated cached identities are not credentials
+  ---
+  duration_ms: 4.8223
+  ...
+# Subtest: client: operations reject without inspecting credentials, response-like objects or thenables
+ok 6 - client: operations reject without inspecting credentials, response-like objects or thenables
+  ---
+  duration_ms: 0.3831
+  ...
+# Subtest: client: late action completion after logout/account switch cannot restore the old identity
+ok 7 - client: late action completion after logout/account switch cannot restore the old identity
+  ---
+  duration_ms: 1.1112
+  ...
+# Subtest: client: logout only clears its own historical cache; storage failures cannot enable identity
+ok 8 - client: logout only clears its own historical cache; storage failures cannot enable identity
+  ---
+  duration_ms: 0.6306
+  ...
+# Subtest: supplier: anonymous and mounted providers always deny, even with forged provider props
+ok 9 - supplier: anonymous and mounted providers always deny, even with forged provider props
+  ---
+  duration_ms: 0.6144
+  ...
+# Subtest: supplier: missing, malformed, expired, revoked and manipulated cached identities are not credentials
+ok 10 - supplier: missing, malformed, expired, revoked and manipulated cached identities are not credentials
+  ---
+  duration_ms: 2.6777
+  ...
+# Subtest: supplier: operations reject without inspecting credentials, response-like objects or thenables
+ok 11 - supplier: operations reject without inspecting credentials, response-like objects or thenables
+  ---
+  duration_ms: 0.3873
+  ...
+# Subtest: supplier: late action completion after logout/account switch cannot restore the old identity
+ok 12 - supplier: late action completion after logout/account switch cannot restore the old identity
+  ---
+  duration_ms: 0.7417
+  ...
+# Subtest: supplier: logout only clears its own historical cache; storage failures cannot enable identity
+ok 13 - supplier: logout only clears its own historical cache; storage failures cannot enable identity
+  ---
+  duration_ms: 0.465
+  ...
+# Subtest: supplier 200 malformed/missing provider, revoked, 401/403 and hanging transport are all blocked before dispatch
+ok 14 - supplier 200 malformed/missing provider, revoked, 401/403 and hanging transport are all blocked before dispatch
+  ---
+  duration_ms: 1.9546
+  ...
+# Subtest: contained providers have no state setters, timers, listeners or transport imports to accept stale responses
+ok 15 - contained providers have no state setters, timers, listeners or transport imports to accept stale responses
+  ---
+  duration_ms: 11.8005
+  ...
+# Subtest: client transports reject forged local bearer and caller Authorization before Axios adapter or fetch
+ok 16 - client transports reject forged local bearer and caller Authorization before Axios adapter or fetch
+  ---
+  duration_ms: 11.0155
+  ...
+# Subtest: existing public catalog reads stay anonymous, including when forged local credentials exist
+ok 17 - existing public catalog reads stay anonymous, including when forged local credentials exist
+  ---
+  duration_ms: 1.8987
+  ...
+# Subtest: src/components/ProtectedRoute.jsx: loading and anonymous guards never mount privileged child
+ok 18 - src/components/ProtectedRoute.jsx: loading and anonymous guards never mount privileged child
+  ---
+  duration_ms: 60.3636
+  ...
+# Subtest: src/components/SupplierProtectedRoute.jsx: loading and anonymous guards never mount privileged child
+ok 19 - src/components/SupplierProtectedRoute.jsx: loading and anonymous guards never mount privileged child
+  ---
+  duration_ms: 6.6435
+  ...
+# Subtest: recovery and supplier registration pages render explicit unavailability with no credential form or API import
+ok 20 - recovery and supplier registration pages render explicit unavailability with no credential form or API import
+  ---
+  duration_ms: 27.4768
+  ...
+# Subtest: actual login/registration handlers consume denial without success toast, redirect or timer
+ok 21 - actual login/registration handlers consume denial without success toast, redirect or timer
+  ---
+  duration_ms: 24.7535
+  ...
+# Subtest: public plan identity lookup and generic useApi never forward a cached user ID
+ok 22 - public plan identity lookup and generic useApi never forward a cached user ID
+  ---
+  duration_ms: 4.9376
+  ...
+# Subtest: ownership matrix enumerates every current Route, and contained portal routes keep their guard
+ok 23 - ownership matrix enumerates every current Route, and contained portal routes keep their guard
+  ---
+  duration_ms: 12.6182
+  ...
+# Subtest: offline guard blocks fetch before connection
+ok 24 - offline guard blocks fetch before connection
+  ---
+  duration_ms: 1.9217
+  ...
+# Subtest: offline guard blocks http before connection
+ok 25 - offline guard blocks http before connection
+  ---
+  duration_ms: 0.1653
+  ...
+# Subtest: offline guard blocks https before connection
+ok 26 - offline guard blocks https before connection
+  ---
+  duration_ms: 0.1311
+  ...
+# Subtest: offline guard blocks tcp before connection
+ok 27 - offline guard blocks tcp before connection
+  ---
+  duration_ms: 0.1481
+  ...
+# Subtest: offline guard blocks socket before connection
+ok 28 - offline guard blocks socket before connection
+  ---
+  duration_ms: 0.3023
+  ...
+# Subtest: offline guard blocks tls before connection
+ok 29 - offline guard blocks tls before connection
+  ---
+  duration_ms: 0.1421
+  ...
+# Subtest: offline guard blocks dns before connection
+ok 30 - offline guard blocks dns before connection
+  ---
+  duration_ms: 0.1384
+  ...
+# Subtest: offline guard blocks dnsPromises before connection
+ok 31 - offline guard blocks dnsPromises before connection
+  ---
+  duration_ms: 0.1558
+  ...
+# Subtest: offline guard blocks udp before connection
+ok 32 - offline guard blocks udp before connection
+  ---
+  duration_ms: 0.2612
+  ...
+# Subtest: build refuses env loading and overrides API constants while preserving app compilation
+ok 33 - build refuses env loading and overrides API constants while preserving app compilation
+  ---
+  duration_ms: 0.332
+  ...
+# (node:23948) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: WhyInmejora original component keeps four visible cards and never renders the discarded comparison table
+ok 34 - WhyInmejora original component keeps four visible cards and never renders the discarded comparison table
+  ---
+  duration_ms: 61.0329
+  ...
+# Subtest: CreditsWidget aliases the same Lucide Infinity export without shadowing the numeric global
+ok 35 - CreditsWidget aliases the same Lucide Infinity export without shadowing the numeric global
+  ---
+  duration_ms: 21.6975
+  ...
+# Subtest: CreditsWidget preserves finite credit values and percentage calculation with fixture-only subscription data
+ok 36 - CreditsWidget preserves finite credit values and percentage calculation with fixture-only subscription data
+  ---
+  duration_ms: 5.021
+  ...
+# Subtest: CreditsWidget preserves loading, free fallback and expired branches
+ok 37 - CreditsWidget preserves loading, free fallback and expired branches
+  ---
+  duration_ms: 10.8576
+  ...
+# Subtest: lead phone validation preserves optional, length and formatting behavior
+ok 38 - lead phone validation preserves optional, length and formatting behavior
+  ---
+  duration_ms: 0.4819
+  ...
+# Subtest: lead phone character class preserves ASCII and representative Unicode alphabet exactly
+ok 39 - lead phone character class preserves ASCII and representative Unicode alphabet exactly
+  ---
+  duration_ms: 0.5022
+  ...
+# Subtest: auth validateForm preserves ordinary own-field validation and messages
+ok 40 - auth validateForm preserves ordinary own-field validation and messages
+  ---
+  duration_ms: 0.549
+  ...
+# Subtest: auth validateForm validates null-prototype and shadowed-method objects without trusting their method
+ok 41 - auth validateForm validates null-prototype and shadowed-method objects without trusting their method
+  ---
+  duration_ms: 0.1816
+  ...
+# Subtest: auth validateForm ignores inherited fields and still validates non-enumerable own fields
+ok 42 - auth validateForm ignores inherited fields and still validates non-enumerable own fields
+  ---
+  duration_ms: 0.5461
+  ...
+# Subtest: auth field validators keep original name/password bounds, matching and optional phone policy
+ok 43 - auth field validators keep original name/password bounds, matching and optional phone policy
+  ---
+  duration_ms: 0.3057
+  ...
+# (node:28020) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: useMercadoPagoCheckout: preserves settled public shape and explicitly notifies on every input
+ok 44 - useMercadoPagoCheckout: preserves settled public shape and explicitly notifies on every input
+  ---
+  duration_ms: 3.6051
+  ...
+# Subtest: useMercadoPagoCheckout: repeated clicks and forged user/config cannot enable purchases
+ok 45 - useMercadoPagoCheckout: repeated clicks and forged user/config cannot enable purchases
+  ---
+  duration_ms: 1.5058
+  ...
+# Subtest: useMercadoPago: preserves settled public shape and explicitly notifies on every input
+ok 46 - useMercadoPago: preserves settled public shape and explicitly notifies on every input
+  ---
+  duration_ms: 1.2667
+  ...
+# Subtest: useMercadoPago: repeated clicks and forged user/config cannot enable purchases
+ok 47 - useMercadoPago: repeated clicks and forged user/config cannot enable purchases
+  ---
+  duration_ms: 1.2896
+  ...
+# Subtest: useStripeCheckout: preserves settled public shape and explicitly notifies on every input
+ok 48 - useStripeCheckout: preserves settled public shape and explicitly notifies on every input
+  ---
+  duration_ms: 1.3042
+  ...
+# Subtest: useStripeCheckout: repeated clicks and forged user/config cannot enable purchases
+ok 49 - useStripeCheckout: repeated clicks and forged user/config cannot enable purchases
+  ---
+  duration_ms: 1.4355
+  ...
+# Subtest: mercadoPagoAPI.createCheckout: direct calls always reject explicitly without transport or browser access
+ok 50 - mercadoPagoAPI.createCheckout: direct calls always reject explicitly without transport or browser access
+  ---
+  duration_ms: 3.1564
+  ...
+# Subtest: mercadoPagoAPI.createPreference: direct calls always reject explicitly without transport or browser access
+ok 51 - mercadoPagoAPI.createPreference: direct calls always reject explicitly without transport or browser access
+  ---
+  duration_ms: 4.2084
+  ...
+# Subtest: contained modules contain no transport, credential, identity, navigation or enable-flag paths
+ok 52 - contained modules contain no transport, credential, identity, navigation or enable-flag paths
+  ---
+  duration_ms: 1.7106
+  ...
+# Subtest: source import inventory covers current payment hook/wrapper callers (not a runtime reachability assertion)
+ok 53 - source import inventory covers current payment hook/wrapper callers (not a runtime reachability assertion)
+  ---
+  duration_ms: 105.104
+  ...
+# Subtest: actual registration handler with ?plan calls contained hook, releases loading and promises no redirection
+ok 54 - actual registration handler with ?plan calls contained hook, releases loading and promises no redirection
+  ---
+  duration_ms: 27.4099
+  ...
+# Subtest: actual registration handler releases plan loading even when the notification callback fails
+ok 55 - actual registration handler releases plan loading even when the notification callback fails
+  ---
+  duration_ms: 9.0957
+  ...
+# Subtest: actual registration handler preserves free registration portal timer without invoking checkout
+ok 56 - actual registration handler preserves free registration portal timer without invoking checkout
+  ---
+  duration_ms: 9.6812
+  ...
+# Subtest: actual registration handler preserves registration-denied and invalid-form branches
+ok 57 - actual registration handler preserves registration-denied and invalid-form branches
+  ---
+  duration_ms: 10.907
+  ...
+# (node:51616) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: CheckoutSuccessPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+ok 58 - CheckoutSuccessPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+  ---
+  duration_ms: 73.2502
+  ...
+# Subtest: CheckoutSuccessPage: explicit navigation remains local and never triggers checkout
+ok 59 - CheckoutSuccessPage: explicit navigation remains local and never triggers checkout
+  ---
+  duration_ms: 1.276
+  ...
+# Subtest: CheckoutErrorPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+ok 60 - CheckoutErrorPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+  ---
+  duration_ms: 14.6768
+  ...
+# Subtest: CheckoutErrorPage: explicit navigation remains local and never triggers checkout
+ok 61 - CheckoutErrorPage: explicit navigation remains local and never triggers checkout
+  ---
+  duration_ms: 1.5414
+  ...
+# Subtest: CheckoutPendingPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+ok 62 - CheckoutPendingPage: real rendered content stays unverified for absent, forged, contradictory and malformed query fixtures
+  ---
+  duration_ms: 17.9989
+  ...
+# Subtest: CheckoutPendingPage: explicit navigation remains local and never triggers checkout
+ok 63 - CheckoutPendingPage: explicit navigation remains local and never triggers checkout
+  ---
+  duration_ms: 2.7125
+  ...
+# Subtest: actual route AST retains all three return pages and navigation destinations
+ok 64 - actual route AST retains all three return pages and navigation destinations
+  ---
+  duration_ms: 28.8207
+  ...
+# Subtest: return modules use only reviewed dependencies with no query, identity, transport, timers or synthetic payment data
+ok 65 - return modules use only reviewed dependencies with no query, identity, transport, timers or synthetic payment data
+  ---
+  duration_ms: 4.1223
+  ...
+# Subtest: legacy checkout modals still have no source consumers; this is a static inventory, not browser reachability
+ok 66 - legacy checkout modals still have no source consumers; this is a static inventory, not browser reachability
+  ---
+  duration_ms: 32.4192
+  ...
+# Subtest: compatibility entry point uses exactly the tested implementation
+ok 67 - compatibility entry point uses exactly the tested implementation
+  ---
+  duration_ms: 1.9336
+  ...
+# Subtest: inside and outside provider expose only a settled, immutable denied session
+ok 68 - inside and outside provider expose only a settled, immutable denied session
+  ---
+  duration_ms: 4.2377
+  ...
+# Subtest: all legacy operations deny arbitrary input without storage reads/writes or network
+ok 69 - all legacy operations deny arbitrary input without storage reads/writes or network
+  ---
+  duration_ms: 1.2884
+  ...
+# Subtest: forged approved browser data cannot establish identity and is not destroyed
+ok 70 - forged approved browser data cannot establish identity and is not destroyed
+  ---
+  duration_ms: 0.9671
+  ...
+# Subtest: P0 promises human review, never automatic pricing; web origin is declared only
+ok 71 - P0 promises human review, never automatic pricing; web origin is declared only
+  ---
+  duration_ms: 1.4623
+  ...
+# Subtest: commercial number: one configurable setting, fail-closed outside development
+ok 72 - commercial number: one configurable setting, fail-closed outside development
+  ---
+  duration_ms: 0.3582
+  ...
+# Subtest: the provisional number is not present anywhere in the source or in index.html
+ok 73 - the provisional number is not present anywhere in the source or in index.html
+  ---
+  duration_ms: 29.7787
+  ...
+# Subtest: no WhatsApp number or wa.me literal exists outside the single config
+ok 74 - no WhatsApp number or wa.me literal exists outside the single config
+  ---
+  duration_ms: 28.8424
+  ...
+# Subtest: promise copy is exact and careful
+ok 75 - promise copy is exact and careful
+  ---
+  duration_ms: 0.2588
+  ...
+# Subtest: commercial copy makes no forbidden promises
+ok 76 - commercial copy makes no forbidden promises
+  ---
+  duration_ms: 2.865
+  ...
+# Subtest: content integrity: services, zones, real works
+ok 77 - content integrity: services, zones, real works
+  ---
+  duration_ms: 0.8202
+  ...
+# Subtest: sales pages do not import stock imagery or removed sections
+ok 78 - sales pages do not import stock imagery or removed sections
+  ---
+  duration_ms: 1.5668
+  ...
+# Subtest: consultation: minimal required fields and validation
+ok 79 - consultation: minimal required fields and validation
+  ---
+  duration_ms: 0.3872
+  ...
+# Subtest: consultation message: optional fields omitted, nothing claims delivery
+ok 80 - consultation message: optional fields omitted, nothing claims delivery
+  ---
+  duration_ms: 0.4
+  ...
+# Subtest: consultation message: sanitizes control characters and enforces limits
+ok 81 - consultation message: sanitizes control characters and enforces limits
+  ---
+  duration_ms: 0.2123
+  ...
+# Subtest: the form never states that the consultation was sent
+ok 82 - the form never states that the consultation was sent
+  ---
+  duration_ms: 0.3733
+  ...
+# Subtest: analytics are not part of index.html and load only through the consent module
+ok 83 - analytics are not part of index.html and load only through the consent module
+  ---
+  duration_ms: 0.4926
+  ...
+# Subtest: robots and sitemap list only commercial pages
+ok 84 - robots and sitemap list only commercial pages
+  ---
+  duration_ms: 0.3608
+  ...
+# Subtest: production build FAILS without VITE_COMMERCIAL_WHATSAPP (no silent fallback)
+ok 85 - production build FAILS without VITE_COMMERCIAL_WHATSAPP (no silent fallback)
+  ---
+  duration_ms: 355.3035
+  ...
+# Subtest: production build FAILS with an invalid or empty number
+ok 86 - production build FAILS with an invalid or empty number
+  ---
+  duration_ms: 1524.4906
+  ...
+# Subtest: production build with a valid number succeeds and never contains the provisional number
+ok 87 - production build with a valid number succeeds and never contains the provisional number
+  ---
+  duration_ms: 9940.287
+  ...
+1..87
+# tests 87
+# suites 0
+# pass 87
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12006.9035

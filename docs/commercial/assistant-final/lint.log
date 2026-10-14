@@ -1,0 +1,31 @@
+
+> web-app@0.0.0 lint
+> eslint .
+
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\components\ManualQuoterPath.jsx
+  43:6  warning  React Hook useEffect has a missing dependency: 'groupedServices'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\components\Testimonials.jsx
+  47:6  warning  React Hook useEffect has a missing dependency: 'nextTestimonial'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\components\chat\ChatWidget.jsx
+  19:6  warning  React Hook useEffect has a missing dependency: 'initializeSession'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\components\proveedores\dashboard\ProveedorProductos.jsx
+  15:6  warning  React Hook useEffect has a missing dependency: 'fetchProductos'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\components\renders\RenderWizardStep2.jsx
+  55:6  warning  React Hook useEffect has a missing dependency: 'stopRecording'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\pages\ImageUploadPage.jsx
+  81:6  warning  React Hook useCallback has a missing dependency: 'handleFile'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\pages\PresupuestoPage.jsx
+  51:6  warning  React Hook useEffect has a missing dependency: 'trackView'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Jona\OneDrive\Documentos\New project\artifacts\commercial-assistant-web\src\pages\QuoterPage.jsx
+  51:6  warning  React Hook useEffect has a missing dependency: 'checkUserPlan'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 8 problems (0 errors, 8 warnings)
+

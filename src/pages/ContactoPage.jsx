@@ -9,7 +9,7 @@ const ContactoPage = () => (
     <SalesSEO
       path="/contacto"
       title="Contanos tu proyecto | INMEJORA"
-      description="Contanos qué querés hacer, tu localidad y para cuándo. Armamos tu consulta y la enviás por WhatsApp. Revisión inicial humana en un plazo objetivo de 24 a 72 horas hábiles desde que tenemos la información necesaria."
+      description="Contanos qué querés hacer, tu localidad y para cuándo. Armamos tu consulta y la enviás por WhatsApp. Revisión inicial humana en un plazo objetivo de 24 a 72 horas corridas desde que el responsable humano confirme que tenemos la información necesaria."
     />
     <SalesHeader />
     <main id="main-content" className="px-4 pt-28 pb-20">
