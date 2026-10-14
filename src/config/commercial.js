@@ -53,9 +53,9 @@ export const COMMERCIAL = Object.freeze({
 export const PRIMARY_CTA = 'Contanos tu proyecto';
 
 export const PROMISE = Object.freeze({
-  headline: 'Revisión inicial humana en 24 a 72 horas hábiles.',
-  short: 'Revisión humana en 24 a 72 horas hábiles',
-  note: 'El plazo objetivo cuenta desde que tenemos la información necesaria para revisar tu proyecto. Si requiere una visita o un relevamiento, comienza al completarlo. El presupuesto formal requiere aprobación humana; no se envía automáticamente.',
+  headline: 'Revisión inicial humana en 24 a 72 horas corridas.',
+  short: 'Revisión humana en 24 a 72 horas corridas',
+  note: 'El plazo objetivo cuenta desde que el responsable humano confirme que tenemos la información necesaria para revisar tu proyecto. La visita o un relevamiento los coordina el equipo, sin confirmación automática. El presupuesto formal requiere aprobación humana; no se envía automáticamente.',
 });
 
 export const phoneDisplay = () => formatPhone(COMMERCIAL.whatsapp);

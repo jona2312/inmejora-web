@@ -15,9 +15,9 @@ const src = walk('src').filter(f => /\.(jsx?|css)$/.test(f));
 
 test('P0 promises human review, never automatic pricing; web origin is declared only', () => {
   assert.match(PROMISE.headline, /Revisión inicial humana/);
-  assert.match(PROMISE.short, /24 a 72 horas hábiles/);
+  assert.match(PROMISE.short, /24 a 72 horas corridas/);
   assert.match(PROMISE.note, /plazo objetivo/);
-  assert.match(PROMISE.note, /comienza al completarlo/);
+  assert.match(PROMISE.note, /responsable humano confirme/);
   assert.match(PROMISE.note, /aprobación humana/);
   assert.match(PROMISE.note, /no se envía automáticamente/);
   const message = buildConsultaMessage({servicio:'pintura-y-terminaciones', localidad:'Quilmes', descripcion:'Pintura de una habitación'});
@@ -61,8 +61,8 @@ test('no WhatsApp number or wa.me literal exists outside the single config', () 
 });
 
 test('promise copy is exact and careful', () => {
-  assert.equal(PROMISE.headline, 'Revisión inicial humana en 24 a 72 horas hábiles.');
-  assert.match(PROMISE.note, /desde que tenemos la información necesaria/);
+  assert.equal(PROMISE.headline, 'Revisión inicial humana en 24 a 72 horas corridas.');
+  assert.match(PROMISE.note, /desde que el responsable humano confirme que tenemos la información necesaria/);
   assert.match(PROMISE.note, /visita o un relevamiento/);
   assert.equal(PRIMARY_CTA, 'Contanos tu proyecto');
 });
