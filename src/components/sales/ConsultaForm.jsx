@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MessageCircle, Copy, Check } from 'lucide-react';
 import { COMMERCIAL, PROMISE, buildWhatsappUrl } from '@/config/commercial';
@@ -6,10 +6,30 @@ import { ZONES, TIMING_OPTIONS, serviceBySlug, zoneBySlug } from '@/data/salesCo
 import { SERVICE_OPTIONS, buildConsultaMessage, validateConsulta, LIMITS } from '@/utils/consultaMessage';
 import { track } from '@/utils/track';
 
+import { createProjectCoreClient, localCoreEnabled } from '@/lib/projectCoreClient';
+import ProjectThread from '@/components/ProjectThread';
+
 const field = 'w-full rounded-lg bg-[#141414] border border-white/15 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37]';
 const label = 'block text-sm font-semibold text-gray-200 mb-1.5';
 
 const ConsultaForm = () => {
+  const local = localCoreEnabled();
+  const client = useRef(null);
+  if (!client.current) client.current = createProjectCoreClient();
+  const [context, setContext] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [failure, setFailure] = useState('');
+  const [photos, setPhotos] = useState([]);
+  const [readingPhotos, setReadingPhotos] = useState(false);
+  const [attempted, setAttempted] = useState(false);
+  const photoRead = useRef(false);
+  const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [colors, setColors] = useState('');
+  const lock = useRef(false);
+  useEffect(() => { if (!local) return; let active=true;
+    client.current.initialize().then(v=>{if(active)setContext(v);}).catch(()=>{if(active)setFailure('No se pudo conectar. No hay envío confirmado.');});
+    return ()=>{active=false;}; }, [local]);
   const [params] = useSearchParams();
   const initialService = serviceBySlug(params.get('servicio')) ? params.get('servicio') : '';
   const initialZone = zoneBySlug(params.get('zona'))?.name ?? '';
@@ -20,8 +40,24 @@ const ConsultaForm = () => {
 
   const set = key => event => setValues(current => ({ ...current, [key]: event.target.value }));
 
-  const submit = event => {
+  const submit = async event => {
     event.preventDefault();
+    if (local) {
+      if (lock.current || photoRead.current) return;
+      if (!values.nombre.trim() || !email.trim() || !consent || Object.keys(validateConsulta(values)).length) {
+        setFailure('Completá nombre, email, servicio, localidad, descripción y consentimiento.'); return;
+      }
+      lock.current=true;setBusy(true);setAttempted(true);setFailure('');
+      try {
+        const saved=await client.current.submit({name:values.nombre,email,locality:values.localidad,consent,
+          message:buildConsultaMessage(values),materials:colors,room:values.ambiente,
+          category:values.servicio==='pintura-y-terminaciones'?'pintar':values.servicio==='diseno-y-visualizacion'?'disenar':'consulta'});
+        for (const photo of photos) await client.current.photo(saved, photo);
+        setContext(saved);
+      } catch { setFailure('No se confirmó todo el envío. Reintentá sin cambiar los datos; no se duplicará la consulta.'); }
+      finally {lock.current=false;setBusy(false);}
+      return;
+    }
     if (!COMMERCIAL.channelEnabled) return; // fail-closed: no number configured, nothing is prepared or opened
     const found = validateConsulta(values);
     setErrors(found);
@@ -47,7 +83,7 @@ const ConsultaForm = () => {
     }
   };
 
-  if (!COMMERCIAL.channelEnabled) {
+  if (!local && !COMMERCIAL.channelEnabled) {
     return (
       <div role="alert" className="rounded-xl border border-red-400/40 bg-red-400/5 p-6 text-gray-200" data-channel="disabled">
         <p className="font-bold text-white">Por el momento no podemos recibir consultas por este medio.</p>
@@ -56,8 +92,15 @@ const ConsultaForm = () => {
     );
   }
 
+  if (local && context) return <section className="space-y-4" aria-label="Consulta guardada">
+    <h2>Consulta guardada en INMEJORA</h2><p>Proyecto: <span data-testid="project_id">{context.project_id}</span></p>
+    <p>Conversación: <span data-testid="conversation_id">{context.conversation_id}</span></p>
+    <p>{PROMISE.short}. {PROMISE.note}</p>
+    <ProjectThread client={client.current} context={context} onRefresh={async()=>setContext(await client.current.current())} />
+  </section>;
   return (
     <form onSubmit={submit} noValidate className="space-y-5" aria-describedby="consulta-note">
+      <fieldset disabled={local && (busy || attempted)} className="space-y-5">
       <div>
         <label htmlFor="consulta-servicio" className={label}>¿Qué querés hacer? *</label>
         <select id="consulta-servicio" value={values.servicio} onChange={set('servicio')} className={field} aria-invalid={!!errors.servicio} aria-required="true">
@@ -104,12 +147,29 @@ const ConsultaForm = () => {
         <input id="consulta-nombre" value={values.nombre} onChange={set('nombre')} maxLength={80} autoComplete="name" className={field} />
       </div>
 
+      {local && <fieldset disabled={busy || readingPhotos} className="space-y-3">
+        <label className={label}>Email de contacto<input type="email" aria-label="Email de contacto" value={email} onChange={e=>setEmail(e.target.value)} className={field} required /></label>
+        <label className={label}>Colores o materiales elegidos<input aria-label="Colores o materiales elegidos" value={colors} onChange={e=>setColors(e.target.value)} maxLength={500} className={field} /></label>
+        <label className={label}>Fotos privadas (hasta 4, máximo 2 MB cada una)<input type="file" aria-label="Fotos privadas" accept="image/png,image/jpeg,image/webp" multiple onChange={async e=>{
+          const files=[...e.target.files];
+          setPhotos([]);
+          if(files.length>4 || files.some(f=>f.size>2*1024*1024)){setFailure('Máximo cuatro fotos de 2 MB.');e.target.value='';return;}
+          photoRead.current=true;setReadingPhotos(true);
+          try {setPhotos(await Promise.all(files.map(async file=>({idempotency_key:crypto.randomUUID(),media_type:file.type,
+            base64:await new Promise((resolve,reject)=>{const r=new FileReader();r.onerror=reject;r.onload=()=>resolve(String(r.result).split(',')[1]);r.readAsDataURL(file);})}))));}
+          catch {setFailure('No se pudieron leer las fotos.');}
+          finally {photoRead.current=false;setReadingPhotos(false);}
+        }} /></label>
+        <label><input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} /> Autorizo el contacto y el almacenamiento privado de mi consulta y fotos.</label>
+        {failure && <p role="alert">{failure}</p>}
+      </fieldset>}
+      </fieldset>
       <p id="consulta-note" className="text-sm text-gray-400">
-        Al continuar se abre WhatsApp con tu consulta lista para enviar. <strong className="text-gray-200">Tu consulta llega a INMEJORA cuando la enviás desde WhatsApp.</strong> Las fotos las sumás ahí mismo.
+        {local ? 'La consulta y las fotos se guardan en el Dashboard. La confirmación aparece sólo después de persistirlas; no se abre WhatsApp.' : <>Al continuar se abre WhatsApp con tu consulta lista para enviar. <strong className="text-gray-200">Tu consulta llega a INMEJORA cuando la enviás desde WhatsApp.</strong> Las fotos las sumás ahí mismo.</>}
       </p>
 
-      <button type="submit" className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--accent-cta))] px-8 py-4 text-lg font-bold text-white hover:bg-[hsl(24_100%_45%)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
-        <MessageCircle className="w-5 h-5" aria-hidden="true" /> Continuar por WhatsApp
+      <button type="submit" disabled={busy || readingPhotos} className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--accent-cta))] px-8 py-4 text-lg font-bold text-white hover:bg-[hsl(24_100%_45%)] focus:outline-none focus-visible:ring-2 focus-visible:ring-white">
+        <MessageCircle className="w-5 h-5" aria-hidden="true" /> {local ? (busy ? 'Guardando…' : 'Guardar consulta') : 'Continuar por WhatsApp'}
       </button>
       <p className="text-center text-sm text-gray-400">{PROMISE.short}. {PROMISE.note}</p>
 
