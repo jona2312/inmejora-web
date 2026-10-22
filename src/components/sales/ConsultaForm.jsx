@@ -6,7 +6,7 @@ import { ZONES, TIMING_OPTIONS, serviceBySlug, zoneBySlug } from '@/data/salesCo
 import { SERVICE_OPTIONS, buildConsultaMessage, validateConsulta, LIMITS } from '@/utils/consultaMessage';
 import { track } from '@/utils/track';
 
-import { createProjectCoreClient, localCoreEnabled } from '@/lib/projectCoreClient';
+import { createProjectCoreClient, localCoreEnabled, invitationFromSearch } from '@/lib/projectCoreClient';
 import ProjectThread from '@/components/ProjectThread';
 
 const field = 'w-full rounded-lg bg-[#141414] border border-white/15 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37]';
@@ -15,7 +15,12 @@ const label = 'block text-sm font-semibold text-gray-200 mb-1.5';
 const ConsultaForm = () => {
   const local = localCoreEnabled();
   const client = useRef(null);
-  if (!client.current) client.current = createProjectCoreClient();
+  if (!client.current) {
+    // Read once from ?inv=, keep in memory and strip it from the address bar / history.
+    const invitation = local ? invitationFromSearch(globalThis.location?.search) : null;
+    if (invitation) globalThis.history?.replaceState(null, '', globalThis.location.pathname + globalThis.location.hash);
+    client.current = createProjectCoreClient({ invitation });
+  }
   const [context, setContext] = useState(null);
   const [busy, setBusy] = useState(false);
   const [failure, setFailure] = useState('');

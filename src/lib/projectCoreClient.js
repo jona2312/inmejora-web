@@ -36,15 +36,24 @@ export function toLeadRequest(values, key) {
   };
 }
 
-export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globalThis), enabled = localCoreEnabled, timeoutMs = 8000} = {}) {
+// Controlled admission: Core only opens an anonymous intake session for a one-use invitation
+// (64 lowercase hex characters) sent as X-Intake-Invitation on POST /intake-sessions.
+// It is a capability, not an identity; it is held in memory only and never persisted.
+export const INVITATION_PATTERN = /^[a-f0-9]{64}$/;
+export function invitationFromSearch(search) {
+  const value = new URLSearchParams(search || '').get('inv');
+  return value && INVITATION_PATTERN.test(value) ? value : null;
+}
+export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globalThis), enabled = localCoreEnabled, timeoutMs = 8000, invitation = null} = {}) {
+  const invite = invitation && INVITATION_PATTERN.test(invitation) ? invitation : null;
   let csrf, initialization, pendingBody, submission, pendingMessage, messageSubmission;
-  async function request(path, method = 'GET', body) {
+  async function request(path, method = 'GET', body, extraHeaders = {}) {
     if (!enabled()) throw new ProjectCoreError('LOCAL_CORE_DISABLED');
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
       const response = await fetchImpl('/api/v1' + path, {method, credentials: 'same-origin', redirect: 'error', signal: controller.signal,
-        headers: {'Content-Type': 'application/json', ...(csrf ? {'X-CSRF-Token': csrf} : {})},
+        headers: {'Content-Type': 'application/json', ...(csrf ? {'X-CSRF-Token': csrf} : {}), ...extraHeaders},
         ...(body === undefined ? {} : {body: JSON.stringify(body)})});
       if (!response.ok) throw new ProjectCoreError('CORE_HTTP_' + response.status, response.status);
       try {return await response.json();} catch {throw new ProjectCoreError('INVALID_CORE_RESPONSE');}
@@ -73,7 +82,7 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
       try {return await current();} catch (error) {
         // Only initial absence of a capability creates a session. Failed POSTs never rotate it.
         if (error.status !== 401) throw error;
-        const session = await request('/intake-sessions', 'POST', {});
+        const session = await request('/intake-sessions', 'POST', {}, invite ? {'X-Intake-Invitation': invite} : {});
         if (typeof session.csrf_token !== 'string' || session.csrf_token.length !== 64) throw new ProjectCoreError('INVALID_CORE_RESPONSE');
         csrf = session.csrf_token; return null;
       }
