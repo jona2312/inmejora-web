@@ -12,7 +12,6 @@ import { useImageUpload } from '@/hooks/useImageUpload';
 import UploadSuccessModal from '@/components/upload/UploadSuccessModal';
 import UploadErrorModal from '@/components/upload/UploadErrorModal';
 import { useRenderValidation } from '@/hooks/useRenderValidation';
-import { useSubscription } from '@/contexts/SubscriptionContext';
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
@@ -30,7 +29,6 @@ const ImageUploadPage = () => {
   
   const { uploadImage, loading, error, success, data, resetState } = useImageUpload();
   const { validateRender } = useRenderValidation();
-  const { deductCredit, creditsRemaining } = useSubscription();
 
   const getFileSize = (bytes) => {
     if (bytes === 0) return '0 Bytes';
@@ -96,42 +94,15 @@ const ImageUploadPage = () => {
 
   const handleSubmit = async () => {
     if (!file) return;
-
-    // 1. Check render eligibility
-    const { isEligible, errorMessage, errorType } = validateRender();
-    
+    const { isEligible, errorMessage } = validateRender();
     if (!isEligible) {
-      toast({
-        variant: "destructive",
-        title: "No es posible renderizar",
-        description: errorMessage,
-      });
-      if (errorType === 'no_credits' || errorType === 'no_subscription') {
-        navigate('/precios');
-      }
+      toast({ variant: 'destructive', title: 'No es posible renderizar', description: errorMessage });
       return;
     }
-
-    // 2. Process Upload & Render
-    // (Assuming uploadImage throws on fail, or sets error state)
-    await uploadImage(file, description);
-    
-    // We ideally should only deduct if uploadImage was truly successful. 
-    // Since we don't have direct access to its internal success boolean inside this sync flow without relying on effect,
-    // we'll check if error is not set (assuming uploadImage is async and waits for completion).
-    // Actually, uploadImage handles its own state, but we need to know if it passed.
-    // Let's assume uploadImage resolves successfully if no throw.
-    
-    // In a real app, this deductCredit should be called by the backend upon successful render generation,
-    // or we wait for success state. Let's do it here simulating a successful generation step.
-    const deducted = await deductCredit(1);
-    
-    if (deducted) {
-       toast({
-         title: "¡Render generado!",
-         description: `Se ha deducido 1 crédito. Te quedan ${creditsRemaining - 1} renders.`,
-         className: "bg-[#141414] border-[#FCB048] text-white",
-       });
+    try {
+      await uploadImage(file, description);
+    } catch {
+      // The hook reports the provider-disabled state. No local credit deduction.
     }
   };
 
