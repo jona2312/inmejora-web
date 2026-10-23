@@ -24,6 +24,36 @@ test('gallery validates canonical IDs, never accepts a provider URL and uses sam
   assert.throws(()=>api.galleryPhotoPath(context,'https://example.invalid/a'),/INVALID_PHOTO_ID/);
   assert.throws(()=>api.galleryPhotoPath({...context,project_id:'../outside'},data.photos[0].id),/INVALID_THREAD_IDS/);
 });
+test('render results require a succeeded matching job and reject foreign project, paths and invented pending image',async()=>{
+  const id=randomUUID(),attempt=randomUUID();
+  const payload={schema_version:'render-gallery.v1',project_id:context.project_id,
+    results:[{id,attempt_id:attempt,conversation_id:context.conversation_id,media_type:'image/png',created_at:'2026-10-23T12:00:00.000Z'}],
+    jobs:[{attempt_id:attempt,conversation_id:context.conversation_id,state:'succeeded'}]};
+  const {api}=client(payload);assert.deepEqual(await api.renderResults(context),payload);
+  assert.equal(api.renderResultPath(context,id),`/api/v1/projects/${context.project_id}/render-results/${id}`);
+  assert.throws(()=>api.renderResultPath(context,'../private'),/INVALID_PHOTO_ID/);
+  for(const invalid of [{...payload,project_id:randomUUID()},{...payload,results:[{...payload.results[0],url:'https://example.invalid'}]},
+    {...payload,jobs:[{...payload.jobs[0],state:'pending'}]},{...payload,jobs:[{...payload.jobs[0],conversation_id:randomUUID()}]},
+    {...payload,results:[payload.results[0],payload.results[0]]}])
+    await assert.rejects(client(invalid).api.renderResults(context),/INVALID_RENDER_GALLERY/);
+  for(const state of ['pending','uncertain','failed']) assert.equal((await client({...payload,results:[],jobs:[{...payload.jobs[0],state}]}).api.renderResults(context)).results.length,0);
+});
+test('feedback retries exact key after lost response; conflicting action cannot become another mutation',async()=>{
+  const artifact_id=randomUUID(),bodies=[];
+  const payload={schema_version:'render-feedback.v1',project_id:context.project_id,revision:1,can_feedback:true,
+    feedback:{revision:1,artifact_id,action:'select',created_at:'2026-10-23T12:00:00.000Z'}};
+  const api=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+    if(path==='/api/v1/intakes/current')return {ok:true,json:async()=>({csrf_token:'x'.repeat(64),receipt:null})};
+    bodies.push(JSON.parse(options.body));assert.equal(options.headers['X-CSRF-Token'],'x'.repeat(64));
+    if(bodies.length===1)throw Error('Synthetic lost response');return {ok:true,json:async()=>payload};
+  }});
+  const input={artifact_id,action:'select',expected_revision:0};
+  await assert.rejects(api.feedback(context,input),/CORE_UNAVAILABLE/);
+  await assert.rejects(api.feedback(context,{...input,action:'adjust'}),/PENDING_FEEDBACK_MISMATCH/);
+  assert.deepEqual(await api.feedback(context,input),payload);assert.deepEqual(bodies[0],bodies[1]);
+  await assert.rejects(client({...payload,revision:2}).api.renderFeedback(context),/INVALID_RENDER_FEEDBACK/);
+  await assert.rejects(client({...payload,project_id:randomUUID()}).api.renderFeedback(context),/INVALID_RENDER_FEEDBACK/);
+});
 test('a project gallery is readable from a second authorized conversation',async()=>{
   const second={...context,conversation_id:randomUUID()};
   assert.deepEqual(await client().api.gallery(second),data);

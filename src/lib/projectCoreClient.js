@@ -25,7 +25,17 @@ const gallerySchema = z.object({
   photos:z.array(z.object({id:z.string().uuid(),conversation_id:z.string().uuid(),media_type:z.enum(['image/png','image/jpeg','image/webp']),
     created_at:z.string().datetime(),source:z.literal('web_upload')}).strict()).max(4),
   render_generation:z.object({enabled:z.literal(false),status:z.literal('BLOCKED_SOURCE_EXPORT')}).strict(),
+  render_results_enabled:z.literal(true).optional(),
 }).strict();
+const renderResultsSchema=z.object({
+  schema_version:z.literal('render-gallery.v1'),project_id:z.string().uuid(),
+  results:z.array(z.object({id:z.string().uuid(),attempt_id:z.string().uuid(),conversation_id:z.string().uuid(),
+    media_type:z.enum(['image/png','image/jpeg','image/webp']),created_at:z.string().datetime()}).strict()),
+  jobs:z.array(z.object({attempt_id:z.string().uuid(),conversation_id:z.string().uuid(),state:z.enum(['pending','uncertain','failed','succeeded'])}).strict()),
+}).strict();
+const feedbackSchema=z.object({schema_version:z.literal('render-feedback.v1'),project_id:z.string().uuid(),revision:z.number().int().nonnegative(),
+  can_feedback:z.boolean(),feedback:z.object({revision:z.number().int().positive(),artifact_id:z.string().uuid(),
+    action:z.enum(['select','adjust']),created_at:z.string().datetime()}).strict().nullable()}).strict();
 export function localCoreEnabled() {
   return import.meta.env.DEV && import.meta.env.MODE === 'project-core-local' &&
     globalThis.location?.protocol === 'http:' && globalThis.location?.hostname === '127.0.0.1';
@@ -43,7 +53,7 @@ export function toLeadRequest(values, key) {
 }
 
 export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globalThis), enabled = localCoreEnabled, timeoutMs = 8000} = {}) {
-  let csrf, initialization, pendingBody, submission, pendingMessage, messageSubmission;
+  let csrf, initialization, pendingBody, submission, pendingMessage, messageSubmission, pendingFeedback, feedbackSubmission;
   async function request(path, method = 'GET', body) {
     if (!enabled()) throw new ProjectCoreError('LOCAL_CORE_DISABLED');
     const controller = new AbortController();
@@ -151,5 +161,41 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     if(!z.string().uuid().safeParse(id).success) throw new ProjectCoreError('INVALID_PHOTO_ID');
     return '/api/v1/projects/'+context.project_id+'/gallery/'+id;
   }
-  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath};
+  async function renderResults(context) {
+    threadPath(context); await initialize();
+    const parsed=renderResultsSchema.safeParse(await request('/projects/'+context.project_id+'/render-results'));
+    if(!parsed.success || parsed.data.project_id!==context.project_id ||
+      new Set(parsed.data.results.map(r=>r.id)).size!==parsed.data.results.length ||
+      new Set(parsed.data.jobs.map(j=>j.attempt_id)).size!==parsed.data.jobs.length ||
+      parsed.data.results.some(r=>!parsed.data.jobs.some(j=>j.attempt_id===r.attempt_id && j.conversation_id===r.conversation_id && j.state==='succeeded')))
+      throw new ProjectCoreError('INVALID_RENDER_GALLERY');
+    return parsed.data;
+  }
+  function renderResultPath(context,id) {
+    return galleryPhotoPath(context,id).replace('/gallery/','/render-results/');
+  }
+  function validFeedback(data,context) {
+    const parsed=feedbackSchema.safeParse(data);
+    if(!parsed.success || parsed.data.project_id!==context.project_id ||
+      (parsed.data.feedback ? parsed.data.feedback.revision!==parsed.data.revision : parsed.data.revision!==0))
+      throw new ProjectCoreError('INVALID_RENDER_FEEDBACK');
+    return parsed.data;
+  }
+  async function renderFeedback(context) {
+    threadPath(context); await initialize();
+    return validFeedback(await request('/projects/'+context.project_id+'/render-feedback'),context);
+  }
+  function feedback(context,{artifact_id,action,expected_revision}) {
+    threadPath(context);
+    z.object({artifact_id:z.string().uuid(),action:z.enum(['select','adjust']),expected_revision:z.number().int().nonnegative()}).parse({artifact_id,action,expected_revision});
+    const path='/projects/'+context.project_id+'/render-feedback';
+    if(pendingFeedback && (pendingFeedback.path!==path || pendingFeedback.body.artifact_id!==artifact_id || pendingFeedback.body.action!==action))
+      return Promise.reject(new ProjectCoreError('PENDING_FEEDBACK_MISMATCH'));
+    if(feedbackSubmission) return feedbackSubmission;
+    pendingFeedback ??= {path,body:{artifact_id,action,expected_revision,request_key:globalThis.crypto.randomUUID()}};
+    feedbackSubmission=(async()=>{await initialize();const view=validFeedback(await request(path,'POST',pendingFeedback.body),context);pendingFeedback=undefined;return view;})()
+      .catch(error=>{if([403,404,409,422].includes(error.status))pendingFeedback=undefined;throw error;}).finally(()=>{feedbackSubmission=undefined;});
+    return feedbackSubmission;
+  }
+  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath, renderResults, renderResultPath, renderFeedback, feedback};
 }
