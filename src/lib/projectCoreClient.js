@@ -136,9 +136,11 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
   async function gallery(context) {
     threadPath(context);
     await initialize();
+    // Core authorizes this project and verifies each photo belongs to it.
+    // Photo conversation IDs preserve provenance; they need not equal the intake thread.
     const parsed=gallerySchema.safeParse(await request('/projects/'+context.project_id+'/gallery'));
     if(!parsed.success || parsed.data.project_id!==context.project_id || parsed.data.conversation_id!==context.conversation_id ||
-      parsed.data.photos.some(p=>p.conversation_id!==context.conversation_id) || new Set(parsed.data.photos.map(p=>p.id)).size!==parsed.data.photos.length)
+      new Set(parsed.data.photos.map(p=>p.id)).size!==parsed.data.photos.length)
       throw new ProjectCoreError('INVALID_PRIVATE_GALLERY');
     return parsed.data;
   }
