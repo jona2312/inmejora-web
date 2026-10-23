@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { User, LogOut, Settings, FileText, Image as ImageIcon, Crown, PlusCircle } from 'lucide-react';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
-import { supabase } from '@/lib/customSupabaseClient';
+import { useSubscription } from '@/contexts/SubscriptionContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
@@ -18,38 +18,13 @@ import {
 const PortalPage = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [subData, setSubData] = useState({ plan: 'Explorar', credits: 0, cap: 5, renderCount: 0 });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!user) return;
-      try {
-        const { data: subs } = await supabase
-          .from('client_subscriptions')
-          .select('*')
-          .eq('client_id', user.id)
-          .order('created_at', { ascending: false })
-          .limit(1);
-
-        if (subs && subs.length > 0) {
-          const { data: creds } = await supabase
-            .from('client_credits')
-            .select('*')
-            .eq('subscription_id', subs[0].id);
-          
-          setSubData({
-            plan: subs[0].plan || 'Explorar',
-            credits: creds?.length > 0 ? creds[0].credits_remaining : 0,
-            cap: creds?.length > 0 ? creds[0].credits_total : 5,
-            renderCount: creds?.length || 0
-          });
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetchData();
-  }, [user]);
+  // Project Core remains the only authority for render credit balances.
+  // Unknown is never presented as a numeric balance or confirmed render.
+  const { currentSubscription, creditsRemaining, creditsTotal } = useSubscription();
+  const creditsAccredited = Number.isSafeInteger(creditsRemaining) && Number.isSafeInteger(creditsTotal) &&
+    creditsRemaining >= 0 && creditsTotal >= 0 && creditsRemaining <= creditsTotal;
+  const creditLabel = creditsAccredited ? `${creditsRemaining} / ${creditsTotal}` : 'No disponibles';
+  const planLabel = currentSubscription?.plan || 'No acreditado';
 
   const handleLogout = () => {
     logout();
@@ -150,8 +125,8 @@ const PortalPage = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-3xl font-bold text-white">{subData.renderCount}</p>
-                  <p className="text-sm text-gray-400 mt-1">Imágenes generadas</p>
+                  <p className="text-3xl font-bold text-white">—</p>
+                  <p className="text-sm text-gray-400 mt-1">Renders pendientes de acreditar</p>
                 </CardContent>
               </Card>
 
@@ -175,20 +150,15 @@ const PortalPage = () => {
                 <CardTitle className="flex items-center gap-2 text-[#d4af37]">
                   <Crown className="h-5 w-5" /> Mi Suscripción
                 </CardTitle>
-                <CardDescription className="text-gray-400 uppercase font-bold">{subData.plan}</CardDescription>
+                <CardDescription className="text-gray-400 uppercase font-bold">{planLabel}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
                   <div className="flex justify-between text-sm mb-2 font-medium">
                     <span className="text-gray-400">Créditos disponibles</span>
-                    <span className="text-white">{subData.credits} / {subData.cap}</span>
+                    <span className="text-white">{creditLabel}</span>
                   </div>
-                  <div className="w-full bg-[#333] rounded-full h-2.5">
-                    <div 
-                      className="bg-[#d4af37] h-2.5 rounded-full" 
-                      style={{ width: `${Math.min(100, (subData.credits / (subData.cap || 1)) * 100)}%` }}
-                    />
-                  </div>
+                  {!creditsAccredited && <p role="status" className="text-xs text-gray-400">Saldo de renders todavía no acreditado por Project Core.</p>}
                 </div>
                 
                 <Button onClick={() => navigate('/precios')} className="w-full bg-[#d4af37] text-black hover:bg-[#b5952f] font-bold rounded-lg">
