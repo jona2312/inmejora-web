@@ -14,7 +14,7 @@ const RendersPage = () => {
         <title>Generador de Renders IA | INMEJORA</title>
         <meta 
           name="description" 
-          content="Genera renders fotorrealistas de tu espacio con inteligencia artificial. Sube tu foto, describe tu visión y recibe tu render en menos de 2 horas." 
+          content="Consultá las fotografías privadas de tu proyecto. Generación de renders todavía no habilitada."
         />
       </Helmet>
 

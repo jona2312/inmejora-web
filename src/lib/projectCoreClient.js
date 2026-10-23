@@ -20,6 +20,12 @@ const publicThreadSchema = z.object({
 export class ProjectCoreError extends Error {
   constructor(code, status = 0) { super(code); this.code = code; this.status = status; }
 }
+const gallerySchema = z.object({
+  schema_version:z.literal('private-gallery.v1'), project_id:z.string().uuid(), conversation_id:z.string().uuid(),
+  photos:z.array(z.object({id:z.string().uuid(),conversation_id:z.string().uuid(),media_type:z.enum(['image/png','image/jpeg','image/webp']),
+    created_at:z.string().datetime(),source:z.literal('web_upload')}).strict()).max(4),
+  render_generation:z.object({enabled:z.literal(false),status:z.literal('BLOCKED_SOURCE_EXPORT')}).strict(),
+}).strict();
 export function localCoreEnabled() {
   return import.meta.env.DEV && import.meta.env.MODE === 'project-core-local' &&
     globalThis.location?.protocol === 'http:' && globalThis.location?.hostname === '127.0.0.1';
@@ -127,5 +133,20 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     if(result.status!=='stored' || !z.string().uuid().safeParse(result.id).success) throw new ProjectCoreError('INVALID_PHOTO_RECEIPT');
     return result;
   }
-  return {initialize, submit, current, thread, message, photo};
+  async function gallery(context) {
+    threadPath(context);
+    await initialize();
+    const parsed=gallerySchema.safeParse(await request('/projects/'+context.project_id+'/gallery'));
+    if(!parsed.success || parsed.data.project_id!==context.project_id || parsed.data.conversation_id!==context.conversation_id ||
+      parsed.data.photos.some(p=>p.conversation_id!==context.conversation_id) || new Set(parsed.data.photos.map(p=>p.id)).size!==parsed.data.photos.length)
+      throw new ProjectCoreError('INVALID_PRIVATE_GALLERY');
+    return parsed.data;
+  }
+  function galleryPhotoPath(context, id) {
+    if(!enabled()) throw new ProjectCoreError('LOCAL_CORE_DISABLED');
+    threadPath(context);
+    if(!z.string().uuid().safeParse(id).success) throw new ProjectCoreError('INVALID_PHOTO_ID');
+    return '/api/v1/projects/'+context.project_id+'/gallery/'+id;
+  }
+  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath};
 }

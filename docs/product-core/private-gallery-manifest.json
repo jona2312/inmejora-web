@@ -1,0 +1,26 @@
+{
+  "base": "296fdef9f3ff3acb5ba81ea28113417a4de48980",
+  "core_base": "240f4946d5fde3f58dc3ae9fb2d3a1c750a14e21",
+  "contract": "private-gallery.v1",
+  "n8n": "BLOCKED_SOURCE_EXPORT",
+  "encoding": "UTF8 CRLF normalized LF",
+  "sha256": {
+    "src/lib/projectCoreClient.js": "e8ed8f6f3bdb1573feb70dbce583180d2984b2710dbedb9b3e2f8189b41ad864",
+    "src/utils/rendersAPI.js": "ac33b24b2f5b3f06efa5882e15cd37ff73aef292bbc3d80932c54cf80a2c0ed7",
+    "src/components/renders/RenderGallerySection.jsx": "5e399ebeb3d094ab159d0f3458f2b56e1bd08d0d777a663cb23a7981d318bb72",
+    "src/components/renders/RenderWizardContainer.jsx": "36d3e0031f61489837a70d86e0724af0523637181cb4a7b3c1db73583bc76479",
+    "src/components/renders/CreditsDisplay.jsx": "6d87d596fac5f55f5bde367cba27037fa790de3d1df6084eb98603ee5bd76124",
+    "src/components/renders/PageHeader.jsx": "661aab083490276dce6e6fa910d3a1805e21968b9e070fade95af406136f3ad1",
+    "src/pages/RendersPage.jsx": "0429eec8ae49700057e2400878269efcdbbf751abc857f88711b2223811e03ff",
+    "src/components/sales/ConsultaForm.jsx": "6866811737efef4ff7621c9b9f7498ce08869fe1da6a018893caba44e1680aa6",
+    "src/components/dashboard/CreditsWidget.jsx": "d5c09b45bc71674ef49eb765303527e5fa2a37491dcbc816805a7edeb1d64986",
+    "src/contexts/SubscriptionContext.jsx": "6387e11e38e96830d9f8416c54fe0e1ecb8ca4021756059b9e646178c1078014",
+    "src/contexts/unavailableSubscription.js": "1e8900a39881360a91b7acb3e9130321ac231491f8a2ed8d9d40c73d49e3daf2",
+    "tests/ci/private-gallery.test.mjs": "aed720819540dfc2d8594a565c6025d4e6e6ba8fa10088070dfb684cbb99c223",
+    "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
+    ".github/workflows/p0-web-offline.yml": "8394d330119907b8e2e5250e9840b675a62eba59b6a3fff3968ec810056522ab",
+    "package.json": "ac1094d9b35c29933789d1367271c4ec25cc85b17302fbf4c5b530a69953ba9f",
+    "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
+    "docs/product-core/private-gallery-manifest.mjs": "e2fc8f2aeb1fcedce86d8c4a13771ff67a1ffe36e420ff3298dbc8fe9bc8bfca"
+  }
+}

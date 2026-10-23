@@ -8,6 +8,7 @@ import { track } from '@/utils/track';
 
 import { createProjectCoreClient, localCoreEnabled } from '@/lib/projectCoreClient';
 import ProjectThread from '@/components/ProjectThread';
+import RenderGallerySection from '@/components/renders/RenderGallerySection';
 
 const field = 'w-full rounded-lg bg-[#141414] border border-white/15 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37]';
 const label = 'block text-sm font-semibold text-gray-200 mb-1.5';
@@ -97,6 +98,7 @@ const ConsultaForm = () => {
     <p>Conversación: <span data-testid="conversation_id">{context.conversation_id}</span></p>
     <p>{PROMISE.short}. {PROMISE.note}</p>
     <ProjectThread client={client.current} context={context} onRefresh={async()=>setContext(await client.current.current())} />
+    <RenderGallerySection client={client.current} context={context} />
   </section>;
   return (
     <form onSubmit={submit} noValidate className="space-y-5" aria-describedby="consulta-note">

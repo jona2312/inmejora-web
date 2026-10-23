@@ -1,45 +1,11 @@
-import { supabase } from '@/lib/customSupabaseClient';
-
-export const rendersAPI = {
-  upload: async () => {
-    return { ok: true, url: '' }; // Mock since external API removed
-  },
-  generate: async () => {
-    return { ok: true };
-  },
-  edit: async () => {
-    return { ok: true };
-  },
-  list: async () => {
-    const userStr = localStorage.getItem('inmejora_user');
-    if (!userStr) return [];
-    const user = JSON.parse(userStr);
-    
-    const { data: subs } = await supabase
-      .from('client_subscriptions')
-      .select('id')
-      .eq('client_id', user.id)
-      .limit(1);
-
-    if (!subs || subs.length === 0) return [];
-    
-    const { data } = await supabase
-      .from('client_credits')
-      .select('*')
-      .eq('subscription_id', subs[0].id);
-
-    return data || [];
-  },
-  detail: async (id) => {
-    const { data } = await supabase.from('client_credits').select('*').eq('id', id).single();
-    return data;
-  },
-  delete: async (id) => {
-    const { error } = await supabase.from('client_credits').delete().eq('id', id);
-    if (error) throw error;
-    return { ok: true };
-  },
-  download: async () => {
-    return { url: '' };
-  }
+// No reviewed n8n functional source exists yet. Legacy operations cannot fake
+// provider success, mutate credit tables or derive identity from browser storage.
+const unavailable = async () => {
+  const error = new Error('La generación de renders todavía no está habilitada. No se envió ni se cobró una solicitud.');
+  error.code = 'BLOCKED_SOURCE_EXPORT';
+  throw error;
 };
+export const rendersAPI = Object.freeze({
+  upload:unavailable, generate:unavailable, edit:unavailable, list:unavailable,
+  detail:unavailable, delete:unavailable, download:unavailable,
+});
