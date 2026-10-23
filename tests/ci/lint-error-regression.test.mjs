@@ -188,3 +188,14 @@ test('auth field validators keep original name/password bounds, matching and opt
   assert.equal(auth.validatePhone('').isValid, true);
   assert.equal(auth.validatePhone('invalid').isValid, false);
 });
+
+test('unknown canonical balance is unavailable, never rendered as zero or a promotion', async () => {
+  const result = await renderComponent('src/components/dashboard/CreditsWidget.jsx', {
+    currentSubscription:null, creditsRemaining:null, creditsTotal:null, creditsUsed:null,
+    error:'Ledger no acreditado',loading:false,
+  });
+  assert.match(result.html,/Créditos no disponibles/);
+  assert.match(result.html,/Ledger no acreditado/);
+  assert.doesNotMatch(result.html,/Plan Gratis|0 créditos|3 créditos/);
+  assert.equal(result.clicks.length,0);
+});

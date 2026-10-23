@@ -1,0 +1,11 @@
+{
+  "data": "synthetic only",
+  "unit": {"passed":93,"failed":0},
+  "lint": {"errors":0,"inheritedWarnings":8},
+  "build": "PASS offline",
+  "browser": {"passed":315,"skipped":55,"failed":0,"viewports":[360,390,412,768,1440]},
+  "n8n": "BLOCKED_SOURCE_EXPORT",
+  "realProviderCalls": 0,
+  "realMessages": 0,
+  "productionChanges": 0
+}

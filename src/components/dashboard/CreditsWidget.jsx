@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Infinity as InfinityIcon } from 'lucide-react';
 
 const CreditsWidget = () => {
-  const { currentSubscription, creditsRemaining, creditsTotal, creditsUsed, planColor, renewalDate, loading } = useSubscription();
+  const { currentSubscription, creditsRemaining, creditsTotal, creditsUsed, planColor, renewalDate, loading, error } = useSubscription();
   const navigate = useNavigate();
 
   if (loading) {
@@ -17,6 +17,11 @@ const CreditsWidget = () => {
       </Card>
     );
   }
+
+  if (error || creditsRemaining === null) return <Card className="bg-[#141414] border-gray-800 p-6">
+    <CardTitle>Créditos no disponibles</CardTitle>
+    <p role="status">{error || 'No se pudo acreditar el saldo del ledger canónico.'}</p>
+  </Card>;
 
   const planName = typeof currentSubscription === 'object' && currentSubscription !== null 
     ? currentSubscription?.plan || 'free'

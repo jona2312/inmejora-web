@@ -36,7 +36,7 @@ const PageHeader = () => {
         transition={{ delay: 0.2 }}
         className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
       >
-        Describe tu visión, sube tu foto y nuestro equipo la transforma
+        Fotografías de tu proyecto y preparación de la visualización
       </motion.p>
 
       <motion.div
@@ -46,7 +46,7 @@ const PageHeader = () => {
         className="mt-6 flex items-center justify-center gap-2 text-gray-500 text-sm"
       >
         <div className="h-px w-12 bg-gray-700" />
-        <span>Tiempo de respuesta: menos de 2 horas</span>
+        <span>Generación todavía no habilitada</span>
         <div className="h-px w-12 bg-gray-700" />
       </motion.div>
     </div>
