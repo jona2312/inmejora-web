@@ -24,8 +24,13 @@ test('gallery validates canonical IDs, never accepts a provider URL and uses sam
   assert.throws(()=>api.galleryPhotoPath(context,'https://example.invalid/a'),/INVALID_PHOTO_ID/);
   assert.throws(()=>api.galleryPhotoPath({...context,project_id:'../outside'},data.photos[0].id),/INVALID_THREAD_IDS/);
 });
-test('cross-project, conversation drift, internal fields, malformed dates and duplicate IDs reject',async()=>{
-  const variants=[{...data,project_id:randomUUID()},{...data,conversation_id:randomUUID()},
+test('a project gallery is readable from a second authorized conversation',async()=>{
+  const second={...context,conversation_id:randomUUID()};
+  assert.deepEqual(await client().api.gallery(second),data);
+});
+
+test('cross-project, internal fields, malformed dates and duplicate IDs reject',async()=>{
+  const variants=[{...data,project_id:randomUUID()},
     {...data,photos:[{...data.photos[0],object_key:'private-storage-key'}]},
     {...data,photos:[{...data.photos[0],created_at:'not a date'}]},
     {...data,photos:[data.photos[0],data.photos[0]]},
