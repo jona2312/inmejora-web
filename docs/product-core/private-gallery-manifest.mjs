@@ -1,7 +1,9 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {argv} from 'node:process';
+import {log} from 'node:console';
 const root='docs/product-core/';
 const files=['src/lib/projectCoreClient.js','src/utils/rendersAPI.js','src/components/renders/RenderGallerySection.jsx','src/components/renders/RenderWizardContainer.jsx','src/components/renders/CreditsDisplay.jsx','src/components/renders/PageHeader.jsx','src/pages/RendersPage.jsx','src/components/sales/ConsultaForm.jsx','src/components/dashboard/CreditsWidget.jsx','src/contexts/SubscriptionContext.jsx','src/contexts/unavailableSubscription.js','tests/ci/private-gallery.test.mjs','tests/ci/lint-error-regression.test.mjs','.github/workflows/p0-web-offline.yml','package.json',root+'PRIVATE-GALLERY.md',root+'private-gallery-manifest.mjs'];
 const manifest={base:'296fdef9f3ff3acb5ba81ea28113417a4de48980',core_base:'240f4946d5fde3f58dc3ae9fb2d3a1c750a14e21',contract:'private-gallery.v1',n8n:'BLOCKED_SOURCE_EXPORT',encoding:'UTF8 CRLF normalized LF',sha256:Object.fromEntries(files.map(p=>[p,createHash('sha256').update(readFileSync(p,'utf8').replace(/\r\n/g,'\n')).digest('hex')]))};
-if(process.argv[2]==='--write')writeFileSync(root+'private-gallery-manifest.json',JSON.stringify(manifest,null,2)+'\n');else{assert.deepEqual(JSON.parse(readFileSync(root+'private-gallery-manifest.json','utf8')),manifest);console.log('WEB_PRIVATE_GALLERY_MANIFEST PASS '+files.length);}
+if(argv[2]==='--write')writeFileSync(root+'private-gallery-manifest.json',JSON.stringify(manifest,null,2)+'\n');else{assert.deepEqual(JSON.parse(readFileSync(root+'private-gallery-manifest.json','utf8')),manifest);log('WEB_PRIVATE_GALLERY_MANIFEST PASS '+files.length);}

@@ -21,6 +21,6 @@
     ".github/workflows/p0-web-offline.yml": "8394d330119907b8e2e5250e9840b675a62eba59b6a3fff3968ec810056522ab",
     "package.json": "ac1094d9b35c29933789d1367271c4ec25cc85b17302fbf4c5b530a69953ba9f",
     "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
-    "docs/product-core/private-gallery-manifest.mjs": "f56cd6f76caec2517fa07c5c9ec5ab48d6c3e58003bfc686aa46bc9a61415a05"
+    "docs/product-core/private-gallery-manifest.mjs": "e2fc8f2aeb1fcedce86d8c4a13771ff67a1ffe36e420ff3298dbc8fe9bc8bfca"
   }
 }
