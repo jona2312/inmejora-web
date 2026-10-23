@@ -26,7 +26,6 @@ test('gallery validates canonical IDs, never accepts a provider URL and uses sam
 });
 test('cross-project, conversation drift, internal fields, malformed dates and duplicate IDs reject',async()=>{
   const variants=[{...data,project_id:randomUUID()},{...data,conversation_id:randomUUID()},
-    {...data,photos:[{...data.photos[0],conversation_id:randomUUID()}]},
     {...data,photos:[{...data.photos[0],object_key:'private-storage-key'}]},
     {...data,photos:[{...data.photos[0],created_at:'not a date'}]},
     {...data,photos:[data.photos[0],data.photos[0]]},
@@ -54,3 +53,9 @@ test('credits are unavailable, never fake promotions or local success',async()=>
   assert.equal(unavailableSubscription.currentSubscription,null);
   assert(Object.isFrozen(unavailableSubscription));
 });
+
+ test('project-scoped gallery keeps photo provenance from another conversation in the same authorized project', async () => {
+  const payload={...data,photos:[{...data.photos[0],conversation_id:randomUUID()}]};
+  assert.deepEqual(await client(payload).api.gallery(context),payload);
+  await assert.rejects(client({...payload,project_id:randomUUID()}).api.gallery(context),/INVALID_PRIVATE_GALLERY/);
+ });

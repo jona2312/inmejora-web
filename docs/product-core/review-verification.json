@@ -1,0 +1,22 @@
+{
+  "timestamp_utc": "2026-10-23T21:48:02.680644+00:00",
+  "base": "c14240181e7a845d199e19f05c65b00c6957597a",
+  "offline_tests": {
+    "pass": 99,
+    "fail": 0
+  },
+  "lint": {
+    "errors": 0,
+    "inherited_warnings": 8
+  },
+  "build": "PASS",
+  "chromium": {
+    "pass": 315,
+    "skip": 55,
+    "fail": 0
+  },
+  "integrated_e2e": "PASS_SYNTHETIC_ONLY",
+  "independent_review": "PENDING",
+  "production": "OFF",
+  "n8n": "BLOCKED_SOURCE_EXPORT"
+}
