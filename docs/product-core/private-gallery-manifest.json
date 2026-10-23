@@ -18,7 +18,7 @@
     "src/contexts/unavailableSubscription.js": "1e8900a39881360a91b7acb3e9130321ac231491f8a2ed8d9d40c73d49e3daf2",
     "tests/ci/private-gallery.test.mjs": "aed720819540dfc2d8594a565c6025d4e6e6ba8fa10088070dfb684cbb99c223",
     "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
-    ".github/workflows/p0-web-offline.yml": "8394d330119907b8e2e5250e9840b675a62eba59b6a3fff3968ec810056522ab",
+    ".github/workflows/p0-web-offline.yml": "16368a1a6f7d5d424878c6e922bc910db3d63123e298373cb236916a701bf704",
     "package.json": "bd6cd8df11b0f3f3cb75aeaee0eb02714f0c2fa102751341e178252964416bfd",
     "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
     "docs/product-core/private-gallery-manifest.mjs": "e2fc8f2aeb1fcedce86d8c4a13771ff67a1ffe36e420ff3298dbc8fe9bc8bfca"
