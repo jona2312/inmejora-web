@@ -29,7 +29,7 @@
     "tests/ci/private-gallery.test.mjs": "cd82395548cf1e4b843d3d07a464af036011be059065812cda5b4a6f7654f243",
     "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
     ".github/workflows/p0-web-offline.yml": "b6553a49c39c864e04117a6bcd11e20f94b085e974843cc647b8e4f38e4e5c8d",
-    "package.json": "e5deaed1cfcd426e132ea592aa160d32f3e3edd764b500201a38ddbec55af005",
+    "package.json": "e064b6516c0c3f91861637455d8cc0c5f9ad5c63a5be96bfd1ba85f0c2f5f60d",
     "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
     "docs/product-core/private-gallery-manifest.mjs": "645c6443b2e1c9214298ede1a7ee055708a6d43b8d17b2670d1453c63b07a8ff"
   }

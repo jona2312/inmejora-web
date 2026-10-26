@@ -43,24 +43,14 @@ const checkDuplicate = async (telefono, descripcion) => {
   return data && data.length > 0;
 };
 
-export const uploadPresupuestoPhoto = async (file) => {
-  if (!file) return null;
+// Customer photos are never written to the public Supabase bucket from the browser
+// (P0 Supabase hardening: anonymous uploads and public URLs for customer photos are removed).
+// Until a reviewed server upload endpoint exists, this form accepts no photo: the visitor is
+// told to send it through the commercial WhatsApp channel after the request.
+export const PRESUPUESTO_PHOTO_UPLOAD_ENABLED = false;
 
-  const fileExt = file.name.split('.').pop();
-  const fileName = `${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${fileExt}`;
-  const filePath = `solicitudes/${fileName}`;
-
-  const { error: uploadError } = await supabase.storage
-    .from('presupuestos-fotos')
-    .upload(filePath, file);
-
-  if (uploadError) throw uploadError;
-
-  const { data: { publicUrl } } = supabase.storage
-    .from('presupuestos-fotos')
-    .getPublicUrl(filePath);
-
-  return publicUrl;
+export const uploadPresupuestoPhoto = async () => {
+  throw new Error('PHOTO_UPLOAD_DISABLED');
 };
 
 export const generateWhatsAppLink = (data) => {
@@ -70,6 +60,11 @@ export const generateWhatsAppLink = (data) => {
 };
 
 export const submitPresupuesto = async (formData, photoFile) => {
+  // Checked first: a photo is refused before any rate-limit count or database access.
+  if (photoFile) {
+    throw new Error('Por ahora no podemos recibir fotos en este formulario. Enviala por WhatsApp una vez enviado el pedido.');
+  }
+
   // Rate limiting
   const rateLimit = checkRateLimit();
   if (!rateLimit.allowed) {
@@ -87,10 +82,7 @@ export const submitPresupuesto = async (formData, photoFile) => {
     throw new Error('Ya enviaste un presupuesto similar recientemente.');
   }
 
-  let fotoUrl = null;
-  if (photoFile) {
-    fotoUrl = await uploadPresupuestoPhoto(photoFile);
-  }
+  const fotoUrl = null;
 
   const payload = {
     nombre: formData.nombre,

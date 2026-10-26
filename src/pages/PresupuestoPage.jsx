@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Upload, X, Loader2, ArrowRight, Home, Building, Factory, Grid } from 'lucide-react';
+import { Loader2, ArrowRight, Home, Building, Factory, Grid } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/SEOHead';
@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { presupuestoSchema, validateFile } from '@/schemas/presupuestoSchema';
+import { presupuestoSchema } from '@/schemas/presupuestoSchema';
 import { submitPresupuesto } from '@/utils/presupuestoApi';
 import PresupuestoSuccessModal from '@/components/PresupuestoSuccessModal';
 import PresupuestoErrorModal from '@/components/PresupuestoErrorModal';
@@ -24,7 +24,6 @@ const TIPOS_PROYECTO = [
 
 const PresupuestoPage = () => {
   const { trackView, trackSubmission } = usePresupuestoAnalytics();
-  const fileInputRef = useRef(null);
   const { toast } = useToast();
 
   const [formData, setFormData] = useState({
@@ -35,8 +34,6 @@ const PresupuestoPage = () => {
     descripcion: '',
     website: '' // honeypot
   });
-  const [photo, setPhoto] = useState(null);
-  const [photoPreview, setPhotoPreview] = useState('');
   
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,36 +68,6 @@ const PresupuestoPage = () => {
     setFormData(prev => ({ ...prev, tipo_proyecto: tipo }));
     if (errors.tipo_proyecto) {
       setErrors(prev => ({ ...prev, tipo_proyecto: null }));
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const validation = validateFile(file);
-    if (!validation.valid) {
-      toast({
-        variant: "destructive",
-        title: "Error en archivo",
-        description: validation.error
-      });
-      return;
-    }
-
-    setPhoto(file);
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPhotoPreview(reader.result);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const removePhoto = () => {
-    setPhoto(null);
-    setPhotoPreview('');
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
     }
   };
 
@@ -149,7 +116,7 @@ const PresupuestoPage = () => {
           metraje: Number(formData.metraje)
       };
 
-      const result = await submitPresupuesto(submissionData, photo);
+      const result = await submitPresupuesto(submissionData, null);
       
       trackSubmission(submissionData);
       setSuccessData(result);
@@ -163,7 +130,6 @@ const PresupuestoPage = () => {
         descripcion: '',
         website: ''
       });
-      removePhoto();
       
     } catch (err) {
       setErrorMessage(err.message || 'Error inesperado al enviar el presupuesto.');
@@ -327,40 +293,12 @@ const PresupuestoPage = () => {
                 </div>
               </div>
 
-              {/* Foto Upload */}
-              <div className="space-y-2 pt-2">
-                <Label className="text-gray-300">Foto del estado actual (Opcional)</Label>
-                
-                {!photoPreview ? (
-                  <div 
-                    onClick={() => fileInputRef.current?.click()}
-                    className="border-2 border-dashed border-gray-700 hover:border-[#d4af37]/50 rounded-xl p-8 text-center cursor-pointer transition-colors bg-gray-900/30 group"
-                  >
-                    <Upload className="w-8 h-8 text-gray-500 mx-auto mb-3 group-hover:text-[#d4af37] transition-colors" />
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300">
-                      Hacé clic para subir una foto
-                    </p>
-                    <p className="text-xs text-gray-600 mt-1">JPG, PNG o WEBP (Máx. 5MB)</p>
-                  </div>
-                ) : (
-                  <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-700">
-                    <img src={photoPreview} alt="Preview" className="w-full h-full object-cover" />
-                    <button
-                      type="button"
-                      onClick={removePhoto}
-                      className="absolute top-2 right-2 bg-black/70 hover:bg-red-500/80 text-white p-2 rounded-full transition-colors"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                )}
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileChange}
-                  accept="image/jpeg,image/png,image/webp"
-                  className="hidden"
-                />
+              {/* Fotos: sin carga directa a almacenamiento público (P0 Supabase) */}
+              <div className="space-y-2 pt-2" data-testid="presupuesto-photo-notice">
+                <Label className="text-gray-300">Fotos del estado actual</Label>
+                <p className="text-sm text-gray-400">
+                  Después de enviar el pedido, mandanos las fotos por WhatsApp y las asociamos a tu presupuesto.
+                </p>
               </div>
 
               {/* Submit Button */}
