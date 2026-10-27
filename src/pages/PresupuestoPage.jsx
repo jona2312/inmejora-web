@@ -14,6 +14,8 @@ import { submitPresupuesto } from '@/utils/presupuestoApi';
 import PresupuestoSuccessModal from '@/components/PresupuestoSuccessModal';
 import PresupuestoErrorModal from '@/components/PresupuestoErrorModal';
 import { usePresupuestoAnalytics } from '@/hooks/usePresupuestoAnalytics';
+import ConsultaForm from '@/components/sales/ConsultaForm';
+import { localCoreEnabled } from '@/lib/projectCoreClient';
 
 const TIPOS_PROYECTO = [
   { id: 'Vivienda', icon: Home, label: 'Vivienda' },
@@ -22,7 +24,7 @@ const TIPOS_PROYECTO = [
   { id: 'Otro', icon: Grid, label: 'Otro' },
 ];
 
-const PresupuestoPage = () => {
+const LegacyPresupuestoPage = () => {
   const { trackView, trackSubmission } = usePresupuestoAnalytics();
   const { toast } = useToast();
 
@@ -297,7 +299,7 @@ const PresupuestoPage = () => {
               <div className="space-y-2 pt-2" data-testid="presupuesto-photo-notice">
                 <Label className="text-gray-300">Fotos del estado actual</Label>
                 <p className="text-sm text-gray-400">
-                  Después de enviar el pedido, mandanos las fotos por WhatsApp y las asociamos a tu presupuesto.
+              Podés enviar tu pedido sin fotos. El equipo te indicará un canal privado para adjuntarlas; no es necesario usar WhatsApp.
                 </p>
               </div>
 
@@ -339,5 +341,20 @@ const PresupuestoPage = () => {
     </div>
   );
 };
+
+// Reuse the existing capability/session intake and project-private photo path.
+// Its laboratory gate stays unchanged; this does not enable public production.
+const PresupuestoPage = () => localCoreEnabled() ? (
+  <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <SEOHead title="Solicitá tu presupuesto | INMEJORA" description="Consulta y fotografías privadas vinculadas a tu proyecto." />
+    <Header />
+    <main className="mx-auto max-w-2xl px-4 pt-28 pb-20">
+      <h1 className="text-3xl font-bold mb-6">Contanos tu proyecto</h1>
+      <p className="mb-6">Guardá tu consulta y hasta cuatro fotos privadas. El presupuesto requiere revisión humana.</p>
+      <ConsultaForm />
+    </main>
+    <Footer />
+  </div>
+) : <LegacyPresupuestoPage />;
 
 export default PresupuestoPage;
