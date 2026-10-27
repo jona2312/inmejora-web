@@ -22,9 +22,9 @@ const PricingPage = () => {
 
       <main className="flex-grow pt-24 pb-12 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#d4af37]/10 rounded-full blur-[120px] pointer-events-none opacity-50" />
-        
+
         <PricingPlans />
-        
+
         <TrustSection />
 
         <div className="container mx-auto px-4 text-center mt-8">
