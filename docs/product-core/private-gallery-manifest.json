@@ -10,7 +10,7 @@
     "src/pages/ImageUploadPage.jsx": "e8a8aaf4a8ec6131953e5288cc5522a398346cb521b6ff4bb96a7e2750b80c89",
     "docs/product-core/review-verification.json": "aad8cf1b84cb1a539fdcdd3c86aa2aa7271d6c40936949d08a82ff875fb4baa3",
     "src/pages/PortalPage.jsx": "89b554deb7b6d58aff9dd0a48dfb9762dd87e29c48e0eea39ccacbacba963692",
-    "src/pages/ClientDashboard.jsx": "4dbb5a1e0a0c634fa51833ff0863c31400fe992cb6d38c826989730d29374524",
+    "src/pages/ClientDashboard.jsx": "36af6f059f2e023f9c14b74bffc42eca911e66400da885ee8d25676ecc53bf64",
     "src/pages/PlanManagementPage.jsx": "b4c8dd2b6162b5e0fd2fb8c3718d84c9cbe3ce5369f55f6e530a46406b5670cd",
     "src/utils/dashboardAPI.js": "ff1b2921806fd6b7a921dfa65c23e33658834b9dad8d08dc4fd6b016b4099529",
     "src/components/renders/RenderDetailModal.jsx": "26b7d05047883656f5ddcc0d884a3a35f01ed27d00700a794217f9ce21b7687d",
@@ -30,8 +30,8 @@
     "src/contexts/unavailableSubscription.js": "1e8900a39881360a91b7acb3e9130321ac231491f8a2ed8d9d40c73d49e3daf2",
     "tests/ci/private-gallery.test.mjs": "cd82395548cf1e4b843d3d07a464af036011be059065812cda5b4a6f7654f243",
     "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
-    ".github/workflows/p0-web-offline.yml": "7e9467a4118dadab9abd9e29802b5253cbd9aded8189dc3c1e2bf0fd87888dd1",
-    "package.json": "e064b6516c0c3f91861637455d8cc0c5f9ad5c63a5be96bfd1ba85f0c2f5f60d",
+    ".github/workflows/p0-web-offline.yml": "a2d418a6e2afa5e4260625b12cf6944948cfa57542b3cb2e3bfc0c7b81e2caac",
+    "package.json": "4fab2b835db79b8b958f5d7651c428a5aacf3de9ad28cba7525d3105375ba87f",
     "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
     "docs/product-core/private-gallery-manifest.mjs": "ee48128e386e24999d446be0c24465723054683dd3e68ba7751dbfbcc99e375e"
   }

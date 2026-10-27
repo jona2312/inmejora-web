@@ -123,7 +123,7 @@ function sourceFiles(directory) {
 
 test('source import inventory covers current payment hook/wrapper callers (not a runtime reachability assertion)', () => {
   const expected = {
-    useMercadoPagoCheckout: ['src/components/pricing/PricingCard.jsx', 'src/pages/CheckoutPage.jsx', 'src/pages/PlansPage.jsx', 'src/pages/RegistrationPage.jsx'],
+    useMercadoPagoCheckout: ['src/components/pricing/PricingCard.jsx', 'src/pages/RegistrationPage.jsx'],
     useMercadoPago: [],
     useStripeCheckout: ['src/components/plans/PlanSelectionModal.jsx'],
     mercadoPagoAPI: [],

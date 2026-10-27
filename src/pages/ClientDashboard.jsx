@@ -1,3 +1,4 @@
+import CanonicalCatalog from '@/components/plans/CanonicalCatalog';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/InmejoraAuthContext';
@@ -115,7 +116,7 @@ const ClientDashboard = () => {
                 </div>
                 
                 <div className="h-auto">
-                   <p>Plan no disponible hasta acreditar el servicio de cuenta.</p>
+                   <p>Plan contratado no disponible hasta acreditar el servicio de cuenta.</p><CanonicalCatalog/>
                 </div>
               </div>
 

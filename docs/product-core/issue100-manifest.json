@@ -1,0 +1,28 @@
+{
+  "schema": "issue100.web.v1",
+  "base": "c9541d781f40a1a0719b1e52a10bdb6ad9988c22",
+  "core_pr": 101,
+  "purchases_enabled": false,
+  "sha256": {
+    ".github/workflows/p0-web-offline.yml": "a2d418a6e2afa5e4260625b12cf6944948cfa57542b3cb2e3bfc0c7b81e2caac",
+    "docs/p0/identity-ownership.json": "c64efbb2ad7a87ca4d3e9134751d87a7d483db52df49d1267638b768dce2ff3c",
+    "docs/product-core/ISSUE100-CATALOG.md": "5edb36bc0851821f186bd7c4cb2533d5a3f149984582c48c1512cd6e357a2ddb",
+    "docs/product-core/issue100-manifest.mjs": "aecec274c7745b11b0ccbabd6c2ad35a0c0046a5f63dec71e4b4cf1cbfb4af75",
+    "docs/product-core/private-gallery-manifest.json": "fd2c46518f84dcc972268c9a4a001ede8c50b5d1459ebd6f755c1afc1a05f4da",
+    "package.json": "4fab2b835db79b8b958f5d7651c428a5aacf3de9ad28cba7525d3105375ba87f",
+    "src/App.jsx": "c71ca471bf978f816d26ca49b124b3ba21a0b67e21730ecbd1f8ff6dc793e372",
+    "src/components/dashboard/PlanSection.jsx": "409dcbfed0009377f5e2f35a7d31cb183a16617c0e85c253b229e3c203375619",
+    "src/components/plans/CanonicalCatalog.jsx": "1beb8145771933a15565ee7365bba239c1a57a8a8c56882d6cc4cf11f2e8e5dc",
+    "src/components/pricing/PricingPlans.jsx": "ae83db420ed8e172095803af9d202258a4be0cb7be4c84ad4432242229d19529",
+    "src/lib/planCatalog.js": "f0b68fc43648aa6ae0b4a4134a4ec6fb7500a5db13dee7ab94c44f828831ceb2",
+    "src/pages/CheckoutPage.jsx": "792e573501020e67f00d291829cc3717cc90084f740ad427240d5c55c5ef7e09",
+    "src/pages/ClientDashboard.jsx": "36af6f059f2e023f9c14b74bffc42eca911e66400da885ee8d25676ecc53bf64",
+    "src/pages/PlansPage.jsx": "e8756d971a1cdb68b73757436a369fb702455ff02de7c0794917d78d052fb4a3",
+    "src/pages/PricingPage.jsx": "fc64b0c4a2370efc981d9462fbeca0f603aa5fc8b268b94f39df2719f951deb9",
+    "tests/browser/catalog.spec.mjs": "d3e6657d8c572191ef303272e2af6f8149668436d323524d852a17a0e2af854d",
+    "tests/browser/isolation.mjs": "d87d55f8119f8676eb4ef8098e98a17f6fd2caf8335d78f03a3a05690363592c",
+    "tests/browser/sales.spec.mjs": "8557de1e7abd3d428e4cd23529a0c250215bf488c272b729dbc023b2a8061fb9",
+    "tests/ci/catalog.test.mjs": "6d6b1f682cc16f15f287debb8fe66f46b86582fc3e5970460a05084f7788aa61",
+    "tests/ci/payment-containment.test.mjs": "fe9965923f0f4b1751fe8fe862e1954d398a13fb7dd1d9624692ab080ba1ef7b"
+  }
+}

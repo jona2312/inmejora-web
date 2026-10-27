@@ -173,7 +173,7 @@ test.describe('sales launch mode', () => {
     await expect(page.locator('#zonas')).toBeInViewport();
   });
 
-  for (const [from, to] of [['/precios', '/contacto'], ['/planes', '/contacto'], ['/cotizador', '/contacto'], ['/presupuesto', '/contacto'], ['/asistente-ia', '/contacto'], ['/registro', '/contacto'], ['/proyectos', '/servicios'], ['/nosotros', '/'], ['/catalogo', '/servicios'], ['/checkout/success?status=approved&payment_id=x', '/contacto']]) {
+  for (const [from, to] of [['/cotizador', '/contacto'], ['/presupuesto', '/contacto'], ['/asistente-ia', '/contacto'], ['/registro', '/contacto'], ['/proyectos', '/servicios'], ['/nosotros', '/'], ['/catalogo', '/servicios'], ['/checkout/success?status=approved&payment_id=x', '/contacto']]) {
     test(`legacy ${from} redirects to ${to} without mounting the legacy page`, async ({ page, audit }) => {
       await page.goto(from);
       await expect(page).toHaveURL(new RegExp(`${to === '/' ? '/$' : to}$`));

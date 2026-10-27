@@ -23,6 +23,9 @@ export async function isolate(context) {
     if (request.resourceType() === 'font' || url.hostname === 'fonts.googleapis.com') { await route.fulfill({ body: '', contentType: 'text/css' }); return; }
     if (['www.googletagmanager.com', 'www.clarity.ms'].includes(url.hostname) && request.resourceType() === 'script') { await route.fulfill({ body: '/* analytics disabled in isolated regression */', contentType: 'text/javascript' }); return; }
     let fixture;
+    if (url.origin === origin && url.pathname === '/api/plans/dynamic' && request.method() === 'GET') {
+      await route.fulfill({status:503,json:{error:'CATALOG_UNAVAILABLE'}});return;
+    }
     const publicPaths = ['/rest/v1/presupuestos_publicos', '/api/webhook/guardar-mensaje', '/rest/v1/servicios_precios', '/api/horizon/catalogo/colores', '/api/horizon/catalogo/productos'];
     if (publicPaths.includes(url.pathname) && evidence.responses[url.pathname]) { await route.fulfill(evidence.responses[url.pathname]); return; }
     if (url.pathname === '/api/horizon/health') fixture = { ok: true };
