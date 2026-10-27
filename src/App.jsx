@@ -64,7 +64,7 @@ const ZonaPage = lazyWithRetry(() => import('@/pages/ZonaPage'), 'ZonaPage');
 // commercial offer yet, so those URLs lead to the single consultation funnel instead of showing unavailable features.
 const SALES = COMMERCIAL.salesLaunchMode;
 const SALES_REDIRECTS = {
-  '/precios': '/contacto', '/planes': '/contacto', '/cotizador': '/contacto', '/presupuesto': '/contacto',
+  '/cotizador': '/contacto', '/presupuesto': '/contacto',
   '/asistente-ia': '/contacto', '/registro': '/contacto', '/proyectos': '/servicios', '/nosotros': '/',
   '/catalogo': '/servicios', '/catalogo/colores': '/servicios', '/catalogo/productos': '/servicios',
   '/checkout/success': '/contacto', '/checkout/error': '/contacto', '/checkout/pending': '/contacto',
@@ -95,6 +95,7 @@ const RenderGeneratorPage = lazyWithRetry(() => import('@/pages/RenderGeneratorP
 const EditRenderPage = lazyWithRetry(() => import('@/pages/EditRenderPage'), 'EditRenderPage');
 const PortalCotizaciones = lazyWithRetry(() => import('@/pages/PortalCotizaciones'), 'PortalCotizaciones');
 
+const CheckoutPage = lazyWithRetry(() => import('@/pages/CheckoutPage'), 'CheckoutPage');
 const PlansPage = lazyWithRetry(() => import('@/pages/PlansPage'), 'PlansPage');
 const PricingPage = lazyWithRetry(() => import('@/pages/PricingPage'), 'PricingPage');
 const ImageUploadPage = lazyWithRetry(() => import('@/pages/ImageUploadPage'), 'ImageUploadPage');
@@ -171,6 +172,7 @@ const AppContent = () => {
         <Route path="/nosotros" element={<NosotrosPage />} />
         <Route path="/asistente-ia" element={<AsistenteIAPage />} />
         <Route path="/planes" element={<PlansPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
 
         {/* Proveedores Routes (Public facing landing) */}
         <Route path="/proveedores" element={<ProveedoresPage />} />

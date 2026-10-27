@@ -63,7 +63,7 @@
       "boundary": "Public intake unchanged. Browser rate limit is not security and bucket visibility/ownership not demonstrated. Not a session credential."
     },
     {
-      "routes": ["/precios", "/planes"],
+      "routes": ["/precios", "/planes", "/checkout"],
       "classification": ["UI_ONLY", "CONTAINED", "BACKEND_REQUIRED", "OWNERSHIP_UNPROVEN"],
       "evidence": ["src/hooks/useCurrentPlan.js", "src/components/pricing/PricingCard.jsx", "src/pages/PlansPage.jsx"],
       "input": "Supabase display identity and historical client-token plan request",
