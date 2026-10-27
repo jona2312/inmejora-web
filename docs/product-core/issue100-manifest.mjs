@@ -1,6 +1,8 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {argv} from 'node:process';
+import {log} from 'node:console';
 const paths=[
   ".github/workflows/p0-web-offline.yml",
   "docs/p0/identity-ownership.json",
@@ -24,4 +26,4 @@ const paths=[
   "tests/ci/payment-containment.test.mjs"
 ];
 const value={schema:'issue100.web.v1',base:'c9541d781f40a1a0719b1e52a10bdb6ad9988c22',core_pr:101,purchases_enabled:false,sha256:Object.fromEntries(paths.map(p=>[p,createHash('sha256').update(readFileSync(p,'utf8').replace(/\r\n/g,'\n')).digest('hex')]))};
-if(process.argv.includes('--write'))writeFileSync('docs/product-core/issue100-manifest.json',JSON.stringify(value,null,2)+'\n');else{assert.deepEqual(JSON.parse(readFileSync('docs/product-core/issue100-manifest.json','utf8')),value);console.log('ISSUE100_WEB_MANIFEST PASS');}
+if(argv.includes('--write'))writeFileSync('docs/product-core/issue100-manifest.json',JSON.stringify(value,null,2)+'\n');else{assert.deepEqual(JSON.parse(readFileSync('docs/product-core/issue100-manifest.json','utf8')),value);log('ISSUE100_WEB_MANIFEST PASS');}

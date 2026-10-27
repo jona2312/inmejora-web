@@ -7,7 +7,7 @@
     ".github/workflows/p0-web-offline.yml": "a2d418a6e2afa5e4260625b12cf6944948cfa57542b3cb2e3bfc0c7b81e2caac",
     "docs/p0/identity-ownership.json": "c64efbb2ad7a87ca4d3e9134751d87a7d483db52df49d1267638b768dce2ff3c",
     "docs/product-core/ISSUE100-CATALOG.md": "5edb36bc0851821f186bd7c4cb2533d5a3f149984582c48c1512cd6e357a2ddb",
-    "docs/product-core/issue100-manifest.mjs": "fafc4f973b86285238699ea26e8b3b795d9404618bcd1f2678854564f808ee53",
+    "docs/product-core/issue100-manifest.mjs": "aecec274c7745b11b0ccbabd6c2ad35a0c0046a5f63dec71e4b4cf1cbfb4af75",
     "docs/product-core/private-gallery-manifest.json": "fd2c46518f84dcc972268c9a4a001ede8c50b5d1459ebd6f755c1afc1a05f4da",
     "package.json": "4fab2b835db79b8b958f5d7651c428a5aacf3de9ad28cba7525d3105375ba87f",
     "src/App.jsx": "c71ca471bf978f816d26ca49b124b3ba21a0b67e21730ecbd1f8ff6dc793e372",
