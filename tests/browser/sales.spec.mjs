@@ -141,6 +141,85 @@ test.describe('sales launch mode', () => {
     await expect(page.getByRole('link', { name: 'Escribinos por WhatsApp' })).toHaveCount(0);
   });
 
+  test('editing a prepared consultation removes stale links without losing the form', async ({ page }, info) => {
+    await page.goto('/contacto');
+    await settle(page);
+    await page.getByLabel('¿Qué querés hacer? *').selectOption('remodelaciones');
+    await page.getByLabel('Localidad *').fill('Hudson');
+    await page.getByLabel('Contanos qué necesitás *').fill('Renovar la cocina completa, con mesada nueva.');
+    await page.getByLabel(/Medidas/).fill('3 x 4 m');
+    await page.getByRole('button', { name: 'Continuar por WhatsApp' }).click();
+    await expect(page.getByRole('link', { name: 'Abrir WhatsApp' })).toBeVisible();
+
+    await page.getByLabel('Localidad *').fill('Quilmes');
+    await expect(page.getByRole('link', { name: 'Abrir WhatsApp' })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Copiar texto' })).toHaveCount(0);
+    await expect(page.getByRole('status')).toHaveCount(0);
+    await expect(page.getByLabel('¿Qué querés hacer? *')).toHaveValue('remodelaciones');
+    await expect(page.getByLabel('Contanos qué necesitás *')).toHaveValue('Renovar la cocina completa, con mesada nueva.');
+    await expect(page.getByLabel(/Medidas/)).toHaveValue('3 x 4 m');
+
+    // A correction that is still invalid must not recover the stale message.
+    await page.getByLabel('Localidad *').fill('Q');
+    await page.getByRole('button', { name: 'Continuar por WhatsApp' }).click();
+    await expect(page.getByText('Indicá tu localidad.')).toBeVisible();
+    await expect(page.getByLabel('Localidad *')).toBeFocused();
+    await expect(page.getByRole('link', { name: 'Abrir WhatsApp' })).toHaveCount(0);
+    expect(await page.evaluate(() => globalThis.__opened.length)).toBe(1);
+
+    await page.getByLabel('Localidad *').fill('Quilmes');
+    await page.getByLabel(/Medidas/).fill('4 x 5 m');
+    await page.getByRole('button', { name: 'Continuar por WhatsApp' }).click();
+    const href = await page.getByRole('link', { name: 'Abrir WhatsApp' }).getAttribute('href');
+    const text = new URL(href).searchParams.get('text');
+    expect(text).toContain('Localidad: Quilmes');
+    expect(text).toContain('Medidas: 4 x 5 m');
+    expect(text).not.toContain('Localidad: Hudson');
+    expect(text).not.toContain('Medidas: 3 x 4 m');
+    const opened = await page.evaluate(() => globalThis.__opened);
+    expect(opened).toHaveLength(2);
+    expect(opened[1].url).toBe(href);
+    await expect(page.getByRole('status')).toContainText('Todavía no fue enviado');
+    await page.evaluate(() => globalThis.scrollTo({ top: 0, behavior: 'instant' }));
+    await expect.poll(() => page.evaluate(() => globalThis.scrollY)).toBe(0);
+    const screenshot = info.outputPath('consulta-corrected.png');
+    await page.screenshot({ path: screenshot, fullPage: true });
+    await info.attach('consulta-corrected', { path: screenshot, contentType: 'image/png' });
+  });
+
+  test('a late clipboard result cannot confirm a different prepared consultation', async ({ page, context }) => {
+    await context.addInitScript(() => {
+      globalThis.__copies = [];
+      Object.defineProperty(navigator, 'clipboard', { configurable: true, value: {
+        writeText(text) {
+          return new Promise(resolve => { globalThis.__copies.push({ text, resolve }); });
+        },
+      } });
+    });
+    await page.goto('/contacto');
+    await settle(page);
+    await page.getByLabel('¿Qué querés hacer? *').selectOption('remodelaciones');
+    await page.getByLabel('Localidad *').fill('Hudson');
+    await page.getByLabel('Contanos qué necesitás *').fill('Renovar la cocina completa.');
+    await page.getByRole('button', { name: 'Continuar por WhatsApp' }).click();
+    await page.getByRole('button', { name: 'Copiar texto' }).click();
+    await expect.poll(() => page.evaluate(() => globalThis.__copies.length)).toBe(1);
+
+    await page.getByLabel('Localidad *').fill('Quilmes');
+    await page.getByRole('button', { name: 'Continuar por WhatsApp' }).click();
+    await page.evaluate(() => globalThis.__copies[0].resolve());
+    await expect(page.getByRole('button', { name: 'Copiar texto' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Texto copiado' })).toHaveCount(0);
+
+    await page.getByRole('button', { name: 'Copiar texto' }).click();
+    await expect.poll(() => page.evaluate(() => globalThis.__copies.length)).toBe(2);
+    expect(await page.evaluate(() => globalThis.__copies[1].text)).toContain('Localidad: Quilmes');
+    await page.evaluate(() => globalThis.__copies[1].resolve());
+    await expect(page.getByRole('button', { name: 'Texto copiado' })).toBeVisible();
+    await page.getByLabel(/Medidas/).fill('2 x 3 m');
+    await expect(page.getByRole('button', { name: 'Texto copiado' })).toHaveCount(0);
+  });
+
   test('navigation: desktop links or mobile menu with focus management', async ({ page }, info) => {
     await page.goto('/');
     await settle(page);

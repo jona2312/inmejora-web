@@ -38,8 +38,15 @@ const ConsultaForm = () => {
   const [errors, setErrors] = useState({});
   const [prepared, setPrepared] = useState(null); // { url, text } once the WhatsApp message was prepared
   const [copied, setCopied] = useState(false);
+  const preparationVersion = useRef(0);
 
-  const set = key => event => setValues(current => ({ ...current, [key]: event.target.value }));
+  const set = key => event => {
+    const value = event.target.value;
+    preparationVersion.current += 1;
+    setPrepared(null);
+    setCopied(false);
+    setValues(current => ({ ...current, [key]: value }));
+  };
 
   const submit = async event => {
     event.preventDefault();
@@ -69,6 +76,8 @@ const ConsultaForm = () => {
     }
     const text = buildConsultaMessage(values);
     const url = buildWhatsappUrl(text);
+    preparationVersion.current += 1;
+    setCopied(false);
     setPrepared({ url, text });
     track('whatsapp_consulta_open', { servicio: values.servicio });
     // The consultation is NOT sent by this page. WhatsApp opens with the message ready for the visitor to send.
@@ -76,11 +85,12 @@ const ConsultaForm = () => {
   };
 
   const copy = async () => {
+    const version = preparationVersion.current;
     try {
       await navigator.clipboard.writeText(prepared.text);
-      setCopied(true);
+      if (preparationVersion.current === version) setCopied(true);
     } catch {
-      setCopied(false);
+      if (preparationVersion.current === version) setCopied(false);
     }
   };
 
