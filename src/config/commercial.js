@@ -42,9 +42,9 @@ export const COMMERCIAL = Object.freeze({
   email: 'hola@inmejora.com',
   instagram: 'https://www.instagram.com/in_mejora/',
   siteUrl: 'https://inmejora.com',
-  // 'whatsapp' = every consultation ends in the commercial WhatsApp channel (the only mode this candidate ships).
-  // A future 'core' mode must only be enabled after the production Project Core intake contract is closed.
-  intakeMode: 'whatsapp',
+  // The controlled acceptance artifact is separate; this label grants no authority.
+  // Ordinary production builds retain the existing, fail-closed WhatsApp configuration.
+  intakeMode: env.MODE === 'project-core-controlled' ? 'core-controlled' : 'whatsapp',
   // true: commercial pages only. Account, plans, checkout, catalog and quoter routes are redirected to the consultation funnel.
   // 'false' re-exposes the legacy routes but is NOT a tested rollback path (roll back by redeploying the previous image).
   salesLaunchMode: String(env.VITE_SALES_LAUNCH_MODE ?? 'true') !== 'false',
