@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useNavigate, useLocation, matchRoutes } from 'react-router-dom';
 import { Toaster as SonnerToaster } from 'sonner';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
@@ -69,6 +69,8 @@ const SALES_REDIRECTS = {
   '/catalogo': '/servicios', '/catalogo/colores': '/servicios', '/catalogo/productos': '/servicios',
   '/checkout/success': '/contacto', '/checkout/error': '/contacto', '/checkout/pending': '/contacto',
 };
+// Use the same case-insensitive, decoded pathname matching as <Routes>.
+const SALES_REDIRECT_ROUTES = Object.entries(SALES_REDIRECTS).map(([path, target]) => ({ path, target }));
 
 // NEW SUPPLIER ROUTES
 const SupplierLoginPage = lazyWithRetry(() => import('@/pages/SupplierLoginPage'), 'SupplierLoginPage');
@@ -146,7 +148,7 @@ const PortalLayoutWithBanner = () => (
 const AppContent = () => {
   const { pathname } = useLocation();
   // Redirect before any legacy page mounts, so no unavailable feature renders or fetches.
-  const salesTarget = SALES ? SALES_REDIRECTS[pathname.replace(/\/+$/, '') || '/'] : undefined;
+  const salesTarget = SALES ? matchRoutes(SALES_REDIRECT_ROUTES, pathname)?.[0]?.route.target : undefined;
   if (salesTarget) return <Navigate to={salesTarget} replace />;
   return (
     <Suspense fallback={<div className="w-full h-screen bg-[#0f0f0f] flex items-center justify-center"><Spinner /></div>}>

@@ -262,6 +262,20 @@ test.describe('sales launch mode', () => {
     });
   }
 
+  test('case and encoded legacy routes remain contained with zero legacy backend access', async ({ page, audit }, info) => {
+    test.skip(info.project.use.viewport.width !== 390, 'matching is viewport-independent');
+    test.setTimeout(90000); // 36 real navigations under the isolated CI browser.
+    const routes = [['/cotizador', '/contacto'], ['/presupuesto', '/contacto'], ['/asistente-ia', '/contacto'], ['/registro', '/contacto'], ['/proyectos', '/servicios'], ['/nosotros', '/'], ['/catalogo', '/servicios'], ['/catalogo/colores', '/servicios'], ['/catalogo/productos', '/servicios'], ['/checkout/success', '/contacto'], ['/checkout/error', '/contacto'], ['/checkout/pending', '/contacto']];
+    for (const [path, target] of routes) {
+      for (const variant of [path.toUpperCase(), path.replace(/[a-z]/g, (c, i) => i % 2 ? c.toUpperCase() : c) + '/', path.replace(/[a-z]/g, c => '%' + c.charCodeAt(0).toString(16))]) {
+        await page.goto(variant);
+        await expect(page).toHaveURL(origin + target);
+        await expect(page.locator('form input[name="metraje"]')).toHaveCount(0);
+      }
+    }
+    expect(audit.requests.filter(r => { const u = new URL(r.url); return u.origin !== origin && /\/rest\/v1\/|catalogo|presupuesto|render|subscription|checkout|plans?/i.test(u.pathname); })).toEqual([]);
+  });
+
   test('unknown zone slug falls back to services', async ({ page }) => {
     await page.goto('/zonas/inventada');
     await expect(page).toHaveURL(/\/servicios$/);

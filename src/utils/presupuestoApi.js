@@ -60,6 +60,10 @@ export const generateWhatsAppLink = (data) => {
 };
 
 export const submitPresupuesto = async (formData, photoFile) => {
+  // Defense in depth: a direct import must not bypass the commercial route guard.
+  // Only an explicitly disabled sales mode retains the existing legacy behavior.
+  if (COMMERCIAL.salesLaunchMode !== false) throw new Error('LEGACY_QUOTE_DISABLED');
+
   // Checked first: a photo is refused before any rate-limit count or database access.
   if (photoFile) {
     throw new Error('Por ahora no podemos recibir fotos en este formulario. Enviala por WhatsApp una vez enviado el pedido.');
