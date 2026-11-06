@@ -6,18 +6,20 @@
   "encoding": "UTF8 CRLF normalized LF",
   "sha256": {
     "src/lib/projectCoreClient.js": "753846ca7354c86bb31cde31999f0c1a4bfadaee5cf1d0e0e439faad1d8b353e",
-    "src/components/sales/ConsultaForm.jsx": "865f06260013b11ccb20181e4518916b4f3fd027fe75fb731ca1fdbab1c8e19f",
+    "src/components/sales/ConsultaForm.jsx": "fb2dc70cbe758669aad2b07a255011d06767218a11f8419090a9f8b6cbf813f7",
     "src/config/commercial.js": "5d352d4b498b0c6fd649e4780136bf69ba87b5c1b27845c73139801914cbfd50",
     "tailwind.config.js": "67a236f1b85d799a16288e65332e6111a4324f9fae8fb44f907fc00054da8017",
     "scripts/ci/build-controlled-intake.mjs": "47870e42f6d4f36d271743dd65baa32fe572dca86e4818f1c8494d98294b1c84",
     "scripts/ci/verify-controlled-build.mjs": "e06ffec6763f8e6d15f562e5b42eec932dea063ece504750e7a8d64c3d0ffce5",
     "tests/ci/structured-intake.test.mjs": "4171e1ab26c9c3d45dec028d5088a34ed5181d9c4720e713c139d63954c26e44",
+    "tests/ci/controlled-name-required.test.mjs": "0be911b0cb80bbedba6b881903261e7810ad803512fa23acc6cd79909b3a5abd",
+    "docs/product-core/QA119-CONTROLLED-WEB.md": "ed360be5683ed597dc9be25be6ee06a708194f5bae24fee737fcab76982c66ae",
     "package.json": "3149550ab99791701a03f4b666c4e07b538197bcdafafa8a66a5c092b45f7536",
-    ".github/workflows/p0-web-offline.yml": "dfc0f043dea17a27739997315a6181d18c56033769ce6d56cd0451d046b2c0e6",
+    ".github/workflows/p0-web-offline.yml": "b8f446ab7de367b4d29ffae8235fe86edd002b9f894e887a64fe74bb06660d7f",
     "docs/product-core/STRUCTURED-INTAKE.md": "e53e538632258f2aada331c9a0c1ab037d3386c17e3df86008161d5f6d3e55d3",
-    "docs/product-core/structured-intake-manifest.mjs": "32c4d979942e4f297950f988115b4fa537bd923d744e90b1f4891ee7548dde81",
-    "docs/product-core/private-gallery-manifest.json": "41ea0addfcba17f8e513c89bb698063ee129d586b058a3c6490ed5d49cfee960",
-    "docs/product-core/issue100-manifest.json": "4c9b05f8687411036361854726123bc4600f8c01254cf208c3fcf63112c9627e",
-    "docs/product-core/wroute-manifest.json": "02356048910ab601fc06625551077fbda05edd9efd0c6f69ef77ce4ccbf81c31"
+    "docs/product-core/structured-intake-manifest.mjs": "37169bf8486022620343d44773dc3095f6c8f450b807ceaa196b35f310116ca0",
+    "docs/product-core/private-gallery-manifest.json": "dcabf74241af23c15b5adf7bc6f0bac589863278fb3098a10d9ef4924878e84b",
+    "docs/product-core/issue100-manifest.json": "5e8a8954cfe614a4b275dad6834c5a12e96efac57945ff5e3a5357766ba1f5a2",
+    "docs/product-core/wroute-manifest.json": "c0a7302750c5239dabadc5815ab4a13e74334df5302f2049f658a3782491c484"
   }
 }

@@ -5,7 +5,7 @@ import { argv } from 'node:process';
 import { log } from 'node:console';
 const paths=['src/lib/projectCoreClient.js','src/components/sales/ConsultaForm.jsx','src/config/commercial.js',
   'tailwind.config.js','scripts/ci/build-controlled-intake.mjs','scripts/ci/verify-controlled-build.mjs',
-  'tests/ci/structured-intake.test.mjs','package.json','.github/workflows/p0-web-offline.yml',
+  'tests/ci/structured-intake.test.mjs','tests/ci/controlled-name-required.test.mjs','docs/product-core/QA119-CONTROLLED-WEB.md','package.json','.github/workflows/p0-web-offline.yml',
   'docs/product-core/STRUCTURED-INTAKE.md','docs/product-core/structured-intake-manifest.mjs',
   'docs/product-core/private-gallery-manifest.json','docs/product-core/issue100-manifest.json','docs/product-core/wroute-manifest.json'];
 const value={schema:'structured-intake.web.v1',base:'5ba93a50563b831a3e7417c0f05c4ee66e5c37ac',

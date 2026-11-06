@@ -155,8 +155,8 @@ const ConsultaForm = () => {
       </div>
 
       <div>
-        <label htmlFor="consulta-nombre" className={label}>Tu nombre <span className="font-normal text-gray-500">(opcional)</span></label>
-        <input id="consulta-nombre" value={values.nombre} onChange={set('nombre')} maxLength={80} autoComplete="name" className={field} />
+        <label htmlFor="consulta-nombre" className={label}>Tu nombre {local ? '*' : <span className="font-normal text-gray-500">(opcional)</span>}</label>
+        <input id="consulta-nombre" value={values.nombre} onChange={set('nombre')} maxLength={80} autoComplete="name" className={field} required={local} aria-required={local} />
       </div>
 
       {local && <fieldset disabled={busy || readingPhotos} className="space-y-3">
