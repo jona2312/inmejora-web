@@ -4,11 +4,11 @@
   "core_pr": 101,
   "purchases_enabled": false,
   "sha256": {
-    ".github/workflows/p0-web-offline.yml": "dfc0f043dea17a27739997315a6181d18c56033769ce6d56cd0451d046b2c0e6",
+    ".github/workflows/p0-web-offline.yml": "b8f446ab7de367b4d29ffae8235fe86edd002b9f894e887a64fe74bb06660d7f",
     "docs/p0/identity-ownership.json": "c64efbb2ad7a87ca4d3e9134751d87a7d483db52df49d1267638b768dce2ff3c",
     "docs/product-core/ISSUE100-CATALOG.md": "5edb36bc0851821f186bd7c4cb2533d5a3f149984582c48c1512cd6e357a2ddb",
     "docs/product-core/issue100-manifest.mjs": "aecec274c7745b11b0ccbabd6c2ad35a0c0046a5f63dec71e4b4cf1cbfb4af75",
-    "docs/product-core/private-gallery-manifest.json": "41ea0addfcba17f8e513c89bb698063ee129d586b058a3c6490ed5d49cfee960",
+    "docs/product-core/private-gallery-manifest.json": "dcabf74241af23c15b5adf7bc6f0bac589863278fb3098a10d9ef4924878e84b",
     "package.json": "3149550ab99791701a03f4b666c4e07b538197bcdafafa8a66a5c092b45f7536",
     "src/App.jsx": "a863a4312285f2f6457617eb18d10600d51430663ef00c0bf7847f28744c1266",
     "src/components/dashboard/PlanSection.jsx": "409dcbfed0009377f5e2f35a7d31cb183a16617c0e85c253b229e3c203375619",
