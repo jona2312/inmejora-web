@@ -31,7 +31,7 @@ test('no source file uses Supabase Storage or names a customer-photo bucket', ()
   assert.deepEqual(offenders.map(o => o.replace(root, '')), []);
 });
 
-async function loadPresupuestoApi(calls) {
+async function loadPresupuestoApi(calls, salesLaunchMode = false) {
   const out = await build({
     entryPoints: [join(root, 'src/utils/presupuestoApi.js')],
     bundle: true,
@@ -44,7 +44,7 @@ async function loadPresupuestoApi(calls) {
       setup(b) {
         b.onResolve({ filter: /^@\/config\/commercial$/ }, () => ({ path: 'commercial', namespace: 'stub' }));
         b.onResolve({ filter: /^@\/lib\/customSupabaseClient$/ }, () => ({ path: 'supabase', namespace: 'stub' }));
-        b.onLoad({ filter: /^commercial$/, namespace: 'stub' }, () => ({ contents: 'export const COMMERCIAL={whatsapp:"0"};', loader: 'js' }));
+        b.onLoad({ filter: /^commercial$/, namespace: 'stub' }, () => ({ contents: `export const COMMERCIAL={whatsapp:"0",salesLaunchMode:${JSON.stringify(salesLaunchMode)}};`, loader: 'js' }));
         b.onLoad({ filter: /^supabase$/, namespace: 'stub' }, () => ({
           contents: 'export const supabase={from:(...a)=>globalThis.__supabaseStub.from(...a),get storage(){return globalThis.__supabaseStub.storage;}};', loader: 'js',
         }));
@@ -84,4 +84,20 @@ test('a request without a photo still reaches the database table and never touch
   assert.ok(result);
   assert.ok(calls.some(c => c[0] === 'insert' && c[1] === 'presupuestos_publicos' && c[2][0].foto_url === null));
   assert.ok(!calls.some(c => c[0] === 'storage'));
+});
+
+test('commercial mode rejects direct legacy submission before any database, Storage or rate-limit access', async () => {
+  const calls = [];
+  const api = await loadPresupuestoApi(calls, true);
+  globalThis.localStorage = { getItem: () => { calls.push(['localStorage']); return null; }, setItem: () => { calls.push(['localStorage']); } };
+  await assert.rejects(api.submitPresupuesto({ nombre: 'Synthetic', telefono: '0', descripcion: 'Synthetic', website: '' }, null), /LEGACY_QUOTE_DISABLED/);
+  assert.deepEqual(calls, []);
+});
+
+test('unknown commercial mode fails closed before inspecting the form', async () => {
+  const calls = [];
+  const api = await loadPresupuestoApi(calls, null);
+  const body = new Proxy({}, { get() { throw new Error('BODY_MUST_NOT_BE_READ'); } });
+  await assert.rejects(api.submitPresupuesto(body, null), /LEGACY_QUOTE_DISABLED/);
+  assert.deepEqual(calls, []);
 });

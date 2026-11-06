@@ -19,6 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -34,7 +35,8 @@ jobs:
         run: |
           node docs/product-core/private-gallery-manifest.mjs
           node docs/product-core/issue100-manifest.mjs
-          sudo unshare --net -- "$(command -v node)" --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs tests/ci/admin-route.test.mjs tests/ci/identity-containment.test.mjs tests/ci/private-gallery.test.mjs tests/ci/gallery-review.test.mjs tests/ci/no-public-customer-upload.test.mjs tests/ci/catalog.test.mjs
+          node docs/product-core/wroute-manifest.mjs
+          sudo unshare --net -- "$(command -v node)" --experimental-vm-modules --import ./scripts/ci/offline-guard.mjs --test tests/ci/isolation.test.mjs tests/ci/provider-containment.test.mjs tests/ci/payment-containment.test.mjs tests/ci/payment-status-truth.test.mjs tests/ci/lint-error-regression.test.mjs tests/ci/admin-route.test.mjs tests/ci/identity-containment.test.mjs tests/ci/private-gallery.test.mjs tests/ci/gallery-review.test.mjs tests/ci/no-public-customer-upload.test.mjs tests/ci/sales-route-containment.test.mjs tests/ci/catalog.test.mjs
           sudo unshare --net -- "$(command -v node)" scripts/ci/build.mjs
       - name: Lint with OS network disabled
         if: matrix.gate == 'lint'
@@ -48,6 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
