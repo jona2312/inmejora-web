@@ -36,16 +36,19 @@ const renderResultsSchema=z.object({
 const feedbackSchema=z.object({schema_version:z.literal('render-feedback.v1'),project_id:z.string().uuid(),revision:z.number().int().nonnegative(),
   can_feedback:z.boolean(),feedback:z.object({revision:z.number().int().positive(),artifact_id:z.string().uuid(),
     action:z.enum(['select','adjust']),created_at:z.string().datetime()}).strict().nullable()}).strict();
-export function localCoreEnabled() {
-  return import.meta.env.DEV && import.meta.env.MODE === 'project-core-local' &&
-    globalThis.location?.protocol === 'http:' && globalThis.location?.hostname === '127.0.0.1';
+// This only selects a UI transport. Admission, session and ownership remain Core decisions.
+// Keep the existing local profile; the separately built controlled profile requires HTTPS.
+export function localCoreEnabled(env = import.meta.env ?? {}, location = globalThis.location) {
+  return (env.DEV === true && env.MODE === 'project-core-local' &&
+    location?.protocol === 'http:' && location?.hostname === '127.0.0.1') ||
+    (env.PROD === true && env.MODE === 'project-core-controlled' && location?.protocol === 'https:');
 }
 export function toLeadRequest(values, key) {
   return {
     schema_version: 'lead.v1', idempotency_key: key,
     source: {channel: 'web', path: '/contacto', campaign: null},
     project: {category: values.category || 'consulta', locality: values.locality.trim(), zone: null, property_type: 'otro', room: values.room?.trim() || null,
-      measurements: null, description: values.message.trim()},
+      measurements: values.measurements?.trim() ? {declared:values.measurements.trim()} : null, description: values.message.trim()},
     preferences: {materials: values.materials?.trim() || null, style: null}, attachment_refs: [], intent: 'asesoria',
     contact: {name: values.name.trim(), channel: 'email', email: values.email.trim()},
     consent: {contact_requested: values.consent === true, notice_version: 'LOCAL-FIXTURE-1', marketing: false},

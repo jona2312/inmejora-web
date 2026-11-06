@@ -58,7 +58,7 @@ const ConsultaForm = () => {
       lock.current=true;setBusy(true);setAttempted(true);setFailure('');
       try {
         const saved=await client.current.submit({name:values.nombre,email,locality:values.localidad,consent,
-          message:buildConsultaMessage(values),materials:colors,room:values.ambiente,
+          message:buildConsultaMessage(values),measurements:values.medidas,materials:colors,room:values.ambiente,
           category:values.servicio==='pintura-y-terminaciones'?'pintar':values.servicio==='diseno-y-visualizacion'?'disenar':'consulta'});
         for (const photo of photos) await client.current.photo(saved, photo);
         setContext(saved);
