@@ -146,6 +146,27 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     if(result.status!=='stored' || !z.string().uuid().safeParse(result.id).success) throw new ProjectCoreError('INVALID_PHOTO_RECEIPT');
     return result;
   }
+  async function saveRegion(context, {sourceId,sourceHash,maskHash,blob,requestKey}) {
+    threadPath(context);
+    const id = z.string().uuid(), hash = z.string().regex(/^[0-9a-f]{64}$/);
+    id.parse(sourceId); id.parse(requestKey); hash.parse(sourceHash); hash.parse(maskHash);
+    if (blob.type !== 'image/png') throw new ProjectCoreError('INVALID_REGION_TYPE');
+    await initialize();
+    const base64 = await new Promise((resolve,reject)=>{
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result).split(',')[1]);
+      reader.onerror = () => reject(new ProjectCoreError('INVALID_REGION_FILE'));
+      reader.readAsDataURL(blob);
+    });
+    const result=await request('/projects/'+context.project_id+'/web-photos','POST',{
+      role:'mask',idempotency_key:requestKey,source_photo_id:sourceId,source_sha256:sourceHash,media_type:'image/png',base64,
+    });
+    if (result.status !== 'stored' || result.role !== 'mask' || !id.safeParse(result.id).success || result.id === sourceId ||
+        result.source_photo_id !== sourceId || result.source_sha256 !== sourceHash || result.sha256 !== maskHash) {
+      throw new ProjectCoreError('INVALID_REGION_RECEIPT');
+    }
+    return result.id;
+  }
   async function gallery(context) {
     threadPath(context);
     await initialize();
@@ -200,5 +221,5 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
       .catch(error=>{if([403,404,409,422].includes(error.status))pendingFeedback=undefined;throw error;}).finally(()=>{feedbackSubmission=undefined;});
     return feedbackSubmission;
   }
-  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath, renderResults, renderResultPath, renderFeedback, feedback};
+  return {initialize, submit, current, thread, message, photo, saveRegion, gallery, galleryPhotoPath, renderResults, renderResultPath, renderFeedback, feedback};
 }

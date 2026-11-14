@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PrivatePhotoRegion from './PrivatePhotoRegion';
 import { createProjectCoreClient, localCoreEnabled } from '@/lib/projectCoreClient';
 
 const RenderGallerySection = ({client:providedClient, context:providedContext}) => {
@@ -11,6 +12,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
   const [loading,setLoading]=useState(true);
   const [refresh,setRefresh]=useState(0);
   const [results,setResults]=useState(null);
+  const [markedPhoto,setMarkedPhoto]=useState(null);
   const [feedback,setFeedback]=useState(null);
   const [resultFailure,setResultFailure]=useState('');
   const [saving,setSaving]=useState(false);
@@ -19,7 +21,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
   useEffect(()=>{
     let active=true;
     requestEpoch.current++;
-    setSaving(false);
+    setSaving(false);setMarkedPhoto(null);
     setData(null);setContext(null);setFailure('');setLoading(true);
     setResults(null);setFeedback(null);setResultFailure('');
     if(!enabled){setLoading(false);return ()=>{active=false;};}
@@ -54,8 +56,12 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
           <img src={client.galleryPhotoPath(context,photo.id)} alt={`Foto privada ${index+1}`} referrerPolicy="no-referrer"
             className="w-full rounded-lg border border-gray-700" onError={()=>{setFailure('Foto no disponible. Actualizá para volver a verificar el acceso.');setData(null);}} />
           <figcaption>Original {index+1} · {new Date(photo.created_at).toLocaleDateString('es-AR')}</figcaption>
+          <button type="button" className="rounded border px-3 py-2" onClick={()=>setMarkedPhoto(photo.id)}>Marcar zona en foto {index+1}</button>
         </figure>)}
       </div>}
+      {data.photos.some(photo=>photo.id===markedPhoto) && <PrivatePhotoRegion
+        key={data.project_id+':'+markedPhoto} projectId={data.project_id} photoId={markedPhoto}
+        sourcePath={client.galleryPhotoPath(context,markedPhoto)} onSave={selection=>client.saveRegion(context,selection)} onClose={()=>setMarkedPhoto(null)} />}
       {data.render_results_enabled && <><h3 className="text-lg font-bold">Resultados del ensayo</h3>
       <p>La elección queda registrada para revisión humana. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p>
       {resultFailure && <p role="alert">{resultFailure}</p>}
