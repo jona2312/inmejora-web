@@ -8,6 +8,7 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {chromium} from '@playwright/test';
+import {createRequire} from 'node:module';
 import {build} from 'esbuild';
 
 const core=process.cwd(), web=fileURLToPath(new URL('../../',import.meta.url));
@@ -27,8 +28,12 @@ const root=await mkdtemp(join(tmpdir(),'inmejora-web-private-mask-'));
 const t=await commercialHarness(true),db=t.h.admin;
 const secret=()=>randomBytes(32).toString('hex'),sha=s=>createHash('sha256').update(s).digest('hex');
 const cfg={machineApiKey:secret(),machineKey:secret(),eventKey:secret(),privateRoot:root,maximumMicrousd:11};
-const original=syntheticPng(1536,1024,(x,y)=>[(x>>5)%255,(y>>6)%255,156]);
-const body=bytes=>({idempotency_key:id(),media_type:'image/png',base64:bytes.toString('base64')});
+const jpeg=process.argv.includes('--jpeg');
+const {decodePng} = await coreModule('server/project-core/render-qa-image.ts');
+const synth=syntheticPng(1536,1024,(x,y)=>[(x>>5)%255,(y>>6)%255,156]);
+const sourceMime=jpeg?'image/jpeg':'image/png';
+const original=jpeg?createRequire(join(core,'package.json'))('jpeg-js').encode(decodePng(synth),75).data:synth;
+const body=bytes=>({idempotency_key:id(),media_type:sourceMime,base64:bytes.toString('base64')});
 let browser;
 try {
   for (const f of [
@@ -122,7 +127,7 @@ try {
   assert.deepEqual((await db.query("SELECT count(*)::int n FROM inmejora_core.private_attachments WHERE project_id=$1 AND starts_with(provider_event_id,'web-mask:')",[project_id])).rows,[{n:1}]);
   assert.equal((await db.query('select count(*)::int n from inmejora_core.render_provider_attempts')).rows[0].n,0);
   console.log(JSON.stringify({passed:true,browser:browser.version(),postgres:(await db.query('show server_version')).rows[0].server_version,
-    physical_provider_calls:0,source_sha256:saved.source_sha256,mask_sha256:saved.sha256,mask_bytes:serialized.length,
+    source_mime:sourceMime,physical_provider_calls:0,source_sha256:saved.source_sha256,mask_sha256:saved.sha256,mask_bytes:serialized.length,
     before_save_POSTs:0,after_click_POSTs:writes.length,save_http:res.status(),identical_retry_id:true,physical_private_mask_rows:1,
     gallery_sources_only:true,owner_raw_mask_download:404,other_project_gallery:404,anonymous_mask_http:anon.status,
     private_file_equals_browser_png:true,render_attempts:0}));

@@ -133,7 +133,17 @@ try {
   const ori=JSON.parse(await exported('Descargar ficha de la selección'));
   assert.deepEqual(ori.polygon,[[80,120],[240,120],[240,360],[80,360]]);assert.equal(ori.source_sha256,sha(source));
   assert.equal(await save.count(),0);assert.equal(posts.length,2);assert.deepEqual(unhandled,[]);assert.deepEqual(errors,[]);
+  const upright=Buffer.from(exif);upright.writeUInt16LE(1,28);
+  for (const normal of [jpeg,Buffer.concat([jpeg.subarray(0,2),upright,jpeg.subarray(2)])]) {
+    source=normal;
+    const plain=await open();
+    assert.deepEqual(await plain.evaluate(c=>[c.width,c.height]),[480,320]);
+    await corners(plain,rectangle); await page.getByRole('button',{name:'Confirmar zona'}).click();
+    await save.click(); await page.getByRole('status').filter({hasText:'Zona guardada en privado'}).waitFor();
+    assert.equal(posts.at(-1).source_sha256,sha(source));
+  }
+  assert.equal(posts.length,4);assert.deepEqual(unhandled,[]);assert.deepEqual(errors,[]);
   console.log(JSON.stringify({passed:true,private_gallery:true,polygons:2,alpha:[0,255],source_hash:true,mask_hash:true,
-    oriented_JPEG:[320,480],saved_PNG:true,server_fixture:true,invalid_receipt_rejected:true,retry_same_key:true,
+    oriented_JPEG:[320,480],saved_PNG:true,saved_JPEG_upright:true,server_fixture:true,invalid_receipt_rejected:true,retry_same_key:true,
     empty_region_rejected:true,full_region_rejected:true,keyboard:true,paid_calls:0,other_business_requests:0}));
 } finally {await browser?.close();await vite.close();}

@@ -4,11 +4,43 @@ const button = 'rounded border border-gray-500 px-3 py-2';
 const digest = async bytes => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)),
   value => value.toString(16).padStart(2, '0')).join('');
 
-// An oriented photo can be marked and exported locally. Core currently admits
-// original PNGs with no EXIF chunk for a persisted source/mask coordinate pair.
+// The browser presents the oriented image. Core binds a mask to unchanged source
+// coordinates, so a rotated/mirrored or unreadable EXIF stays local.
+function uprightJpeg(view) {
+  if (view.byteLength < 4 || view.getUint16(0) !== 0xffd8) return false;
+  for (let offset = 2; offset + 4 <= view.byteLength;) {
+    if (view.getUint8(offset++) !== 0xff) return false;
+    while (offset < view.byteLength && view.getUint8(offset) === 0xff) offset++;
+    if (offset + 3 > view.byteLength) return false;
+    const marker = view.getUint8(offset++);
+    if (marker === 0xda) return true;
+    const length = view.getUint16(offset), start = offset + 2, end = offset + length;
+    if (length < 2 || end > view.byteLength) return false;
+    if (marker === 0xe1 && end - start >= 6 && view.getUint32(start) === 0x45786966 && view.getUint16(start + 4) === 0) {
+      const tiff = start + 6;
+      if (end - tiff < 8) return false;
+      const order = view.getUint16(tiff), le = order === 0x4949;
+      if ((!le && order !== 0x4d4d) || view.getUint16(tiff + 2,le) !== 42) return false;
+      const dir = tiff + view.getUint32(tiff + 4,le);
+      if (dir < tiff + 8 || dir + 2 > end) return false;
+      const count = view.getUint16(dir,le);
+      if (dir + 2 + count * 12 + 4 > end) return false;
+      for (let i = 0; i < count; i++) {
+        const tag = dir + 2 + i * 12;
+        if (view.getUint16(tag,le) === 0x0112 &&
+            (view.getUint16(tag + 2,le) !== 3 || view.getUint32(tag + 4,le) !== 1 || view.getUint16(tag + 8,le) !== 1))
+          return false;
+      }
+    }
+    offset = end;
+  }
+  return false;
+}
+
 function supportsPrivateMask(bytes, mime) {
-  if (mime !== 'image/png' || bytes.byteLength < 33) return false;
   const view = new DataView(bytes);
+  if (mime === 'image/jpeg') return uprightJpeg(view);
+  if (mime !== 'image/png' || bytes.byteLength < 33) return false;
   if (view.getUint32(0) !== 0x89504e47 || view.getUint32(4) !== 0x0d0a1a0a) return false;
   for (let offset=8; offset+12<=view.byteLength;) {
     const length=view.getUint32(offset), kind=view.getUint32(offset+4);
