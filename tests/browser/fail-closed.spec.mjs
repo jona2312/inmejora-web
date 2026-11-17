@@ -31,7 +31,7 @@ test('without a configured number the commercial channel is explicitly disabled 
     expect(hrefs.filter(h => /wa\.me|^tel:/.test(h)), `${route}: no WhatsApp/phone links`).toEqual([]);
     await expect(page.getByRole('link', { name: 'Escribinos por WhatsApp' })).toHaveCount(0);
     const text = await page.locator('body').innerText();
-    expect(text).not.toMatch(/\+\d{2} 9 11|5491158300611|Todavía no fue enviado/);
+    expect(text).not.toMatch(/\+\d{2} 9 11|5491100000611|Todavía no fue enviado/);
   }
   await page.goto('/');
   const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').first().textContent());

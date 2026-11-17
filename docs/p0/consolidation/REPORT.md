@@ -76,7 +76,7 @@ Se conservan las ocho advertencias históricas de react-hooks/exhaustive-deps y 
 | Retorno checkout | Estado no verificado incluso si la URL indica éxito; no se otorgan beneficios. |
 | Home, navegación y contenido público | Se mantienen rutas públicas, catálogo/cotizador y sus estados de error; los datos/servicios reales conservan dependencias externas no certificadas por fixtures. |
 | Formularios públicos | Los flujos preservados siguen sus contratos actuales; Contacto informa que no envía ni guarda. No generalizar su contención a todos los formularios ni prometer persistencia real. |
-| Contacto manual | Se conservan Home/Contacto y modal existente con WhatsApp de Jona (+54 9 11 5830-0611) y hola@inmejora.com. No se abren conversaciones ni se envían mensajes en tests. No se certifica entrega/disponibilidad/SLA humano. |
+| Contacto manual | Se conservan Home/Contacto y modal existente con WhatsApp de Jona (5491100000611) y hola@inmejora.com. No se abren conversaciones ni se envían mensajes en tests. No se certifica entrega/disponibilidad/SLA humano. |
 | Studio | Fuera de alcance; Web #1 no se incorpora. |
 
 El cambio de una línea no agrega una función comercial. Las indisponibilidades anteriores del consolidado deben aceptarse explícitamente antes de integración.

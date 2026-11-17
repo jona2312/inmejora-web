@@ -6,23 +6,23 @@ const TrustSection = () => {
   const exclusiveFeatures = [
     {
       icon: MapPin,
-      title: "Planos técnicos a escala",
-      description: "Documentación detallada y a escala lista para entregar a contratistas y comenzar la obra sin contratiempos."
+      title: "Alcance por confirmar",
+      description: "El equipo revisa las medidas, la localidad y los requisitos antes de definir una propuesta."
     },
     {
       icon: Video,
-      title: "Videos del hogar",
-      description: "Recorridos virtuales interactivos para visualizar el resultado final desde todos los ángulos antes de empezar."
+      title: "Visualización en preparación",
+      description: "La generación automática de imágenes y videos no está habilitada para uso comercial."
     },
     {
       icon: UserCheck,
-      title: "Asesor dedicado",
-      description: "Un profesional a tu disposición para guiarte en cada etapa del proyecto y asegurar resultados óptimos."
+      title: "Revisión humana",
+      description: "Un responsable debe confirmar que la información es suficiente y revisar la próxima acción."
     },
     {
       icon: Calculator,
-      title: "Cotización real de obra",
-      description: "Presupuestos precisos basados en precios del mercado argentino actualizados, sin sorpresas."
+      title: "Presupuesto sujeto a aprobación",
+      description: "Los costos, el alcance y la versión formal requieren revisión y aprobación humana. No se envían presupuestos automáticos."
     }
   ];
 
@@ -30,10 +30,10 @@ const TrustSection = () => {
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5 mt-12">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-white mb-4">
-          La experiencia <span className="text-[#F59E0B]">Mi Proyecto</span>
+          Antes de <span className="text-[#F59E0B]">presupuestar</span>
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          Llevamos tu diseño al siguiente nivel con herramientas exclusivas pensadas para hacer realidad tu visión con precisión milimétrica y atención personalizada.
+          El catálogo permite consultar opciones. Las compras y las suscripciones siguen deshabilitadas hasta completar su revisión.
         </p>
       </div>
 
