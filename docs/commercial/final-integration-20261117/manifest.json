@@ -4,22 +4,27 @@
   "scope": "W1/W2/W3: local source boundary corrections; no deployment",
   "source_hash_encoding": "SHA256 of UTF-8 LF-normalized source",
   "files": {
-    "package.json": "f3ca5e433dec95ee51b043ea51419fcc7d1b3debfdbced242d28c4c540c8bd5b",
+    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
+    "docs/commercial/final-integration-20261117/REVIEW.md": "4737209db05de89d6df58405b578e652591d718c70d1fc8052bdbed4352af4a2",
+    "docs/p0/consolidation/REPORT.md": "4b661a33070220e595c21c3a17b7fd8619b7ff4c02de849404a431029dbfe100",
+    "docs/product-core/issue100-manifest.json": "3e277aa07624f38f75e06f247183a12bbb96afa70218031f5a00ced54ebbca15",
+    "docs/product-core/private-gallery-manifest.json": "cc7a61034d0b873e84ac9fc49f2797e6b32cb12d23bd3de44aa08aba354468a1",
+    "docs/product-core/structured-intake-manifest.json": "d2bc1fa1a69d59bb72781c8555678c4dac2fcbe4f3d96e4061a9fe8e4ea2c6af",
+    "docs/product-core/wroute-manifest.json": "f8d82cce38b9ae7ea6b6eaaba1f8d12a26b860ab4fe7c835cfe0af2ca9527e9d",
+    "docs/sales-launch/link-inventory.json": "60d1dff618af4b26695e6725127cca5b560c928e283a953d6cd8bf5bbb27bde5",
+    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
     "scripts/ci/build-options.mjs": "92ec7355f02f8912dac851695a595942598fa30163363f95924f012d09e8d3af",
     "src/components/pricing/TrustSection.jsx": "c87f356508b724ea3a1d5f39bfd731c02e11d7ffa48b606d2fc274310cbfa103",
     "src/components/sales/ConsultaForm.jsx": "81a59598c9102c23d0f67e3aecd20c7ded1bd2edf41b3375c9bc4838858736dc",
     "src/config/commercial.js": "bf767235c5d0d1052fc41f00a278c46d57f14bc61a26e4629be1ea79c375e9a1",
     "src/pages/ContactoPage.jsx": "b912a7c2c416850ebb949335b47a34f780c801fc395513fa0c052f706668836e",
     "src/utils/whatsappUtils.js": "6c34e3bf4245d0ff98e1044687ba3d8088fcbd4c0863979e1058cda9859254d1",
+    "tests/browser/fail-closed.spec.mjs": "bcbbf1d89c6370733c9def954127b5f0ee091704c41d2f64f9ed884e72734479",
+    "tests/ci/final-commercial-boundaries.test.mjs": "818e41146d2b75da73e3326ddc0f9a03362bf4338fa3e6f75da026552ac2762e",
     "tests/ci/isolation.test.mjs": "b087187635353560a3700d53cfaa81a6cc02854e6758b662729106fd92732ac4",
-    "tests/ci/whatsapp-fail-closed.test.mjs": "190a7a8353dc408fcaedb0d498b0feb0d335aaea26571ab91e79309aeadbae4f",
-    "tests/ci/final-commercial-boundaries.test.mjs": "0d2351696de1a9e5c507e96fb0c7e40d7399d6ffaeef24c5566e3d5758d91bf5",
-    "docs/commercial/final-integration-20261117/REVIEW.md": "d28ebdcb942f79483d52cd2c04872b32d03216ffe883dc140e9f5ce9877ff114",
-    ".github/workflows/p0-web-offline.yml": "77752d8b0ec08ca5fdf977fe2172762015b4b85659fcb33097e257ddbb506df2",
-    "docs/product-core/private-gallery-manifest.json": "0ddfc8c4c1b735651d7cd1f8329a83c2337c50beb4c721ca4c32b8afc9c0b5f6",
-    "docs/product-core/issue100-manifest.json": "ca45c66a23170307556911a1a0b09e614a1ea6e3dbf66de29201986b0f8313e3",
-    "docs/product-core/wroute-manifest.json": "7ab7b96b69ecbeda08ec9879f50b4df35f61a8b44f5026f99822628d52ad1be5",
-    "docs/product-core/structured-intake-manifest.json": "9bb2a2a8f3019f8086e95ddf629c8ec126879cf8f2671b6cb63f03cfb20c0fe5"
+    "tests/ci/personal-contact-privacy.test.mjs": "aab0c01ec09575627e6a233f471eff0afd01a77ad2e620770471d60de823fb40",
+    "tests/ci/sales-launch.test.mjs": "3bc0c2b8deb8a65a6b6268febe73e613f90d298fdb34aae0bac206ebeb70a119",
+    "tests/ci/whatsapp-fail-closed.test.mjs": "d93bc6793de8c9ac5577da5115d8e625fca2071e8295bcb515d406b5c47837c3"
   },
   "controlled_artifact": {
     "dist-controlled/index.html": "d63640ca42ea93c806bdb7c41615ffaa19cf5c296d7b795ee0054061b8bb075c",
@@ -32,11 +37,11 @@
     "dist-controlled/assets/PricingPage-c2ce2032.js": "5cdfa3c00d71c5af4bc41e722e02bdd38a06ec1a835608f40f91601d17d1aa57"
   },
   "local_tests": {
-    "passed": 133,
+    "passed": 137,
     "failed": 0,
     "skipped": 0,
     "node": "v24.22.1",
-    "log_sha256": "8dba7878b2bfe830d4524b889f6b08a6e055b2e79f07ae82aa7e8e9dcbf1f0a2"
+    "log_sha256": "24aaf88fff279a891b0657fa1ff4acddd96bf2a5a04f1892ae4eec4423ddd040"
   },
   "remote_ci": "NOT_RUN",
   "independent_review": "PENDING",
@@ -46,6 +51,26 @@
   "pinned_node_boundary_tests": {
     "node": "v20.20.2",
     "passed": 11,
-    "failed": 0
+    "failed": 0,
+    "source": "85b875ce95e300b5bb412d0f68f4938d297bb939",
+    "note": "Historical Node20 baseline evidence; not re-executed by privacy-only follow-up."
+  },
+  "followup": {
+    "reviewed_parent": "85b875ce95e300b5bb412d0f68f4938d297bb939",
+    "review_reference": "Core Issue74 comment6950794387",
+    "privacy_fixtures": "SYNTHETIC_ONLY",
+    "environment_review": "NO_PRIVATE_OR_PRIVILEGED_SECRET_IDENTIFIED_NO_VALUES_RECORDED",
+    "environment_changed": false,
+    "history_rewritten": false,
+    "pr40_automatic_actions": "BRANCH_BASE_EXCLUDED",
+    "new_privacy_tests": {
+      "passed": 4,
+      "failed": 0
+    },
+    "controlled_build": "PASS",
+    "controlled_bundle_verification": "PASS",
+    "runtime_changed": false,
+    "browser_acceptance": "NOT_RUN",
+    "linux_image": "NOT_BUILT"
   }
 }

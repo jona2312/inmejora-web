@@ -36,7 +36,7 @@ test('commercial number: one configurable setting, fail-closed outside developme
   // Only development / mode-less unit tests may use the clearly fake placeholder, never the provisional personal number.
   assert.equal(resolveWhatsapp('', 'development'), '5491100000000');
   assert.equal(resolveWhatsapp('', undefined), '5491100000000');
-  assert.notEqual(resolveWhatsapp('', 'development'), '5491158300611');
+  assert.notEqual(resolveWhatsapp('', 'development'), '5491100000611');
   assert.equal(formatPhone('5491139066429'), '+54 9 11 3906-6429');
   assert.equal(formatPhone(''), '');
   assert.match(buildWhatsappUrl('Hola ñ & +', '5491139066429'), /^https:\/\/wa\.me\/5491139066429\?text=Hola%20%C3%B1%20%26%20%2B$/);
@@ -46,7 +46,7 @@ test('commercial number: one configurable setting, fail-closed outside developme
 });
 
 test('the provisional number is not present anywhere in the source or in index.html', () => {
-  for (const file of [...src, 'index.html', 'vite.config.js']) assert.doesNotMatch(read(file), /5491158300611|5830-?0611/, file);
+  for (const file of [...src, 'index.html', 'vite.config.js']) assert.doesNotMatch(read(file), /(?<!\d)\d{6,11}0611(?!\d)|(?<!\d)\d{4}-?0611(?!\d)/, file);
 });
 
 test('no WhatsApp number or wa.me literal exists outside the single config', () => {
@@ -54,7 +54,7 @@ test('no WhatsApp number or wa.me literal exists outside the single config', () 
     if (file.endsWith(path.join('config', 'commercial.js'))) continue;
     const text = read(file);
     assert.doesNotMatch(text, /549\d{10}/, `${file} hard-codes a phone number`);
-    assert.doesNotMatch(text, /5830-?0611|3906-?6429/, `${file} hard-codes a formatted phone`);
+    assert.doesNotMatch(text, /(?<!\d)\d{4}-?0611(?!\d)|3906-?6429/, `${file} hard-codes a formatted phone`);
     assert.doesNotMatch(text, /wa\.me\/\d/, `${file} hard-codes a wa.me number`);
   }
   assert.doesNotMatch(read('index.html'), /telephone|\d{2}-\d{4}-\d{4}/, 'index.html must not carry a stale phone');

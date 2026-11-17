@@ -14,12 +14,12 @@
     "tests/ci/structured-intake.test.mjs": "4171e1ab26c9c3d45dec028d5088a34ed5181d9c4720e713c139d63954c26e44",
     "tests/ci/controlled-name-required.test.mjs": "0be911b0cb80bbedba6b881903261e7810ad803512fa23acc6cd79909b3a5abd",
     "docs/product-core/QA119-CONTROLLED-WEB.md": "ed360be5683ed597dc9be25be6ee06a708194f5bae24fee737fcab76982c66ae",
-    "package.json": "f3ca5e433dec95ee51b043ea51419fcc7d1b3debfdbced242d28c4c540c8bd5b",
-    ".github/workflows/p0-web-offline.yml": "77752d8b0ec08ca5fdf977fe2172762015b4b85659fcb33097e257ddbb506df2",
+    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
+    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
     "docs/product-core/STRUCTURED-INTAKE.md": "e53e538632258f2aada331c9a0c1ab037d3386c17e3df86008161d5f6d3e55d3",
     "docs/product-core/structured-intake-manifest.mjs": "37169bf8486022620343d44773dc3095f6c8f450b807ceaa196b35f310116ca0",
-    "docs/product-core/private-gallery-manifest.json": "0ddfc8c4c1b735651d7cd1f8329a83c2337c50beb4c721ca4c32b8afc9c0b5f6",
-    "docs/product-core/issue100-manifest.json": "ca45c66a23170307556911a1a0b09e614a1ea6e3dbf66de29201986b0f8313e3",
-    "docs/product-core/wroute-manifest.json": "7ab7b96b69ecbeda08ec9879f50b4df35f61a8b44f5026f99822628d52ad1be5"
+    "docs/product-core/private-gallery-manifest.json": "cc7a61034d0b873e84ac9fc49f2797e6b32cb12d23bd3de44aa08aba354468a1",
+    "docs/product-core/issue100-manifest.json": "3e277aa07624f38f75e06f247183a12bbb96afa70218031f5a00ced54ebbca15",
+    "docs/product-core/wroute-manifest.json": "f8d82cce38b9ae7ea6b6eaaba1f8d12a26b860ab4fe7c835cfe0af2ca9527e9d"
   }
 }

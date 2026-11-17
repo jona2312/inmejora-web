@@ -26,7 +26,7 @@ test('production build FAILS without VITE_COMMERCIAL_WHATSAPP (no silent fallbac
 });
 
 test('production build FAILS with an invalid or empty number', () => {
-  for (const value of ['', '   ', '12345', 'no-es-un-numero', '1'.repeat(16), '5491158300611']) {
+  for (const value of ['', '   ', '12345', 'no-es-un-numero', '1'.repeat(16), '5491100000611']) {
     const r = build({ VITE_COMMERCIAL_WHATSAPP: value });
     assert.notEqual(r.status, 0, `value ${JSON.stringify(value)} must fail`);
     assert.match(r.text, /COMMERCIAL_WHATSAPP_REQUIRED/);
@@ -39,6 +39,6 @@ test('production build with a valid number succeeds and never contains the provi
   assert.equal(r.status, 0, r.text.slice(-600));
   const code = bundle(r.out);
   assert.ok(code.includes('5491139066429'), 'configured number is in the bundle');
-  assert.ok(!code.includes('5491158300611'), 'provisional number must not be in any bundle');
+  assert.ok(!code.includes('5491100000611'), 'provisional number must not be in any bundle');
   rmSync(r.out, { recursive: true, force: true });
 });

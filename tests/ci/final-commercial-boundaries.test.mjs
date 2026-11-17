@@ -15,7 +15,7 @@ import { localCoreEnabled } from '../../src/lib/projectCoreClient.js';
 const BASE = '204a75ffddb23a3f61a129ee9f4f842efe5381e3';
 const read = file => readFileSync(new URL('../../' + file, import.meta.url), 'utf8');
 const prior = file => execFileSync('git', ['show', BASE + ':' + file], { encoding: 'utf8' });
-const PERSONAL = '5491158300611';
+const PERSONAL = '5491100000611';
 const COMMERCIAL = '5491139066429';
 
 test('base reproduction: a configured personal number and a direct URL argument are accepted', async () => {
@@ -26,7 +26,7 @@ test('base reproduction: a configured personal number and a direct URL argument 
 });
 
 test('personal suffix is denied in configuration and explicit URL arguments, including formatting', () => {
-  for (const number of [PERSONAL, '+54 9 11 5830-0611', '541158300611', '1158300611']) {
+  for (const number of [PERSONAL, '+54 (9) 11 0000-0611', '541100000611', '1100000611']) {
     assert.equal(commercial.validWhatsapp(number), '');
     for (const mode of ['production', 'ci', 'project-core-controlled']) assert.equal(commercial.resolveWhatsapp(number, mode), '');
     assert.equal(commercial.buildWhatsappUrl('Consulta sintética', number), null);

@@ -30,8 +30,8 @@
     "src/contexts/unavailableSubscription.js": "1e8900a39881360a91b7acb3e9130321ac231491f8a2ed8d9d40c73d49e3daf2",
     "tests/ci/private-gallery.test.mjs": "cd82395548cf1e4b843d3d07a464af036011be059065812cda5b4a6f7654f243",
     "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
-    ".github/workflows/p0-web-offline.yml": "77752d8b0ec08ca5fdf977fe2172762015b4b85659fcb33097e257ddbb506df2",
-    "package.json": "f3ca5e433dec95ee51b043ea51419fcc7d1b3debfdbced242d28c4c540c8bd5b",
+    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
+    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
     "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
     "docs/product-core/private-gallery-manifest.mjs": "ee48128e386e24999d446be0c24465723054683dd3e68ba7751dbfbcc99e375e"
   }

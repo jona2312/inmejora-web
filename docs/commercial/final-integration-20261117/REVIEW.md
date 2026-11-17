@@ -57,3 +57,13 @@ Ordinary production mode remains a distinct, explicitly unsent WhatsApp preparat
 No push/remote CI, merge, installation, deployment, provider access, messages, payments or secret changes were performed. The existing Core remains the only CRM and authority. `C2_LIVE_PREFLIGHT = HOLD`.
 
 For an approved future installation, use the reviewed Web artifact and its matching Core/proxy profile. Rollback is redeployment of the previously approved immutable artifact, never enabling a personal destination or converting a controlled build into WhatsApp mode.
+
+## Follow-up: Claude W1 / offline publication guard
+
+Reviewed parent: `85b875ce95e300b5bb412d0f68f4938d297bb939`, Claude comment `6950794387` in Core Issue #74. Personal-contact fixtures in the tracked tests and documents now use zero-filled synthetic data with the same excluded suffix. The historical link inventory is explicitly sanitized evidence: its replacement contact values are not a newly observed destination. The scanner checks the current tests/documents without embedding the real contact, and reproduces the parent's violation while exposing only an assertion result. It also covers formatted numbers. No public history was rewritten; historical exposure and the deployed site's version remain separate operational decisions.
+
+The versioned production environment file was reviewed locally as expressly authorized. **No private or privileged credential requiring remediation was identified.** No values, token fragments or file hash are included here; the file was not changed. This does not accredit the production project's grants, RLS, storage policies or real connectivity, which remain outside this review and under C2 HOLD.
+
+The PR #40 base branch is now excluded from automatic `pull_request` jobs. A normal push does not depend on `[skip ci]` to avoid execution; manual execution remains separate and was not invoked. Full checkout history retains both immutable regression baselines. No runtime, CTA, identity, credit, pricing or provider behavior changes in this privacy follow-up.
+
+Local follow-up verification is recorded in the adjacent manifest after the final run. Previous totals above belong to the reviewed parent and are not a new result for this delta. Browser/connected-Core acceptance and Linux image acceptance remain with the integrated Core candidate; they are not claimed by source redaction or offline build tests.
