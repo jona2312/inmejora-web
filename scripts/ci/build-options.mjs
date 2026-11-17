@@ -3,6 +3,7 @@ export function offlineBuildOptions(baseConfig) {
     ...baseConfig,
     configFile: false,
     envFile: false,
+    envDir: false,
     mode: 'ci',
     define: {
       ...baseConfig.define,

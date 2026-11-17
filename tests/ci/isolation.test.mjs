@@ -36,6 +36,7 @@ test('build refuses env loading and overrides API constants while preserving app
   };
   const options = offlineBuildOptions(base);
   assert.equal(options.envFile, false);
+  assert.equal(options.envDir, false);
   assert.equal(options.configFile, false);
   assert.equal(options.mode, 'ci');
   assert.equal(options.plugins, base.plugins);

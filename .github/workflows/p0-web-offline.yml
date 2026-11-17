@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 2 # This delta's direct parent is the immutable Web39 regression baseline.
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
@@ -41,6 +42,7 @@ jobs:
           sudo unshare --net -- "$(command -v node)" scripts/ci/build.mjs
           sudo unshare --net -- "$(command -v node)" --test tests/ci/structured-intake.test.mjs
           sudo unshare --net -- "$(command -v node)" --experimental-vm-modules --test tests/ci/controlled-name-required.test.mjs
+          sudo unshare --net -- "$(command -v node)" --experimental-vm-modules --test tests/ci/final-commercial-boundaries.test.mjs
           sudo unshare --net -- "$(command -v node)" scripts/ci/build-controlled-intake.mjs
           sudo unshare --net -- "$(command -v node)" scripts/ci/verify-controlled-build.mjs
       - name: Lint with OS network disabled

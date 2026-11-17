@@ -50,6 +50,7 @@ const ConsultaForm = () => {
 
   const submit = async event => {
     event.preventDefault();
+    if (COMMERCIAL.intakeMode === 'core-controlled' && !local) return;
     if (local) {
       if (lock.current || photoRead.current) return;
       if (!values.nombre.trim() || !email.trim() || !consent || Object.keys(validateConsulta(values)).length) {
@@ -93,6 +94,15 @@ const ConsultaForm = () => {
       if (preparationVersion.current === version) setCopied(false);
     }
   };
+
+  if (COMMERCIAL.intakeMode === 'core-controlled' && !local) {
+    return (
+      <div role="alert" className="rounded-xl border border-red-400/40 bg-red-400/5 p-6 text-gray-200" data-channel="core-blocked">
+        <p className="font-bold text-white">El formulario seguro no está disponible en esta conexión.</p>
+        <p className="mt-2 text-sm">Abrí esta página por HTTPS. No se guardó ni envió la consulta.</p>
+      </div>
+    );
+  }
 
   if (!local && !COMMERCIAL.channelEnabled) {
     return (

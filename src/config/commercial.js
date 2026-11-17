@@ -8,10 +8,10 @@ const DEV_ONLY_WHATSAPP = '5491100000000';
 
 const digits = value => String(value ?? '').replace(/\D/g, '');
 
-/** International format without "+", 10-15 digits. Returns '' when missing or invalid. */
+/** International format without "+", 10-15 digits. The personal suffix is never a commercial destination. */
 export function validWhatsapp(raw) {
   const value = digits(raw);
-  return value.length >= 10 && value.length <= 15 ? value : '';
+  return value.length >= 10 && value.length <= 15 && !value.endsWith('0611') ? value : '';
 }
 
 /** mode: Vite mode. Only development (and mode-less unit tests) may use the placeholder; every other mode is strict. */
@@ -28,8 +28,9 @@ export function formatPhone(number) {
 }
 
 export function buildWhatsappUrl(text, number = COMMERCIAL.whatsapp) {
-  if (!number) return null; // channel disabled: never build a link to an unknown number
-  const base = `https://wa.me/${number}`;
+  const destination = validWhatsapp(number);
+  if (!destination) return null; // also validate explicit callers; no personal-number bypass
+  const base = `https://wa.me/${destination}`;
   return text ? `${base}?text=${encodeURIComponent(text)}` : base;
 }
 

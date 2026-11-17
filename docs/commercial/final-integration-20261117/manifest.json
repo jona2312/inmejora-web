@@ -1,0 +1,51 @@
+{
+  "base": "204a75ffddb23a3f61a129ee9f4f842efe5381e3",
+  "branch": "codex/final-commercial-web-20261117",
+  "scope": "W1/W2/W3: local source boundary corrections; no deployment",
+  "source_hash_encoding": "SHA256 of UTF-8 LF-normalized source",
+  "files": {
+    "package.json": "f3ca5e433dec95ee51b043ea51419fcc7d1b3debfdbced242d28c4c540c8bd5b",
+    "scripts/ci/build-options.mjs": "92ec7355f02f8912dac851695a595942598fa30163363f95924f012d09e8d3af",
+    "src/components/pricing/TrustSection.jsx": "c87f356508b724ea3a1d5f39bfd731c02e11d7ffa48b606d2fc274310cbfa103",
+    "src/components/sales/ConsultaForm.jsx": "81a59598c9102c23d0f67e3aecd20c7ded1bd2edf41b3375c9bc4838858736dc",
+    "src/config/commercial.js": "bf767235c5d0d1052fc41f00a278c46d57f14bc61a26e4629be1ea79c375e9a1",
+    "src/pages/ContactoPage.jsx": "b912a7c2c416850ebb949335b47a34f780c801fc395513fa0c052f706668836e",
+    "src/utils/whatsappUtils.js": "6c34e3bf4245d0ff98e1044687ba3d8088fcbd4c0863979e1058cda9859254d1",
+    "tests/ci/isolation.test.mjs": "b087187635353560a3700d53cfaa81a6cc02854e6758b662729106fd92732ac4",
+    "tests/ci/whatsapp-fail-closed.test.mjs": "190a7a8353dc408fcaedb0d498b0feb0d335aaea26571ab91e79309aeadbae4f",
+    "tests/ci/final-commercial-boundaries.test.mjs": "0d2351696de1a9e5c507e96fb0c7e40d7399d6ffaeef24c5566e3d5758d91bf5",
+    "docs/commercial/final-integration-20261117/REVIEW.md": "d28ebdcb942f79483d52cd2c04872b32d03216ffe883dc140e9f5ce9877ff114",
+    ".github/workflows/p0-web-offline.yml": "77752d8b0ec08ca5fdf977fe2172762015b4b85659fcb33097e257ddbb506df2",
+    "docs/product-core/private-gallery-manifest.json": "0ddfc8c4c1b735651d7cd1f8329a83c2337c50beb4c721ca4c32b8afc9c0b5f6",
+    "docs/product-core/issue100-manifest.json": "ca45c66a23170307556911a1a0b09e614a1ea6e3dbf66de29201986b0f8313e3",
+    "docs/product-core/wroute-manifest.json": "7ab7b96b69ecbeda08ec9879f50b4df35f61a8b44f5026f99822628d52ad1be5",
+    "docs/product-core/structured-intake-manifest.json": "9bb2a2a8f3019f8086e95ddf629c8ec126879cf8f2671b6cb63f03cfb20c0fe5"
+  },
+  "controlled_artifact": {
+    "dist-controlled/index.html": "d63640ca42ea93c806bdb7c41615ffaa19cf5c296d7b795ee0054061b8bb075c",
+    "dist-controlled/assets/ConsultaForm-9bef2f69.js": "e384eef70b33b181487011156873cefc4eb677c75167c1f11237ab26a769c73f",
+    "dist-controlled/assets/index-00676944.js": "569f7653f9a0786a9bdf58bee7c48aa187c1a8bdd3f5b9a0bf1318c36f3e80c3",
+    "dist-controlled/assets/index-0101391c.js": "75bd1e90226452e65e9c953e5b4565e913a1421efcd464a965d2fb538611a593",
+    "dist-controlled/assets/index-5f11e505.css": "5f11e505053f41d82e7b04315e9db1762bb5dc53b81c31bfebe40bd962fa55cd",
+    "dist-controlled/assets/index-8b0e38e1.js": "135e6f61c35c8efdd0fab4102b2d360aecc52f1d026db73e7ef80614383aee3d",
+    "dist-controlled/assets/index-b85e4022.js": "3b227e0fdf3258e68cb131e5afdec66c4987a7fda1cae30f1e5d03612c2998f6",
+    "dist-controlled/assets/PricingPage-c2ce2032.js": "5cdfa3c00d71c5af4bc41e722e02bdd38a06ec1a835608f40f91601d17d1aa57"
+  },
+  "local_tests": {
+    "passed": 133,
+    "failed": 0,
+    "skipped": 0,
+    "node": "v24.22.1",
+    "log_sha256": "8dba7878b2bfe830d4524b889f6b08a6e055b2e79f07ae82aa7e8e9dcbf1f0a2"
+  },
+  "remote_ci": "NOT_RUN",
+  "independent_review": "PENDING",
+  "production_changed": false,
+  "external_provider_calls": 0,
+  "C2_LIVE_PREFLIGHT": "HOLD",
+  "pinned_node_boundary_tests": {
+    "node": "v20.20.2",
+    "passed": 11,
+    "failed": 0
+  }
+}
