@@ -45,6 +45,13 @@ const feedbackMutationSchema=z.discriminatedUnion('action',[
     attempt_id:z.string().uuid(),artifact_sha256:z.string().regex(/^[a-f0-9]{64}$/)}).strict(),
   z.object({artifact_id:z.string().uuid(),action:z.literal('adjust'),expected_revision:z.number().int().nonnegative()}).strict(),
 ]);
+// Read-only transport contract. Core owns client identity, eligibility and quota.
+const allowanceCount=z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
+const renderAllowanceSchema=z.object({
+  schema_version:z.literal('render-delivery-quota.v1'),policy_version:z.literal('delivery-three.v1'),
+  initial_allowance:z.literal(3),available:allowanceCount,held:allowanceCount,delivered:allowanceCount,
+  recharge_required:z.boolean(),consumes_on:z.literal('private_delivery'),payment_enabled:z.literal(false),
+}).strict();
 // This only selects a UI transport. Admission, session and ownership remain Core decisions.
 // Keep the existing local profile; the separately built controlled profile requires HTTPS.
 export function localCoreEnabled(env = import.meta.env ?? {}, location = globalThis.location) {
@@ -198,6 +205,13 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     threadPath(context); await initialize();
     return validFeedback(await request('/projects/'+context.project_id+'/render-feedback'),context);
   }
+  async function renderAllowance(context) {
+    threadPath(context); await initialize();
+    const parsed=z.object({schema_version:z.literal('project-render-requests.v1'),project_id:z.string().uuid(),
+      allowance:renderAllowanceSchema.nullable()}).safeParse(await request('/projects/'+context.project_id+'/render-requests'));
+    if(!parsed.success || parsed.data.project_id!==context.project_id) throw new ProjectCoreError('INVALID_RENDER_ALLOWANCE');
+    return parsed.data.allowance;
+  }
   function feedback(context,input) {
     threadPath(context);
     const body=feedbackMutationSchema.parse(input);
@@ -212,5 +226,5 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
       .catch(error=>{if([403,404,409,422].includes(error.status))pendingFeedback=undefined;throw error;}).finally(()=>{feedbackSubmission=undefined;});
     return feedbackSubmission;
   }
-  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath, renderResults, renderResultPath, renderFeedback, feedback};
+  return {initialize, submit, current, thread, message, photo, gallery, galleryPhotoPath, renderResults, renderResultPath, renderFeedback, renderAllowance, feedback};
 }

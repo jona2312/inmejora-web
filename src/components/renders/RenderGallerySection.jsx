@@ -12,6 +12,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
   const [refresh,setRefresh]=useState(0);
   const [results,setResults]=useState(null);
   const [feedback,setFeedback]=useState(null);
+  const [allowance,setAllowance]=useState(undefined);
   const [resultFailure,setResultFailure]=useState('');
   const [saving,setSaving]=useState(false);
   const requestEpoch=useRef(0);
@@ -21,7 +22,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
     requestEpoch.current++;
     setSaving(false);
     setData(null);setContext(null);setFailure('');setLoading(true);
-    setResults(null);setFeedback(null);setResultFailure('');
+    setResults(null);setFeedback(null);setAllowance(undefined);setResultFailure('');
     if(!enabled){setLoading(false);return ()=>{active=false;};}
     (async()=>{
       const current=providedContext ?? await client.initialize();
@@ -31,6 +32,8 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
       if(result.render_results_enabled) try {
         const [renders,selection]=await Promise.all([client.renderResults(current),client.renderFeedback(current)]);
         if(active){setResults(renders);setFeedback(selection);}
+        try {const quota=await client.renderAllowance(current);if(active)setAllowance(quota);}
+        catch {if(active)setAllowance(undefined);}
       } catch {if(active)setResultFailure('Resultados no disponibles. No se pudo verificar su estado o acceso.');}
     })().catch(()=>{if(active)setFailure('Galería no disponible. No se pudo verificar el acceso o la persistencia de las fotos.');})
       .finally(()=>{if(active)setLoading(false);});
@@ -58,7 +61,15 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
         </figure>)}
       </div>}
       {data.render_results_enabled && <><h3 className="text-lg font-bold">Resultados del ensayo</h3>
-      <p>La confirmación del cliente identifica esta versión y habilita la conciliación de su crédito. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p>
+      {allowance ? <section data-testid="render-delivery-allowance" aria-label="Cupo de entregas privadas" className="space-y-1">
+        <p>Entregas patrocinadas: {allowance.initial_allowance} por cliente.</p>
+        <p>Entregadas: {allowance.delivered} · En proceso: {allowance.held} · Disponibles: {allowance.available}</p>
+        <p>Cada resultado entregado cuenta, aunque después lo descartes. Volver a verlo o confirmar tu elección no aplica otro débito ni devuelve cupo.</p>
+        <p>Una nueva imagen posterior requiere otro pedido y cupo disponible. Pedir un ajuste no inicia otra generación.</p>
+        {allowance.recharge_required && <p role="status">Recarga requerida. Los pagos no están habilitados desde esta pantalla.</p>}
+      </section> : allowance === null ?
+        <p>La confirmación del cliente identifica esta versión y habilita la conciliación de su crédito. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p> :
+        <p role="status">Cupo de renders: No disponible. Confirmar una versión identifica tu elección; el régimen de consumo necesita verificarse.</p>}
       {feedback && !feedback.can_select && <p>Para confirmar una versión necesitás iniciar sesión como cliente autorizado del proyecto. Una consulta o un dato de contacto no habilitan esa confirmación.</p>}
       {resultFailure && <p role="alert">{resultFailure}</p>}
       {results && results.project_id===context.project_id && !resultFailure && <>
