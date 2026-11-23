@@ -30,12 +30,21 @@ const gallerySchema = z.object({
 const renderResultsSchema=z.object({
   schema_version:z.literal('render-gallery.v1'),project_id:z.string().uuid(),
   results:z.array(z.object({id:z.string().uuid(),attempt_id:z.string().uuid(),conversation_id:z.string().uuid(),
-    media_type:z.enum(['image/png','image/jpeg','image/webp']),created_at:z.string().datetime()}).strict()),
-  jobs:z.array(z.object({attempt_id:z.string().uuid(),conversation_id:z.string().uuid(),state:z.enum(['pending','uncertain','failed','succeeded'])}).strict()),
+    media_type:z.enum(['image/png','image/jpeg','image/webp']),created_at:z.string().datetime(),
+    artifact_sha256:z.string().regex(/^[a-f0-9]{64}$/),
+    explanation:z.object({geometry_lock:z.enum(['conservar','modificar','redisenar']),changed:z.array(z.string()),kept:z.array(z.string()),source:z.enum(['brief','visual_review'])}).strict().nullable()}).strict()),
+  jobs:z.array(z.object({attempt_id:z.string().uuid(),conversation_id:z.string().uuid(),state:z.enum(['pending','uncertain','in_review','failed','succeeded'])}).strict()),
 }).strict();
 const feedbackSchema=z.object({schema_version:z.literal('render-feedback.v1'),project_id:z.string().uuid(),revision:z.number().int().nonnegative(),
-  can_feedback:z.boolean(),feedback:z.object({revision:z.number().int().positive(),artifact_id:z.string().uuid(),
-    action:z.enum(['select','adjust']),created_at:z.string().datetime()}).strict().nullable()}).strict();
+  can_feedback:z.boolean(),can_select:z.boolean(),can_adjust:z.boolean(),
+  feedback:z.object({revision:z.number().int().positive(),artifact_id:z.string().uuid(),
+    action:z.enum(['select','adjust']),created_at:z.string().datetime(),attempt_id:z.string().uuid().nullable(),
+    artifact_sha256:z.string().regex(/^[a-f0-9]{64}$/).nullable(),confirmed_by_customer:z.boolean()}).strict().nullable()}).strict();
+const feedbackMutationSchema=z.discriminatedUnion('action',[
+  z.object({artifact_id:z.string().uuid(),action:z.literal('select'),expected_revision:z.number().int().nonnegative(),
+    attempt_id:z.string().uuid(),artifact_sha256:z.string().regex(/^[a-f0-9]{64}$/)}).strict(),
+  z.object({artifact_id:z.string().uuid(),action:z.literal('adjust'),expected_revision:z.number().int().nonnegative()}).strict(),
+]);
 // This only selects a UI transport. Admission, session and ownership remain Core decisions.
 // Keep the existing local profile; the separately built controlled profile requires HTTPS.
 export function localCoreEnabled(env = import.meta.env ?? {}, location = globalThis.location) {
@@ -180,7 +189,8 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
   function validFeedback(data,context) {
     const parsed=feedbackSchema.safeParse(data);
     if(!parsed.success || parsed.data.project_id!==context.project_id ||
-      (parsed.data.feedback ? parsed.data.feedback.revision!==parsed.data.revision : parsed.data.revision!==0))
+      (parsed.data.feedback ? parsed.data.feedback.revision!==parsed.data.revision : parsed.data.revision!==0) ||
+      (parsed.success && parsed.data.feedback?.confirmed_by_customer && (parsed.data.feedback.action!=='select' || !parsed.data.feedback.attempt_id || !parsed.data.feedback.artifact_sha256)))
       throw new ProjectCoreError('INVALID_RENDER_FEEDBACK');
     return parsed.data;
   }
@@ -188,14 +198,16 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     threadPath(context); await initialize();
     return validFeedback(await request('/projects/'+context.project_id+'/render-feedback'),context);
   }
-  function feedback(context,{artifact_id,action,expected_revision}) {
+  function feedback(context,input) {
     threadPath(context);
-    z.object({artifact_id:z.string().uuid(),action:z.enum(['select','adjust']),expected_revision:z.number().int().nonnegative()}).parse({artifact_id,action,expected_revision});
+    const body=feedbackMutationSchema.parse(input);
     const path='/projects/'+context.project_id+'/render-feedback';
-    if(pendingFeedback && (pendingFeedback.path!==path || pendingFeedback.body.artifact_id!==artifact_id || pendingFeedback.body.action!==action))
+    // A lost response retries the exact version/revision; never silently apply
+    // another selection under its prior request key.
+    if(pendingFeedback && (pendingFeedback.path!==path || Object.keys(body).some(key=>pendingFeedback.body[key]!==body[key])))
       return Promise.reject(new ProjectCoreError('PENDING_FEEDBACK_MISMATCH'));
     if(feedbackSubmission) return feedbackSubmission;
-    pendingFeedback ??= {path,body:{artifact_id,action,expected_revision,request_key:globalThis.crypto.randomUUID()}};
+    pendingFeedback ??= {path,body:{...body,request_key:globalThis.crypto.randomUUID()}};
     feedbackSubmission=(async()=>{await initialize();const view=validFeedback(await request(path,'POST',pendingFeedback.body),context);pendingFeedback=undefined;return view;})()
       .catch(error=>{if([403,404,409,422].includes(error.status))pendingFeedback=undefined;throw error;}).finally(()=>{feedbackSubmission=undefined;});
     return feedbackSubmission;

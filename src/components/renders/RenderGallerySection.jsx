@@ -37,10 +37,11 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
     return ()=>{active=false;};
   },[client,providedContext,enabled,refresh]);
   const visible=data && (!providedContext || data.project_id===providedContext.project_id) && !failure;
-  async function record(artifact_id,action) {
+  async function record(result,action) {
+    if(saving || !(action==='select' ? feedback?.can_select : feedback?.can_adjust)) return;
     const epoch=requestEpoch.current;
     setSaving(true);setResultFailure('');
-    try {const next=await client.feedback(context,{artifact_id,action,expected_revision:feedback.revision});if(epoch===requestEpoch.current)setFeedback(next);}
+    try {const next=await client.feedback(context,{artifact_id:result.id,action,expected_revision:feedback.revision,...(action==='select'?{attempt_id:result.attempt_id,artifact_sha256:result.artifact_sha256}:{})});if(epoch===requestEpoch.current)setFeedback(next);}
     catch {if(epoch===requestEpoch.current)setResultFailure('No se pudo confirmar tu elección. Actualizá y verificá el estado antes de continuar.');}
     finally {if(epoch===requestEpoch.current)setSaving(false);}
   }
@@ -57,19 +58,20 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
         </figure>)}
       </div>}
       {data.render_results_enabled && <><h3 className="text-lg font-bold">Resultados del ensayo</h3>
-      <p>La elección queda registrada para revisión humana. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p>
+      <p>La confirmación del cliente identifica esta versión y habilita la conciliación de su crédito. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p>
+      {feedback && !feedback.can_select && <p>Para confirmar una versión necesitás iniciar sesión como cliente autorizado del proyecto. Una consulta o un dato de contacto no habilitan esa confirmación.</p>}
       {resultFailure && <p role="alert">{resultFailure}</p>}
       {results && results.project_id===context.project_id && !resultFailure && <>
         {results.jobs.length===0 && <p>No hay trabajos de render registrados.</p>}
         {results.jobs.filter(job=>job.state!=='succeeded').map(job=><p key={job.attempt_id} role="status">
-          {job.state==='pending'?'Render pendiente.':job.state==='uncertain'?'Resultado incierto: requiere conciliación; no se reintentará automáticamente.':'Render fallido. No hay imagen para elegir.'}
+          {job.state==='pending'?'Render pendiente.':job.state==='uncertain'?'Resultado incierto: requiere conciliación; no se reintentará automáticamente.':job.state==='in_review'?'Render en revisión humana. Todavía no hay resultado autorizado.':'Render fallido. No hay imagen para elegir.'}
         </p>)}
         <div className="grid grid-cols-2 gap-3">{results.results.map((result,index)=><figure key={result.id} className="space-y-2">
           <img src={client.renderResultPath(context,result.id)} alt={`Resultado privado ${index+1}`} referrerPolicy="no-referrer"
             className="w-full rounded-lg border border-gray-700" onError={()=>{setResults(null);setResultFailure('Resultado no disponible. Actualizá para verificar su integridad y acceso.');}} />
-          <figcaption>Resultado {index+1}{feedback?.feedback?.artifact_id===result.id ? feedback.feedback.action==='select'?' · Elegido para revisión humana':' · Ajuste solicitado':''}</figcaption>
-          <button type="button" disabled={saving || !feedback?.can_feedback} onClick={()=>record(result.id,'select')} className="rounded border px-3 py-2">Elegir para revisión</button>
-          <button type="button" disabled={saving || !feedback?.can_feedback} onClick={()=>record(result.id,'adjust')} className="rounded border px-3 py-2">Pedir ajuste</button>
+          <figcaption>Resultado {index+1}{feedback?.feedback?.artifact_id===result.id ? feedback.feedback.action==='select'?(feedback.feedback.confirmed_by_customer?' · Versión confirmada por el cliente':' · Selección histórica sin confirmación vigente'):' · Ajuste solicitado':''}</figcaption>
+          {feedback?.can_select && <button type="button" disabled={saving} onClick={()=>record(result,'select')} className="rounded border px-3 py-2">Confirmar esta versión</button>}
+          <button type="button" disabled={saving || !feedback?.can_adjust} onClick={()=>record(result,'adjust')} className="rounded border px-3 py-2">Pedir ajuste</button>
         </figure>)}</div>
       </>}</>}
     </>}

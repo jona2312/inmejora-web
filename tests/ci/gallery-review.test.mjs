@@ -70,3 +70,37 @@ test('W-1 render detail never interprets a credit entry as an image',async()=>{
   const html=renderToStaticMarkup(React.createElement(modal.default,{isOpen:true,renderId:'synthetic',onClose:()=>{}}));
   assert.match(html,/Render no disponible/);assert.doesNotMatch(html,/<img|Cargando/);
 });
+
+
+async function customerGallery(canSelect,{historical=false}={}) {
+  const project='11111111-1111-4111-8111-111111111111',conversation='22222222-2222-4222-8222-222222222222';
+  const artifact='33333333-3333-4333-8333-333333333333',attempt='44444444-4444-4444-8444-444444444444';
+  const context={project_id:project,conversation_id:conversation},calls=[];
+  const result={id:artifact,attempt_id:attempt,artifact_sha256:'a'.repeat(64)};
+  const selection={revision:1,can_select:canSelect,can_adjust:true,can_feedback:true,feedback:{artifact_id:artifact,action:'select',confirmed_by_customer:!historical}};
+  const client={galleryPhotoPath:()=>'/private/source',renderResultPath:()=>'/private/result',feedback:async(...args)=>{calls.push(args);return selection;}};
+  const states=[{project_id:project,photos:[],render_results_enabled:true},context,'',false,0,{project_id:project,results:[result],jobs:[]},selection,'',false];let state=0;
+  const component=await load('src/components/renders/RenderGallerySection.jsx',{
+    react:{default:React,useState:()=>[states[state++],()=>{}],useEffect:()=>{},useRef:value=>({current:value})},
+    '@/lib/projectCoreClient':{createProjectCoreClient:()=>client,localCoreEnabled:()=>true},
+  });
+  const tree=component.default({client,context});
+  const buttons=[];const visit=node=>{if(!node||typeof node!=='object')return;if(node.type==='button')buttons.push(node);React.Children.forEach(node.props?.children,visit);};visit(tree);
+  return {html:renderToStaticMarkup(tree),buttons,calls,result,context};
+}
+
+test('G10 visitor capability cannot confirm; only backend permission enables the exact version action',async()=>{
+  const visitor=await customerGallery(false,{historical:true});
+  assert.doesNotMatch(visitor.html,/Confirmar esta versión|Versión confirmada por el cliente/);
+  assert.match(visitor.html,/iniciar sesión como cliente autorizado/);assert.match(visitor.html,/Selección histórica sin confirmación vigente/);
+  assert.equal(visitor.calls.length,0);
+  const owner=await customerGallery(true);
+  assert.match(owner.html,/Versión confirmada por el cliente/);
+  const confirm=owner.buttons.find(b=>b.props.children==='Confirmar esta versión');assert(confirm);
+  await confirm.props.onClick();
+  assert.equal(owner.calls.length,1);
+  assert.deepEqual(JSON.parse(JSON.stringify(owner.calls[0])),[owner.context,{artifact_id:owner.result.id,action:'select',expected_revision:1,attempt_id:owner.result.attempt_id,artifact_sha256:owner.result.artifact_sha256}]);
+  const adjustment=visitor.buttons.find(b=>b.props.children==='Pedir ajuste');assert(adjustment&&!adjustment.props.disabled);
+  await adjustment.props.onClick();
+  assert.deepEqual(JSON.parse(JSON.stringify(visitor.calls[0][1])),{artifact_id:visitor.result.id,action:'adjust',expected_revision:1});
+});
