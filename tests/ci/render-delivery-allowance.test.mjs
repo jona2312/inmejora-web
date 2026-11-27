@@ -11,7 +11,7 @@ import {createProjectCoreClient} from '../../src/lib/projectCoreClient.js';
 
 const context={project_id:randomUUID(),conversation_id:randomUUID()};
 const quota={schema_version:'render-delivery-quota.v1',policy_version:'delivery-three.v1',initial_allowance:3,
-  available:1,held:1,delivered:1,recharge_required:false,consumes_on:'private_delivery',payment_enabled:false};
+  available:1,held:1,delivered:1,recharge_required:false,consumes_on:'customer_acceptance',payment_enabled:false};
 const view=allowance=>({schema_version:'project-render-requests.v1',project_id:context.project_id,allowance,requests:[]});
 function client(payload,status=200){
  const calls=[];
@@ -31,7 +31,7 @@ test('quota comes only from authenticated existing project read and repeating it
 test('explicit null preserves legacy; missing, foreign or malformed quota is not inferred',async()=>{
  assert.equal(await client(view(null)).api.renderAllowance(context),null);
  for(const invalid of [view(undefined),{...view(quota),project_id:randomUUID()},view({...quota,available:-1}),
-  view({...quota,payment_enabled:true}),view({...quota,initial_allowance:4}),view({...quota,consumes_on:'selection'}),
+  view({...quota,payment_enabled:true}),view({...quota,initial_allowance:4}),view({...quota,consumes_on:'selection'}),view({...quota,consumes_on:'private_delivery'}),
   view({...quota,checkout_url:'https://example.invalid'})])
   await assert.rejects(client(invalid).api.renderAllowance(context),/INVALID_RENDER_ALLOWANCE/);
 });
@@ -49,10 +49,14 @@ function gallery(allowance){
   {module,exports:module.exports,require(name){if(name==='react')return fakeReact;if(name==='@/lib/projectCoreClient')return {createProjectCoreClient:()=>({}),localCoreEnabled:()=>true};throw Error('UNEXPECTED_IMPORT:'+name);}});
  return renderToStaticMarkup(React.createElement(module.exports.default,{client:{},context}));
 }
-test('actual Web gallery separates private delivery quota from exact client confirmation',()=>{
- const html=gallery(quota);assert.match(html,/Entregadas: 1/);assert.match(html,/Disponibles: 1/);assert.match(html,/aunque después lo descartes/);
- assert.doesNotMatch(html,/habilita la conciliación/);assert.match(html,/no aplica otro débito ni devuelve cupo/);
- assert.match(gallery(null),/habilita la conciliación/);
+test('actual Web gallery explains consumption at exact customer acceptance for either quota profile',()=>{
+ const html=gallery(quota);assert.match(html,/Aceptadas: 1/);assert.match(html,/Disponibles: 1/);
+ assert.match(html,/consume un crédito una sola vez/);assert.match(html,/La aprobación del operador y el silencio no consumen/);
+ assert.match(html,/repetir la misma aceptación no aplica otro débito/);
+ for(const output of [html,gallery(null)]) {
+  assert.match(output,/consume un crédito una sola vez/);
+  assert.doesNotMatch(output,/habilita la conciliación|aunque después lo descartes|Cada resultado entregado cuenta/);
+ }
 });
 test('exhausted quota requests recarga without checkout; unavailable is not zero',()=>{
  const html=gallery({...quota,available:0,held:0,delivered:3,recharge_required:true});

@@ -151,3 +151,112 @@ test('G10 reproduced parent rejects current Core gallery/feedback while the chil
   await assert.rejects(parentFeedback.renderFeedback(context),/INVALID_RENDER_FEEDBACK/);
   assert.deepEqual(await client(feedback).api.renderFeedback(context),feedback);
 });
+
+test('W41-C lost committed selection then authorized refresh permits adjustment without duplicating selection',async()=>{
+  const artifact_id=randomUUID(),attempt_id=randomUUID(),artifact_sha256='d'.repeat(64);
+  const records=[],posts=[],receipts=new Map();
+  let view={schema_version:'render-feedback.v1',project_id:context.project_id,revision:0,
+    can_feedback:true,can_select:true,can_adjust:true,feedback:null};
+  const api=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+    if(path==='/api/v1/intakes/current')return {ok:true,json:async()=>({csrf_token:'x'.repeat(64),receipt:null})};
+    assert.equal(path,`/api/v1/projects/${context.project_id}/render-feedback`);
+    if(options.method==='GET')return {ok:true,json:async()=>structuredClone(view)};
+    const body=JSON.parse(options.body);posts.push(body);
+    if(receipts.has(body.request_key))return {ok:true,json:async()=>receipts.get(body.request_key)};
+    assert.equal(body.expected_revision,view.revision);
+    const feedback={revision:view.revision+1,artifact_id:body.artifact_id,action:body.action,
+      attempt_id:body.attempt_id??null,artifact_sha256:body.artifact_sha256??null,
+      confirmed_by_customer:body.action==='select',created_at:'2026-11-27T12:00:00.000Z'};
+    view={...view,revision:feedback.revision,feedback};records.push(feedback);
+    receipts.set(body.request_key,structuredClone(view));
+    if(posts.length===1)throw Error('Synthetic response lost after commit');
+    return {ok:true,json:async()=>structuredClone(view)};
+  }});
+  const selection={artifact_id,attempt_id,artifact_sha256,action:'select',expected_revision:0};
+  await assert.rejects(api.feedback(context,selection),/CORE_UNAVAILABLE/);
+  assert.equal(records.length,1);assert.equal(posts.length,1);
+  const refreshed=await api.renderFeedback(context);
+  assert.equal(refreshed.revision,1);assert.equal(refreshed.feedback.confirmed_by_customer,true);
+  assert.equal(posts.length,1,'refresh is read-only, never an automatic retry');
+  const adjusted=await api.feedback(context,{artifact_id,action:'adjust',expected_revision:refreshed.revision});
+  assert.equal(adjusted.revision,2);assert.equal(adjusted.feedback.action,'adjust');
+  assert.equal(records.filter(r=>r.action==='select').length,1);
+  assert.equal(records.filter(r=>r.action==='adjust').length,1);
+  assert.equal(posts.length,2);assert.notEqual(posts[0].request_key,posts[1].request_key);
+});
+
+test('W41-C failed, malformed, stale or other-project refresh cannot discard an unresolved feedback receipt',async()=>{
+  const artifact_id=randomUUID(),attempt_id=randomUUID(),artifact_sha256='e'.repeat(64);
+  const accepted={schema_version:'render-feedback.v1',project_id:context.project_id,revision:1,
+    can_feedback:true,can_select:true,can_adjust:true,feedback:{revision:1,artifact_id,attempt_id,artifact_sha256,
+      confirmed_by_customer:true,action:'select',created_at:'2026-11-27T12:00:00.000Z'}};
+  const other={project_id:randomUUID(),conversation_id:randomUUID()};
+  for(const variant of ['failed','malformed','stale','other-project']) {
+    const posts=[];
+    const api=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+      if(path==='/api/v1/intakes/current')return {ok:true,json:async()=>({csrf_token:'x'.repeat(64),receipt:null})};
+      if(options.method==='POST') {
+        posts.push(JSON.parse(options.body));
+        if(posts.length===1)throw Error('Synthetic lost response');
+        return {ok:true,json:async()=>accepted};
+      }
+      if(variant==='failed')return {ok:false,status:503};
+      const read=variant==='malformed'?{...accepted,revision:2}:variant==='stale'?{...accepted,revision:0,feedback:null}:
+        {...accepted,project_id:other.project_id};
+      return {ok:true,json:async()=>read};
+    }});
+    const input={artifact_id,attempt_id,artifact_sha256,action:'select',expected_revision:0};
+    await assert.rejects(api.feedback(context,input),/CORE_UNAVAILABLE/);
+    const refresh=api.renderFeedback(variant==='other-project'?other:context);
+    if(variant==='failed'||variant==='malformed')await assert.rejects(refresh,/CORE_HTTP_503|INVALID_RENDER_FEEDBACK/);
+    else await refresh;
+    await assert.rejects(api.feedback(context,{artifact_id,action:'adjust',expected_revision:1}),/PENDING_FEEDBACK_MISMATCH/);
+    assert.equal(posts.length,1);
+    await api.feedback(context,input);
+    assert.deepEqual(posts[0],posts[1],'uncertain original action keeps its exact idempotency key');
+  }
+});
+
+test('W41-C authorized reread during an in-flight POST cannot replace the active request',async()=>{
+  const artifact_id=randomUUID(),attempt_id=randomUUID(),artifact_sha256='f'.repeat(64);
+  const view={schema_version:'render-feedback.v1',project_id:context.project_id,revision:1,
+    can_feedback:true,can_select:true,can_adjust:true,feedback:{revision:1,artifact_id,attempt_id,artifact_sha256,
+      confirmed_by_customer:true,action:'select',created_at:'2026-11-27T12:00:00.000Z'}};
+  let release,entered;const started=new Promise(resolve=>{entered=resolve;});
+  const gate=new Promise(resolve=>{release=resolve;});const posts=[];
+  const api=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+    if(path==='/api/v1/intakes/current')return {ok:true,json:async()=>({csrf_token:'x'.repeat(64),receipt:null})};
+    if(options.method==='POST'){posts.push(JSON.parse(options.body));entered();await gate;}
+    return {ok:true,json:async()=>view};
+  }});
+  const selection={artifact_id,attempt_id,artifact_sha256,action:'select',expected_revision:0};
+  const pending=api.feedback(context,selection);await started;
+  try {
+    await api.renderFeedback(context);
+    await assert.rejects(api.feedback(context,{artifact_id,action:'adjust',expected_revision:1}),/PENDING_FEEDBACK_MISMATCH/);
+    assert.equal(api.feedback(context,selection),pending);assert.equal(posts.length,1);
+  } finally {release();}
+  await pending;
+});
+
+test('W41-C a newer authorized state supersedes an uncertain request without claiming that it succeeded',async()=>{
+  const oldArtifact=randomUUID(),currentArtifact=randomUUID(),attempt_id=randomUUID(),artifact_sha256='b'.repeat(64),posts=[];
+  const current={schema_version:'render-feedback.v1',project_id:context.project_id,revision:2,
+    can_feedback:true,can_select:true,can_adjust:true,feedback:{revision:2,artifact_id:currentArtifact,attempt_id,artifact_sha256,
+      confirmed_by_customer:true,action:'select',created_at:'2026-11-27T12:00:00.000Z'}};
+  const api=createProjectCoreClient({enabled:()=>true,fetchImpl:async(path,options)=>{
+    if(path==='/api/v1/intakes/current')return {ok:true,json:async()=>({csrf_token:'x'.repeat(64),receipt:null})};
+    if(options.method==='GET')return {ok:true,json:async()=>current};
+    const body=JSON.parse(options.body);posts.push(body);
+    if(posts.length===1)throw Error('Synthetic transport failure before commit');
+    assert.equal(body.action,'adjust');assert.equal(body.artifact_id,currentArtifact);assert.equal(body.expected_revision,2);
+    return {ok:true,json:async()=>({...current,revision:3,feedback:{...current.feedback,revision:3,action:'adjust',
+      attempt_id:null,artifact_sha256:null,confirmed_by_customer:false}})};
+  }});
+  await assert.rejects(api.feedback(context,{artifact_id:oldArtifact,attempt_id,artifact_sha256,action:'select',expected_revision:0}),/CORE_UNAVAILABLE/);
+  const reread=await api.renderFeedback(context);
+  assert.equal(reread.feedback.artifact_id,currentArtifact);assert.notEqual(reread.feedback.artifact_id,oldArtifact);
+  assert.equal(posts.length,1,'reading must not retry or assert the failed selection');
+  await api.feedback(context,{artifact_id:currentArtifact,action:'adjust',expected_revision:reread.revision});
+  assert.equal(posts.length,2);assert.notEqual(posts[0].request_key,posts[1].request_key);
+});

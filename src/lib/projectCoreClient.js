@@ -50,7 +50,7 @@ const allowanceCount=z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER)
 const renderAllowanceSchema=z.object({
   schema_version:z.literal('render-delivery-quota.v1'),policy_version:z.literal('delivery-three.v1'),
   initial_allowance:z.literal(3),available:allowanceCount,held:allowanceCount,delivered:allowanceCount,
-  recharge_required:z.boolean(),consumes_on:z.literal('private_delivery'),payment_enabled:z.literal(false),
+  recharge_required:z.boolean(),consumes_on:z.literal('customer_acceptance'),payment_enabled:z.literal(false),
 }).strict();
 // This only selects a UI transport. Admission, session and ownership remain Core decisions.
 // Keep the existing local profile; the separately built controlled profile requires HTTPS.
@@ -202,8 +202,17 @@ export function createProjectCoreClient({fetchImpl = globalThis.fetch.bind(globa
     return parsed.data;
   }
   async function renderFeedback(context) {
+    const pending=pendingFeedback;
     threadPath(context); await initialize();
-    return validFeedback(await request('/projects/'+context.project_id+'/render-feedback'),context);
+    const path='/projects/'+context.project_id+'/render-feedback';
+    const view=validFeedback(await request(path),context);
+    // An authorized newer revision resolves or supersedes the uncertain action.
+    // Reading it never retries a POST or claims that our prior action succeeded.
+    // Never discard an in-flight or subsequently replaced request, another
+    // project's receipt, or a receipt whose expected revision is still current.
+    if(pending && pendingFeedback===pending && !feedbackSubmission && pending.path===path && view.revision>pending.body.expected_revision)
+      pendingFeedback=undefined;
+    return view;
   }
   async function renderAllowance(context) {
     threadPath(context); await initialize();
