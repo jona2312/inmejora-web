@@ -17,3 +17,14 @@ No hay nuevas dependencias, migraciones, API keys, env productivo ni permisos de
 Resultado final local de Chromium existente: **315 PASS, 55 SKIPPED heredados**, cero fallos. Los omitidos no se declaran acreditados. Evidencia resumida en `private-gallery-verification.json`; el E2E de galería está en el paquete Core, con capturas de Web móvil, CRM, persistencia y error.
 
 Rollback: detener composición de pruebas; conservar padres intactos. No volver a activar mocks como mecanismo de recuperación. La integración común #85/#86 se mantiene separada hasta PASS independiente.
+
+
+## G10 — confirmación del cliente (2026-11-23)
+
+Delta hijo de Web #40 `cef7f965502ce7d6ee4a51b9102cddb96dab416c`; el padre permanece intacto. La galería reconoce la versión exacta entregada por Core (`attempt_id`, `artifact_sha256`) y sus permisos separados `can_select` / `can_adjust`. Sólo una sesión reconocida por Core como cliente del proyecto muestra «Confirmar esta versión». La capability de intake permite únicamente las operaciones que Core autoriza; nunca se convierte en una confirmación del titular a partir de email o teléfono.
+
+Seleccionar transmite artefacto, intento, hash, revisión esperada y una key conservada en un retry. Un cambio de versión/revisión mientras la respuesta es incierta se rechaza; no se sustituye silenciosamente el pedido anterior. La selección histórica sin `confirmed_by_customer` se presenta como historia, sin otorgarle consentimiento. El consumo sigue en Core y exige la confirmación vigente: esta Web no liquida créditos ni llama al proveedor.
+
+El contrato estricto acepta además `explanation` y `in_review`, que el Core integrado ya emite. Conserva las rutas privadas construidas con UUID y rechaza URLs arbitrarias/campos desconocidos. No introduce un login alternativo ni habilita producción. Las pruebas focalizadas reproducen el rechazo del payload actual en el padre y su aceptación en el hijo; la prueba de imagen/Chromium pertenece al candidato integrado Core que fije este SHA.
+
+GitHub Actions no se dispara automáticamente en el PR hijo sobre `codex/final-commercial-web-20261117`; permanece disponible sólo la ejecución manual autorizada cuando se acredite presupuesto. Sin APPLY, proveedores, envíos o cambios productivos. `C2_LIVE_PREFLIGHT = HOLD`.

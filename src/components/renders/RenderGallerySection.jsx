@@ -12,6 +12,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
   const [refresh,setRefresh]=useState(0);
   const [results,setResults]=useState(null);
   const [feedback,setFeedback]=useState(null);
+  const [allowance,setAllowance]=useState(undefined);
   const [resultFailure,setResultFailure]=useState('');
   const [saving,setSaving]=useState(false);
   const requestEpoch=useRef(0);
@@ -21,7 +22,7 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
     requestEpoch.current++;
     setSaving(false);
     setData(null);setContext(null);setFailure('');setLoading(true);
-    setResults(null);setFeedback(null);setResultFailure('');
+    setResults(null);setFeedback(null);setAllowance(undefined);setResultFailure('');
     if(!enabled){setLoading(false);return ()=>{active=false;};}
     (async()=>{
       const current=providedContext ?? await client.initialize();
@@ -31,16 +32,21 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
       if(result.render_results_enabled) try {
         const [renders,selection]=await Promise.all([client.renderResults(current),client.renderFeedback(current)]);
         if(active){setResults(renders);setFeedback(selection);}
+        try {const quota=await client.renderAllowance(current);if(active)setAllowance(quota);}
+        catch {if(active)setAllowance(undefined);}
       } catch {if(active)setResultFailure('Resultados no disponibles. No se pudo verificar su estado o acceso.');}
     })().catch(()=>{if(active)setFailure('Galería no disponible. No se pudo verificar el acceso o la persistencia de las fotos.');})
       .finally(()=>{if(active)setLoading(false);});
     return ()=>{active=false;};
   },[client,providedContext,enabled,refresh]);
   const visible=data && (!providedContext || data.project_id===providedContext.project_id) && !failure;
-  async function record(artifact_id,action) {
+  const isConfirmed=result=>feedback?.feedback?.confirmed_by_customer===true && feedback.feedback.action==='select' &&
+    feedback.feedback.artifact_id===result.id && feedback.feedback.attempt_id===result.attempt_id && feedback.feedback.artifact_sha256===result.artifact_sha256;
+  async function record(result,action) {
+    if(saving || !(action==='select' ? feedback?.can_select : feedback?.can_adjust) || (action==='select' && isConfirmed(result))) return;
     const epoch=requestEpoch.current;
     setSaving(true);setResultFailure('');
-    try {const next=await client.feedback(context,{artifact_id,action,expected_revision:feedback.revision});if(epoch===requestEpoch.current)setFeedback(next);}
+    try {const next=await client.feedback(context,{artifact_id:result.id,action,expected_revision:feedback.revision,...(action==='select'?{attempt_id:result.attempt_id,artifact_sha256:result.artifact_sha256}:{})});if(epoch===requestEpoch.current)setFeedback(next);}
     catch {if(epoch===requestEpoch.current)setResultFailure('No se pudo confirmar tu elección. Actualizá y verificá el estado antes de continuar.');}
     finally {if(epoch===requestEpoch.current)setSaving(false);}
   }
@@ -57,19 +63,28 @@ const RenderGallerySection = ({client:providedClient, context:providedContext}) 
         </figure>)}
       </div>}
       {data.render_results_enabled && <><h3 className="text-lg font-bold">Resultados del ensayo</h3>
-      <p>La elección queda registrada para revisión humana. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p>
+      {allowance ? <section data-testid="render-delivery-allowance" aria-label="Cupo de aceptaciones del cliente" className="space-y-1">
+        <p>Imágenes patrocinadas: {allowance.initial_allowance} por cliente.</p>
+        <p>Aceptadas: {allowance.delivered} · En proceso: {allowance.held} · Disponibles: {allowance.available}</p>
+        <p>Confirmar esta versión como cliente autorizado consume un crédito una sola vez. Volver a verla o repetir la misma aceptación no aplica otro débito. La aprobación del operador y el silencio no consumen el crédito.</p>
+        <p>Una nueva imagen posterior requiere otro pedido y cupo disponible. Pedir un ajuste no inicia otra generación.</p>
+        {allowance.recharge_required && <p role="status">Recarga requerida. Los pagos no están habilitados desde esta pantalla.</p>}
+      </section> : allowance === null ?
+        <p>Confirmar esta versión como cliente autorizado consume un crédito una sola vez. Repetir la misma aceptación no aplica otro débito. Pedir un ajuste no inicia otra generación ni realiza un cobro.</p> :
+        <p role="status">Cupo de renders: No disponible. Confirmar una versión identifica tu elección; el régimen de consumo necesita verificarse.</p>}
+      {feedback && !feedback.can_select && <p>Para confirmar una versión necesitás iniciar sesión como cliente autorizado del proyecto. Una consulta o un dato de contacto no habilitan esa confirmación.</p>}
       {resultFailure && <p role="alert">{resultFailure}</p>}
       {results && results.project_id===context.project_id && !resultFailure && <>
         {results.jobs.length===0 && <p>No hay trabajos de render registrados.</p>}
         {results.jobs.filter(job=>job.state!=='succeeded').map(job=><p key={job.attempt_id} role="status">
-          {job.state==='pending'?'Render pendiente.':job.state==='uncertain'?'Resultado incierto: requiere conciliación; no se reintentará automáticamente.':'Render fallido. No hay imagen para elegir.'}
+          {job.state==='pending'?'Render pendiente.':job.state==='uncertain'?'Resultado incierto: requiere conciliación; no se reintentará automáticamente.':job.state==='in_review'?'Render en revisión humana. Todavía no hay resultado autorizado.':'Render fallido. No hay imagen para elegir.'}
         </p>)}
         <div className="grid grid-cols-2 gap-3">{results.results.map((result,index)=><figure key={result.id} className="space-y-2">
           <img src={client.renderResultPath(context,result.id)} alt={`Resultado privado ${index+1}`} referrerPolicy="no-referrer"
             className="w-full rounded-lg border border-gray-700" onError={()=>{setResults(null);setResultFailure('Resultado no disponible. Actualizá para verificar su integridad y acceso.');}} />
-          <figcaption>Resultado {index+1}{feedback?.feedback?.artifact_id===result.id ? feedback.feedback.action==='select'?' · Elegido para revisión humana':' · Ajuste solicitado':''}</figcaption>
-          <button type="button" disabled={saving || !feedback?.can_feedback} onClick={()=>record(result.id,'select')} className="rounded border px-3 py-2">Elegir para revisión</button>
-          <button type="button" disabled={saving || !feedback?.can_feedback} onClick={()=>record(result.id,'adjust')} className="rounded border px-3 py-2">Pedir ajuste</button>
+          <figcaption>Resultado {index+1}{feedback?.feedback?.artifact_id===result.id ? feedback.feedback.action==='select'?(isConfirmed(result)?' · Versión confirmada por el cliente':' · Selección histórica sin confirmación vigente'):' · Ajuste solicitado':''}</figcaption>
+          {feedback?.can_select && <button type="button" disabled={saving || isConfirmed(result)} onClick={()=>record(result,'select')} className="rounded border px-3 py-2">Confirmar esta versión</button>}
+          <button type="button" disabled={saving || !feedback?.can_adjust} onClick={()=>record(result,'adjust')} className="rounded border px-3 py-2">Pedir ajuste</button>
         </figure>)}</div>
       </>}</>}
     </>}

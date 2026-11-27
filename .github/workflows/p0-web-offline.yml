@@ -4,6 +4,7 @@ on:
   pull_request:
     branches-ignore:
       - codex/qa119-controlled-web-20261106 # PR40: no automatic run while cumulative budget is unaccredited.
+      - codex/final-commercial-web-20261117 # G10 child: manual CI only until budget is accredited.
   workflow_dispatch:
 
 permissions:

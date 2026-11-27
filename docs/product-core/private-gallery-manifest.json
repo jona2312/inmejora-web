@@ -1,10 +1,14 @@
 {
+  "delivery_quota_followup_base": "78536fb4a6f8c6091bfbe4153acb556b9f0c6233",
+  "delivery_quota_contract": "render-delivery-quota.v1",
   "base": "c14240181e7a845d199e19f05c65b00c6957597a",
   "core_base": "6900d9cebfcee8d2d9997853297e06ad226323d2",
   "contract": "private-gallery.v1",
   "n8n": "BLOCKED_SOURCE_EXPORT",
   "encoding": "UTF8 CRLF normalized LF",
   "sha256": {
+    "tests/ci/render-delivery-allowance.test.mjs": "d40a374d13abcd441a913ac97a24a9bd16f1fc77989da8367a47d98161fb783f",
+    "docs/product-core/PROJECT-GALLERY-CONTRACT.md": "4fce716594e286e151d9ff7656f261238abb4e20ff4bc0585341188399b17404",
     "src/pages/PresupuestoPage.jsx": "83da64e2ba3dfdf0107ceef7e5424c6af166d66d1823ccc0e92fb7a803aef96b",
     "tests/ci/no-public-customer-upload.test.mjs": "37d9c564b3699526557f75a684d82954e6a1a2a8a5dfcda4519e8a63ca4a6923",
     "src/pages/ImageUploadPage.jsx": "e8a8aaf4a8ec6131953e5288cc5522a398346cb521b6ff4bb96a7e2750b80c89",
@@ -15,11 +19,11 @@
     "src/utils/dashboardAPI.js": "ff1b2921806fd6b7a921dfa65c23e33658834b9dad8d08dc4fd6b016b4099529",
     "src/components/renders/RenderDetailModal.jsx": "26b7d05047883656f5ddcc0d884a3a35f01ed27d00700a794217f9ce21b7687d",
     "src/hooks/useImageUpload.js": "3a11925ac23414714b72199558f99dcd2f9360357500c21f078238312569f70b",
-    "tests/ci/gallery-review.test.mjs": "4d0c62834ef26708c19271ccfd8dbd76bfed2919747353ad21d542ca1e3dcd7c",
+    "tests/ci/gallery-review.test.mjs": "fb9e53326720f3da55f774f3289c97e33df10d264082650e65a1c288459ca184",
     "docs/product-core/GALLERY-REVIEW-CLOSURE.md": "9ca089f0822c63fc44d510e48ec69dc422a9fd40bd4e09207ee50f9913fb90c6",
-    "src/lib/projectCoreClient.js": "753846ca7354c86bb31cde31999f0c1a4bfadaee5cf1d0e0e439faad1d8b353e",
+    "src/lib/projectCoreClient.js": "b3130b6ff185add3f39f818bfd04031c9145ed1fdefada1bcdd3f8c7a19ad077",
     "src/utils/rendersAPI.js": "ac33b24b2f5b3f06efa5882e15cd37ff73aef292bbc3d80932c54cf80a2c0ed7",
-    "src/components/renders/RenderGallerySection.jsx": "8f2ab008db04308cfcf1666fb823c5408154b809a63448834d7fec4662082c85",
+    "src/components/renders/RenderGallerySection.jsx": "d4df93f434afc95a2ffad1105d7dc643debafadcefd38f02345185cfe5c6d788",
     "src/components/renders/RenderWizardContainer.jsx": "36d3e0031f61489837a70d86e0724af0523637181cb4a7b3c1db73583bc76479",
     "src/components/renders/CreditsDisplay.jsx": "6d87d596fac5f55f5bde367cba27037fa790de3d1df6084eb98603ee5bd76124",
     "src/components/renders/PageHeader.jsx": "661aab083490276dce6e6fa910d3a1805e21968b9e070fade95af406136f3ad1",
@@ -28,11 +32,11 @@
     "src/components/dashboard/CreditsWidget.jsx": "d5c09b45bc71674ef49eb765303527e5fa2a37491dcbc816805a7edeb1d64986",
     "src/contexts/SubscriptionContext.jsx": "6387e11e38e96830d9f8416c54fe0e1ecb8ca4021756059b9e646178c1078014",
     "src/contexts/unavailableSubscription.js": "1e8900a39881360a91b7acb3e9130321ac231491f8a2ed8d9d40c73d49e3daf2",
-    "tests/ci/private-gallery.test.mjs": "cd82395548cf1e4b843d3d07a464af036011be059065812cda5b4a6f7654f243",
+    "tests/ci/private-gallery.test.mjs": "652f7d704d6b256120f894437cf2f23d0acf52611ad35501a7329a0f958110b8",
     "tests/ci/lint-error-regression.test.mjs": "6c9f8f84cec5833ce526ee25013cafd631486eb2f0264b3b1b9da6d88f008ca0",
-    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
-    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
-    "docs/product-core/PRIVATE-GALLERY.md": "e5ad73bbf7662fde32aa409580f39d6782c9088b1939f67ac7546fc1edb785ea",
-    "docs/product-core/private-gallery-manifest.mjs": "ee48128e386e24999d446be0c24465723054683dd3e68ba7751dbfbcc99e375e"
+    ".github/workflows/p0-web-offline.yml": "e0cdfffddd0cdc6cdafc6b96992f9992b11677e95908bbfb0e2656986814642f",
+    "package.json": "ff0539f4451d369e6875b5adb6ada34597f1379abae169d82a9917223cc07c7e",
+    "docs/product-core/PRIVATE-GALLERY.md": "c50b2c7391736c1503ee2fe09754288c2de7e07e1a246f51f9d5bbfa049b8d6d",
+    "docs/product-core/private-gallery-manifest.mjs": "7a4386bf46c662e25a84af92fe513632698dcacb9897780a9a7e3e5e98396315"
   }
 }

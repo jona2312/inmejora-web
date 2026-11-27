@@ -5,7 +5,7 @@
   "activation": "BLOCKED",
   "encoding": "UTF8 CRLF normalized LF",
   "sha256": {
-    "src/lib/projectCoreClient.js": "753846ca7354c86bb31cde31999f0c1a4bfadaee5cf1d0e0e439faad1d8b353e",
+    "src/lib/projectCoreClient.js": "b3130b6ff185add3f39f818bfd04031c9145ed1fdefada1bcdd3f8c7a19ad077",
     "src/components/sales/ConsultaForm.jsx": "81a59598c9102c23d0f67e3aecd20c7ded1bd2edf41b3375c9bc4838858736dc",
     "src/config/commercial.js": "bf767235c5d0d1052fc41f00a278c46d57f14bc61a26e4629be1ea79c375e9a1",
     "tailwind.config.js": "67a236f1b85d799a16288e65332e6111a4324f9fae8fb44f907fc00054da8017",
@@ -14,12 +14,12 @@
     "tests/ci/structured-intake.test.mjs": "4171e1ab26c9c3d45dec028d5088a34ed5181d9c4720e713c139d63954c26e44",
     "tests/ci/controlled-name-required.test.mjs": "0be911b0cb80bbedba6b881903261e7810ad803512fa23acc6cd79909b3a5abd",
     "docs/product-core/QA119-CONTROLLED-WEB.md": "ed360be5683ed597dc9be25be6ee06a708194f5bae24fee737fcab76982c66ae",
-    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
-    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
+    "package.json": "ff0539f4451d369e6875b5adb6ada34597f1379abae169d82a9917223cc07c7e",
+    ".github/workflows/p0-web-offline.yml": "e0cdfffddd0cdc6cdafc6b96992f9992b11677e95908bbfb0e2656986814642f",
     "docs/product-core/STRUCTURED-INTAKE.md": "e53e538632258f2aada331c9a0c1ab037d3386c17e3df86008161d5f6d3e55d3",
     "docs/product-core/structured-intake-manifest.mjs": "37169bf8486022620343d44773dc3095f6c8f450b807ceaa196b35f310116ca0",
-    "docs/product-core/private-gallery-manifest.json": "cc7a61034d0b873e84ac9fc49f2797e6b32cb12d23bd3de44aa08aba354468a1",
-    "docs/product-core/issue100-manifest.json": "3e277aa07624f38f75e06f247183a12bbb96afa70218031f5a00ced54ebbca15",
-    "docs/product-core/wroute-manifest.json": "f8d82cce38b9ae7ea6b6eaaba1f8d12a26b860ab4fe7c835cfe0af2ca9527e9d"
+    "docs/product-core/private-gallery-manifest.json": "a4cf617fc986ef5f5355d0b93d6bcfa22ce58a157bb89e49f80daa3050f410c3",
+    "docs/product-core/issue100-manifest.json": "4005ef63f34fb6716ca6277d48eecf62c277b8a31c4b9b30ac171a9d9f8d7e14",
+    "docs/product-core/wroute-manifest.json": "59e333bcecf068d2575ff14f1db931ab17cc3e160d84d6381afbc611484081fb"
   }
 }

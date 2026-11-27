@@ -8,10 +8,10 @@
     "tests/ci/sales-route-containment.test.mjs": "49d1f1f9bfd3dba46578cc8c8d14cd49e195cb97d0fd5e125b5a72d8d32bf20b",
     "tests/ci/no-public-customer-upload.test.mjs": "37d9c564b3699526557f75a684d82954e6a1a2a8a5dfcda4519e8a63ca4a6923",
     "tests/browser/sales.spec.mjs": "7476e8b270e3599755399b0a700e7faf6a02bfc262f2c078dfe39375398479ec",
-    ".github/workflows/p0-web-offline.yml": "ed0bb07c60e6d99ca31009cc24ac2ff3fb753f89accb908341a142a9fca5ecfc",
-    "package.json": "5d1004c14ca80d831acb82972781772602cb9746c40f7c652b03b2db5b58d4d7",
-    "docs/product-core/private-gallery-manifest.json": "cc7a61034d0b873e84ac9fc49f2797e6b32cb12d23bd3de44aa08aba354468a1",
-    "docs/product-core/issue100-manifest.json": "3e277aa07624f38f75e06f247183a12bbb96afa70218031f5a00ced54ebbca15",
+    ".github/workflows/p0-web-offline.yml": "e0cdfffddd0cdc6cdafc6b96992f9992b11677e95908bbfb0e2656986814642f",
+    "package.json": "ff0539f4451d369e6875b5adb6ada34597f1379abae169d82a9917223cc07c7e",
+    "docs/product-core/private-gallery-manifest.json": "a4cf617fc986ef5f5355d0b93d6bcfa22ce58a157bb89e49f80daa3050f410c3",
+    "docs/product-core/issue100-manifest.json": "4005ef63f34fb6716ca6277d48eecf62c277b8a31c4b9b30ac171a9d9f8d7e14",
     "docs/product-core/W-ROUTE-1.md": "f4bd7ffdf80c3201a5026435a5b55faa3da3f1f856424837fb0d60cb16027cda",
     "docs/product-core/wroute-manifest.mjs": "fe3ee449bab3f6d8ac439e421698bc33236751c6567f4a1ef49df8bf86b7d1d9"
   }

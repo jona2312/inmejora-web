@@ -38,3 +38,11 @@ test('PR40 base has no automatic workflow execution; manual verification is sepa
   assert.match(workflow, /pull_request:\r?\n\s+branches-ignore:\r?\n\s+- codex\/qa119-controlled-web-20261106/);
   assert.match(workflow, /workflow_dispatch:/);
 });
+
+
+test('G10 child PR cannot automatically allocate Actions runners on push or pull request',()=>{
+  const workflow=readFileSync('.github/workflows/p0-web-offline.yml','utf8');
+  assert.match(workflow,/branches-ignore:[\s\S]*?- codex\/final-commercial-web-20261117/);
+  assert.doesNotMatch(workflow,/^ {2}(?:push|pull_request_target):/m);
+  assert.match(workflow,/^ {2}workflow_dispatch:/m);
+});
